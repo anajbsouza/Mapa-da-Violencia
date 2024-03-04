@@ -25,7 +25,7 @@ Para mais informações sobre o Projeto Mapa de Violência do Instituto Glória 
 ## Equipe
 Para entrar em contato com a equipe desenvolvedora do projeto:
 - Ana Júlia:
-- Bárbara:
+- Bárbara: barbarabeatrizsilva6@gmail.com 
 - Beatriz Lins: beageane@gmail.com
 - Catlen:
 - Izabelle:
