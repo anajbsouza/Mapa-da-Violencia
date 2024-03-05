@@ -28,6 +28,6 @@ Para entrar em contato com a equipe desenvolvedora do projeto:
 - Bárbara: barbarabeatrizsilva6@gmail.com 
 - Beatriz Lins: beageane@gmail.com
 - Catlen:
-- Izabelle:
+- Izabelle: izabelle.rivas123@gmail.com
 
 Estamos sempre abertos para feedback, sugestões e parcerias! Junte-se a nós na luta contra a violência.
