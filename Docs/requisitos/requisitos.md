@@ -13,13 +13,13 @@
 
 ## **Requisitos Elicitados**
 <p align="justify">
-&emsp;&emsp;Legenda da tabela 1: 
+&emsp;&emsp;Legenda da tabela: 
 <li> RF(Requisitos Funcionais): descrevem as funcionalidades e operações que o sistema deve realizar para atender às necessidades dos usuários. </li>
 <li> RNF(Requisitos Não Funcionais): definem a qualidade e o desempenho de um sistema. </li>
 <li> Identificação(R + N°) : Requisito Elicitado pela Introspecção + Número
 </p>
 <p align="justify">
-&emsp;&emsp;A tabela 2baixo representa os Requisitos Elicitados
+&emsp;&emsp;A tabela abaixo representa os Requisitos Elicitados:
 </p>
 
 | Identificador | Requisito | Categoria | 
