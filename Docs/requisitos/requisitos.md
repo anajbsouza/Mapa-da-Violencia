@@ -40,9 +40,7 @@
 |R14| O site deve ser intuitivo e fácil de usar, especialmente para usuários não técnicos| RNF |
 |R15| As informações fornecidas pelos usuários devem ser protegidas e mantidas privadas| RNF |
 |R16| O sistema de diagnóstico e recomendações deve ser preciso e confiável| RNF |
-|R17| O sistema de diagnóstico e recomendações deve ser preciso e confiável| RNF |
-|R18| O sistema deve identificar denúncias repetidas| RNF |
-|R19| O sistema deve ser capaz de lidar com o aumento no número de acessos sem comprometer o desempenho| RNF |
-|R20| O sistema deve ser capaz de lidar com o aumento no número de acessos sem comprometer o desempenho| RNF |
-|R21| O sistema deve ser estável e confiável, minimizando falhas e interrupções| RNF |
+|R17| O sistema deve identificar denúncias repetidas| RNF |
+|R18| O sistema deve ser capaz de lidar com o aumento no número de acessos sem comprometer o desempenho| RNF |
+|R19| O sistema deve ser estável e confiável, minimizando falhas e interrupções| RNF |
 
