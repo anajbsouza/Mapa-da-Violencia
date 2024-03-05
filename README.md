@@ -23,11 +23,13 @@ Para mais informações sobre o Projeto Mapa de Violência do Instituto Glória 
 - Facebook: [Gloria Institute](https://www.facebook.com/gloriainstitute)
 
 ## Equipe
-Para entrar em contato com a equipe desenvolvedora do projeto:
-- Ana Júlia:
-- Bárbara: barbarabeatrizsilva6@gmail.com 
-- Beatriz Lins: beageane@gmail.com
-- Catlen:
-- Izabelle: izabelle.rivas123@gmail.com
-
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/anajbsouza"><img style="border-radius: 50%;" src="https://github.com/anajbsouza.png" width="100px;" alt=""/><br/><sub><b>Ana Júlia</b></sub></a><br/>
+    <td align="center"><a href="https://github.com/barbarabea"><img style="border-radius: 50%;" src="https://github.com/barbarabea.png" width="100px;" alt=""/><br/><sub><b>Bárbara</b></sub></a><br/>
+      <td align="center"><a href="https://github.com/Beatriz-ge"><img style="border-radius: 50%;" src="https://github.com/Beatriz-ge.png" width="100px;" alt=""/><br/><sub><b>Beatriz Lins</b></sub></a><br/>
+    <td align="center"><a href="https://github.com/catlenc"><img style="border-radius: 50%;" src="https://github.com/catlenc.png" width="100px;" alt=""/><br/><sub><b>Catlen Cleane</b></sub></a><br/>
+    <td align="center"><a href="https://github.com/izabellerivas"><img style="border-radius: 50%;" src="https://github.com/izabellerivas.png" width="100px;" alt=""/><br/><sub><b>Izabelle Rivas</b></sub></a><br/>
+  </tr>
+</table>
 Estamos sempre abertos para feedback, sugestões e parcerias! Junte-se a nós na luta contra a violência.
