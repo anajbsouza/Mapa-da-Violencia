@@ -43,4 +43,5 @@
 |R17| O sistema deve identificar denúncias repetidas| RNF |
 |R18| O sistema deve ser capaz de lidar com o aumento no número de acessos sem comprometer o desempenho| RNF |
 |R19| O sistema deve ser estável e confiável, minimizando falhas e interrupções| RNF |
+|R20| O sistema deve identificar o usuário com base no endereço de IP| RF |
 
