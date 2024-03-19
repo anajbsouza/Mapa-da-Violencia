@@ -6,7 +6,7 @@ O protótipo no Figma serve como uma representação visual e interativa do site
 
 ## **Acesso**
 
-Para ter acesso ao nosso protótipo pelo figma acesse:
+Para ter acesso ao protótipo pelo figma acesse:
 
 [Prototipo_mapa](https://www.figma.com/file/KE9rafB33Mw8rxrsN77ERh/IAGloria?type=design&node-id=0%3A1&mode=design&t=GM5chQjzqoiKLPuK-1)
 
