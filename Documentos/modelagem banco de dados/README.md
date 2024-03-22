@@ -1,7 +1,5 @@
 # **Modelo Relacional do Banco de Dados**
 
-## **Objetivo**
-
 Definimos os dados e a melhor estruta para armazenamento das informações coletadas juntamente com o PO do projeto. Até o momento, são 5 entidades:
 
 * User: contêm chave única para identificação do dispositivo sem identificar diretamente o usuário.
