@@ -1,13 +1,10 @@
 import { useState } from "react";
-import Logo from "../../../../Imagens/logo.jpeg";
-import Indices from "../../../../Imagens/indice2.jpeg";
-import { SlArrowLeft } from "react-icons/sl";
-import { useNavigate } from "react-router-dom";
+import Indices from "../assets/indice2.jpeg";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const Pag3 = () => {
-  const [checkedItems, setCheckedItems] = useState({});
-
-  let navigate = useNavigate();
+  const [checkedItems, setCheckedItems] = useState<Record<number, boolean>>({});
 
   const options = [
     "Lesões ou ferimentos",
@@ -22,17 +19,14 @@ const Pag3 = () => {
     "Obrigar atos sexuais que causam desconforto",
   ];
 
-  const handleChange = (position) => {
+  const handleChange = (position: number) => {
     const updatedCheckedState = { ...checkedItems, [position]: !checkedItems[position] };
     setCheckedItems(updatedCheckedState);
   };
 
   return (
     <div className="App">
-      <header>
-        <button onClick={() => window.history.back()}><SlArrowLeft /></button>
-        <img src={Logo} alt="Gloria" />
-      </header>
+      <Header />
 
       <main>
         <section className="index">
@@ -65,9 +59,7 @@ const Pag3 = () => {
         </section>
       </main>
 
-      <footer>
-        <h4 onClick={() => navigate('/map')}>Próximo</h4>
-      </footer>
+      <Footer nextPage="/map" />
     </div>
   );
 };

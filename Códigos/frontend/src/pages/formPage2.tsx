@@ -5,12 +5,11 @@ const Pag2 = () => {
     return (
         
         <div>
-                <h1>Segunda página do formulário em breve</h1>
-                <footer>    
-                    <h4 onClick={() => navigate('/pag3')}>Próximo</h4>
-                </footer>
-            </div>
-
+            <h1>Segunda página do formulário em breve</h1>
+            <footer>    
+                <h4 onClick={() => navigate('/pag3')}>Próximo</h4>
+            </footer>
+        </div>
     );
 };
 

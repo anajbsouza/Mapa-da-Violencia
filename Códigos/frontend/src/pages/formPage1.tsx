@@ -1,10 +1,10 @@
-import Logo from "../../../../Imagens/logo.jpeg";
-import Indices from "../../../../Imagens/indice2.jpeg";
+import Logo from "../Imagens/logo.jpeg";
+import Indices from "../assets/indice2.jpeg";
 import { SlArrowLeft } from "react-icons/sl";
 
 const App = () => {
   return (
-    <div className="App">
+    <div>
       
       <header>
         <button className="back" onClick={() => window.history.back()}><SlArrowLeft/></button>
