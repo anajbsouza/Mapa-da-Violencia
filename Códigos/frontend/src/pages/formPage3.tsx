@@ -1,8 +1,7 @@
 import { useState } from "react";
-import Logo from "../../../../Imagens/logo.jpeg";
-import Indices from "../../../../Imagens/indice2.jpeg";
-import { SlArrowLeft } from "react-icons/sl";
+import Indices from "../assets/indice2.jpeg";
 import { useNavigate } from "react-router-dom";
+import Header from "../components/Header";
 
 const Pag3 = () => {
   const [checkedItems, setCheckedItems] = useState({});
@@ -29,10 +28,7 @@ const Pag3 = () => {
 
   return (
     <div className="App">
-      <header>
-        <button onClick={() => window.history.back()}><SlArrowLeft /></button>
-        <img src={Logo} alt="Gloria" />
-      </header>
+      <Header />
 
       <main>
         <section className="index">
