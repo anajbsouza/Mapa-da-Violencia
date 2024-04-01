@@ -1,6 +1,7 @@
 import Indices from "../assets/indice2.jpeg";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const Pag1 = () => {
 
@@ -57,9 +58,7 @@ const Pag1 = () => {
         </section>
       </main>
 
-      <footer>
-        <h4 onClick={() => navigate('/pag2')}>Próximo</h4>
-      </footer>
+    <Footer nextPage="/pag2" />
     </div>
   );
 };

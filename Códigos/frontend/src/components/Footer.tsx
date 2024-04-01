@@ -1,14 +1,18 @@
-// import { useNavigate } from "react-router-dom";
+// Footer.tsx
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const Footer = () => {
-    // let navigate = useNavigate();
+type FooterProps = {
+    nextPage: string;
+};
+
+const Footer: React.FC<FooterProps> = ({ nextPage }) => {
+    let navigate = useNavigate();
 
     return (
-        <div className="App">
-            <footer>
-                Já já faço
-            </footer>
-        </div>
+        <footer>
+            <h4 onClick={() => navigate(nextPage)}>Próximo</h4>
+        </footer>
     );
 };
 
