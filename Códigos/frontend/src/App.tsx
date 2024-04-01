@@ -15,6 +15,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/loc" element={<LocPag />}/>
+        <Route path="/loc" element={<LocPag />}/>
         <Route path="/pag1" element={<Pag1 />}/>
         <Route path="/pag2" element={<Pag2 />}/>
         <Route path="/pag3" element={<Pag3 />}/>

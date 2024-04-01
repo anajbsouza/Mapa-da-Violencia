@@ -1,12 +1,10 @@
 import { useState } from "react";
 import Indices from "../assets/indice2.jpeg";
-import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const Pag3 = () => {
   const [checkedItems, setCheckedItems] = useState<Record<number, boolean>>({});
-
-  let navigate = useNavigate();
 
   const options = [
     "Lesões ou ferimentos",
@@ -61,9 +59,7 @@ const Pag3 = () => {
         </section>
       </main>
 
-      <footer>
-        <h4 onClick={() => navigate('/map')}>Próximo</h4>
-      </footer>
+      <Footer nextPage="/map" />
     </div>
   );
 };
