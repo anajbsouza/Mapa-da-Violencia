@@ -1,11 +1,8 @@
 import Indices from "../assets/indice2.jpeg";
-import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 const Pag1 = () => {
-
-  let navigate = useNavigate();
 
   return (
     <div className="App">
