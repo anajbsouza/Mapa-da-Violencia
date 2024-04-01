@@ -1,22 +1,19 @@
 import Logo from "../../../../Imagens/logo.jpeg";
 import Indices from "../../../../Imagens/indice2.jpeg";
 import { SlArrowLeft } from "react-icons/sl";
-import { useNavigate } from "react-router-dom";
 
-const Pag1 = () => {
-
-  let navigate = useNavigate();
-
+const App = () => {
   return (
     <div className="App">
+      
       <header>
-        <button onClick={() => window.history.back()}><SlArrowLeft /></button>
-        <img src={Logo} alt="Gloria" />
+        <button className="back" onClick={() => window.history.back()}><SlArrowLeft/></button>
+        <img className="logo" src={Logo} alt="Gloria"/>
       </header>
 
       <main>
         <section className="index">
-            <img src={Indices} alt="" />
+            <img src={Indices} alt="Índices de páginas"/>
         </section>
 
         <section className="question">
@@ -56,17 +53,17 @@ const Pag1 = () => {
         </select>
 
         <section className="information">
-          <p>Esta informação é valiosa para nós.</p>
+          <p>Esta informação é valiosa para nós!</p>
           <p>Estamos aqui para ajudar e garantir que você se sinta seguro e acolhido ao compartilhar sua experiência.</p>
         </section>
       </main>
 
       <footer>
-        <h4 onClick={() => navigate('/pag2')}>Próximo</h4>
+        <h4>Próximo</h4>
       </footer>
     </div>
   );
 };
 
-export default Pag1;
+export default App;
 
