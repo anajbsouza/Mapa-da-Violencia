@@ -1,8 +1,12 @@
 import Logo from "../../../../Imagens/logo.jpeg";
 import Indices from "../../../../Imagens/indice2.jpeg";
 import { SlArrowLeft } from "react-icons/sl";
+import { useNavigate } from "react-router-dom";
 
-const App = () => {
+const Pag1 = () => {
+
+  let navigate = useNavigate();
+
   return (
     <div className="App">
       <header>
@@ -58,11 +62,11 @@ const App = () => {
       </main>
 
       <footer>
-        <h4>Próximo</h4>
+        <h4 onClick={() => navigate('/pag2')}>Próximo</h4>
       </footer>
     </div>
   );
 };
 
-export default App;
+export default Pag1;
 
