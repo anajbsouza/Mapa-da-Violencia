@@ -1,11 +1,10 @@
 import { useState } from "react";
-import Logo from "../../../../Imagens/logo.jpeg";
-import Indices from "../../../../Imagens/indice2.jpeg";
-import { SlArrowLeft } from "react-icons/sl";
+import Indices from "../assets/indice2.jpeg";
 import { useNavigate } from "react-router-dom";
+import Header from "../components/Header";
 
 const Pag3 = () => {
-  const [checkedItems, setCheckedItems] = useState({});
+  const [checkedItems, setCheckedItems] = useState<Record<number, boolean>>({});
 
   let navigate = useNavigate();
 
@@ -22,17 +21,14 @@ const Pag3 = () => {
     "Obrigar atos sexuais que causam desconforto",
   ];
 
-  const handleChange = (position) => {
+  const handleChange = (position: number) => {
     const updatedCheckedState = { ...checkedItems, [position]: !checkedItems[position] };
     setCheckedItems(updatedCheckedState);
   };
 
   return (
     <div className="App">
-      <header>
-        <button onClick={() => window.history.back()}><SlArrowLeft /></button>
-        <img src={Logo} alt="Gloria" />
-      </header>
+      <Header />
 
       <main>
         <section className="index">
