@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 
 const Pag3 = () => {
-  const [checkedItems, setCheckedItems] = useState({});
+  const [checkedItems, setCheckedItems] = useState<Record<number, boolean>>({});
 
   let navigate = useNavigate();
 
@@ -21,7 +21,7 @@ const Pag3 = () => {
     "Obrigar atos sexuais que causam desconforto",
   ];
 
-  const handleChange = (position) => {
+  const handleChange = (position: number) => {
     const updatedCheckedState = { ...checkedItems, [position]: !checkedItems[position] };
     setCheckedItems(updatedCheckedState);
   };
