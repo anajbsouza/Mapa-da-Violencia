@@ -14,14 +14,14 @@ body {
 
 .back{
   position: absolute;
-  width: 3%;
-  top: 1%;
+  width: 7%;
+  top: 5%;
 }
 
 .logo{
   position: absolute;
-  width: 10%;
-  top: 3%;
+  width: 20%;
+  top: 7%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
