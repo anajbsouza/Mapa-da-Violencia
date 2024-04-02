@@ -1,13 +1,13 @@
-import Logo from "../Imagens/logo.jpeg";
+import Logo from "../assets/logo.jpeg";
 import Indices from "../assets/indice2.jpeg";
-import { SlArrowLeft } from "react-icons/sl";
+import Botao from "../assets/button_back.jpeg";
 
 const App = () => {
   return (
     <div>
       
       <header>
-        <button className="back" onClick={() => window.history.back()}><SlArrowLeft/></button>
+        <img className="back" src={Botao} alt="Botão"/>
         <img className="logo" src={Logo} alt="Gloria"/>
       </header>
 
