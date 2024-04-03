@@ -3,7 +3,7 @@ import Indices from "../assets/indice2.jpeg";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
-const Pag3 = () => {
+const FormClassifyViolencePage = () => {
   const [checkedItems, setCheckedItems] = useState<Record<number, boolean>>({});
 
   const options = [
@@ -64,4 +64,4 @@ const Pag3 = () => {
   );
 };
 
-export default Pag3;
+export default FormClassifyViolencePage;

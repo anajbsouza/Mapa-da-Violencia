@@ -1,25 +1,24 @@
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css'
-import Pag1 from './pages/formPage1'
-import Pag2 from './pages/formPage2';
-import Pag3 from './pages/formPage3'
-import Home from './pages/homePage';
-import LocPag from './pages/locPage';
-import MapPag from './pages/mapPage';
+import FormStatePage from './pages/FormStatePage'
+import FormAboutViolencePage from './pages/FormAboutViolencePage';
+import FormClassifyViolencePage from './pages/FormClassifyViolencePage'
+import HomePage from './pages/HomePage';
+import AuthorizeLocalizationPage from './pages/AuthorizeLocalizationPage';
+import MapPage from './pages/MapPage';
 
 export default function App() {
 
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />}/>
-        <Route path="/loc" element={<LocPag />}/>
-        <Route path="/loc" element={<LocPag />}/>
-        <Route path="/pag1" element={<Pag1 />}/>
-        <Route path="/pag2" element={<Pag2 />}/>
-        <Route path="/pag3" element={<Pag3 />}/>
-        <Route path="/map" element={<MapPag />}/>
+        <Route path="/" element={<HomePage />}/>
+        <Route path="/authorize-localization" element={<AuthorizeLocalizationPage />}/>
+        <Route path="/form-state" element={<FormStatePage />}/>
+        <Route path="/form-about-violence" element={<FormAboutViolencePage />}/>
+        <Route path="/form-classify-violence" element={<FormClassifyViolencePage />}/>
+        <Route path="/map" element={<MapPage />}/>
       </Routes>
     </Router>
   )

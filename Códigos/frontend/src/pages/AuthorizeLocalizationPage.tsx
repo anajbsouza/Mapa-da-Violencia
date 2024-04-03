@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-const LocPag = () => {
+const AuthorizeLocalizationPage = () => {
   let navigate = useNavigate();
 
     return (
@@ -16,5 +16,5 @@ const LocPag = () => {
     );
   };
   
-  export default LocPag;
+  export default AuthorizeLocalizationPage;
   

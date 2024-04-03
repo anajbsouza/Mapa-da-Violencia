@@ -1,9 +1,9 @@
-const MapPag = () => {
+const MapPage = () => {
 
     return (
       <h1>Mapa em breve</h1>
     );
   };
   
-  export default MapPag;
+  export default MapPage;
   

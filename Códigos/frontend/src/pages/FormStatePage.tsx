@@ -2,7 +2,7 @@ import Logo from "../assets/logo.jpeg";
 import Indices from "../assets/indice2.jpeg";
 import Botao from "../assets/button_back.jpeg";
 
-const App = () => {
+const FormStatePage = () => {
   return (
     <div>
       
@@ -65,5 +65,5 @@ const App = () => {
   );
 };
 
-export default App;
+export default FormStatePage;
 

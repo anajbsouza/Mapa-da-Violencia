@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-const Pag2 = () => {
+const FormAboutViolencePage = () => {
     let navigate = useNavigate();
     return (
         
@@ -13,4 +13,4 @@ const Pag2 = () => {
     );
 };
 
-export default Pag2;
+export default FormAboutViolencePage;
