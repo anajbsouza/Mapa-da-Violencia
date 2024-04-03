@@ -4,7 +4,7 @@ const HomePage = () => {
     return (
         <div>
             <h1>Home Page em breve</h1>
-            <Footer nextPage="/loc" />
+            <Footer nextPage="/authorize-localization" />
         </div>
     );
 };

@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 const FormClassifyViolencePage = () => {
+
   const [checkedItems, setCheckedItems] = useState<Record<number, boolean>>({});
 
   const options = [
@@ -60,6 +61,9 @@ const FormClassifyViolencePage = () => {
       </main>
 
       <Footer nextPage="/map" />
+      <footer>    
+        <Footer nextPage="/" />
+      </footer>
     </div>
   );
 };

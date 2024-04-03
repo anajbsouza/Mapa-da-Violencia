@@ -1,3 +1,4 @@
+import Footer from "../components/Footer";
 import Logo from "../assets/logo.jpeg";
 import Indices from "../assets/indice2.jpeg";
 import Botao from "../assets/button_back.jpeg";
@@ -58,9 +59,8 @@ const FormStatePage = () => {
         </section>
       </main>
 
-      <footer>
-        <h4>Próximo</h4>
-      </footer>
+      <Footer nextPage="/form-about-violence" />
+
     </div>
   );
 };
