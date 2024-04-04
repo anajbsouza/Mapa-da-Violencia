@@ -30,6 +30,7 @@ Para mais informações sobre o Projeto Mapa de Violência do Instituto Glória 
       <td align="center"><a href="https://github.com/Beatriz-ge"><img style="border-radius: 50%;" src="https://github.com/Beatriz-ge.png" width="100px;" alt=""/><br/><sub><b>Beatriz Lins</b></sub></a><br/>
     <td align="center"><a href="https://github.com/catlenc"><img style="border-radius: 50%;" src="https://github.com/catlenc.png" width="100px;" alt=""/><br/><sub><b>Catlen Cleane</b></sub></a><br/>
     <td align="center"><a href="https://github.com/izabellerivas"><img style="border-radius: 50%;" src="https://github.com/izabellerivas.png" width="100px;" alt=""/><br/><sub><b>Izabelle Rivas</b></sub></a><br/>
+      <td align="center"><a href="https://github.com/Kec3-Lin3"><img style="border-radius: 50%;" src="https://github.com/Kec3-Lin3.png" width="100px;" alt=""/><br/><sub><b>Kece Oliveira</b></sub></a><br/>
   </tr>
 </table>
 Estamos sempre abertos para feedback, sugestões e parcerias! Junte-se a nós na luta contra a violência.
