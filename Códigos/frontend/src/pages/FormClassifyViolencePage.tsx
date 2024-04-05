@@ -26,7 +26,7 @@ const FormClassifyViolencePage = () => {
   };
 
   return (
-    <div className="App">
+    <div>
       <Header />
 
       <main>
@@ -61,9 +61,6 @@ const FormClassifyViolencePage = () => {
       </main>
 
       <Footer nextPage="/map" />
-      <footer>    
-        <Footer nextPage="/" />
-      </footer>
     </div>
   );
 };

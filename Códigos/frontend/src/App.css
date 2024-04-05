@@ -26,17 +26,19 @@ main{
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   border-radius: 15px;
-  width: 330px;
-  height: 500px;
+  width: 80%;
+  margin: 0 auto;
+  height: auto;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); 
 }
 
 .index img{
   display: flex;
-  margin-left: 200px;
-  margin-top: -5px;
+  justify-content: flex-end;
+  margin-left: 100%;
+  margin-top: 5%;
   width: 90px;
   height:25px;
 }
@@ -76,10 +78,10 @@ main{
 footer{
   background-color:#FFCA05;
   text-align: center;
-  position: absolute;
+  position: relative;
   width: 20%;
   border-radius: 15px;
-  top: 95%;
+  top: 90%;
   left: 50%;
   transform: translate(-50%, -50%);
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
@@ -89,4 +91,35 @@ footer{
   background-color: #FFCA05;
   color: black;
   font-weight: bold;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+}
+
+.authorize {
+  padding: 10px 20px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  color: white;
+  background-color: #4CAF50; 
+  margin-right: 0.75%;
+  margin-bottom: 10%;
+}
+
+.not-authorize {
+  padding: 10px 20px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  color: white; 
+  background-color: #f44336;
+  margin-left: 0.75%;
+  margin-bottom: 10%;
 }
