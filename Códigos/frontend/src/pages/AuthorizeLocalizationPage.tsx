@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import Footer from "../components/Footer";
 import Header from "../components/Header";
 
 
@@ -18,7 +19,7 @@ const AuthorizeLocalizationPage = () => {
           <button className="not-authorize" onClick={() => navigate("/form-state")}>Não autorizo</button>
         </div>
       </main>
-      
+      <div className="footer-invisible"></div>
     </div>
   )};
   
