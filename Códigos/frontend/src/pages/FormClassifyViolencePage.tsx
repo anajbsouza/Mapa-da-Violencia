@@ -33,7 +33,6 @@ const FormClassifyViolencePage = () => {
         <section className="index">
           <img src={Indices} alt="" />
         </section>
-
         <section className="question">
           <h3>Que situações você vivenciou durante o episódio de violência? Estamos aqui para compreender de forma gentil e acolhedora.</h3>
           <p>5. Selecione situações que você identificou durante o episódio:</p>
