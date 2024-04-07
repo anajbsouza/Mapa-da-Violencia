@@ -7,7 +7,7 @@ const AuthorizeLocalizationPage = () => {
   let navigate = useNavigate();
 
   return (
-    <div className="page">
+    <div>
       <Header />
       <main>
         <section className="question">
@@ -19,7 +19,7 @@ const AuthorizeLocalizationPage = () => {
           <button className="not-authorize" onClick={() => navigate("/form-state")}>Não autorizo</button>
         </div>
       </main>
-      <Footer nextPage="/" />
+      <div className="footer-invisible"></div>
     </div>
   )};
   
