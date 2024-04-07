@@ -53,11 +53,6 @@ const FormClassifyViolencePage = () => {
             ))}
           </form>
         </section>
-
-        <section className="information">
-          <p>Esta informação é valiosa para nós.</p>
-          <p>Estamos aqui para ajudar e garantir que você se sinta seguro e acolhedo ao compartilhar sua experiência.</p>
-        </section>
       </main>
 
       <Footer nextPage="/map" />

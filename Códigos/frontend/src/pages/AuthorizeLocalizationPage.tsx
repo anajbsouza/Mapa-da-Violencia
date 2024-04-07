@@ -6,7 +6,7 @@ const AuthorizeLocalizationPage = () => {
   let navigate = useNavigate();
 
   return (
-    <div>
+    <div className="page">
       <Header />
       <main>
         <section className="question">
