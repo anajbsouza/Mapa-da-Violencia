@@ -7,6 +7,12 @@ import FormClassifyViolencePage from './pages/FormClassifyViolencePage'
 import HomePage from './pages/HomePage';
 import AuthorizeLocalizationPage from './pages/AuthorizeLocalizationPage';
 import MapPage from './pages/MapPage';
+import WhatToDoPage from './pages/WhatToDoPage';
+import EmergencyPage from './pages/EmergencyPage';
+import KnowMorePage from './pages/KnowMorePage';
+import ViolenceTypesPage from './pages/ViolenceTypesPage';
+import ThankYouPage from './pages/ThankYouPage';
+import RegistrationInformationPage from './pages/RegistrationInformationPage';
 
 export default function App() {
 
@@ -19,6 +25,12 @@ export default function App() {
         <Route path="/form-about-violence" element={<FormAboutViolencePage />}/>
         <Route path="/form-classify-violence" element={<FormClassifyViolencePage />}/>
         <Route path="/map" element={<MapPage />}/>
+        <Route path="/what-to-do" element={<WhatToDoPage />}/>
+        <Route path="/emergency" element={<EmergencyPage />}/>
+        <Route path="/know-more" element={<KnowMorePage />}/>
+        <Route path="/violence-types" element={<ViolenceTypesPage />}/>
+        <Route path="/thank-you" element={<ThankYouPage />}/>
+        <Route path="/registration-information" element={<RegistrationInformationPage />}/>
       </Routes>
     </Router>
   )
