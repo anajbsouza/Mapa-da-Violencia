@@ -1,14 +1,11 @@
-import Logo from "../assets/logo.jpeg";
 import Indices from "../assets/indice2.jpeg";
-import Botao from "../assets/button_back.jpeg";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const FormStatePage = () => {
   return (
     <div>
-      <header>
-          <img className="back" src={Botao} alt="Botão de voltar"/>
-          <img className="logo" src={Logo} alt="Logo da Gloria"/>
-      </header>
+      <Header />
 
       <main>
         <section className="index">
@@ -57,9 +54,7 @@ const FormStatePage = () => {
         </section>
       </main>
 
-    <footer>
-      <button className="next" type="button">Próximo</button>
-    </footer>
+    <Footer nextPage="/form-about-violence" />
 
     </div>
   );
