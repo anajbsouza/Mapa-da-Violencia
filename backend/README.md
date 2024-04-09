@@ -16,6 +16,51 @@
 - - Endereço: localhost:4000/health
 - Aparecerá a mensagem "OK!"
 
+## Como conectar no Banco de datos
+- Baixe o PostgreSQL (talvez possa ser outro mas esse é o que eu tô usando) https://www.postgresql.org/download/linux/ubuntu/
+
+OBS: tem um incluso no ubuntu, mas eu não lembro qual eu usei rsrs
+
+- Se quiser usar pelo terminal, basta criar um usuário. Se quiser usar o um software para visualizar melhor o banco, baixe o pgAdmin: https://www.youtube.com/watch?v=LObmSDf9p6Y
+
+### No pgAdmin
+- Crie um servidor conforme mostraram no vídeo (o nome não importa)
+- Crie um database com o nome: Gloria
+- Abra uma query 
+- Copie da linha 29 pra frente do arquivo sql files\database_structure 
+- Clique F5
+
+Pronto! Seu database já está estruturado, se quiser ver as tabelas vá em:
+
+Gloria>Schemas>Tables clique com a direita na tabela que quer ver, vá em Scripts>SELECT Script 
+
+OU
+
+Abra um query e escreva
+
+`SELECT * FROM 'tableName'`
+
+Onde tableName é o nome da tabela que deseja visualizar. 
+
+
+### Conectando com o backend
+Faça `npm i` nessa branch para instalar as libs utilizadas para a conexão
+
+No arquivo .env escreva:
+
+```
+DATABASE_URL="postgresql://nomeusuario:suasenha@localhost:5432/Gloria?schema=public"
+```
+
+Substitua `nomeusuario` e `suasenha` pelos dados que usou ao instalar o PostgreSQL.
+
+Na pasta prisma tem o schema do banco, utilizado para questões de validação. 
+
+No arquivo src\repositories\answers-repository.ts criei uma função que recebe o nome de uma tabela e imprime ela. Ela é chamada em src\repositories\answers-controller.ts. Nesse arquivo você pode alterar o nome da tabela que deseja mudar o nome. 
+
+Para rodar basta escrever `npm run dev` e você vai ver os dados da tabela selecionada (no caso nada se você não adicionar manualmente no pgAdmin), ainda irei criar a função que adiciona. 
+
+É isso ;)
 
 ## Objetivo dos Componentes do Projeto
 
