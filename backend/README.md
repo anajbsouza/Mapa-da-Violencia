@@ -21,7 +21,7 @@
 
 OBS: tem um incluso no ubuntu, mas eu não lembro qual eu usei rsrs
 
-- Se quiser usar pelo terminal, basta criar um usuário. Se quiser usar o um software para visualizar melhor o banco, baixe o pgAdmin: https://www.youtube.com/watch?v=LObmSDf9p6Y
+- Se quiser usar pelo terminal, basta criar um usuário. Se quiser usar um software para visualizar melhor o banco, baixe o pgAdmin: https://www.youtube.com/watch?v=LObmSDf9p6Y
 
 ### No pgAdmin
 - Crie um servidor conforme mostraram no vídeo (o nome não importa)
@@ -56,7 +56,7 @@ Substitua `nomeusuario` e `suasenha` pelos dados que usou ao instalar o PostgreS
 
 Na pasta prisma tem o schema do banco, utilizado para questões de validação. 
 
-No arquivo src\repositories\answers-repository.ts criei uma função que recebe o nome de uma tabela e imprime ela. Ela é chamada em src\repositories\answers-controller.ts. Nesse arquivo você pode alterar o nome da tabela que deseja mudar o nome. 
+No arquivo `src\repositories\answers-repository.ts` criei uma função que recebe o nome de uma tabela e imprime ela. Ela é chamada em `src\repositories\answers-controller.ts`. Nesse arquivo você pode alterar o nome da tabela que deseja mudar o nome. 
 
 Para rodar basta escrever `npm run dev` e você vai ver os dados da tabela selecionada (no caso nada se você não adicionar manualmente no pgAdmin), ainda irei criar a função que adiciona. 
 
