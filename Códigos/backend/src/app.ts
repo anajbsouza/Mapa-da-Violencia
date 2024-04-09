@@ -3,6 +3,10 @@ import 'express-async-errors';
 import cors from 'cors';
 import { handleApplicationErrors } from './middlewares/error-handling-middleware';
 import answersRouter from './routers/answers-router';
+import { PrismaClient } from '@prisma/client'
+
+
+const prisma = new PrismaClient()
 
 const app = express();
 
