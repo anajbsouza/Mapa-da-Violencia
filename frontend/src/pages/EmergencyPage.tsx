@@ -1,11 +1,17 @@
-import Footer from "../components/Footer";
+/*import Footer from "../components/Footer";*/
 
 const EmergencyPage = () => {
     return (
-        <div>
-            <h1>Página ligar para emergência em breve</h1>
-            <Footer nextPage="/authorize-localization" />
-        </div>
+        <main>
+            <section>
+                <div>
+                    <h1>Título</h1>
+                    <h2>Subtítulo</h2>
+                    <button>Botão 1</button>
+                    <button>Botão 2</button>
+                </div>
+            </section>
+        </main>
     );
 };
 
