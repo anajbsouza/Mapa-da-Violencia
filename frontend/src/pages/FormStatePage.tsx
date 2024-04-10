@@ -1,6 +1,7 @@
-import Indices from "../assets/indice2.jpeg";
+import Indices from "../assets/index2.png";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import '../styles/FormStatePage.css';
 
 const FormStatePage = () => {
   return (

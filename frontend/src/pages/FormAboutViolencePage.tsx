@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import Indices from "../assets/index3.png";
 
 const FormAboutViolencePage = () => {
     const [date, setDate] = useState('');
@@ -22,6 +23,9 @@ const FormAboutViolencePage = () => {
         <div>
             <Header />
             <main>
+                <section className="index">
+                    <img src={Indices} alt="Índices de páginas"/>
+                </section>
                 <section className="question">
                     <h3>Sinta-se a vontade para compartilhar conosco algumas informações sobre a violência que você enfrentou.</h3>
                     <div>
