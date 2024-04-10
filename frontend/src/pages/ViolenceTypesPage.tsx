@@ -3,7 +3,7 @@ import Footer from "../components/Footer";
 import { useState } from 'react';
 import { IoIosArrowUp, IoIosArrowDown } from 'react-icons/io';
 
-const KnowMorePage = () => {
+const ViolenceTypesPage = () => {
     const [openSection, setOpenSection] = useState<string | null>(null);
 
     const toggleSection = (sectionName: string) => {
@@ -73,4 +73,4 @@ const KnowMorePage = () => {
     );
 };
 
-export default KnowMorePage;
+export default ViolenceTypesPage;
