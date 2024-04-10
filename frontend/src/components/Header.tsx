@@ -1,6 +1,6 @@
 
-import Logo from "../assets/logo.jpeg"
-import Botao from "../assets/button_back.jpeg"
+import Logo from "../assets/logo.png"
+import Botao from "../assets/button_back.png"
 import { useNavigate } from "react-router-dom";
 
 const Header = () => {

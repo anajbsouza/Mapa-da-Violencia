@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Indices from "../assets/indice2.jpeg";
+import Indices from "../assets/index4.png";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
