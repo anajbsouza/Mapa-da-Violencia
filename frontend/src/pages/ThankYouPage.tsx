@@ -1,11 +1,25 @@
-import Footer from "../components/Footer";
+/*import Footer from "../components/Footer";*/
 
 const ThankYouPage = () => {
     return (
-        <div>
-            <h1>Página de agradecimento em breve</h1>
-            <Footer nextPage="/authorize-localization" />
-        </div>
+        <main>
+            <section> 
+                <div>
+                    <h1>OBRIGADA!</h1>
+                    <h2>O seu registro ajuda outras mulheres!</h2>
+                </div>
+
+                <div>
+                    <img>imagem</img>
+                    <p>Quero saber mais</p>
+                </div>
+
+                <div>
+                    <button>Início</button>
+                </div>
+            </section>
+        </main>
+       
     );
 };
 
