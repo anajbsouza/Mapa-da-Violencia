@@ -1,11 +1,14 @@
-// schemas/FormStateSchema.ts
-import { Schema, model } from 'mongoose';
+import Joi from 'joi';
 
-const FormStateSchema = new Schema({
-  state: {
-    type: String,
-    required: true
-  }
+// Array de opções de estado
+const estadosPossiveis = ['ativo', 'inativo', 'pendente'];
+
+// Schema para o estado do formulário
+const FormStateSchema = Joi.object({
+  state: Joi.string().valid(...estadosPossiveis).required()
 });
 
-export default model('FormState', FormStateSchema);
+// Validador Joi para o estado do formulário
+const estadoDoFormularioSchema = Joi.string().valid(...estadosPossiveis).required();
+
+export { FormStateSchema, estadoDoFormularioSchema };
