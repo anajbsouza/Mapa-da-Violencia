@@ -1,4 +1,3 @@
-// errors/AppError.ts
 export class AppError extends Error {
   public readonly message: string;
   public readonly statusCode: number;

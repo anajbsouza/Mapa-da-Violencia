@@ -12,4 +12,10 @@ export class FormStateService {
     // Lógica de negócio para obter o estado do formulário
     return await this.formStateRepository.getFormState();
   }
+
+  async createFormState(stateData: any) {
+    // Lógica de negócio para criar o estado do formulário
+    return await this.formStateRepository.createFormState(stateData);
+  }
+  
 }
