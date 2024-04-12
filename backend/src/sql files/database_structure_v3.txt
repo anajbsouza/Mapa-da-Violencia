@@ -1,17 +1,17 @@
 -- Database: Gloria
 
-DROP DATABASE IF EXISTS "Gloria";
+--DROP DATABASE IF EXISTS "Gloria";
 
-CREATE DATABASE "Gloria"
-    WITH
-    OWNER = izabelle
-    ENCODING = 'UTF8'
-    LC_COLLATE = 'pt_BR.UTF-8'
-    LC_CTYPE = 'pt_BR.UTF-8'
-    LOCALE_PROVIDER = 'libc'
-    TABLESPACE = pg_default
-    CONNECTION LIMIT = -1
-    IS_TEMPLATE = False;
+--CREATE DATABASE "Gloria"
+--    WITH
+--    OWNER = izabelle
+--    ENCODING = 'UTF8'
+--   LC_COLLATE = 'pt_BR.UTF-8'
+--    LC_CTYPE = 'pt_BR.UTF-8'
+--    LOCALE_PROVIDER = 'libc'
+--    TABLESPACE = pg_default
+--    CONNECTION LIMIT = -1
+--    IS_TEMPLATE = False;
 
 CREATE TABLE IF NOT EXISTS "User" (
 	"id_user" text NOT NULL UNIQUE,
