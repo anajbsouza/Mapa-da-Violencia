@@ -11,14 +11,6 @@ header {
   margin: 5vh;
 }
 
-.back{
-  position: absolute;
-  z-index: 1;
-  width: 5%;
-  top: 6%;
-  left: 15%;
-}
-
 .logo{
   position: absolute;
   z-index: 1;
@@ -51,3 +43,26 @@ main{
   height: 25px;
 }
 
+.back {
+  position: absolute;
+  z-index: 1;
+  width: 5%;
+  top: 6%;
+  left: 15%;
+  width: 40px; /* Define o tamanho do círculo aqui */
+  height: 40px; /* Define o tamanho do círculo aqui */
+  border-radius: 50%; /* Torna o elemento um círculo */
+  background-color: purple;
+  border: none;
+  cursor: pointer;
+  padding: 0; /* Remove o padding padrão do botão */
+  display: flex; /* Permite usar flexbox para alinhar itens */
+  justify-content: center; /* Centraliza o conteúdo horizontalmente */
+  align-items: center; /* Centraliza o conteúdo verticalmente */
+}
+
+.back svg {
+  fill: white; /* Altera a cor do ícone para branco */
+  width: 20px; /* Define o tamanho do ícone */
+  height: 20px; /* Define o tamanho do ícone */
+}
