@@ -13,7 +13,6 @@ CREATE DATABASE "Gloria"
     CONNECTION LIMIT = -1
     IS_TEMPLATE = False;
 
-
 CREATE TABLE IF NOT EXISTS "User" (
 	"id_user" text NOT NULL UNIQUE,
 	PRIMARY KEY ("id_user")
@@ -29,7 +28,7 @@ CREATE TABLE IF NOT EXISTS "Occurrence" (
 	"id_occurrence" bigint GENERATED ALWAYS AS IDENTITY NOT NULL UNIQUE,
 	"id_user" text NOT NULL,
 	"datetime_submission" timestamp with time zone NOT NULL,
-	"State_violence" text NOT NULL,
+	"State_violence" bigint NOT NULL,
 	"date_violence" date NOT NULL,
 	"time_violence" varchar(255) NOT NULL,
 	"agegroup" text NOT NULL,
@@ -64,7 +63,7 @@ CREATE TABLE IF NOT EXISTS "StateList" (
 
 ALTER TABLE "Occurrence" ADD CONSTRAINT "Occurrence_fk1" FOREIGN KEY ("id_user") REFERENCES "User"("id_user");
 
-ALTER TABLE "Occurrence" ADD CONSTRAINT "Occurrence_fk3" FOREIGN KEY ("State_violence") REFERENCES "StateList"("uf_State");
+ALTER TABLE "Occurrence" ADD CONSTRAINT "Occurrence_fk3" FOREIGN KEY ("State_violence") REFERENCES "StateList"("id_State");
 
 ALTER TABLE "Occurrence" ADD CONSTRAINT "Occurrence_fk10" FOREIGN KEY ("violencetype") REFERENCES "TypesOfViolence"("id_violencetype");
 
