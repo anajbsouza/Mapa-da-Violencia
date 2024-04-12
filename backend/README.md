@@ -44,6 +44,7 @@ Onde tableName é o nome da tabela que deseja visualizar.
 
 
 ### Conectando com o backend
+Faça `cd backend`
 Faça `npm i` nessa branch para instalar as libs utilizadas para a conexão
 
 No arquivo .env escreva:
