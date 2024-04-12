@@ -65,8 +65,6 @@ ALTER TABLE "Occurrence" ADD CONSTRAINT "Occurrence_fk1" FOREIGN KEY ("id_user")
 
 ALTER TABLE "Occurrence" ADD CONSTRAINT "Occurrence_fk3" FOREIGN KEY ("State_violence") REFERENCES "StateList"("id_State");
 
-ALTER TABLE "Occurrence" ADD CONSTRAINT "Occurrence_fk10" FOREIGN KEY ("violencetype") REFERENCES "TypesOfViolence"("id_violencetype");
-
 ALTER TABLE "UserOccurrences" ADD CONSTRAINT "UserOccurrences_fk0" FOREIGN KEY ("id_occurrence") REFERENCES "Occurrence"("id_occurrence");
 
 ALTER TABLE "UserOccurrences" ADD CONSTRAINT "UserOccurrences_fk1" FOREIGN KEY ("id_user") REFERENCES "User"("id_user");
