@@ -27,7 +27,7 @@ OBS: tem um incluso no ubuntu, mas eu não lembro qual eu usei rsrs
 - Crie um servidor conforme mostraram no vídeo (o nome não importa)
 - Crie um database com o nome: Gloria
 - Abra uma query 
-- Copie da linha 29 pra frente do arquivo sql files\database_structure 
+- Copie do arquivo sql files\database_structure 
 - Clique F5
 
 Pronto! Seu database já está estruturado, se quiser ver as tabelas vá em:
