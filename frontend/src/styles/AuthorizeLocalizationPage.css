@@ -1,46 +1,53 @@
+.page{
+  display: flex;
+  justify-content: flex-end;
+}
 
+.question{
+  text-align: center;
+
+  h3{
+    margin-top: 15%;
+  }
+
+  p{
+    margin-top: 8%;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  bottom: 30px;
+}
+
+.authorize {
+  padding: 10px 20px;
+  border: none;
+  font-weight: bold;
+  margin-right: 20px;
+  cursor: pointer;
+  border-radius: 15px;
+  font-size: 16px;
+  color: white;
+  background-color: #21A00D;
+}
+
+.not-authorize {
+  padding: 10px 20px;
+  border: none;
+  font-weight: bold;
+  margin-left: 20px;
+  cursor: pointer;
+  border-radius: 15px;
+  font-size: 16px;
+  color: white;
+  background-color: #E10B0B;
+}
+  
 .footer-invisible {
-    height: 9vh;
-  }
-  
-  .next{
-    background-color: #FFCA05;
-    color: black;
-    font-weight: bold;
-  }
-  
-  .buttons-container {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .authorize {
-    padding: 10px 20px;
-    border: none;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 15px;
-    font-size: 16px;
-    color: white;
-    background-color: #21A00D; 
-    margin-right: 0.75%;
-    margin-bottom: 10%;
-  }
-  
-  .not-authorize {
-    padding: 10px 20px;
-    border: none;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 15px;
-    font-size: 16px;
-    color: white; 
-    background-color: #E10B0B;
-    margin-left: 0.75%;
-    margin-bottom: 10%;
-  }
-  
-  .label-data{
-    margin-left: 20px;
-  }
-  
+  height: 9vh;
+}

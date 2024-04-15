@@ -11,7 +11,7 @@ const AuthorizeLocalizationPage = () => {
     <div>
       <Header />
       <main>
-        <section className="index">
+        <section className="page">
           <img src={Indices} alt="Índices de páginas"/>
         </section>
         <section className="question">
