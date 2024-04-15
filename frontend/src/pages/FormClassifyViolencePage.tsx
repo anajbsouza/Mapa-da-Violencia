@@ -2,6 +2,7 @@ import { useState } from "react";
 import Indices from "../assets/index4.png";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import '../styles/FormClassifyViolencePage.css';
 
 const FormClassifyViolencePage = () => {
 
@@ -30,30 +31,35 @@ const FormClassifyViolencePage = () => {
       <Header />
 
       <main>
-        <section className="index">
-          <img src={Indices} alt="" />
-        </section>
-        <section className="question">
-          <h3>Que situações você vivenciou durante o episódio de violência? Estamos aqui para compreender de forma gentil e acolhedora.</h3>
-          <p>5. Selecione situações que você identificou durante o episódio:</p>
-          <form>
-            {options.map((option, index) => (
-              <div key={index}>
-                <input
-                  type="checkbox"
-                  id={`custom-checkbox-${index}`}
-                  name={option}
-                  value={option}
-                  checked={!!checkedItems[index]}
-                  onChange={() => handleChange(index)}
-                />
-                <label htmlFor={`custom-checkbox-${index}`}>{option}</label>
-              </div>
-            ))}
-          </form>
+        <section className="holepage">
+          <section className="page">
+            <img src={Indices} alt="" />
+          </section>
+
+          <section className="prompt">
+            <h3>Que situações você vivenciou durante o episódio de violência? Estamos aqui para compreender de forma gentil e acolhedora.</h3>
+            <p>5. Selecione situações que você identificou durante o episódio:</p>
+          </section>
+
+          <section className="forms">
+            <form>
+              {options.map((option, index) => (
+                <div key={index}>
+                  <input
+                    type="checkbox"
+                    id={`custom-checkbox-${index}`}
+                    name={option}
+                    value={option}
+                    checked={!!checkedItems[index]}
+                    onChange={() => handleChange(index)} />
+                  <label htmlFor={`custom-checkbox-${index}`}>{option}</label>
+                </div>
+              ))}
+            </form>
+          </section>
         </section>
       </main>
-
+      
       <Footer nextPage="/map" />
     </div>
   );
