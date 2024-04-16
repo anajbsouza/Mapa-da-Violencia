@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS "Occurrence" (
 	"datetime_submission" timestamp with time zone NOT NULL,
 	"State_violence" bigint NOT NULL,
 	"date_violence" date NOT NULL,
-	"time_violence" varchar(255) NOT NULL,
+	"time_violence" time with time zone NOT NULL,
 	"agegroup" text NOT NULL,
 	"latitude" numeric(9,6) NOT NULL,
 	"longitude" numeric(9,6) NOT NULL,
