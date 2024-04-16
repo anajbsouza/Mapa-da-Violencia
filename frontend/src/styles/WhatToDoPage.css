@@ -1,0 +1,14 @@
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.titles-whattodo{
+    text-align: justify;
+
+    .intro-title{
+        color: aliceblue;
+    }
+
+}

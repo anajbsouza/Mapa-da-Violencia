@@ -1,37 +1,48 @@
-/*import Footer from "../components/Footer";*/
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import { FaHand } from "react-icons/fa6";
+import { IoLocationOutline } from "react-icons/io5";
+import { TiPencil } from "react-icons/ti";
+import { MdOutlineSos } from "react-icons/md";
 
 const WhatToDoPage = () => {
     return (
-        <main>
-            <section>
-                <div>
-                    <h1>Este é o Mapa da Violência do Instituto Glória </h1>
-                    <h2>O que deseja fazer?</h2>
-                </div>
+            <div>
+                <main>
+                    <section className="what-to-do">
+                        
+                        <Header />
 
-                <nav>
-                    <div>
-                        <img src="" alt="hand icon" />
-                        <p>Quero registrar uma violência</p>
-                    </div>
+                        <section className="titles-whattodo">
+                            <p className="intro-title">Este é o Mapa da Violência do Instituto Glória </p>
+                            <p className="question">O que deseja fazer?</p>
+                        </section>
 
-                    <div>
-                        <img src="" alt="location icon" />
-                        <p>Quero visualizar o mapa</p>
-                    </div>
+                        <nav className="navigation">
+                            <section className="violence-registration">
+                                <FaHand /> 
+                                <button className="button-violence">Quero registrar uma violência</button>
+                            </section>
 
-                    <div>
-                        <img src="" alt="pencil icon" />
-                        <p>Quero saber mais</p>
-                    </div>
+                            <section className="map-visualization">
+                                <IoLocationOutline />
+                                <button className="button-map">Quero visualizar o mapa</button>
+                            </section>
 
-                    <div>
-                        <img src="" alt="help icon" />
-                        <p>PRECISO DE AJUDA</p>
-                    </div>
-                </nav>
-            </section>
-        </main>
+                            <section className="know-more">
+                                <TiPencil />
+                                <button className="button-know-more">Quero saber mais</button>
+                            </section>
+
+                            <section className="help">
+                                <MdOutlineSos />
+                                <button className="button-help">PRECISO DE AJUDA</button>
+                            </section>
+                        </nav>
+                    </section>
+                </main>
+        <Footer nextPage="/form-about-violence" />
+        </div>
     );
 };
 
