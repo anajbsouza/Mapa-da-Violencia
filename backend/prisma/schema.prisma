@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -17,22 +11,22 @@ model Occurrence {
   id_occurrence       BigInt           @id @default(autoincrement())
   id_user             String
   datetime_submission DateTime         @db.Timestamptz(6)
+  State_violence      BigInt
   date_violence       DateTime         @db.Date
-  timewindow_violence String
+  time_violence       String           @db.VarChar(255)
   agegroup            String
-  latitude            Float
-  longitude           Float
+  latitude            Decimal          @db.Decimal(9, 6)
+  longitude           Decimal          @db.Decimal(9, 6)
   violencesoptions    String
   violencetype        String?
   User                User             @relation(fields: [id_user], references: [id_user], onDelete: NoAction, onUpdate: NoAction, map: "Occurrence_fk1")
-  TypesOfViolence     TypesOfViolence? @relation(fields: [violencetype], references: [id_violencetype], onDelete: NoAction, onUpdate: NoAction, map: "Occurrence_fk9")
+  StateList           StateList        @relation(fields: [State_violence], references: [id_State], onDelete: NoAction, onUpdate: NoAction, map: "Occurrence_fk3")
   UserOccurrences     UserOccurrences?
 }
 
 model TypesOfViolence {
-  id_violencetype String       @id
+  id_violencetype String @id
   Description     String
-  Occurrence      Occurrence[]
 }
 
 model User {
@@ -52,4 +46,11 @@ model UserOccurrences {
 model ViolenceSituations {
   id_violenceoption String @id
   Description       String
+}
+
+model StateList {
+  id_State   BigInt       @id @default(autoincrement())
+  uf_State   String       @unique
+  name_State String
+  Occurrence Occurrence[]
 }
