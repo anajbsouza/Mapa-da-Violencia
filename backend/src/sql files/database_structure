@@ -1,0 +1,300 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 16.2 (Ubuntu 16.2-1.pgdg22.04+1)
+-- Dumped by pg_dump version 16.2 (Ubuntu 16.2-1.pgdg22.04+1)
+
+-- Started on 2024-04-05 14:26:08 -03
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- TOC entry 3406 (class 1262 OID 16389)
+-- Name: Gloria; Type: DATABASE; Schema: -; Owner: izabelle
+--
+
+CREATE DATABASE "Gloria" WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE_PROVIDER = libc LOCALE = 'pt_BR.UTF-8';
+
+
+ALTER DATABASE "Gloria" OWNER TO izabelle;
+
+\connect "Gloria"
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- TOC entry 4 (class 2615 OID 2200)
+-- Name: public; Type: SCHEMA; Schema: -; Owner: pg_database_owner
+--
+
+CREATE SCHEMA public;
+
+
+ALTER SCHEMA public OWNER TO pg_database_owner;
+
+--
+-- TOC entry 3407 (class 0 OID 0)
+-- Dependencies: 4
+-- Name: SCHEMA public; Type: COMMENT; Schema: -; Owner: pg_database_owner
+--
+
+COMMENT ON SCHEMA public IS 'standard public schema';
+
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- TOC entry 218 (class 1259 OID 16805)
+-- Name: Occurrence; Type: TABLE; Schema: public; Owner: izabelle
+--
+
+CREATE TABLE public."Occurrence" (
+    id_occurrence bigint NOT NULL,
+    id_user text NOT NULL,
+    datetime_submission timestamp with time zone NOT NULL,
+    date_violence date NOT NULL,
+    timewindow_violence text NOT NULL,
+    agegroup text NOT NULL,
+    latitude double precision NOT NULL,
+    longitude double precision NOT NULL,
+    violencesoptions text NOT NULL,
+    violencetype text
+);
+
+
+ALTER TABLE public."Occurrence" OWNER TO izabelle;
+
+--
+-- TOC entry 217 (class 1259 OID 16804)
+-- Name: Occurrence_id_occurrence_seq; Type: SEQUENCE; Schema: public; Owner: izabelle
+--
+
+ALTER TABLE public."Occurrence" ALTER COLUMN id_occurrence ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME public."Occurrence_id_occurrence_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- TOC entry 219 (class 1259 OID 16812)
+-- Name: TypesOfViolence; Type: TABLE; Schema: public; Owner: izabelle
+--
+
+CREATE TABLE public."TypesOfViolence" (
+    id_violencetype text NOT NULL,
+    "Description" text NOT NULL
+);
+
+
+ALTER TABLE public."TypesOfViolence" OWNER TO izabelle;
+
+--
+-- TOC entry 215 (class 1259 OID 16515)
+-- Name: User; Type: TABLE; Schema: public; Owner: izabelle
+--
+
+CREATE TABLE public."User" (
+    id_user text NOT NULL
+);
+
+
+ALTER TABLE public."User" OWNER TO izabelle;
+
+--
+-- TOC entry 220 (class 1259 OID 16819)
+-- Name: UserOccurrences; Type: TABLE; Schema: public; Owner: izabelle
+--
+
+CREATE TABLE public."UserOccurrences" (
+    id_occurrence bigint NOT NULL,
+    id_user text NOT NULL,
+    date_violence date NOT NULL
+);
+
+
+ALTER TABLE public."UserOccurrences" OWNER TO izabelle;
+
+--
+-- TOC entry 216 (class 1259 OID 16797)
+-- Name: ViolenceSituations; Type: TABLE; Schema: public; Owner: izabelle
+--
+
+CREATE TABLE public."ViolenceSituations" (
+    id_violenceoption text NOT NULL,
+    "Description" text NOT NULL
+);
+
+
+ALTER TABLE public."ViolenceSituations" OWNER TO izabelle;
+
+--
+-- TOC entry 3398 (class 0 OID 16805)
+-- Dependencies: 218
+-- Data for Name: Occurrence; Type: TABLE DATA; Schema: public; Owner: izabelle
+--
+
+COPY public."Occurrence" (id_occurrence, id_user, datetime_submission, date_violence, timewindow_violence, agegroup, latitude, longitude, violencesoptions, violencetype) FROM stdin;
+\.
+
+
+--
+-- TOC entry 3399 (class 0 OID 16812)
+-- Dependencies: 219
+-- Data for Name: TypesOfViolence; Type: TABLE DATA; Schema: public; Owner: izabelle
+--
+
+COPY public."TypesOfViolence" (id_violencetype, "Description") FROM stdin;
+\.
+
+
+--
+-- TOC entry 3395 (class 0 OID 16515)
+-- Dependencies: 215
+-- Data for Name: User; Type: TABLE DATA; Schema: public; Owner: izabelle
+--
+
+COPY public."User" (id_user) FROM stdin;
+\.
+
+
+--
+-- TOC entry 3400 (class 0 OID 16819)
+-- Dependencies: 220
+-- Data for Name: UserOccurrences; Type: TABLE DATA; Schema: public; Owner: izabelle
+--
+
+COPY public."UserOccurrences" (id_occurrence, id_user, date_violence) FROM stdin;
+\.
+
+
+--
+-- TOC entry 3396 (class 0 OID 16797)
+-- Dependencies: 216
+-- Data for Name: ViolenceSituations; Type: TABLE DATA; Schema: public; Owner: izabelle
+--
+
+COPY public."ViolenceSituations" (id_violenceoption, "Description") FROM stdin;
+\.
+
+
+--
+-- TOC entry 3408 (class 0 OID 0)
+-- Dependencies: 217
+-- Name: Occurrence_id_occurrence_seq; Type: SEQUENCE SET; Schema: public; Owner: izabelle
+--
+
+SELECT pg_catalog.setval('public."Occurrence_id_occurrence_seq"', 1, false);
+
+
+--
+-- TOC entry 3243 (class 2606 OID 16811)
+-- Name: Occurrence Occurrence_pkey; Type: CONSTRAINT; Schema: public; Owner: izabelle
+--
+
+ALTER TABLE ONLY public."Occurrence"
+    ADD CONSTRAINT "Occurrence_pkey" PRIMARY KEY (id_occurrence);
+
+
+--
+-- TOC entry 3245 (class 2606 OID 16818)
+-- Name: TypesOfViolence TypesOfViolence_pkey; Type: CONSTRAINT; Schema: public; Owner: izabelle
+--
+
+ALTER TABLE ONLY public."TypesOfViolence"
+    ADD CONSTRAINT "TypesOfViolence_pkey" PRIMARY KEY (id_violencetype);
+
+
+--
+-- TOC entry 3247 (class 2606 OID 16825)
+-- Name: UserOccurrences UserOccurrences_pkey; Type: CONSTRAINT; Schema: public; Owner: izabelle
+--
+
+ALTER TABLE ONLY public."UserOccurrences"
+    ADD CONSTRAINT "UserOccurrences_pkey" PRIMARY KEY (id_occurrence);
+
+
+--
+-- TOC entry 3239 (class 2606 OID 16521)
+-- Name: User User_pkey; Type: CONSTRAINT; Schema: public; Owner: izabelle
+--
+
+ALTER TABLE ONLY public."User"
+    ADD CONSTRAINT "User_pkey" PRIMARY KEY (id_user);
+
+
+--
+-- TOC entry 3241 (class 2606 OID 16803)
+-- Name: ViolenceSituations ViolenceSituations_pkey; Type: CONSTRAINT; Schema: public; Owner: izabelle
+--
+
+ALTER TABLE ONLY public."ViolenceSituations"
+    ADD CONSTRAINT "ViolenceSituations_pkey" PRIMARY KEY (id_violenceoption);
+
+
+--
+-- TOC entry 3248 (class 2606 OID 16826)
+-- Name: Occurrence Occurrence_fk1; Type: FK CONSTRAINT; Schema: public; Owner: izabelle
+--
+
+ALTER TABLE ONLY public."Occurrence"
+    ADD CONSTRAINT "Occurrence_fk1" FOREIGN KEY (id_user) REFERENCES public."User"(id_user);
+
+
+--
+-- TOC entry 3249 (class 2606 OID 16831)
+-- Name: Occurrence Occurrence_fk9; Type: FK CONSTRAINT; Schema: public; Owner: izabelle
+--
+
+ALTER TABLE ONLY public."Occurrence"
+    ADD CONSTRAINT "Occurrence_fk9" FOREIGN KEY (violencetype) REFERENCES public."TypesOfViolence"(id_violencetype);
+
+
+--
+-- TOC entry 3250 (class 2606 OID 16836)
+-- Name: UserOccurrences UserOccurrences_fk0; Type: FK CONSTRAINT; Schema: public; Owner: izabelle
+--
+
+ALTER TABLE ONLY public."UserOccurrences"
+    ADD CONSTRAINT "UserOccurrences_fk0" FOREIGN KEY (id_occurrence) REFERENCES public."Occurrence"(id_occurrence);
+
+
+--
+-- TOC entry 3251 (class 2606 OID 16841)
+-- Name: UserOccurrences UserOccurrences_fk1; Type: FK CONSTRAINT; Schema: public; Owner: izabelle
+--
+
+ALTER TABLE ONLY public."UserOccurrences"
+    ADD CONSTRAINT "UserOccurrences_fk1" FOREIGN KEY (id_user) REFERENCES public."User"(id_user);
+
+
+-- Completed on 2024-04-05 14:26:09 -03
+
+--
+-- PostgreSQL database dump complete
+--
+

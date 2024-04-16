@@ -1,98 +1,59 @@
-@font-face {
-  font-family:'Montserrat';
-  src: url('../../../Fontes/Montserrat.ttf') format('ttf');
-}
-
 body {
   background-color: #612368; 
-  display: flex;
   font-family: 'Montserrat', Arial; 
   color: black; 
   justify-content: center; 
   align-items: center;
 }
 
-.back{
-  position: absolute;
-  width: 3%;
-  top: 1%;
+header {
+  margin: 5vh;
 }
 
 .logo{
-  position: absolute;
-  width: 10%;
-  top: 3%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  width: 30%;
 }
 
 main{
   background-color: white;
-  display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   border-radius: 15px;
-  width: 330px;
-  height: 500px;
+  width: 70vw;
+  margin: 0 auto;
+  height: 70vh;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); 
+  padding: 24px;
 }
 
 .index img{
   display: flex;
-  margin-left: 200px;
-  margin-top: -5px;
-  width: 90px;
-  height:25px;
+  justify-content: flex-end;
+  width: 20%;
 }
 
-.question h3{
-  padding: 20px;
-  font-family: Arial;
-  font-size: 90%;
-  margin-top: 10px;
-}
-
-.question p{
-  padding: 20px;
-  font-family: Arial;
-  margin-top: -30px;
-  font-size: 90%;
-}
-
-.state{
-  background-color: white;
-  border-color: black;
-  border-radius: 3px;
-  color: black;
-  width: 260px;
-  height: 25px;
-  margin-right: 5px;
-  margin-top: -10px;
-}
-
-.information{
-  padding: 20px;
-  margin-top: 50px;
-  font-family: Arial;
-  font-size: 90%;
-}
-
-footer{
-  background-color:#FFCA05;
-  border-radius: 10px;
-  color: black;
-  width: 150px;
-  height: 30px;
-  cursor: pointer;
+.back {
   position: absolute;
-  width: 10%;
-  bottom: -2%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  z-index: 1;
+  width: 5%;
+  top: 6%;
+  left: 15%;
+  width: 40px; 
+  height: 40px; 
+  border-radius: 50%; 
+  background-color: purple;
+  border: none;
+  cursor: pointer;
+  padding: 0; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
 }
 
-footer h4{
-  margin-top: 16px;
-  text-align: center;
+.back svg {
+  fill: white; 
+  width: 20px; 
+  height: 20px; 
 }

@@ -1,0 +1,19 @@
+.holepage{
+    padding: 10px;
+}
+
+.page {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.prompt {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+.forms{
+    font-size: 13px;
+}
