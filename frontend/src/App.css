@@ -6,17 +6,6 @@ body {
   align-items: center;
 }
 
-header {
-  margin: 5vh;
-}
-
-.logo{
-  display: flex;
-    justify-content: center;
-  align-items: center;
-  width: 30%;
-}
-
 main{
   background-color: white;
   flex-direction: column;
@@ -35,26 +24,31 @@ main{
   width: 20%;
 }
 
-.back {
-  position: absolute;
-  z-index: 1;
-  width: 5%;
-  top: 6%;
-  left: 15%;
-  width: 40px; 
-  height: 40px; 
-  border-radius: 50%; 
-  background-color: purple;
-  border: none;
-  cursor: pointer;
-  padding: 0; 
-  display: flex; 
-  justify-content: center; 
-  align-items: center; 
+.button-back{
+  display: flex;
+  justify-content: left;
+  align-items: center;
+
+  .back{
+      width: 25px;
+      height: 25px;
+      left: 10%;
+      margin-bottom: -7%;
+      background-color: purple;
+      border-radius: 50%;
+      cursor: pointer;
+      padding: 0;
+  }
 }
 
-.back svg {
-  fill: white; 
-  width: 20px; 
-  height: 20px; 
+.button-logo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  .logo{
+      margin-bottom: 15px;
+      width: 30%;
+  }
+
 }
