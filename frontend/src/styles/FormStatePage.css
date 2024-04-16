@@ -1,9 +1,9 @@
-.questions {
+.questions{
   display: flex;
   flex-direction: column;
 }
   
-.state {
+.state{
   background-color: white;
   position: absolute;
   border-color: black;

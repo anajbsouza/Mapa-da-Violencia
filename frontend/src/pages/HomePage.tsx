@@ -1,24 +1,23 @@
-/*import Footer from "../components/Footer";*/
+import '../styles/HomePage.css';
+import Logo from "../assets/logo_home.png"
 
 const HomePage = () => {
     return (
-        <main>
-            <section>
-                <div>
-                    <h1>INSTITUTO GLÓRIA</h1>
-                    <h2>Mapa da Violência</h2>
-                </div>
+        <main className="main-home">
 
-                <div>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas turpis lectus, euismod non volutpat non, sagittis eu risus. Nulla efficitur sagittis ante, id convallis massa fringilla vitae. Etiam accumsan arcu nec consectetur mollis. Pellentesque quis dui nisi. Donec vel nulla eget nulla accumsan tincidunt.
-                    </p>
-                </div>
+            <header className="logo-home-header">
+                <img className="logo-home" src={Logo} alt="Logo da Gloria" onClick={() => navigate('/')}/>
+            </header>
 
-                <div>
-                    <button>Começar</button>
-                </div>
+            <section className="titles-home"> 
+                <h1 className="main-title">INSTITUTO GLÓRIA</h1>
+                <h2 className="sub-title">Mapa da Violência</h2>
             </section>
+
+            <section className="button-home">
+                <button className="button-home-start">Começar</button>
+            </section>
+
         </main>
     );      
 };
