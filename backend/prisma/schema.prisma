@@ -1,0 +1,55 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Occurrence {
+  id_occurrence       BigInt           @id @default(autoincrement())
+  id_user             String
+  datetime_submission DateTime         @db.Timestamptz(6)
+  date_violence       DateTime         @db.Date
+  timewindow_violence String
+  agegroup            String
+  latitude            Float
+  longitude           Float
+  violencesoptions    String
+  violencetype        String?
+  User                User             @relation(fields: [id_user], references: [id_user], onDelete: NoAction, onUpdate: NoAction, map: "Occurrence_fk1")
+  TypesOfViolence     TypesOfViolence? @relation(fields: [violencetype], references: [id_violencetype], onDelete: NoAction, onUpdate: NoAction, map: "Occurrence_fk9")
+  UserOccurrences     UserOccurrences?
+}
+
+model TypesOfViolence {
+  id_violencetype String       @id
+  Description     String
+  Occurrence      Occurrence[]
+}
+
+model User {
+  id_user         String            @id
+  Occurrence      Occurrence[]
+  UserOccurrences UserOccurrences[]
+}
+
+model UserOccurrences {
+  id_occurrence BigInt     @id
+  id_user       String
+  date_violence DateTime   @db.Date
+  Occurrence    Occurrence @relation(fields: [id_occurrence], references: [id_occurrence], onDelete: NoAction, onUpdate: NoAction, map: "UserOccurrences_fk0")
+  User          User       @relation(fields: [id_user], references: [id_user], onDelete: NoAction, onUpdate: NoAction, map: "UserOccurrences_fk1")
+}
+
+model ViolenceSituations {
+  id_violenceoption String @id
+  Description       String
+}
