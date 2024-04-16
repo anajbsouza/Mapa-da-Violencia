@@ -1,4 +1,4 @@
-import { FormStateRepository } from '../repositories/formSatePage';
+import { FormStateRepository } from '../repositories/formSate-repository';
 
 export class FormStateService {
   private formStateRepository: FormStateRepository;

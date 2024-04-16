@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { FormStateService } from '../services/formStatePage';
+import { FormStateService } from '../services/formState-service';
 
 export class FormStateController {
   private formStateService: FormStateService;
@@ -15,7 +15,7 @@ export class FormStateController {
       res.json(formState);
     } catch (error) {
       console.error(error);
-      res.status(500).json({ error: 'Internal server error' });
+      res.status(400).json({ error: 'Internal server error' });
     }
   }
 
@@ -26,7 +26,7 @@ export class FormStateController {
       res.json(createdState);
     } catch (error) {
       console.error(error);
-      res.status(500).json({ error: 'Internal server error' });
+      res.status(400).json({ error: 'Internal server error' });
     }
   }
 
