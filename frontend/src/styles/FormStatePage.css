@@ -1,0 +1,24 @@
+.questions {
+  display: flex;
+  flex-direction: column;
+}
+  
+.state {
+  background-color: white;
+  position: absolute;
+  border-color: black;
+  border-radius: 3px;
+  color: black;
+  display: flex;
+  width: 70%;
+}
+  
+.information{
+  display: flex;
+  flex-direction: column;
+  margin-top: 80px;
+  font-family: Arial;
+  left: 20%;
+}
+
+  

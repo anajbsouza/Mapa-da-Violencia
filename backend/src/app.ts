@@ -3,7 +3,8 @@ import 'express-async-errors';
 import cors from 'cors';
 import { handleApplicationErrors } from './middlewares/error-handling-middleware';
 import answersRouter from './routers/answers-router';
-import { formStateRouter } from './routers/formStatePage';
+import { answersRepository } from './repositories/answers-repository';
+import type { User } from '@prisma/client';
 
 const app = express();
 
@@ -18,6 +19,12 @@ app
     .use(handleApplicationErrors)
     .listen(port, () => {
         console.log(`Servidor rodando na porta ${port}`);
-    });
-
+        answersRepository.getTable('user');
+    })
+    ;
+// async function main(){
+//     answersRepository.getTable('user');
+// }
+// main()
+// export default main;
 export default app;

@@ -1,0 +1,32 @@
+.square{
+    padding: 24px;
+}
+
+.page{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.area-question {
+    display: flex;
+    flex-direction: column;
+
+    .text {
+        text-align: left;
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 24.38px;
+    }
+
+    .questions {
+        display: flex;
+        flex-direction: column;
+        padding-top: 15px;
+        gap: 25px;
+
+        div {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}
