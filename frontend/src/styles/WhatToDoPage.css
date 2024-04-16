@@ -1,14 +1,58 @@
-header{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .titles-whattodo{
-    text-align: justify;
+    display: flex;
+    flex-direction: column;
 
     .intro-title{
-        color: aliceblue;
+        text-align: center;
+        font-size: 16px;
+        margin-top: 17%;
     }
 
+    .question{
+        margin-top: -3%;
+    }
+}
+
+.navigation{
+    align-items: center;
+
+    .violence-registration{
+        border: 2px solid;
+        border-color: #372482;
+        border-radius: 10px;
+
+        .button-violence{
+            border-color: transparent;
+        }
+    }
+
+    .map-visualization{
+        border: 2px solid;
+        border-color: #612368;
+        border-radius: 10px;
+
+        .button-map{
+            border-color: transparent;
+        }
+    }
+
+    .know-more{
+        border: 2px solid;
+        border-color: #BC88BC;
+        border-radius: 10px;
+
+        .button-know-more{
+            border-color: transparent;
+        }
+    }
+
+    .help{
+        border: 2px solid;
+        border-color: #FD0000;
+        border-radius: 10px;
+
+        .button-help{
+            border-color: transparent;
+        }
+    }
 }

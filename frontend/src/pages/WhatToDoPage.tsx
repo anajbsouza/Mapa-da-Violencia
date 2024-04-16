@@ -4,17 +4,17 @@ import { FaHand } from "react-icons/fa6";
 import { IoLocationOutline } from "react-icons/io5";
 import { TiPencil } from "react-icons/ti";
 import { MdOutlineSos } from "react-icons/md";
+import '../styles/WhatToDoPage.css'
 
 const WhatToDoPage = () => {
     return (
             <div>
+                <Header />
                 <main>
                     <section className="what-to-do">
-                        
-                        <Header />
 
                         <section className="titles-whattodo">
-                            <p className="intro-title">Este é o Mapa da Violência do Instituto Glória </p>
+                            <h4 className="intro-title">Este é o Mapa da Violência do Instituto Glória </h4>
                             <p className="question">O que deseja fazer?</p>
                         </section>
 
