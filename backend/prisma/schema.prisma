@@ -13,7 +13,7 @@ model Occurrence {
   datetime_submission DateTime         @db.Timestamptz(6)
   State_violence      BigInt
   date_violence       DateTime         @db.Date
-  time_violence       String           @db.VarChar(255)
+  time_violence       DateTime         @db.Timetz(6)
   agegroup            String
   latitude            Decimal          @db.Decimal(9, 6)
   longitude           Decimal          @db.Decimal(9, 6)
