@@ -1,0 +1,64 @@
+
+-- preenchimentos padrão das tabelas. NÃO RODAR MAIS DE UMA VEZ!!!
+
+-- preenchimento statelist
+
+INSERT INTO "StateList" (uf_State, name_State) VALUES 
+    ('AC', 'Acre'),
+    ('AL', 'Alagoas'),
+    ('AP', 'Amapá'),
+    ('AM', 'Amazonas'),
+    ('BA', 'Bahia'),
+    ('CE', 'Ceará'),
+    ('DF', 'Distrito Federal'),
+    ('ES', 'Espírito Santo'),
+    ('GO', 'Goiás'),
+    ('MA', 'Maranhão'),
+    ('MT', 'Mato Grosso'),
+    ('MS', 'Mato Grosso do Sul'),
+    ('MG', 'Minas Gerais'),
+    ('PA', 'Pará'),
+    ('PB', 'Paraíba'),
+    ('PR', 'Paraná'),
+    ('PE', 'Pernambuco'),
+    ('PI', 'Piauí'),
+    ('RJ', 'Rio de Janeiro'),
+    ('RN', 'Rio Grande do Norte'),
+    ('RS', 'Rio Grande do Sul'),
+    ('RO', 'Rondônia'),
+    ('RR', 'Roraima'),
+    ('SC', 'Santa Catarina'),
+    ('SP', 'São Paulo'),
+    ('SE', 'Sergipe'),
+    ('TO', 'Tocantins');
+    
+SELECT * FROM "StateList"
+
+-- preenchimento typesofviolence
+
+INSERT INTO "TypesOfViolence" VALUES
+	('VT1','Violência Física'),
+	('VT2','Violência Moral'),
+	('VT3','Violência Psicológica'),
+	('VT4','Violência Patrimonial'),
+	('VT5','Violência Sexual');
+
+SELECT * FROM "TypesOfViolence"
+
+-- preenchimento violencesituations 
+
+
+INSERT INTO "ViolenceSituations" VALUES
+	('VS1', 'Lesões ou ferimentos'),
+	('VS2', 'Estrangulamento ou sufocamento'),
+	('VS3', 'Espancamento ou tortura'),
+	('VS4', 'Constrangimento ou humilhação'),
+	('VS5', 'Vigilância ou perseguição'),
+	('VS6', 'Proibições ou limitações'),
+	('VS7', 'Chantagem ou distorção dos fatos'),
+	('VS8', 'Estupro'),
+	('VS9', 'Impedimento do uso de contraceptivo'),
+	('VS10', 'Obrigar atos sexuais que causam desconforto');
+
+SELECT * FROM "ViolenceSituations"
+
