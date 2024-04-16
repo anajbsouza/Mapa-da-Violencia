@@ -9,7 +9,6 @@ async function create(req: Request, res: Response): Promise<void> {
 
 async function getAll(req: Request, res: Response): Promise<void> {
     // Implementar a lógica para obter todas as respostas
-    answersRepository.getTable('user')
 }
 
 async function getById(req: Request, res: Response): Promise<void> {
