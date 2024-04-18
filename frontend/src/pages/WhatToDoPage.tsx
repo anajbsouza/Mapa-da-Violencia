@@ -20,22 +20,22 @@ const WhatToDoPage = () => {
 
                         <nav className="navigation">
                             <section className="violence-registration">
-                                <FaHand /> 
+                                <FaHand className="FaHand" />
                                 <button className="button-violence">Quero registrar uma violência</button>
                             </section>
 
                             <section className="map-visualization">
-                                <IoLocationOutline />
+                                <IoLocationOutline className="IoLocation"/>
                                 <button className="button-map">Quero visualizar o mapa</button>
                             </section>
 
                             <section className="know-more">
-                                <TiPencil />
+                                <TiPencil className="TiPencil"/>
                                 <button className="button-know-more">Quero saber mais</button>
                             </section>
 
                             <section className="help">
-                                <MdOutlineSos />
+                                <MdOutlineSos className="MdOutline"/>
                                 <button className="button-help">PRECISO DE AJUDA</button>
                             </section>
                         </nav>
