@@ -1,6 +1,11 @@
-.questions{
+.titles{
   display: flex;
   flex-direction: column;
+  
+  .question{
+    font-size: 15px;
+    margin-right: 10%;
+  }
 }
   
 .state{
@@ -16,9 +21,9 @@
 .information{
   display: flex;
   flex-direction: column;
-  margin-top: 80px;
-  font-family: Arial;
-  left: 20%;
+  margin-top: 10%;
+  margin-right: 10%;
+  font-size: 15px;
 }
 
   

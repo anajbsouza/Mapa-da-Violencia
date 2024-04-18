@@ -13,9 +13,9 @@ const FormStatePage = () => {
             <img src={Indices} alt="Índices de páginas"/>
         </section>
 
-        <section className="questions">
-          <h3> Para viabilizar o trabalho realizado, informe portanto o estado onde ocorreu a violência:</h3>
-          <p>1. Qual o Estado onde ocorreu a violência?</p>
+        <section className="titles">
+          <h4> Para viabilizar o trabalho realizado, informe portanto o estado onde ocorreu a violência:</h4>
+          <p className="question">1. Qual o Estado onde ocorreu a violência?</p>
         </section>
 
         <select className="state">
