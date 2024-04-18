@@ -1,8 +1,3 @@
-.page{
-  display: flex;
-  justify-content: flex-end;
-}
-
 .question{
   text-align: center;
 
@@ -21,31 +16,31 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  bottom: 30px;
-}
+  margin-top: 25%;
 
-.authorize {
-  padding: 10px 20px;
-  border: none;
-  font-weight: bold;
-  margin-right: 20px;
-  cursor: pointer;
-  border-radius: 15px;
-  font-size: 16px;
-  color: white;
-  background-color: #21A00D;
-}
+  .authorize {
+    padding: 10px 20px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 15px;
+    font-size: 16px;
+    color: white;
+    background-color: #21A00D;
+    margin-left: 10%;
+  }
 
-.not-authorize {
-  padding: 10px 20px;
-  border: none;
-  font-weight: bold;
-  margin-left: 20px;
-  cursor: pointer;
-  border-radius: 15px;
-  font-size: 16px;
-  color: white;
-  background-color: #E10B0B;
+  .not-authorize {
+    padding: 10px 20px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 15px;
+    font-size: 16px;
+    color: white;
+    background-color: #E10B0B;
+    margin-right: 10%;
+  }
 }
   
 .footer-invisible {
