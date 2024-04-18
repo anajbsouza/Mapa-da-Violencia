@@ -24,12 +24,14 @@ const FormAboutViolencePage = () => {
         <div>
             <Header />
             <main>
-                <div className="square">
+
                 <section className="page">
                     <img src={Indices} alt="Índices de páginas" />
                 </section>
+
+                <h4 className="text">Sinta-se a vontade para compartilhar conosco algumas informações sobre a violência que você enfrentou.</h4>
+                
                 <section className="area-question">
-                    <h3 className="text">Sinta-se a vontade para compartilhar conosco algumas informações sobre a violência que você enfrentou.</h3>
                     <div className="questions">
                         <div>
                             <label htmlFor="dateInput">2. Que dia ocorreu a violência?</label>
@@ -65,7 +67,6 @@ const FormAboutViolencePage = () => {
                         </div>
                     </div>
                 </section>
-                </div>
             </main>
             <Footer nextPage="/form-classify-violence" />
         </div>
