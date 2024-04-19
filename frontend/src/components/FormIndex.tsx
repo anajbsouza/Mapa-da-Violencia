@@ -1,11 +1,11 @@
 import React from 'react';
 
-interface Properties
+interface FormIndexProps
 {
     value: number;
 }
 
-const FormIndex: React.FC<Properties> = ({ value }) => { // Use React.FC<Props> para definir o tipo das props
+const FormIndex: React.FC<FormIndexProps> = ({ value }) => { 
     return (
         <div className="ball-line">
             <div className={`ball ${value === 1 ? 'index-purple' : ''}`}>1</div>
