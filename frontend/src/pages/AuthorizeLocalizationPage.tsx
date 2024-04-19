@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
-import '../styles/AuthorizeLocalizationPage.css';
+import '../styles/AuthorizeLocalizationAndEmergencyPages.css'
 import FormIndex from "../components/FormIndex";
 
 
