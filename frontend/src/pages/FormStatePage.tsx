@@ -1,7 +1,7 @@
-import Indices from "../assets/index2.png";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import '../styles/FormStatePage.css';
+import FormIndex from "../components/FormIndex";
 
 const FormStatePage = () => {
   return (
@@ -10,7 +10,7 @@ const FormStatePage = () => {
 
       <main>
         <section className="page">
-            <img src={Indices} alt="Índices de páginas"/>
+            <FormIndex value={1}/>
         </section>
 
         <section className="titles">

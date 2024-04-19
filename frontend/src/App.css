@@ -49,5 +49,42 @@ main{
       margin-bottom: 15px;
       width: 30%;
   }
+}
 
+.div-test{
+  background-color: white;
+  width: 500px;
+  height: 100px;
+ }
+ 
+/*Form Index*/ 
+ .ball-line {
+  display: flex;
+  align-items: center;
+ }
+
+ .ball {
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 50%;
+  border: 1.5px solid #612368;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #612368;
+  font-size: 0.8rem;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+ }
+
+.line {
+  height: 1.5px;
+  width: 0.5rem;
+  background-color: #612368;
+}
+ 
+.index-purple {
+  background-color: #612368;
+  color: white;
 }

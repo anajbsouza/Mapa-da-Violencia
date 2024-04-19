@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
-import Indices from "../assets/index1.png";
 import '../styles/AuthorizeLocalizationPage.css';
+import FormIndex from "../components/FormIndex";
 
 
 const AuthorizeLocalizationPage = () => {
@@ -12,7 +12,7 @@ const AuthorizeLocalizationPage = () => {
       <Header />
       <main>
         <section className="page">
-          <img className="indice" src={Indices} alt="Índices de páginas"/>
+          <FormIndex value={1}/>
         </section>
 
         <section className="question">
