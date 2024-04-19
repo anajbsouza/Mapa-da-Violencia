@@ -1,0 +1,18 @@
+.title-know-more{
+    text-align: center;
+    font-size: 1.25em;
+    color: black;
+}
+
+.link-items{
+    display: flex;
+    align-items: center;
+}
+
+.custom-circle-icon{
+    color:#FFCA05;
+    font-size: 3rem;
+    margin-right: 1rem;
+}
+
+/*css incompleto, falta alinhar os itens e rotacionar os círculos*/ 
