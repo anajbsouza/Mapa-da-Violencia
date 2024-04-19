@@ -1,3 +1,4 @@
+import { ViolenceState } from '@/protocols';
 import { Occurrence, PrismaClient } from '@prisma/client'
 import { Decimal } from '@prisma/client/runtime/library';
 
@@ -24,7 +25,23 @@ async function createOcurrence(id_user:string,datetime_submission:Date, StateVio
     return occurrence
 }
 
-
+async function StateOccurrence(state: ViolenceState) {
+    const occurrence = await prisma.occurrence.create({
+        data:{
+            id_user:null,
+            datetime_submission: null,
+            State_violence: state,
+            date_violence: null,
+            time_violence: null,
+            agegroup: null,
+            latitude: null,
+            longitude: null,
+            violencesoptions: null,
+            violencetype: null,
+        }
+    })
+    return occurrence
+}
 
 async function getAllAnswers(): Promise<any> {
     // Implementar a lógica para obter todas as respostas do banco de dados
@@ -68,6 +85,7 @@ export const answersRepository = {
     createOcurrence,
     getAllAnswers,
     getAnswerById,
-    getTable
+    getTable,
+    StateOccurrence
 }
 

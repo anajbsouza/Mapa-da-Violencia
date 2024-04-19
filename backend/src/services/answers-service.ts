@@ -1,4 +1,14 @@
+import { ViolenceState } from "@/protocols";
 import { answersRepository } from "../repositories/answers-repository";
+import { validationError } from "../errors/errors";
+
+async function createStateOccur(violenceState: ViolenceState): Promise<any> {
+    if (!violenceState){
+        throw validationError();
+    }
+    const newStateOccur = await answersRepository.StateOccurrence(violenceState);
+    return newStateOccur;
+}
 
 async function createAnswer(answer: any): Promise<any> {
     // Implementar a lógica para criar uma nova resposta
@@ -17,6 +27,7 @@ async function retrieveAnswerById(id: string): Promise<any> {
 export const answersService = {
     createAnswer,
     retrieveAllAnswers,
-    retrieveAnswerById
+    retrieveAnswerById,
+    createStateOccur
 }
 
