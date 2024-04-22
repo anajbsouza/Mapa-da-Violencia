@@ -22,47 +22,57 @@ const ViolenceTypesPage = () => {
 
                 <section className="violenceMenu">
                     <section className="fisicalViolence">
-                        <p onClick={() => toggleSection("fisicalViolence")}>
-                            Violência Física {openSection === "fisicalViolence" ? <IoIosArrowUp /> : <IoIosArrowDown />}
+                        <p className="dropdownTitle" onClick={() => toggleSection("fisicalViolence")}>
+                            Violência Física {openSection === "fisicalViolence" ? 
+                            <IoIosArrowUp className="iconFisical" /> : 
+                            <IoIosArrowDown className="iconFisical" />}
                         </p>
                         {openSection === "fisicalViolence" && (
-                            <p> Espancamento, tortura, lesões, ferimentos, estrangulamento, sufocamento. </p>
+                            <p className="dropdownText"> Espancamento, tortura, lesões, ferimentos, estrangulamento, sufocamento. </p>
                         )}
                     </section>
 
                     <section className="moralViolence">
-                        <p onClick={() => toggleSection("moralViolence")}>
-                            Violência Moral {openSection === "moralViolence" ? <IoIosArrowUp /> : <IoIosArrowDown />}
+                        <p className="dropdownTitle" onClick={() => toggleSection("moralViolence")}>
+                            Violência Moral {openSection === "moralViolence" ? 
+                            <IoIosArrowUp className="iconMoral"/> : 
+                            <IoIosArrowDown className="iconMoral"/>}
                         </p>
                         {openSection === "moralViolence" && (
-                            <p> Calúnia, difamação, injúria, críticas mentirosas, exposição, acusações. </p>
+                            <p className="dropdownText"> Calúnia, difamação, injúria, críticas mentirosas, exposição, acusações. </p>
                         )}
                     </section>
 
                     <section className="psychologicalViolence">
-                        <p onClick={() => toggleSection("psychologicalViolence")}>
-                            Violência Psicológica {openSection === "psychologicalViolence" ? <IoIosArrowUp /> : <IoIosArrowDown />}
+                        <p className="dropdownTitle" onClick={() => toggleSection("psychologicalViolence")}>
+                            Violência Psicológica {openSection === "psychologicalViolence" ? 
+                            <IoIosArrowUp className="iconPsychological"/> : 
+                            <IoIosArrowDown className="iconPsychological"/>}
                         </p>
                         {openSection === "psychologicalViolence" && (
-                            <p> Dano emocional, diminuição da autoestima, prejuízo ao pleno desenvolvimento da mulher, degradação ou controle das suas ações.  </p>
+                            <p className="dropdownText"> Dano emocional, diminuição da autoestima, prejuízo ao pleno desenvolvimento da mulher, degradação ou controle das suas ações.  </p>
                         )}
                     </section>
 
                     <section className="patrimoniallViolence">
-                        <p onClick={() => toggleSection("patrimoniallViolence")}>
-                            Violência Patrimonial {openSection === "patrimoniallViolence" ? <IoIosArrowUp /> : <IoIosArrowDown />}
+                        <p className="dropdownTitle" onClick={() => toggleSection("patrimoniallViolence")}>
+                            Violência Patrimonial {openSection === "patrimoniallViolence" ? 
+                            <IoIosArrowUp className="iconPatrimonial"/> : 
+                            <IoIosArrowDown className="iconPatrimonial"/>}
                         </p>
                         {openSection === "patrimoniallViolence" && (
-                            <p> Retenção, subtração, destruição parcial ou total de seus objetos, instrumentos de trabalho, documentos pessoais, bens, valores e direitos ou recursos econômicos. </p>
+                            <p className="dropdownText"> Retenção, subtração, destruição parcial ou total de seus objetos, instrumentos de trabalho, documentos pessoais, bens, valores e direitos ou recursos econômicos. </p>
                         )}
                     </section>
 
                     <section className="sexualViolence">
-                        <p onClick={() => toggleSection("sexualViolence")}>
-                            Violência Sexual {openSection === "sexualViolence" ? <IoIosArrowUp /> : <IoIosArrowDown />}
+                        <p className="dropdownTitle" onClick={() => toggleSection("sexualViolence")}>
+                            Violência Sexual {openSection === "sexualViolence" ? 
+                            <IoIosArrowUp className="iconSexual"/> : 
+                            <IoIosArrowDown className="iconSexual"/>}
                         </p>
                         {openSection === "sexualViolence" && (
-                            <p> Conduta que constranja a presenciar, a manter ou a participar de relação sexual não desejada mediante intimidação, ameaça, coação ou uso da força. </p>
+                            <p className="dropdownText"> Conduta que constranja a presenciar, a manter ou a participar de relação sexual não desejada mediante intimidação, ameaça, coação ou uso da força. </p>
                         )}
                     </section>
                 </section>
