@@ -50,7 +50,7 @@ const ViolenceTypesPage = () => {
                             <IoIosArrowDown className="iconPsychological"/>}
                         </p>
                         {openSection === "psychologicalViolence" && (
-                            <p className="dropdownText"> Dano emocional, diminuição da autoestima, prejuízo ao pleno desenvolvimento da mulher, degradação ou controle das suas ações.  </p>
+                            <p className="dropdownText"> Dano emocional, diminuição da autoestima, prejuízo ao pleno desenvolvimento da mulher.  </p>
                         )}
                     </section>
 
@@ -61,7 +61,7 @@ const ViolenceTypesPage = () => {
                             <IoIosArrowDown className="iconPatrimonial"/>}
                         </p>
                         {openSection === "patrimoniallViolence" && (
-                            <p className="dropdownText"> Retenção, subtração, destruição parcial ou total de seus objetos, instrumentos de trabalho, documentos pessoais, bens, valores e direitos ou recursos econômicos. </p>
+                            <p className="dropdownText"> Retenção, subtração, destruição parcial ou total de seus objetos. </p>
                         )}
                     </section>
 
@@ -72,7 +72,7 @@ const ViolenceTypesPage = () => {
                             <IoIosArrowDown className="iconSexual"/>}
                         </p>
                         {openSection === "sexualViolence" && (
-                            <p className="dropdownText"> Conduta que constranja a presenciar, a manter ou a participar de relação sexual não desejada mediante intimidação, ameaça, coação ou uso da força. </p>
+                            <p className="dropdownText"> Prática de relação sexual não desejada mediante intimidação, ameaça ou coação. </p>
                         )}
                     </section>
                 </section>
