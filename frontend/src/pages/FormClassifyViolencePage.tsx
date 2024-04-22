@@ -37,7 +37,7 @@ const FormClassifyViolencePage = () => {
           </section>
 
           <section className="prompt">
-            <h3>Que situações você vivenciou durante o episódio de violência? Estamos aqui para compreender de forma gentil e acolhedora.</h3>
+            <h4>Que situações você vivenciou durante o episódio de violência? Estamos aqui para compreender de forma gentil e acolhedora.</h4>
             <p>5. Selecione situações que você identificou durante o episódio:</p>
           </section>
 

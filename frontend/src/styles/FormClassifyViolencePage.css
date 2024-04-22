@@ -10,10 +10,10 @@
 .prompt {
     display: flex;
     flex-direction: column;
-    margin-top: 10px;
-    font-size: 13px;
+    margin-bottom: -10px;
+    font-size: 12px;
 }
 
 .forms{
-    font-size: 13px;
+    font-size: 10px;
 }
