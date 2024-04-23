@@ -15,6 +15,7 @@ async function createStateOccur(violenceState: ViolenceState): Promise<any> {
         throw validationError();
     }
     const newStateOccur = await answersRepository.StateOccurrence(violenceState);
+    await answersRepository.upd_numOccurrences_StateList(violenceState);
     return newStateOccur;
 }
 

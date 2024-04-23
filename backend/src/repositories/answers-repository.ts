@@ -94,12 +94,30 @@ async function getListUfs() {
     return listUfs;
 }
 
+async function upd_numOccurrences_StateList(state: ViolenceState){
+    const {uf_state} = state;
+    const old_value = await prisma.stateList.findFirst({
+        where: {uf_State: uf_state},
+        select: {
+            num_Occurrences: true
+        }
+    })
+    const new_value = old_value.num_Occurrences + BigInt(1)
+    const updatedData = await prisma.stateList.update({
+        where:{ uf_State: uf_state},
+        data: {
+            num_Occurrences: new_value
+        }
+    })
+}
+
 export const answersRepository = {
     // createOcurrence,
     getAllAnswers,
     getAnswerById,
     getTable,
     StateOccurrence,
-    getListUfs
+    getListUfs,
+    upd_numOccurrences_StateList
 }
 
