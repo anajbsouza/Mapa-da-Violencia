@@ -78,7 +78,7 @@ const ViolenceTypesPage = () => {
                 </section>
 
                 <section>
-                    <Footer nextPage="/authorize-localization" />
+                    <Footer nextPage="/know-more" />
                 </section>
 
             </main>

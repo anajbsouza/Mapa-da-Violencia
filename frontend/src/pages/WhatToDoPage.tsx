@@ -4,9 +4,11 @@ import { FaHand } from "react-icons/fa6";
 import { IoLocationOutline } from "react-icons/io5";
 import { TiPencil } from "react-icons/ti";
 import { MdOutlineSos } from "react-icons/md";
+import { useNavigate } from 'react-router-dom';
 import '../styles/WhatToDoPage.css'
 
 const WhatToDoPage = () => {
+    const navigate = useNavigate();
     return (
             <div>
                 <Header />
@@ -21,22 +23,22 @@ const WhatToDoPage = () => {
                         <nav className="navigation">
                             <section className="violence-registration">
                                 <FaHand className="FaHand" />
-                                <button className="button-violence">Quero registrar uma violência</button>
+                                <button className="button-violence" onClick={() => navigate("/authorize-localization")}>Quero registrar uma violência</button>
                             </section>
 
                             <section className="map-visualization">
                                 <IoLocationOutline className="IoLocation"/>
-                                <button className="button-map">Quero visualizar o mapa</button>
+                                <button className="button-map" onClick={() => navigate("/")}>Quero visualizar o mapa</button>
                             </section>
 
                             <section className="know-more">
                                 <TiPencil className="TiPencil"/>
-                                <button className="button-know-more">Quero saber mais</button>
+                                <button className="button-know-more" onClick={() => navigate("/violence-types")}>Quero saber mais</button>
                             </section>
 
                             <section className="help">
                                 <MdOutlineSos className="MdOutline"/>
-                                <button className="button-help">PRECISO DE AJUDA</button>
+                                <button className="button-help" onClick={() => navigate("/emergency")}>PRECISO DE AJUDA</button>
                             </section>
                         </nav>
                     </section>

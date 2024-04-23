@@ -1,7 +1,9 @@
 import '../styles/HomePage.css';
 import Logo from "../assets/logo_home.png"
+import { useNavigate } from 'react-router-dom';
 
 const HomePage = () => {
+    const navigate = useNavigate();
     return (
         <main className="main-home">
 
@@ -15,7 +17,7 @@ const HomePage = () => {
             </section>
 
             <section className="button-home">
-                <button className="button-home-start">Começar</button>
+                <button className="button-home-start" onClick={() => navigate("/what-to-do")}>Começar</button>
             </section>
 
         </main>

@@ -11,6 +11,7 @@ const ThankYouPage = () => {
         <section>
             <Header/>
             <main>
+
                 <section className="page">
                     <FormIndex value={4}/>
                 </section>
@@ -20,7 +21,7 @@ const ThankYouPage = () => {
                     <h2>O seu registro ajuda outras mulheres!</h2>
                 </section>
 
-                <section className="know-more">
+                <section className="knowMore-Thankyou">
                     <TiPencil className="TiPencil" />
                     <button className="button-know-more">Quero saber mais</button>
                 </section>
