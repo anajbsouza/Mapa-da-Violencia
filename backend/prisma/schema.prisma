@@ -47,8 +47,9 @@ model ViolenceSituations {
 }
 
 model StateList {
-  id_State   BigInt       @id @default(autoincrement())
-  uf_State   String       @unique
-  name_State String
-  Occurrence Occurrence[]
+  id_State        BigInt       @id @default(autoincrement())
+  uf_State        String       @unique
+  name_State      String
+  num_Occurrences BigInt?      @default(0)
+  Occurrence      Occurrence[]
 }
