@@ -16,22 +16,25 @@ main{
   height: 70vh;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); 
   padding: 24px;
+  overflow: auto;
 }
 
-.button-back{
+.button-back {
   display: flex;
-  justify-content: left;
+  margin-top: -10%;
+  margin-bottom: -4%;
+  margin-left: -5%;
   align-items: center;
+  width: -20px;
+  height: -20px;
+  border-radius: 40%;
+  background-color: transparent; 
+  border: none; 
 
-  .back{
-      width: 25px;
-      height: 25px;
-      left: 10%;
-      margin-bottom: -7%;
-      background-color: purple;
-      border-radius: 50%;
-      cursor: pointer;
-      padding: 0;
+  .icon-back {
+    width: 30px; 
+    height: 30px;
+    color: white;
   }
 }
 
@@ -41,8 +44,9 @@ main{
   align-items: center;
   
   .logo{
-      margin-bottom: 15px;
-      width: 30%;
+    margin-top: -5%;
+    margin-bottom: 5%;
+    width: 30%;
   }
 }
 
@@ -83,4 +87,23 @@ main{
 .index-purple {
   background-color: #612368;
   color: white;
+}
+
+footer {
+  background-color: #FFCA05;
+  color: #612368;
+  position: fixed;
+  bottom: 0;
+  width: 20vw;
+  height: 5vh;
+  border-radius: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  margin-bottom: 2vh;
+  font-size: 13px;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  text-align: center;
 }
