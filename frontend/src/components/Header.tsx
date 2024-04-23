@@ -1,5 +1,8 @@
 import Logo from "../assets/logo.png"
 import { useNavigate } from "react-router-dom";
+import { IoChevronBackCircleSharp } from "react-icons/io5";
+
+
 
 const Header = () => {
     let navigate = useNavigate();
@@ -7,17 +10,14 @@ const Header = () => {
     return (
         <div>
             <header className="header">
-                <section className="button-back">
-                    <button className="back">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="24px" height="24px">
-                            <path d="M0 0h24v24H0z" fill="none"/>
-                            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12l4.58-4.59z"/>
-                        </svg>
+                <section>
+                    <button className="button-back" onClick={() => navigate(-1)}>
+                        <IoChevronBackCircleSharp className="icon-back" />
                     </button>
                 </section>
-                
+
                 <section className="button-logo">
-                    <img className="logo" src={Logo} alt="Logo da Gloria" onClick={() => navigate('/')}/>
+                    <img className="logo" src={Logo} alt="Logo da Gloria" onClick={() => navigate("/home-page")}/>
                 </section>
             </header>
         </div>

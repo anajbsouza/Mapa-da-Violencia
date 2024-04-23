@@ -28,12 +28,11 @@ const FormAboutViolencePage = () => {
                 <section className="page">
                     <FormIndex value={2}/>
                 </section>
-
-                <h4 className="text">Sinta-se a vontade para compartilhar conosco algumas informações sobre a violência que você enfrentou.</h4>
                 
                 <section className="area-question">
                     <div className="questions">
                         <div>
+                            <h4 className="text">Sinta-se a vontade para compartilhar conosco algumas informações sobre a violência que você enfrentou.</h4>
                             <label htmlFor="dateInput">2. Que dia ocorreu a violência?</label>
                             <input
                                 type="date"

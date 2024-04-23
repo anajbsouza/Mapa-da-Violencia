@@ -19,7 +19,7 @@ export default function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<HomePage />}/>
+        <Route path="/home-page" element={<HomePage />}/>
         <Route path="/authorize-localization" element={<AuthorizeLocalizationPage />}/>
         <Route path="/form-state" element={<FormStatePage />}/>
         <Route path="/form-about-violence" element={<FormAboutViolencePage />}/>

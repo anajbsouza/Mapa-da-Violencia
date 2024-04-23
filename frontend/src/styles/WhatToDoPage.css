@@ -34,6 +34,7 @@
         border-color: transparent;
         color: #372482;
         font-weight: bold;
+        background: #fff;
     }
 
     .button-violence:focus{
@@ -62,6 +63,7 @@
         border-color: transparent;
         color: #612368;
         font-weight: bold;
+        background: #fff;
     }
     
     .button-map:focus{
@@ -90,6 +92,7 @@
         border-color: transparent;
         color: #BC88BC;
         font-weight: bold;
+        background: #fff;
     }
 
     .button-know-more:focus{
@@ -118,6 +121,7 @@
         border-color: transparent;
         color: #FD0000;
         font-weight: bold;
+        background: #fff;   
     }
 
     .button-help:focus{
