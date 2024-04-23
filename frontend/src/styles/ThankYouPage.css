@@ -1,17 +1,4 @@
-.button-back{
-    display: flex;
-    justify-content: left;
-    align-items: center;
-  
-    .back{
-        background-color: transparent;
-        color: transparent;
-    }
 
-    .icon-back{
-        fill: transparent;
-    }
-  }
 
 .thankyouTitles{
     display: flex;
@@ -21,7 +8,7 @@
     margin-top: 12%;
 }
 
-.know-more{
+.knowMore-Thankyou{
     display: flex;
     align-items: center;
     justify-content: flex-start;

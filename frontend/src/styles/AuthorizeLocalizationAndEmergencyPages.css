@@ -2,13 +2,13 @@
   text-align: center;
 
   h3 {
-    margin-top: 0.7; /* Alterado para 2em */
+    margin-top: 2.0em;
   }
 
   p {
-    margin-top: 0.7em; /* Alterado para 1.5em */
-    padding-left: 1em; /* Alterado para 2em */
-    padding-right: 1em; /* Alterado para 2em */
+    margin-top: 0.7em; 
+    padding-left: 1em;
+    padding-right: 1em; 
   }
 }
 
@@ -48,7 +48,7 @@
   display: flex;
   flex-direction: column; 
   align-items: center;
-  margin-top: 25%; 
+  margin-top: 4.0em;
 
   .green-button,
   .red-button {
