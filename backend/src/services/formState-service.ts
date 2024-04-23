@@ -1,20 +1,15 @@
-import { FormStateRepository } from '../repositories/formSate-repository';
+import { answersRepository } from "../repositories/answers-repository";
 
-export class FormStateService {
-  private formStateRepository: FormStateRepository;
-
-  constructor() {
-    this.formStateRepository = new FormStateRepository();
+async function createAnswer(answer: any): Promise<void> {
+  try {
+    // Verificar se o estado foi selecionado
+    if (!answer.state) {
+      throw new Error('Por favor, selecione um estado antes de prosseguir.');
+    }
   }
+}
 
-  async getFormState() {
-    // Lógica de negócio para obter o estado do formulário
-    return await this.formStateRepository.getFormState();
-  }
+export const FormStateService = {
+  createAnswer,
 
-  async createFormState(stateData: any) {
-    // Lógica de negócio para criar o estado do formulário
-    return await this.formStateRepository.createFormState(stateData);
-  }
-  
 }
