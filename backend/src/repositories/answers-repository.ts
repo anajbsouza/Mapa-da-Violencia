@@ -82,11 +82,24 @@ async function getTable(tableName: string) {
     }
   }
 
+async function getListUfs() {
+    const listUfs = await prisma.stateList.findMany({
+        select:{
+            id_State: false,
+            uf_State: true,
+            name_State: false,
+            num_Occurrences: false
+        }
+    })
+    return listUfs;
+}
+
 export const answersRepository = {
     // createOcurrence,
     getAllAnswers,
     getAnswerById,
     getTable,
-    StateOccurrence
+    StateOccurrence,
+    getListUfs
 }
 
