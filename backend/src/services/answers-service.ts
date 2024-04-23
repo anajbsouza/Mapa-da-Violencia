@@ -3,7 +3,7 @@ import { answersRepository } from "../repositories/answers-repository";
 import { validationError } from "../errors/errors";
 
 async function createStateOccur(violenceState: ViolenceState): Promise<any> {
-    if (!violenceState){
+    if (!violenceState.uf_state||violenceState.uf_state==null){
         throw validationError();
     }
     const newStateOccur = await answersRepository.StateOccurrence(violenceState);

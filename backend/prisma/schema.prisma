@@ -8,20 +8,19 @@ datasource db {
 }
 
 model Occurrence {
-  id_occurrence       BigInt           @id @default(autoincrement())
+  id_occurrence       BigInt     @id @default(autoincrement())
   id_user             String?
-  datetime_submission DateTime?        @db.Timestamptz(6)
-  State_violence      BigInt?
-  date_violence       DateTime?        @db.Date
+  datetime_submission DateTime?  @db.Timestamptz(6)
+  State_violence      String?
+  date_violence       DateTime?  @db.Date
   agegroup            String?
-  latitude            Decimal?         @db.Decimal(9, 6)
-  longitude           Decimal?         @db.Decimal(9, 6)
+  latitude            Decimal?   @db.Decimal(9, 6)
+  longitude           Decimal?   @db.Decimal(9, 6)
   violencesoptions    String?
   violencetype        String?
-  time_violence       DateTime?        @db.Timetz(6)
-  User                User?            @relation(fields: [id_user], references: [id_user], onDelete: NoAction, onUpdate: NoAction, map: "Occurrence_fk1")
-  StateList           StateList?       @relation(fields: [State_violence], references: [id_State], onDelete: NoAction, onUpdate: NoAction, map: "Occurrence_fk3")
-  UserOccurrences     UserOccurrences?
+  time_violence       String?    @db.VarChar(255)
+  User                User?      @relation(fields: [id_user], references: [id_user], onDelete: NoAction, onUpdate: NoAction, map: "Occurrence_fk1")
+  StateList           StateList? @relation(fields: [State_violence], references: [uf_State], onDelete: NoAction, onUpdate: NoAction, map: "Occurrence_fk3")
 }
 
 model TypesOfViolence {
@@ -36,11 +35,10 @@ model User {
 }
 
 model UserOccurrences {
-  id_occurrence BigInt     @id
+  id_occurrence BigInt   @id
   id_user       String
-  date_violence DateTime   @db.Date
-  Occurrence    Occurrence @relation(fields: [id_occurrence], references: [id_occurrence], onDelete: NoAction, onUpdate: NoAction, map: "UserOccurrences_fk0")
-  User          User       @relation(fields: [id_user], references: [id_user], onDelete: NoAction, onUpdate: NoAction, map: "UserOccurrences_fk1")
+  date_violence DateTime @db.Date
+  User          User     @relation(fields: [id_user], references: [id_user], onDelete: NoAction, onUpdate: NoAction, map: "UserOccurrences_fk1")
 }
 
 model ViolenceSituations {

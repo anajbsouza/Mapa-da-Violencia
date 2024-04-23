@@ -4,33 +4,34 @@ import { Decimal } from '@prisma/client/runtime/library';
 
 const prisma = new PrismaClient();
 
-async function createOcurrence(id_user:string,datetime_submission:Date, StateViolence:number, date_violence: Date, time_violence: Date, agegroup: string, latitude: number, longitude: number, violenceoptions: string, violencetype?:string): Promise<Occurrence> {
-    if (!violencetype){
-        violencetype = null
-    }
-    const occurrence = await prisma.occurrence.create({
-        data:{
-            id_user:id_user,
-            datetime_submission: datetime_submission,
-            State_violence: StateViolence,
-            date_violence: date_violence,
-            time_violence: time_violence,
-            agegroup: agegroup,
-            latitude: latitude,
-            longitude: longitude,
-            violencesoptions: violenceoptions,
-            violencetype: violencetype,
-        }
-    })
-    return occurrence
-}
+// async function createOcurrence(id_user:string,datetime_submission:Date, StateViolence:number, date_violence: Date, time_violence: Date, agegroup: string, latitude: number, longitude: number, violenceoptions: string, violencetype?:string): Promise<Occurrence> {
+//     if (!violencetype){
+//         violencetype = null
+//     }
+//     const occurrence = await prisma.occurrence.create({
+//         data:{
+//             id_user:id_user,
+//             datetime_submission: datetime_submission,
+//             State_violence: StateViolence,
+//             date_violence: date_violence,
+//             time_violence: time_violence,
+//             agegroup: agegroup,
+//             latitude: latitude,
+//             longitude: longitude,
+//             violencesoptions: violenceoptions,
+//             violencetype: violencetype,
+//         }
+//     })
+//     return occurrence
+// }
 
-async function StateOccurrence(state: ViolenceState) {
+async function StateOccurrence(state: ViolenceState): Promise<Occurrence> {
+    const {uf_state} = state;
     const occurrence = await prisma.occurrence.create({
         data:{
             id_user:null,
             datetime_submission: null,
-            State_violence: state,
+            State_violence: uf_state,
             date_violence: null,
             time_violence: null,
             agegroup: null,
@@ -82,7 +83,7 @@ async function getTable(tableName: string) {
   }
 
 export const answersRepository = {
-    createOcurrence,
+    // createOcurrence,
     getAllAnswers,
     getAnswerById,
     getTable,
