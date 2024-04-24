@@ -60,7 +60,7 @@ const FormClassifyViolencePage = () => {
         </section>
       </main>
       
-      <Footer nextPage="/map" />
+      <Footer nextPage="/thank-you" />
     </div>
   );
 };
