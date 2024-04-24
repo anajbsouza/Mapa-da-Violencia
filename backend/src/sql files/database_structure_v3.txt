@@ -56,6 +56,7 @@ CREATE TABLE IF NOT EXISTS "StateList" (
 	"id_State" bigint GENERATED ALWAYS AS IDENTITY NOT NULL UNIQUE,
 	"uf_State" text NOT NULL UNIQUE,
 	"name_State" text NOT NULL,
+	"num_Occurrences" bigint DEFAULT 0,
 	PRIMARY KEY ("id_State")
 );
 
@@ -63,7 +64,7 @@ CREATE TABLE IF NOT EXISTS "StateList" (
 
 ALTER TABLE "Occurrence" ADD CONSTRAINT "Occurrence_fk1" FOREIGN KEY ("id_user") REFERENCES "User"("id_user");
 
-ALTER TABLE "Occurrence" ADD CONSTRAINT "Occurrence_fk3" FOREIGN KEY ("State_violence") REFERENCES "StateList"("id_State");
+ALTER TABLE "Occurrence" ADD CONSTRAINT "Occurrence_fk3" FOREIGN KEY ("State_violence") REFERENCES "StateList"("uf_State");
 
 ALTER TABLE "UserOccurrences" ADD CONSTRAINT "UserOccurrences_fk0" FOREIGN KEY ("id_occurrence") REFERENCES "Occurrence"("id_occurrence");
 

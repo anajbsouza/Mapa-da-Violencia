@@ -3,7 +3,7 @@
 
 -- preenchimento statelist
 
-INSERT INTO "StateList" (uf_State, name_State) VALUES 
+INSERT INTO "StateList" ("uf_State", "name_State") VALUES 
     ('AC', 'Acre'),
     ('AL', 'Alagoas'),
     ('AP', 'Amapá'),
