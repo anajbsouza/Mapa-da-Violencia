@@ -1,8 +1,8 @@
 import { useState } from "react";
-import Indices from "../assets/index4.png";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import '../styles/FormClassifyViolencePage.css';
+import FormIndex from "../components/FormIndex";
 
 const FormClassifyViolencePage = () => {
 
@@ -33,11 +33,11 @@ const FormClassifyViolencePage = () => {
       <main>
         <section className="holepage">
           <section className="page">
-            <img src={Indices} alt="" />
+            <FormIndex value={3}/>
           </section>
 
           <section className="prompt">
-            <h3>Que situações você vivenciou durante o episódio de violência? Estamos aqui para compreender de forma gentil e acolhedora.</h3>
+            <h4>Que situações você vivenciou durante o episódio de violência? Estamos aqui para compreender de forma gentil e acolhedora.</h4>
             <p>5. Selecione situações que você identificou durante o episódio:</p>
           </section>
 

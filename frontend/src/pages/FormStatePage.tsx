@@ -1,7 +1,7 @@
-import Indices from "../assets/index2.png";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import '../styles/FormStatePage.css';
+import FormIndex from "../components/FormIndex";
 
 const FormStatePage = () => {
   return (
@@ -10,12 +10,12 @@ const FormStatePage = () => {
 
       <main>
         <section className="page">
-            <img src={Indices} alt="Índices de páginas"/>
+            <FormIndex value={1}/>
         </section>
 
-        <section className="questions">
-          <h3> Para viabilizar o trabalho realizado, informe portanto o estado onde ocorreu a violência:</h3>
-          <p>1. Qual o Estado onde ocorreu a violência?</p>
+        <section className="titles">
+          <h4> Para viabilizar o trabalho realizado, informe portanto o estado onde ocorreu a violência:</h4>
+          <p className="question">1. Qual o Estado onde ocorreu a violência?</p>
         </section>
 
         <select className="state">

@@ -1,0 +1,37 @@
+
+
+.thankyouTitles{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 12%;
+}
+
+.knowMore-Thankyou{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 5%;
+    border: 4px solid;
+    border-color: #BC88BC;
+    border-radius: 7px;
+    margin-top: 10%;
+
+    .TiPencil{
+        color: #BC88BC;
+        border: 2px solid;
+        border-radius: 80%;
+        padding: 5px;
+    }
+
+    .button-know-more{
+        border-color: transparent;
+        color: #BC88BC;
+        font-weight: bold;
+    }
+
+    .button-know-more:focus{
+        outline: none;
+    }
+}

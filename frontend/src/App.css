@@ -6,16 +6,6 @@ body {
   align-items: center;
 }
 
-header {
-  margin: 5vh;
-}
-
-.logo{
-  display: flex;
-  flex-direction: column;
-  width: 30%;
-}
-
 main{
   background-color: white;
   flex-direction: column;
@@ -26,34 +16,94 @@ main{
   height: 70vh;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); 
   padding: 24px;
+  overflow: auto;
 }
 
-.index img{
+.button-back {
   display: flex;
-  justify-content: flex-end;
-  width: 20%;
+  margin-top: -10%;
+  margin-bottom: -4%;
+  margin-left: -5%;
+  align-items: center;
+  width: -20px;
+  height: -20px;
+  border-radius: 40%;
+  background-color: transparent; 
+  border: none; 
+
+  .icon-back {
+    width: 30px; 
+    height: 30px;
+    color: white;
+  }
 }
 
-.back {
-  position: absolute;
-  z-index: 1;
-  width: 5%;
-  top: 6%;
-  left: 15%;
-  width: 40px; 
-  height: 40px; 
-  border-radius: 50%; 
-  background-color: purple;
-  border: none;
-  cursor: pointer;
-  padding: 0; 
-  display: flex; 
-  justify-content: center; 
+.button-logo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  .logo{
+    margin-top: -5%;
+    margin-bottom: 5%;
+    width: 30%;
+  }
+}
+
+.div-test{
+  background-color: white;
+  width: 500px;
+  height: 100px;
+ }
+ 
+/*Form Index*/ 
+
+ .ball-line {
+  display: flex;
+  align-items: center;
+ }
+
+ .ball {
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 50%;
+  border: 1.5px solid #612368;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #612368;
+  font-size: 0.8rem;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+ }
+
+.line {
+  height: 1.5px;
+  width: 0.5rem;
+  background-color: #612368;
+}
+ 
+.index-purple {
+  background-color: #612368;
+  color: white;
+}
+
+footer {
+  background-color: #FFCA05;
+  color: #612368;
+  position: fixed;
+  bottom: 0;
+  width: 20vw;
+  height: 5vh;
+  border-radius: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  margin-bottom: 2vh;
+  font-size: 13px;
+  display: flex;
+  justify-content: center;
   align-items: center; 
-}
-
-.back svg {
-  fill: white; 
-  width: 20px; 
-  height: 20px; 
+  text-align: center;
 }

@@ -1,37 +1,50 @@
-/*import Footer from "../components/Footer";*/
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import { FaHand } from "react-icons/fa6";
+import { IoLocationOutline } from "react-icons/io5";
+import { TiPencil } from "react-icons/ti";
+import { MdOutlineSos } from "react-icons/md";
+import { useNavigate } from 'react-router-dom';
+import '../styles/WhatToDoPage.css'
 
 const WhatToDoPage = () => {
+    const navigate = useNavigate();
     return (
-        <main>
-            <section>
-                <div>
-                    <h1>Este é o Mapa da Violência do Instituto Glória </h1>
-                    <h2>O que deseja fazer?</h2>
-                </div>
+            <div>
+                <Header />
+                <main>
+                    <section className="what-to-do">
 
-                <nav>
-                    <div>
-                        <img src="" alt="hand icon" />
-                        <p>Quero registrar uma violência</p>
-                    </div>
+                        <section className="titles-whattodo">
+                            <h4 className="intro-title">Este é o Mapa da Violência do Instituto Glória </h4>
+                            <p className="question">O que deseja fazer?</p>
+                        </section>
 
-                    <div>
-                        <img src="" alt="location icon" />
-                        <p>Quero visualizar o mapa</p>
-                    </div>
+                        <nav className="navigation">
+                            <section className="violence-registration">
+                                <FaHand className="FaHand" />
+                                <button className="button-violence" onClick={() => navigate("/authorize-localization")}>Quero registrar uma violência</button>
+                            </section>
 
-                    <div>
-                        <img src="" alt="pencil icon" />
-                        <p>Quero saber mais</p>
-                    </div>
+                            <section className="map-visualization">
+                                <IoLocationOutline className="IoLocation"/>
+                                <button className="button-map" onClick={() => navigate("/")}>Quero visualizar o mapa</button>
+                            </section>
 
-                    <div>
-                        <img src="" alt="help icon" />
-                        <p>PRECISO DE AJUDA</p>
-                    </div>
-                </nav>
-            </section>
-        </main>
+                            <section className="know-more">
+                                <TiPencil className="TiPencil"/>
+                                <button className="button-know-more" onClick={() => navigate("/violence-types")}>Quero saber mais</button>
+                            </section>
+
+                            <section className="help">
+                                <MdOutlineSos className="MdOutline"/>
+                                <button className="button-help" onClick={() => navigate("/emergency")}>PRECISO DE AJUDA</button>
+                            </section>
+                        </nav>
+                    </section>
+                </main>
+        <Footer nextPage="/form-about-violence" />
+        </div>
     );
 };
 

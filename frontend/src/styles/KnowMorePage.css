@@ -1,0 +1,32 @@
+.title-know-more{
+    text-align: center;
+    font-size: 1.25em;
+    color: black;
+}
+
+.link-items{
+    display: flex;
+    align-items: center;
+}
+
+.custom-circle-icon{
+    color:#FFCA05;
+    font-size: 3rem;
+    margin-right: 1rem;
+}
+
+.button-know{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .button-knowMore{
+        background-color: #FFCA05;
+        color: #612368;
+        font-weight: bold;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        margin-top: 10px;
+        width: 35%;
+    }
+}
+/*css incompleto, falta alinhar os itens e rotacionar os círculos*/ 

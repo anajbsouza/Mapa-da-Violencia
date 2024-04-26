@@ -1,7 +1,3 @@
-.square{
-    padding: 24px;
-}
-
 .page{
     display: flex;
     justify-content: flex-end;
@@ -13,8 +9,6 @@
 
     .text {
         text-align: left;
-        font-size: 20px;
-        font-weight: 700;
         line-height: 24.38px;
     }
 

@@ -1,7 +1,3 @@
-.holepage{
-    padding: 10px;
-}
-
 .page {
     display: flex;
     justify-content: flex-end;
@@ -10,10 +6,13 @@
 .prompt {
     display: flex;
     flex-direction: column;
-    margin-top: 10px;
-    font-size: 13px;
+    margin-bottom: -10px;
+
+    p{
+        margin-top: -2%;
+    }
 }
 
 .forms{
-    font-size: 13px;
+    font-size: 14px;
 }
