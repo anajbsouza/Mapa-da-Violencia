@@ -32,7 +32,7 @@ INSERT INTO "StateList" ("uf_State", "name_State") VALUES
     ('SE', 'Sergipe'),
     ('TO', 'Tocantins');
     
-SELECT * FROM "StateList"
+SELECT * FROM "StateList";
 
 -- preenchimento typesofviolence
 
@@ -43,7 +43,7 @@ INSERT INTO "TypesOfViolence" VALUES
 	('VT4','Violência Patrimonial'),
 	('VT5','Violência Sexual');
 
-SELECT * FROM "TypesOfViolence"
+SELECT * FROM "TypesOfViolence";
 
 -- preenchimento violencesituations 
 
