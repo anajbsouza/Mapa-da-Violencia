@@ -3,7 +3,8 @@ import 'express-async-errors';
 import cors from 'cors';
 import { handleApplicationErrors } from './middlewares/error-handling-middleware';
 import answersRouter from './routers/answers-router';
-import formStatePageRouter from './routers/FormStatePage-router';
+import formStatePageRouter from './routers/formStatePage-router';
+import formAboutViolencePageRouter from './routers/formStatePage-router';
 
 const app = express();
 
@@ -15,6 +16,7 @@ app
     .get('/health', (_req: Request, res: Response) => res.send('OK!')) // rota teste para garantir que o servidor está rodando
     .use(answersRouter)
     .use(formStatePageRouter)
+    .use(formAboutViolencePageRouter)
     .use(handleApplicationErrors)
     .listen(port, () => {
         console.log(`Servidor rodando na porta ${port}`);
