@@ -9,7 +9,11 @@ const KnowMorePage = () => {
         <section>
             <Header/>
                 <main>
-                    <h1 className="title-know-more">CONHEÇA TAMBÉM</h1>
+                    <h1 className="title-know-more">
+                        <span className='background'> 
+                            CONHEÇA TAMBÉM
+                        </span>
+                    </h1>
 
                     <section className="link-items">
                         <div className='custom-circle-icon'>
@@ -54,11 +58,11 @@ const KnowMorePage = () => {
                             <a href="https://www.mulher.df.gov.br/">https://www.mulher.df.gov.br/</a>
                         </div>
                     </section>
-
-                    <section className="button-know">
-                        <button className="button-knowMore" onClick={() => navigate("/home-page")}>Finalizar</button>
-                    </section>
                 </main>
+                
+                <section className="button-know">
+                        <button className="button-knowMore" onClick={() => navigate("/home-page")}>Finalizar</button>
+                </section>
             </section>
     );
 };
