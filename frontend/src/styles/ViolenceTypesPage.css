@@ -1,16 +1,18 @@
 .introduction{
-  padding: 5px;
+  padding: 3vh;
+  text-align: justify ;
 }
 
 .violenceMenu{
-  margin-bottom: 5px;
+  padding: 3vh;
 
   .dropdownTitle{
     font-weight: bold;
+    margin-top: -2vh;
   }
 
   .dropdownText{
-    margin-top: -10px;
+    margin-top: -2vh;
     font-size: 15px;
   }
 
