@@ -26,7 +26,6 @@ const AuthorizeLocalizationPage = () => {
         </section>
 
       </main>
-      <div className="footer-invisible"></div>
     </div>
   )};
   
