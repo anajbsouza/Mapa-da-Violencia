@@ -1,5 +1,6 @@
 // Footer.tsx
 import React from 'react';
+import '../styles/FooterForms.css'
 import { useNavigate } from 'react-router-dom';
 
 type FooterProps = {
