@@ -2,6 +2,7 @@ import '../styles/KnowMorePage.css';
 import { BiSolidCircleHalf } from "react-icons/bi";
 import Header from "../components/Header";
 import { useNavigate } from 'react-router-dom';
+import '../styles/Footer.css'
 
 const KnowMorePage = () => {
     const navigate = useNavigate();
@@ -61,7 +62,7 @@ const KnowMorePage = () => {
                 </main>
                 
                 <section className="button-know">
-                        <button className="button-knowMore" onClick={() => navigate("/home-page")}>Finalizar</button>
+                    <button className="footer" onClick={() => navigate("/home-page")}>Finalizar</button>
                 </section>
             </section>
     );

@@ -1,10 +1,13 @@
 import Header from "../components/Header";
-import Footer from "../components/Footer";
 import { useState } from 'react';
 import { IoIosArrowUp, IoIosArrowDown } from 'react-icons/io';
 import '../styles/ViolenceTypesPage.css'
+import '../styles/Footer.css'
+import { useNavigate } from 'react-router-dom';
 
 const ViolenceTypesPage = () => {
+    const navigate = useNavigate();
+
     const [openSection, setOpenSection] = useState<string | null>(null);
 
     const toggleSection = (sectionName: string) => {
@@ -77,9 +80,8 @@ const ViolenceTypesPage = () => {
                     </section>
                 </section>
 
-                <section>
-                    <Footer nextPage="/know-more" />
-                </section>
+                <button className="footer" onClick={() => navigate("/know-more")}>Finalizar</button>
+
 
             </main>
         </div>

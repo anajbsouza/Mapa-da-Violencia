@@ -1,10 +1,13 @@
-import Footer from "../components/Footer";
+import '../styles/Footer.css'
+import { useNavigate } from 'react-router-dom';
 
 const RegistrationInformationPage = () => {
+    const navigate = useNavigate();
+
     return (
-        <div>
+        <div>   
             <h1>Página de agradecimento em breve</h1>
-            <Footer nextPage="/authorize-localization" />
+            <button className="footer" onClick={() => navigate("/authorize-localization")}>Finalizar</button>
         </div>
     );
 };

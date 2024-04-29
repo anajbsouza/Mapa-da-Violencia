@@ -49,17 +49,3 @@ main{
     color: #BC88BC;
 }
 
-.button-know{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    .button-knowMore{
-        background-color: #FFCA05;
-        color: #612368;
-        font-weight: bold;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-        margin-top: 10px;
-        width: 35%;
-    }
-}
