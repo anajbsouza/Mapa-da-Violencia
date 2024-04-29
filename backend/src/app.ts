@@ -3,8 +3,7 @@ import 'express-async-errors';
 import cors from 'cors';
 import { handleApplicationErrors } from './middlewares/error-handling-middleware';
 import answersRouter from './routers/answers-router';
-import { answersRepository } from './repositories/answers-repository';
-import type { User } from '@prisma/client';
+import formStatePageRouter from './routers/FormStatePage-router';
 
 const app = express();
 
@@ -15,6 +14,7 @@ app
     .use(express.json())
     .get('/health', (_req: Request, res: Response) => res.send('OK!')) // rota teste para garantir que o servidor está rodando
     .use(answersRouter)
+    .use(formStatePageRouter)
     .use(handleApplicationErrors)
     .listen(port, () => {
         console.log(`Servidor rodando na porta ${port}`);
