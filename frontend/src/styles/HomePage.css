@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../assets/Montserrat.ttf') format('ttf'),
+    /* Adicione outros formatos de arquivo, se necessário */
+}
+
+
 body {
     background-color: #612368;
 }
@@ -17,40 +24,26 @@ body {
     .logo-home{
         width: 90%;
         border-radius: 10px;
-        margin-top: -30px;
+        margin-top: 5vh;
     }
 }
 
-.titles-home{
+.titles-home {
     color: white;
+    text-align: center; 
+    font-family: 'Monteserrat', Arial;
 
-    .main-title{
-        text-align: center;
+    .main-title {
         font-weight: bold;
-        font-size: 32px;
+        font-size: 6vh;
         margin-top: 40px;
     }
 
-    .sub-title{
-        text-align: right;
+    .sub-title {
         font-weight: lighter;
-        font-size: 18px;
-        margin-right: 10px;
-        margin-top: -30px;
+        font-size: 4vh;
+        margin: -6vh;
     }
 }
 
-.button-home{
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
-    .button-home-start{
-        background-color: #FFCA05;
-        color: #612368;
-        font-weight: bold;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-        margin-top: 200px;
-        width: 35%;
-    }
-}

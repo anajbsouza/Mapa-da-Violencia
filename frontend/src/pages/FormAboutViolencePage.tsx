@@ -1,10 +1,12 @@
 import { useState } from "react";
-import Footer from "../components/Footer";
+import { useNavigate } from 'react-router-dom';
 import Header from "../components/Header";
 import '../styles/FormAboutViolencePage.css';
+import '../styles/Footer.css'
 import FormIndex from "../components/FormIndex";
 
 const FormAboutViolencePage = () => {
+    const navigate = useNavigate();
     const [date, setDate] = useState('');
     const [time, setTime] = useState('');
     const [ageRange, setAgeRange] = useState('');
@@ -67,7 +69,7 @@ const FormAboutViolencePage = () => {
                     </div>
                 </section>
             </main>
-            <Footer nextPage="/form-classify-violence" />
+            <button className="footer" onClick={() => navigate("/form-classify-violence")}>Próximo</button>
         </div>
 
     );
