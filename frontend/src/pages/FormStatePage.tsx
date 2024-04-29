@@ -1,9 +1,12 @@
 import Header from "../components/Header";
-import Footer from "../components/Footer";
+import '../styles/Footer.css'
 import '../styles/FormStatePage.css';
 import FormIndex from "../components/FormIndex";
+import { useNavigate } from 'react-router-dom';
+
 
 const FormStatePage = () => {
+  const navigate = useNavigate();
   return (
     <div>
       <Header />
@@ -15,7 +18,7 @@ const FormStatePage = () => {
 
         <section className="titles">
           <h4> Para viabilizar o trabalho realizado, informe portanto o estado onde ocorreu a violência:</h4>
-          <p className="question">1. Qual o Estado onde ocorreu a violência?</p>
+          <p className="question-state">1. Qual o Estado onde ocorreu a violência?</p>
         </section>
 
         <select className="state">
@@ -55,7 +58,7 @@ const FormStatePage = () => {
         </section>
       </main>
 
-    <Footer nextPage="/form-about-violence" />
+      <button className="footer" onClick={() => navigate("/form-about-violence")}>Próximo</button>
 
     </div>
   );
