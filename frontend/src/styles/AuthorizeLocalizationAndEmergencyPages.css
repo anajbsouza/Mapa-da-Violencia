@@ -3,7 +3,7 @@
   margin-top: 10vh;
 
   h3 {
-    margin-top: 2.0em;
+    margin-top: 2em;
   }
 
   p {
@@ -12,6 +12,7 @@
     padding-right: 1em; 
   }
 }
+/*Authorize Localization*/
 
 .buttons-container {
   display: flex;
@@ -42,3 +43,35 @@
   background-color: #E10B0B;
 }
 
+/*Emergency */
+.buttons-container-emergency {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  margin-top: 25%; 
+
+  .green-button,
+  .red-button {
+    padding: 0.5rem 1rem; 
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 1em; 
+    font-size: 1rem; 
+    color: white;
+    margin-bottom: 5%; 
+    width: 100%; 
+  }
+
+  .green-button {
+    background-color: #21A00D;
+  }
+
+  .red-button {
+    background-color: #E10B0B;
+  }
+}
+
+.footer-invisible {
+  height: 9vh;
+}
