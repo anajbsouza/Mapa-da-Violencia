@@ -12,7 +12,7 @@ async function AboutViolenceOccurrence(aboutviolence: AboutViolence): Promise<Oc
             datetime_submission: null,
             State_violence: null,
             date_violence: date_violence,
-            time_violence: time_violence,
+            time_violence: time_violence.toISOString(),
             agegroup: agegroup,
             latitude: null,
             longitude: null,

@@ -22,5 +22,5 @@ export type AboutViolence_json = {
 export type AboutViolence = {
     date_violence: Date,
     agegroup: string,
-    time_violence: Date
+    time_violence: Date,
 };
