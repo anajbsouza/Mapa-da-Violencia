@@ -18,6 +18,7 @@ main{
 .link-items{
     display: flex;
     margin-bottom: 24px;
+    flex-direction: row;
 }
 
 .link-items p {
@@ -49,3 +50,12 @@ main{
     color: #BC88BC;
 }
 
+@media screen and (max-width: 378px) {
+    .link-items {
+        flex-direction: column; 
+    }
+
+    .custom-circle-icon{
+        display: none;
+    }
+}
