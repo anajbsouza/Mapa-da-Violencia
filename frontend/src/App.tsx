@@ -12,7 +12,6 @@ import ViolenceTypesPage from './pages/ViolenceTypesPage';
 import ThankYouPage from './pages/ThankYouPage';
 import RegistrationInformationPage from './pages/RegistrationInformationPage';
 import Mapa from './pages/MapPage'; 
-import MapPage from './pages/MapPage'; 
 
 export default function App() {
   return (
@@ -30,20 +29,6 @@ export default function App() {
             <Route path="/thank-you" element={<ThankYouPage />} />
             <Route path="/registration-information" element={<RegistrationInformationPage />} />
             <Route path="/map-page" element={<Mapa />} />
-          </Routes>
-          <Routes>
-            <Route path="/home-page" element={<HomePage />} />
-            <Route path="/authorize-localization" element={<AuthorizeLocalizationPage />} />
-            <Route path="/form-state" element={<FormStatePage />} />
-            <Route path="/map-page" element={<MapPage />} />
-            <Route path="/form-about-violence" element={<FormAboutViolencePage />} />
-            <Route path="/form-classify-violence" element={<FormClassifyViolencePage />} />
-            <Route path="/what-to-do" element={<WhatToDoPage />} />
-            <Route path="/emergency" element={<EmergencyPage />} />
-            <Route path="/know-more" element={<KnowMorePage />} />
-            <Route path="/violence-types" element={<ViolenceTypesPage />} />
-            <Route path="/thank-you" element={<ThankYouPage />} />
-            <Route path="/registration-information" element={<RegistrationInformationPage />} />
           </Routes>
     </Router>
   )
