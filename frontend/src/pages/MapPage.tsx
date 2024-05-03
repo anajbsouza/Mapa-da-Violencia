@@ -1,14 +1,21 @@
-import Header from "../components/Header";
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
+// import '../styles/MapPage.css'
 
-const MapPage = () => {
+function Mapa() {
+  return (
+    <MapContainer
+      center={[51.505, -0.09]}
+      zoom={13}
+      scrollWheelZoom={false}
+      style={{ width: '100vw', height: '100vh' }} // Adicione o estilo diretamente aqui
+    >
+      <TileLayer
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+      />
+    </MapContainer>
+  );
+}
 
-    return (
-      <div>
-        <Header />
-        <h1>Mapa em breve</h1>
-      </div>
-    );
-  };
-  
-  export default MapPage;
-  
+export default Mapa;
