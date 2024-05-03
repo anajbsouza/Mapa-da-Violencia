@@ -1,10 +1,13 @@
 {
   "dependencies": {
     "express": "^4.19.2",
+    "leaflet": "^1.9.4",
     "react-icons": "^5.0.1",
+    "react-leaflet": "^4.2.1",
     "react-router-dom": "^6.22.3"
   },
   "devDependencies": {
-    "@types/react": "^18.2.75"
+    "@types/react": "^18.2.75",
+    "@types/react-leaflet": "^3.0.0"
   }
 }
