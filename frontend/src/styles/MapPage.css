@@ -1,5 +1,24 @@
-.map-container{
-    height: 100vh;
+body{
+    background-color: transparent;
 }
 
-  
+.map-title {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 5px;
+    width: 35vw;
+    height: 5vh;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); 
+
+}
+
+.map-text{
+    color: #612368;
+    font-weight: bold;
+    text-align: center;
+    font-size: 13px;
+}
