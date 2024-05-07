@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet';
+import { IoChevronBackCircleSharp } from "react-icons/io5";
+import { useNavigate } from 'react-router-dom';
+import Logo from "../assets/logo.png"
 import 'leaflet/dist/leaflet.css';
 import { LatLng } from 'leaflet';
 import '../styles/MapPage.css';
-import Header from '../components/Header';
 
 function Mapa() {
+  const navigate = useNavigate();
   const [markerPosition, setMarkerPosition] = useState<LatLng | null>(null); 
 
   function MyComponent() {
@@ -20,6 +23,22 @@ function Mapa() {
 
   return (
     <div className="map">
+      <div className="overlay-container">
+
+        <section className="button-logo-map">
+          <img className="logo-map" src={Logo} alt="Logo da Gloria" onClick={() => navigate("/home-page")}/>
+        </section>
+
+        <button className="button-back-map" onClick={() => navigate(-1)}>
+          <IoChevronBackCircleSharp className="icon-back-map" />
+        </button>
+
+        <div className="map-title"> 
+          <p className="map-text">Marque o local</p>
+        </div>
+
+      </div>
+      
       <MapContainer
         center={[-15.794, -47.882]}
         zoom={14}
@@ -41,12 +60,6 @@ function Mapa() {
           </Marker>
         )}
 
-        <div className="overlay-container">
-          <Header /> 
-          <div className="map-title"> 
-            <p className="map-text">Marque o local</p>
-          </div>
-        </div>
       </MapContainer>
     </div>
   );

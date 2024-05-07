@@ -28,7 +28,9 @@
     font-size: 13px;
 }
 
-.button-back {
+/* Botão de Voltar */
+
+.button-back-map {
     display: block;
     align-items: flex-start;
     border-radius: 50vh; 
@@ -36,11 +38,25 @@
     border: none;
     width: 8vh;
     height: auto;
-    margin-left: 0rem;
+    margin-top: -2.8rem;
   }
 
-.icon-back {
+.icon-back-map {
     width: 8vw; 
     height: auto; 
     color: #612368;
+  }
+
+/* Botão da Logo */
+
+.button-logo-map {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+  }
+  
+.logo-map {
+    width: 25vw; 
+    height: auto;
+    margin-top: 2rem;
   }
