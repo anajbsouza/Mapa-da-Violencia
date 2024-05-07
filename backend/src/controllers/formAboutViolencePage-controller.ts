@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { AboutViolencePageService } from '../services/FormAboutViolencePage-service';
+import { AboutViolencePageService } from '../services/formAboutViolencePage-service';
 import httpStatus from 'http-status';
 import json from '../helper/json'
 

@@ -11,7 +11,7 @@ async function AboutViolenceOccurrence(aboutviolence: AboutViolence): Promise<Oc
             id_user:null,
             datetime_submission: null,
             State_violence: null,
-            date_violence: new Date(date_violence),
+            date_violence: date_violence,
             time_violence: time_violence,
             agegroup: agegroup,
             latitude: null,
