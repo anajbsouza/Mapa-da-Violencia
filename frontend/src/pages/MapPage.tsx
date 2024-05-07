@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { LatLng } from 'leaflet';
-import '../styles/MapPage.css'
+import '../styles/MapPage.css';
 import Header from '../components/Header';
 
 function Mapa() {
@@ -20,17 +20,11 @@ function Mapa() {
 
   return (
     <div className="map">
-      <Header />
-
-      <div className="map-title">
-        <p className="map-text">Marque o local</p>
-      </div>
-
       <MapContainer
         center={[-15.794, -47.882]}
         zoom={14}
-        scrollWheelZoom={false}
         style={{ width: '100vw', height: '100vh' }}
+        zoomControl={false} // Remova os controles padrão de zoom
       >
         <MyComponent /> 
 
@@ -46,6 +40,13 @@ function Mapa() {
             </Popup>
           </Marker>
         )}
+
+        <div className="overlay-container">
+          <Header /> 
+          <div className="map-title"> 
+            <p className="map-text">Marque o local</p>
+          </div>
+        </div>
       </MapContainer>
     </div>
   );
