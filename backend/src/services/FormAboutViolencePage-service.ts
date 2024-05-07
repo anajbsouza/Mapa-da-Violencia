@@ -1,55 +1,35 @@
 import { AboutViolence_json, AboutViolence} from "@/protocols";
 import { AboutViolencePageRepository } from "../repositories/formAboutViolencePage-repository";
 import { validationError } from "../errors/errors";
+import { time } from "console";
 
 async function createAboutViolenceOccur(aboutviolence_json: AboutViolence_json): Promise<any> {
     
     if (!aboutviolence_json.date_violence_s||aboutviolence_json.date_violence_s==null){
         throw validationError();
     } else if (!aboutviolence_json.agegroup||aboutviolence_json.agegroup==null) {
-
         throw validationError();
     } else if (!aboutviolence_json.time_violence_s||aboutviolence_json.time_violence_s==null) {
         throw validationError();
     }
-
-    const temp_date_violence = await stringToDate(aboutviolence_json.date_violence_s)
-    const temp_time_violence = await stringToTime(aboutviolence_json.date_violence_s,aboutviolence_json.time_violence_s)
-
-    if (!isValidDate(aboutviolence_json.date_violence_s,temp_date_violence)){
-        //pq não tá entrando aqui ???? AAAAH
-        throw validationError();
-    }
+    const date_violence = await ValidateDate(aboutviolence_json.date_violence_s);
+    const time_violence = await ValidateTime(aboutviolence_json.time_violence_s,aboutviolence_json.date_violence_s);
 
     const aboutviolence:AboutViolence = {
-        date_violence: temp_date_violence,
+        date_violence: date_violence,
         agegroup: aboutviolence_json.agegroup,
-        time_violence: temp_time_violence}
-    
+        time_violence: time_violence
+    }
+
     const newInfoOccur = await AboutViolencePageRepository.AboutViolenceOccurrence(aboutviolence);
     return newInfoOccur;
 }
 
-
-async function stringToDate(date_string:string): Promise<Date> {
-    const date = new Date(date_string);
-    const today = new Date(); //in the future could compare with the submission date
+async function ValidateTime(time_string:string,date_string:string) {
+    const aux = date_string + "" + time_string;
+    const time = new Date(aux)
+    const today = new Date() //in the future could compare with the submission date
     
-    // Verify if the date is valid
-    if (isNaN(date.getTime())) {
-        throw validationError();
-    } else if (date>today) {
-        throw validationError();
-    }
-    return date;
-}
-async function stringToTime(date_string:string,time_string:string): Promise<Date> {
-    //the time_string must be like 'T12:59:59-03:00' where -03:00 is relatible to the time zone
-    //const aux_date = '2024-01-01' //only for creating the time variable, doesn't mean anything 
-    const aux = date_string+""+time_string;
-    const time = new Date(aux);
-    const today = new Date(); //in the future could compare with the submission date
-
     if (isNaN(time.getTime())) {
         throw validationError();
     } else if (time>today) {
@@ -57,18 +37,25 @@ async function stringToTime(date_string:string,time_string:string): Promise<Date
     }
     return time;
 }
-async function isValidDate(date_string:string, date: Date):Promise<boolean> {
-    const year_s = date_string.slice(0,4);
-    const month_s = date_string.slice(5,7);
-    const day_s = date_string.slice(8,10);
 
-    const year = date.getFullYear();
-    const month = date.getMonth();
-    const day = date.getDay();
+async function ValidateDate(date_string:string) {
+    // turn into type Date and verify if is valid
+    const date = new Date(date_string)
+    const today = new Date()
 
-    return (year_s == String(year)&&month_s == String(month)&&day_s == String(day))
-    //return false
+    if (isNaN(date.getTime())) {
+        throw validationError();
+    } else if (date>today) {
+        throw validationError();
+    }
 
+    // verify if is not february 30
+    const date_ps = date.toISOString().slice(0,10)
+    
+    if (date_string != date_ps){
+        throw validationError();
+    }
+    return date;
 }
 
 export const AboutViolencePageService = {
