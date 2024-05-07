@@ -1,32 +1,61 @@
+main{
+    padding: 8px;
+} /*Cascata do main geral de 24px*/
+
+
 .title-know-more{
     text-align: center;
     font-size: 1.25em;
     color: black;
+    margin: 2em 0;
+}
+.background{
+    background-image: linear-gradient(to bottom right, white, yellow);
+    border-radius: 10px;
+    padding-right: 8px;
 }
 
 .link-items{
     display: flex;
-    align-items: center;
+    margin-bottom: 24px;
+    flex-direction: row;
+}
+
+.link-items p {
+   margin: 0;
+   font-weight: bold;
+}
+
+.link-items a {
+    color: #0D7DBC;
+    font-size: 1em;
+    opacity: 90%;
+    
 }
 
 .custom-circle-icon{
-    color:#FFCA05;
-    font-size: 3rem;
-    margin-right: 1rem;
+    font-size: 2em;
+    margin-right: 8px;  
 }
 
-.button-know{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.custom-circle-icon:nth-of-type(1){
+    color: #612368;
+}
 
-    .button-knowMore{
-        background-color: #FFCA05;
-        color: #612368;
-        font-weight: bold;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-        margin-top: 10px;
-        width: 35%;
+.custom-circle-icon:nth-of-type(2){
+    color: #F2E744;
+}
+
+.custom-circle-icon:nth-of-type(3){
+    color: #BC88BC;
+}
+
+@media screen and (max-width: 378px) {
+    .link-items {
+        flex-direction: column; 
+    }
+
+    .custom-circle-icon{
+        display: none;
     }
 }
-/*css incompleto, falta alinhar os itens e rotacionar os círculos*/ 

@@ -3,6 +3,7 @@ import Header from "../components/Header"
 import FormIndex from "../components/FormIndex";
 import { TiPencil } from "react-icons/ti";
 import '../styles/ThankYouPage.css'
+import '../styles/Footer.css'
 
 const ThankYouPage = () => {
     const navigate = useNavigate();
@@ -26,9 +27,8 @@ const ThankYouPage = () => {
                     <button className="button-know-more" onClick={() => navigate("/violence-types")}>Quero saber mais</button>
                 </section>
 
-                <footer className="footer">
-                    <h4 onClick={() => navigate("/")}>Início</h4>
-                </footer>
+                <button className="footer" onClick={() => navigate("/home-page")}>Finalizar</button>
+
             </main>
         </section>
     );

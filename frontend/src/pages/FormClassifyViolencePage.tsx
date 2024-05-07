@@ -1,11 +1,13 @@
 import { useState } from "react";
 import Header from "../components/Header";
-import Footer from "../components/Footer";
 import '../styles/FormClassifyViolencePage.css';
+import '../styles/Footer.css'
 import FormIndex from "../components/FormIndex";
+import { useNavigate } from 'react-router-dom';
+
 
 const FormClassifyViolencePage = () => {
-
+  const navigate = useNavigate();
   const [checkedItems, setCheckedItems] = useState<Record<number, boolean>>({});
 
   const options = [
@@ -18,7 +20,7 @@ const FormClassifyViolencePage = () => {
     "Chantagem ou distorção dos fatos",
     "Estupro",
     "Impedimento do uso de contraceptivo",
-    "Obrigar atos sexuais que causam desconforto",
+    "Obrigar atos sexuais",
   ];
 
   const handleChange = (position: number) => {
@@ -59,8 +61,9 @@ const FormClassifyViolencePage = () => {
           </section>
         </section>
       </main>
+      <button className="footer" onClick={() => navigate("/home-page")}>Próximo</button>
+
       
-      <Footer nextPage="/thank-you" />
     </div>
   );
 };

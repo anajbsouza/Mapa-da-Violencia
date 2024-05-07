@@ -1,8 +1,9 @@
 .question {
   text-align: center;
+  margin-top: 10vh;
 
   h3 {
-    margin-top: 2.0em;
+    margin-top: 2em;
   }
 
   p {
@@ -11,36 +12,35 @@
     padding-right: 1em; 
   }
 }
-
 /*Authorize Localization*/
 
 .buttons-container {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-top: 23%;
+  flex-direction: column;
+  align-items: center; 
+  margin-top: 10vh;
+  padding: 0 5%; 
+}
 
-  .authorize,
-  .not-authorize {
-    padding: 0.5rem 1rem; 
-    border: none;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 1em; 
-    font-size: 1rem; 
-    color: white;
-    margin-bottom: 5%; 
-    margin:2% ;
-    width: 100%; 
-  }
+.buttons-container .authorize,
+.buttons-container .not-authorize {
+  padding: 0.5rem 0; 
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 1em; 
+  font-size: 1rem; 
+  color: white;
+  margin-bottom: 5%; 
+  width: 100%; 
+}
 
-  .authorize {
-    background-color: #21A00D;
-  }
+.buttons-container .authorize {
+  background-color: #21A00D;
+}
 
-  .not-authorize {
-    background-color: #E10B0B;
-  }
+.buttons-container .not-authorize {
+  background-color: #E10B0B;
 }
 
 /*Emergency */
@@ -48,7 +48,7 @@
   display: flex;
   flex-direction: column; 
   align-items: center;
-  margin-top: 4.0em;
+  margin-top: 25%; 
 
   .green-button,
   .red-button {

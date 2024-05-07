@@ -1,33 +1,41 @@
 .titles-whattodo{
     display: flex;
     flex-direction: column;
+    text-align: center;
+    font-size: 5vw;
+    color: black;
+    margin: 2em 0;
 
     .intro-title{
-        text-align: center;
-        font-size: 16px;
-        margin-top: 12%;
+        margin-top: 1vw;
     }
 
     .question{
-        margin-top: -3%;
+        margin-top: 1vh;
     }
 }
 
+.navigation{
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 4vw;
+    margin-top: -3vh;
+}
 .violence-registration{
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding-left: 5%;
+    padding-left: 4vh;
     border: 4px solid;
     border-color: #372482;
     border-radius: 7px;
-    margin-bottom: 10px;
+    margin-bottom: 2vh;
 
     .FaHand{
         color: #372482;
         border: 2px solid;
         border-radius: 80%;
-        padding: 5px;
+        padding: 1vh;
     }
 
     .button-violence{
@@ -46,17 +54,17 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding-left: 5%;
+    padding-left: 4vh;
     border: 4px solid;
     border-color: #612368;
     border-radius: 7px;
-    margin-bottom: 10px;
+    margin-bottom: 2vh;
 
     .IoLocation{
         color: #612368;
         border: 2px solid;
         border-radius: 80%;
-        padding: 5px;
+        padding: 1vh;
     }
 
     .button-map{
@@ -75,17 +83,17 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding-left: 5%;
+    padding-left: 4vh;
     border: 4px solid;
     border-color: #BC88BC;
     border-radius: 7px;
-    margin-bottom: 10px;
+    margin-bottom: 2vh;
 
     .TiPencil{
         color: #BC88BC;
         border: 2px solid;
         border-radius: 80%;
-        padding: 5px;
+        padding: 1vh;
     }
 
     .button-know-more{
@@ -104,17 +112,17 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding-left: 5%;
+    padding-left: 4vh;
     border: 4px solid;
     border-color: #FD0000;
     border-radius: 7px;
-    margin-bottom: 10px;
+    margin-bottom: 2vh;
 
     .MdOutline{
         color: #FD0000;
         border: 2px solid;
         border-radius: 80%;
-        padding: 5px;
+        padding: 1vh;
     }
 
     .button-help{
@@ -129,4 +137,7 @@
     }
 }
 
+.footer-invisible {
+    height: 9vh;
+  }
 
