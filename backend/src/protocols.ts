@@ -24,3 +24,6 @@ export type AboutViolence = {
     agegroup: string,
     time_violence: Date,
 };
+export type ClassifyViolencePage = {
+    violencesoptions: string
+}

@@ -5,6 +5,6 @@ const formAboutViolenceRouter = express.Router();
 
 // Rotas relacionadas às respostas
 
-formAboutViolenceRouter.post('/form-about-violence', AboutViolencePageController.getAboutViolence);
+formAboutViolenceRouter.post('/form-about-violence', AboutViolencePageController.postAboutViolence);
 
 export default formAboutViolenceRouter;

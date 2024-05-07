@@ -5,6 +5,6 @@ const formStatePageRouter = express.Router();
 
 // Rotas relacionadas às respostas
 
-formStatePageRouter.post('/form-state', StatePageController.getViolenceState);
+formStatePageRouter.post('/form-state', StatePageController.postViolenceState);
 
 export default formStatePageRouter;
