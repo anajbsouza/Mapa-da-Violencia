@@ -43,7 +43,7 @@ function Mapa() {
         center={[-15.794, -47.882]}
         zoom={14}
         style={{ width: '100vw', height: '100vh' }}
-        zoomControl={false} // Remova os controles padrão de zoom
+        zoomControl={false} 
       >
         <MyComponent /> 
 
