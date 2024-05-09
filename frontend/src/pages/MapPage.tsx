@@ -9,13 +9,14 @@ import '../styles/MapPage.css';
 
 function Mapa() {
   const navigate = useNavigate();
-  const [markerPosition, setMarkerPosition] = useState<LatLng | null>(null); 
+  const [markerPosition, setMarkerPosition] = useState<LatLng | null>(null);
+  //markerPosition armazena a posição do marcador no mapa, definido inicialmente como null 
 
   function MyComponent() {
     useMapEvents({
       click(e) {
-        const { lat, lng } = e.latlng;
-        setMarkerPosition(new LatLng(lat, lng)); 
+        const { lat, lng } = e.latlng; //extrai as coordenadas lat e lng 
+        setMarkerPosition(new LatLng(lat, lng)); //cria um objeto LatLng com as coordenadas do Click e atualiza o estado markerPosition 
       },
     });
     return null;
@@ -26,26 +27,26 @@ function Mapa() {
       <div className="overlay-container">
 
         <section className="button-logo-map">
-          <img className="logo-map" src={Logo} alt="Logo da Gloria" onClick={() => navigate("/home-page")}/>
+          <img className="logo-map" src={Logo} alt="Logo da Gloria" onClick={() => navigate("/home-page")} />
         </section>
 
         <button className="button-back-map" onClick={() => navigate(-1)}>
           <IoChevronBackCircleSharp className="icon-back-map" />
         </button>
 
-        <div className="map-title"> 
+        <div className="map-title">
           <p className="map-text">Marque o local</p>
         </div>
 
       </div>
-      
-      <MapContainer
+
+      <MapContainer 
         center={[-15.794, -47.882]}
         zoom={14}
         style={{ width: '100vw', height: '100vh' }}
         zoomControl={false} // Remova os controles padrão de zoom
       >
-        <MyComponent /> 
+        <MyComponent />
 
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
