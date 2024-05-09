@@ -10,13 +10,12 @@ import '../styles/MapPage.css';
 function Mapa() {
   const navigate = useNavigate();
   const [markerPosition, setMarkerPosition] = useState<LatLng | null>(null);
-  //markerPosition armazena a posição do marcador no mapa, definido inicialmente como null 
 
   function MyComponent() {
     useMapEvents({
       click(e) {
-        const { lat, lng } = e.latlng; //extrai as coordenadas lat e lng 
-        setMarkerPosition(new LatLng(lat, lng)); //cria um objeto LatLng com as coordenadas do Click e atualiza o estado markerPosition 
+        const { lat, lng } = e.latlng; 
+        setMarkerPosition(new LatLng(lat, lng)); 
       },
     });
     return null;
