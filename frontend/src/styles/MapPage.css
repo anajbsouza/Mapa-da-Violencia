@@ -3,7 +3,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 30%;
+    height: 20%;
     z-index: 500; 
   }
   
@@ -69,7 +69,7 @@
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  background-color: #F7F2FA;
+  background-color: hsl(278, 44%, 96%);
   width: calc(80% - 50px);
   padding: 20px;
   padding-top: 5px;
@@ -77,8 +77,6 @@
   border-top-right-radius: 10px;
   box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.1);
   z-index: 500;
-  margin-left: auto;
-  margin-right: auto;
   text-align: center;
 }
 
@@ -100,6 +98,10 @@
     font-size: 2vh;
     margin-top: 2vh;
     text-align: left;
+  }
+
+  .address-style{
+    font-weight: lighter;
   }
   
   .btn-map {

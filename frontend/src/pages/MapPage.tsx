@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, useMapEvents } from 'react-leaflet';
 import { IoChevronBackCircleSharp } from "react-icons/io5";
 import { useNavigate } from 'react-router-dom';
@@ -14,20 +14,41 @@ function Mapa() {
   const navigate = useNavigate();
   const [markerPosition, setMarkerPosition] = useState<LatLng | null>(null);
   const [locationSelected, setLocationSelected] = useState(false);
+  const [address, setAddress] = useState<string>(""); 
   const customIcon = icon({
     iconUrl: LocationIcon, 
     iconSize: [28, 28], 
     iconAnchor: [16, 48], 
   });
 
+  useEffect(() => {
+    if (markerPosition) {
+      getAddressFromCoordinates(markerPosition.lat, markerPosition.lng);
+    }
+  }, [markerPosition]);
+
+  const getAddressFromCoordinates = async (lat: number, lng: number) => {
+    try {
+      const response = await fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json`);
+      const data = await response.json();
+      const { road, suburb, city, state, postcode, country } = data.address;
+      const addressParts = [road, suburb, city, state, postcode, country].filter(Boolean);
+      const address = addressParts.join(', ');
+      
+      setAddress(address);
+    } catch (error) {
+      console.error('Erro ao obter o endereço:', error);
+    }
+  };
+
   function MapEventsHandler() {
-    const map = useMapEvents({
+    useMapEvents({
       click: (e) => {
         setMarkerPosition(e.latlng); 
         setLocationSelected(true); 
       }
     });
-
+  
     return null;
   }
 
@@ -68,14 +89,14 @@ function Mapa() {
       </MapContainer>
 
       {locationSelected && (
-        <div className="occurrence-details">
-          <RxDividerHorizontal className="map-icon" />
+          <div className="occurrence-details">
+          <RxDividerHorizontal className="map-icon" onClick={() => setLocationSelected(false)} />  {/* Added onClick handler */}
           <div className="general-information">
             <p>INFORMAÇÕES GERAIS</p>
           </div>
 
           <div className="map-info">
-            <label>ENDEREÇO:</label>
+            <label>ENDEREÇO:</label> <span className="address-style">{address}</span>
           </div>
 
           <div className="map-info">
