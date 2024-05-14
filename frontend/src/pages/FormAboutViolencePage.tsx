@@ -10,6 +10,7 @@ const FormAboutViolencePage = () => {
     const [date, setDate] = useState('');
     const [time, setTime] = useState('');
     const [ageRange, setAgeRange] = useState('');
+    const [error, setError] = useState<string | null>(null);
 
     const ageRangeOptions = [
         '',
@@ -21,6 +22,15 @@ const FormAboutViolencePage = () => {
         '55 - 65',
         'Acima de 65 anos'
     ];
+
+    const handleNext = () => {
+        if (!date || !time || !ageRange) {
+            setError("Por favor, preencha todos os campos.");
+        } else {
+            setError(null);
+            navigate("/form-classify-violence");
+        }
+    };
 
     return (
         <div>
@@ -34,7 +44,7 @@ const FormAboutViolencePage = () => {
                 <section className="area-question">
                     <div className="questions">
                         <div>
-                            <h4 className="text">Sinta-se a vontade para compartilhar conosco algumas informações sobre a violência que você enfrentou.</h4>
+                            <h4 className="text">Sinta-se à vontade para compartilhar conosco algumas informações sobre a violência que você enfrentou.</h4>
                             <label htmlFor="dateInput">2. Que dia ocorreu a violência?</label>
                             <input
                                 type="date"
@@ -67,9 +77,10 @@ const FormAboutViolencePage = () => {
                             </select>
                         </div>
                     </div>
+                    {error && <p className="error">{error}</p>}
                 </section>
             </main>
-            <button className="footer" onClick={() => navigate("/form-classify-violence")}>Próximo</button>
+            <button className="footer" onClick={handleNext}>Próximo</button>
         </div>
 
     );
