@@ -27,7 +27,7 @@ const WhatToDoPage = () => {
 
                             <section className="map-visualization">
                                 <IoLocationOutline className="IoLocation"/>
-                                <button className="button-map" onClick={() => navigate("/")}>Quero visualizar o mapa</button>
+                                <button className="button-map" onClick={() => navigate("/map-page")}>Quero visualizar o mapa</button>
                             </section>
 
                             <section className="know-more">

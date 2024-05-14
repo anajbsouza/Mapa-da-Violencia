@@ -1,7 +1,12 @@
-body{
-    background-color: transparent;
-}
-
+.overlay-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 20%;
+    z-index: 500; 
+  }
+  
 .map-title {
     display: flex;
     flex-direction: column;
@@ -22,3 +27,101 @@ body{
     text-align: center;
     font-size: 13px;
 }
+
+/* Botão de Voltar */
+
+.button-back-map {
+    display: block;
+    align-items: flex-start;
+    border-radius: 50vh; 
+    background-color: transparent; 
+    border: none;
+    width: 8vh;
+    height: auto;
+    margin-top: -2.8rem;
+  }
+
+.icon-back-map {
+    width: 8vw; 
+    height: auto; 
+    color: #612368;
+  }
+
+/* Botão da Logo */
+
+.button-logo-map {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+  }
+  
+.logo-map {
+    width: 25vw; 
+    height: auto;
+    margin-top: 2rem;
+  }
+
+/* Container com informações */
+
+.occurrence-details {
+  position: fixed;
+  height: 40vh;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: hsl(278, 44%, 96%);
+  width: calc(80% - 50px);
+  padding: 20px;
+  padding-top: 5px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.1);
+  z-index: 500;
+  text-align: center;
+}
+
+  .map-icon{
+    color: grey;
+    margin-top: -80vw;
+  }
+
+  .general-information {
+    text-align: center;
+    font-weight: bold;
+    font-size: 2.5vh;
+    margin-bottom: 4vh;
+  }
+  
+  .map-info {
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 2vh;
+    margin-top: 2vh;
+    text-align: left;
+  }
+
+  .address-style{
+    font-weight: lighter;
+  }
+  
+  .btn-map {
+    text-align: center;
+    margin-top: 5vh;
+    
+  }
+  
+  .btn-finish {
+    padding: 9px 19px;
+    background-color: #FFCA05;
+    color: #612368;
+    font-weight: bold;
+    font-size: 2vh;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
+
+  }
+  
+
+  
