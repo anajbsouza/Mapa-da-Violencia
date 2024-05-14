@@ -17,6 +17,13 @@ CREATE TABLE IF NOT EXISTS "User" (
 	"id_user" text NOT NULL UNIQUE,
 	PRIMARY KEY ("id_user")
 );
+CREATE TABLE "UserIP" (
+    "id" BIGSERIAL NOT NULL,
+    "ip" TEXT NOT NULL,
+    "data" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT "UserIP_pkey" PRIMARY KEY ("id")
+);
 
 CREATE TABLE IF NOT EXISTS "ViolenceSituations" (
 	"id_violenceoption" text NOT NULL UNIQUE,
@@ -26,11 +33,11 @@ CREATE TABLE IF NOT EXISTS "ViolenceSituations" (
 
 CREATE TABLE IF NOT EXISTS "Occurrence" (
 	"id_occurrence" bigint GENERATED ALWAYS AS IDENTITY NOT NULL UNIQUE,
-	"id_user" text NOT NULL,
+	"id_user" bigint,
 	"datetime_submission" timestamp with time zone NOT NULL,
-	"State_violence" text NOT NULL,
+	"State_violence" bigint NOT NULL,
 	"date_violence" date NOT NULL,
-	"time_violence" time with time zone NOT NULL,
+	"time_violence" varchar(255) NOT NULL,
 	"agegroup" text NOT NULL,
 	"latitude" numeric(9,6) NOT NULL,
 	"longitude" numeric(9,6) NOT NULL,
@@ -47,7 +54,7 @@ CREATE TABLE IF NOT EXISTS "TypesOfViolence" (
 
 CREATE TABLE IF NOT EXISTS "UserOccurrences" (
 	"id_occurrence" bigint NOT NULL UNIQUE,
-	"id_user" text NOT NULL,
+	"id_user" bigint NOT NULL,
 	"date_violence" date NOT NULL,
 	PRIMARY KEY ("id_occurrence")
 );
@@ -62,10 +69,10 @@ CREATE TABLE IF NOT EXISTS "StateList" (
 
 
 
-ALTER TABLE "Occurrence" ADD CONSTRAINT "Occurrence_fk1" FOREIGN KEY ("id_user") REFERENCES "User"("id_user");
+ALTER TABLE "Occurrence" ADD CONSTRAINT "Occurrence_fk0" FOREIGN KEY ("id_user") REFERENCES "UserIP"("id");
 
-ALTER TABLE "Occurrence" ADD CONSTRAINT "Occurrence_fk3" FOREIGN KEY ("State_violence") REFERENCES "StateList"("uf_State");
+ALTER TABLE "Occurrence" ADD CONSTRAINT "Occurrence_fk1" FOREIGN KEY ("State_violence") REFERENCES "StateList"("id_State");
 
 ALTER TABLE "UserOccurrences" ADD CONSTRAINT "UserOccurrences_fk0" FOREIGN KEY ("id_occurrence") REFERENCES "Occurrence"("id_occurrence");
 
-ALTER TABLE "UserOccurrences" ADD CONSTRAINT "UserOccurrences_fk1" FOREIGN KEY ("id_user") REFERENCES "User"("id_user");
+ALTER TABLE "UserOccurrences" ADD CONSTRAINT "UserOccurrences_fk1" FOREIGN KEY ("id_user") REFERENCES "UserIP"("id");
