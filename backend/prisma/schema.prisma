@@ -35,6 +35,12 @@ model User {
   UserOccurrences UserOccurrences[]
 }
 
+model UserIP {
+  id    Int      @id @default(autoincrement())
+  ip    String
+  data  DateTime @default(now())
+}
+
 model UserOccurrences {
   id_occurrence BigInt     @id
   id_user       String

@@ -6,6 +6,7 @@ import answersRouter from './routers/answers-router';
 import formStatePageRouter from './routers/formStatePage-router';
 import formAboutViolencePageRouter from './routers/formAboutViolencePage-router';
 import formClassifyViolenceRouter from './routers/formClassifyViolencePage-router';
+import authorizationRouter from './routers/authorization-routers';
 
 const app = express();
 
@@ -20,5 +21,7 @@ app
     .use(formAboutViolencePageRouter)
     .use(formClassifyViolenceRouter)
     .use(handleApplicationErrors)
+    .use(authorizationRouter)
     .listen(port, () => {console.log(`Servidor rodando na porta ${port}`);});
+
 export default app;
