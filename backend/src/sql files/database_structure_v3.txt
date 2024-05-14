@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS "Occurrence" (
 	"id_occurrence" bigint GENERATED ALWAYS AS IDENTITY NOT NULL UNIQUE,
 	"id_user" text NOT NULL,
 	"datetime_submission" timestamp with time zone NOT NULL,
-	"State_violence" bigint NOT NULL,
+	"State_violence" text NOT NULL,
 	"date_violence" date NOT NULL,
 	"time_violence" time with time zone NOT NULL,
 	"agegroup" text NOT NULL,

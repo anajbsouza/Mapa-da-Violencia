@@ -10,4 +10,20 @@ export type RequestError = {
     name: string;
     message: string;
 };
-export type ViolenceState = {uf_state:string};
+export type ViolenceState = {
+    uf_state:string
+};
+export type AboutViolence_json = {
+    date_violence_s: string,
+    agegroup: string,
+    time_violence_s: string,
+};
+
+export type AboutViolence = {
+    date_violence: Date,
+    agegroup: string,
+    time_violence: Date,
+};
+export type ClassifyViolencePage = {
+    violencesoptions: string
+}

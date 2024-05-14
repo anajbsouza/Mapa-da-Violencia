@@ -102,7 +102,7 @@ async function upd_numOccurrences_StateList(state: ViolenceState){
     })
 }
 
-export const answersRepository = {
+export const StatePageRepository = {
     getTable,
     StateOccurrence,
     getListUfs,
