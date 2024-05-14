@@ -5,19 +5,15 @@ import { Decimal } from '@prisma/client/runtime/library';
 const prisma = new PrismaClient();
 
 async function AboutViolenceOccurrence(aboutviolence: AboutViolence): Promise<Occurrence> {
-    const {date_violence, agegroup,time_violence} = aboutviolence;
-    const occurrence = await prisma.occurrence.create({
+    const {id_user, date_violence, agegroup,time_violence} = aboutviolence;
+    const occurrence = await prisma.occurrence.update({
+        where: {
+            id_user: id_user
+        },
         data:{
-            id_user:null,
-            datetime_submission: null,
-            State_violence: null,
             date_violence: date_violence,
             time_violence: time_violence,
             agegroup: agegroup,
-            latitude: null,
-            longitude: null,
-            violencesoptions: null,
-            violencetype: null,
         }
     })
     return occurrence

@@ -1,5 +1,5 @@
 import { ViolenceState } from "@/protocols";
-import { StatePageRepository } from "../repositories/formSatePage-repository";
+import { StatePageRepository } from "../repositories/formStatePage-repository";
 import { validationError } from "../errors/errors";
 
 async function createStateOccur(violenceState: ViolenceState): Promise<any> {
