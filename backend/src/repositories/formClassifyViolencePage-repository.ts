@@ -3,7 +3,7 @@ import { ClassifyViolencePage } from '@/protocols';
 
 const prisma = new PrismaClient();
 
-async function ViolencesSituations(violences_situations: ClassifyViolencePage): Promise<Occurrence> {
+async function ViolencesSituations(violences_situations: ClassifyViolencePage,typeofviolence: string): Promise<Occurrence> {
     const {violencesoptions} = violences_situations;
     const occurrence = await prisma.occurrence.create({
         data:{
@@ -16,7 +16,7 @@ async function ViolencesSituations(violences_situations: ClassifyViolencePage): 
             latitude: null,
             longitude: null,
             violencesoptions: violencesoptions,
-            violencetype: null,
+            violencetype: typeofviolence,
         }
     })
     return occurrence
