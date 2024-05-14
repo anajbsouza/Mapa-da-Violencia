@@ -14,9 +14,9 @@ export function unauthorizedError(): ApplicationError {
     };
 }
 
-export function validationError(): ApplicationError {
+export function validationError(variable:string): ApplicationError {
     return {
         name: 'ValidationError',
-        message: 'Validation failed',
+        message: `Field ${variable} invalid`,
     };
 }
