@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 const FormClassifyViolencePage = () => {
   const navigate = useNavigate();
   const [checkedItems, setCheckedItems] = useState<Record<number, boolean>>({});
+  const [error, setError] = useState<string | null>(null);
 
   const options = [
     "Lesões ou ferimentos",
@@ -26,6 +27,16 @@ const FormClassifyViolencePage = () => {
   const handleChange = (position: number) => {
     const updatedCheckedState = { ...checkedItems, [position]: !checkedItems[position] };
     setCheckedItems(updatedCheckedState);
+  };
+
+  const handleNext = () => {
+    const anyChecked = Object.values(checkedItems).some((isChecked) => isChecked);
+    if (!anyChecked) {
+      setError("Por favor, selecione pelo menos uma situação de violência.");
+    } else {
+      setError(null);
+      navigate("/map-page");
+    }
   };
 
   return (
@@ -58,10 +69,11 @@ const FormClassifyViolencePage = () => {
                 </div>
               ))}
             </form>
+            {error && <p className="error">{error}</p>}
           </section>
         </section>
       </main>
-      <button className="footer" onClick={() => navigate("/home-page")}>Próximo</button>
+      <button className="footer" onClick={handleNext}>Próximo</button>
 
       
     </div>
