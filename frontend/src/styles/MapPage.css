@@ -18,14 +18,17 @@
     justify-content: center;
     margin: 0 auto;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); 
-
 }
 
-.map-text{
+.map-text {
     color: #612368;
     font-weight: bold;
     text-align: center;
     font-size: 13px;
+} 
+
+.map-tex:hover {
+  cursor: pointer;
 }
 
 /* Botão de Voltar */
@@ -123,5 +126,24 @@
 
   }
   
+/*Mapa com filtro */ 
+.filter-content {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 5px;
+  width: 35vw;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 3px;
+  padding: 2vw 0;
+}
 
-  
+.filter-content label {
+  color: #000;
+  font-weight:lighter;
+  text-align: center;
+  font-size: 15px;
+  margin-top: 2px;
+}
