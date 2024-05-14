@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import Header from "../components/Header";
 import '../styles/Footer.css'
 import '../styles/FormStatePage.css';
@@ -7,6 +8,18 @@ import { useNavigate } from 'react-router-dom';
 
 const FormStatePage = () => {
   const navigate = useNavigate();
+  const [selectedState, setSelectedState] = useState('');
+  const [error, setError] = useState<string | null>(null);
+
+  const handleNext = () => {
+    if (!selectedState) {
+      setError("Por favor, selecione o Estado.");
+    } else {
+      setError(null);
+      navigate("/form-about-violence"); 
+    }
+  };
+
   return (
     <div>
       <Header />
@@ -21,7 +34,7 @@ const FormStatePage = () => {
           <p className="question-state">1. Qual o Estado onde ocorreu a violência?</p>
         </section>
 
-        <select className="state">
+        <select className="state" value={selectedState} onChange={(e) => setSelectedState(e.target.value)}>
             <option value=""></option>
             <option value="AC">Acre</option>
             <option value="AL">Alagoas</option>
@@ -56,13 +69,13 @@ const FormStatePage = () => {
           <p>Esta informação é valiosa para nós!</p>
           <p>Estamos aqui para ajudar e garantir que você se sinta seguro e acolhido ao compartilhar sua experiência.</p>
         </section>
+        {error && <p className="error">{error}</p>}
       </main>
 
-      <button className="footer" onClick={() => navigate("/form-about-violence")}>Próximo</button>
+      <button className="footer" onClick={handleNext}>Próximo</button>
 
     </div>
   );
 };
 
 export default FormStatePage;
-

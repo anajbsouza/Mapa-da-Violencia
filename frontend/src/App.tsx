@@ -11,7 +11,8 @@ import KnowMorePage from './pages/KnowMorePage';
 import ViolenceTypesPage from './pages/ViolenceTypesPage';
 import ThankYouPage from './pages/ThankYouPage';
 import RegistrationInformationPage from './pages/RegistrationInformationPage';
-import Mapa from './pages/MapPage'; 
+import Mapa from './pages/MapPage';
+import MapFilter from './pages/MapFilterPage';
 
 export default function App() {
   return (
@@ -29,6 +30,7 @@ export default function App() {
             <Route path="/thank-you" element={<ThankYouPage />} />
             <Route path="/registration-information" element={<RegistrationInformationPage />} />
             <Route path="/map-page" element={<Mapa />} />
+            <Route path="/map-filter" element={<MapFilter />} />
           </Routes>
     </Router>
   )
