@@ -32,3 +32,8 @@ export type ClassifyViolencePage = {
     id_user:bigint,
     violencesoptions: string
 }
+export type LocalViolence = {
+    id_user: bigint,
+    latitude: number,
+    longitude: number
+};
