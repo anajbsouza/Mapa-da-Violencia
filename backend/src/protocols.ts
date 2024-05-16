@@ -12,7 +12,7 @@ export type RequestError = {
 };
 export type ViolenceState = {
     id_user: bigint,
-    uf_state:string
+    uf_state:string,
 };
 // Tipo para receber no json (json não tem tipo data)
 export type AboutViolence_json = {
@@ -37,3 +37,12 @@ export type LocalViolence = {
     latitude: number,
     longitude: number
 };
+export type Address = {
+    road: string,
+    suburb: string,
+    city: string,
+    state: string,
+    postcode: number,
+    country: string
+};
+
