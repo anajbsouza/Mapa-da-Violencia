@@ -32,9 +32,7 @@ const FormStatePage = () => {
         <section className="titles">
           <h4> Para viabilizar o trabalho realizado, informe portanto o estado onde ocorreu a violência:</h4>
           <p className="question-state">1. Qual o Estado onde ocorreu a violência?</p>
-        </section>
-
-        <select className="state" value={selectedState} onChange={(e) => setSelectedState(e.target.value)}>
+          <select className="state" value={selectedState} onChange={(e) => setSelectedState(e.target.value)}>
             <option value=""></option>
             <option value="AC">Acre</option>
             <option value="AL">Alagoas</option>
@@ -63,7 +61,18 @@ const FormStatePage = () => {
             <option value="SP">São Paulo</option>
             <option value="SE">Sergipe</option>
             <option value="TO">Tocantins</option>
-        </select>
+          </select>
+        </section>
+      
+        <section className="titles">
+          <p className="question-state">2. Qual a cidade ou onde ocorreu a violência?</p>
+          <select className="state" value={selectedState} onChange={(e) => setSelectedState(e.target.value)}>
+            <option></option>
+            <option>Opções</option>
+          </select>
+        </section>
+
+        
 
         <section className="information">
           <p>Esta informação é valiosa para nós!</p>
