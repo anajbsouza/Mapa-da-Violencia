@@ -1,13 +1,17 @@
 import { LocalViolence } from "@/protocols";
 import { Address } from "@/protocols";
 import { MapPageRepository } from "../repositories/mapPage-repository"
+import { authorizationRepository } from "../repositories/authorization-repository";
 import { validationError } from "../errors/errors";
 import express, { Request, Response } from 'express';
 
 
 async function createLocalOccur(localViolence: LocalViolence) {
     
-    if (typeof localViolence.latitude !== 'number' || localViolence.latitude == null || isNaN(localViolence.latitude)){
+    const listUsers = await authorizationRepository.getListUsers()
+    if (!(await listUsers).find(userlist => localViolence.id_user == userlist.id)){
+        throw validationError('"Id user"');
+    } else if (typeof localViolence.latitude !== 'number' || localViolence.latitude == null || isNaN(localViolence.latitude)){
         throw validationError('"Latitude of the location of the violence"');
     } 
     

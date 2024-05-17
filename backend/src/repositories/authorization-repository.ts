@@ -18,7 +18,16 @@ async function createOccur(userIP: UserIP): Promise<Occurrence>{
         }
     })
 }
+async function getListUsers() {
+    const listUsers = await prisma.userIP.findMany({
+        select:{
+            id: true
+        }
+    })
+    return listUsers;
+}
 export const authorizationRepository ={
     saveIP,
-    createOccur
+    createOccur,
+    getListUsers
 }
