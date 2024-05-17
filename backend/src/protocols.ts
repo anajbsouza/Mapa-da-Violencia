@@ -46,3 +46,9 @@ export type Address = {
     country: string
 };
 
+export type InfoViolence = {
+    type_violence: string,
+    time_violence: Date,
+    date_violence: Date
+}
+

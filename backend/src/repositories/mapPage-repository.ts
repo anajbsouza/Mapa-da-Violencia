@@ -19,36 +19,24 @@ async function LocalOccurrence(local: LocalViolence) {
     return occurrence
 }
 
-async function getTable(tableName: string) {
-  
-    try {
-        // Conectar ao banco de dados
-        await prisma.$connect();
-
-        // Verificar se a tabela existe no modelo Prisma
-        if (!(tableName in prisma)) {
-            throw new Error(`Tabela "${tableName}" não encontrada no modelo Prisma.`);
+async function getInfoViolence(id_user:bigint) {
+    console.log(id_user)
+    const infoviolence = await prisma.occurrence.findUnique({
+        where: {
+            id_user: id_user
+        },
+        select: {
+            violencetype: true,
+            time_violence: true,
+            date_violence: true
         }
-
-        // Consultar todas as linhas da tabela desejada
-        const tableRows = await prisma[tableName].findMany();
-  
-        // Imprimir as linhas da tabela
-        console.log(`TableName: ${tableName}`)
-        console.log('Linhas da tabela:');
-        console.table(tableRows);
-        return tableRows;
-
-    } catch (error) {
-        console.error('Ocorreu um erro:', error);
-
-    } finally {
-        // Desconectar do banco de dados
-        await prisma.$disconnect();
-    }
-  }
+    });
+    console.log(infoviolence)
+    return infoviolence;
+}
 
 export const MapPageRepository = {
-   LocalOccurrence
+   LocalOccurrence,
+   getInfoViolence
 }
 

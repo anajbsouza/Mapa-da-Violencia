@@ -11,15 +11,14 @@ async function postLocalViolence(req: Request, res: Response){
     return res.status(httpStatus.CREATED).send(json(local));
 }
 
-async function getAddressViolence(req: Request, res: Response) {
-    
-    const address = await MapPageService.handleReceivedAddress(req.body);
+async function getInfoViolence(req: Request, res: Response) {
+    const infoViolence = await MapPageService.getInfoViolence(req.body);
 
-    return res.status(httpStatus.OK).send(json(address));
+    return res.status(httpStatus.OK).send(json(infoViolence));
 }
 
 
 export const MapPageController = {
     postLocalViolence,
-    getAddressViolence
+    getInfoViolence
 }

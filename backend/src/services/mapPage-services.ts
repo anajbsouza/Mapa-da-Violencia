@@ -54,11 +54,21 @@ async function handleReceivedAddress(address: Address) {
 
     return address;
 }
-
+async function getInfoViolence(user: {id_user:bigint}){
+    const {id_user} = user;
+    const listUsers = await authorizationRepository.getListUsers()
+    if (!(await listUsers).find(userlist => id_user == userlist.id)){
+        throw validationError('"Id user"');
+    }
+    console.log("ok")
+    const infoviolence = await MapPageRepository.getInfoViolence(id_user)
+    return infoviolence
+}
 
 
 export const MapPageService = {
     createLocalOccur,
-    handleReceivedAddress
+    handleReceivedAddress,
+    getInfoViolence
 }
 
