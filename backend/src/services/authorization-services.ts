@@ -3,6 +3,7 @@ import { authorizationRepository } from "../repositories/authorization-repositor
 async function getUserIP(ip: string) {
     try {
         const userIP = await authorizationRepository.saveIP(ip);
+        const occurrence = await authorizationRepository.createOccur(userIP)
         return userIP;
     } catch (error) {
         console.error("Erro no Service:", error);

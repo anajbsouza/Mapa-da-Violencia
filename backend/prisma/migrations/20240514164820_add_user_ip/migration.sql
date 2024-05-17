@@ -1,0 +1,8 @@
+-- CreateTable
+CREATE TABLE "UserIP" (
+    "id" SERIAL NOT NULL,
+    "ip" TEXT NOT NULL,
+    "data" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT "UserIP_pkey" PRIMARY KEY ("id")
+);

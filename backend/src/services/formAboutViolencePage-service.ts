@@ -16,6 +16,7 @@ async function createAboutViolenceOccur(aboutviolence_json: AboutViolence_json):
     const time_violence = await ValidateTime(aboutviolence_json.time_violence_s,aboutviolence_json.date_violence_s);
 
     const aboutviolence:AboutViolence = {
+        id_user: aboutviolence_json.id_user,
         date_violence: date_violence,
         agegroup: aboutviolence_json.agegroup,
         time_violence: time_violence
