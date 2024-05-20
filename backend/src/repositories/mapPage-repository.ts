@@ -19,6 +19,7 @@ async function LocalOccurrence(local: LocalViolence) {
     return occurrence
 }
 
+// busca um tipo de ocorrência de violência associada a um usuário específico no banco de dados, imprime essas informações para depuração e retorna os dados encontrados.
 async function getInfoViolence(id_user:bigint) {
     console.log(id_user)
     const infoviolence = await prisma.occurrence.findUnique({

@@ -37,14 +37,6 @@ export type LocalViolence = {
     latitude: number,
     longitude: number
 };
-export type Address = {
-    road: string,
-    suburb: string,
-    city: string,
-    state: string,
-    postcode: number,
-    country: string
-};
 
 export type InfoViolence = {
     type_violence: string,
