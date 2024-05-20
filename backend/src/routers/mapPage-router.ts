@@ -7,6 +7,6 @@ const mapPageRouter = express.Router();
 
 mapPageRouter.post('/map-page', MapPageController.postLocalViolence);
 
-mapPageRouter.get('/map-page', MapPageController.getInfoViolence);
+mapPageRouter.get('/map-page/:id_user', MapPageController.getInfoViolence);
 
 export default mapPageRouter;
