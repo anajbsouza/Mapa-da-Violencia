@@ -61,3 +61,11 @@ model StateList {
   num_Occurrences BigInt?      @default(0)
   Occurrence      Occurrence[]
 }
+
+model Access {
+  id          Int      @id @default(autoincrement())
+  fingerprint String
+  latitude    Decimal  @db.Decimal(9, 6)
+  longitude   Decimal  @db.Decimal(9, 6)
+  createdAt   DateTime @default(now())
+}
