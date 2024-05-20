@@ -1,5 +1,4 @@
 import Header from "../components/Header";
-import Footer from "../components/Footer";
 import { FaHand } from "react-icons/fa6";
 import { IoLocationOutline } from "react-icons/io5";
 import { TiPencil } from "react-icons/ti";
@@ -23,12 +22,12 @@ const WhatToDoPage = () => {
                         <nav className="navigation">
                             <section className="violence-registration">
                                 <FaHand className="FaHand" />
-                                <button className="button-violence" onClick={() => navigate("/authorize-localization")}>Quero registrar uma violência</button>
+                                <button className="button-violence" onClick={() => navigate("/authorize-localization")}>Quero fazer um registro</button>
                             </section>
 
                             <section className="map-visualization">
                                 <IoLocationOutline className="IoLocation"/>
-                                <button className="button-map" onClick={() => navigate("/")}>Quero visualizar o mapa</button>
+                                <button className="button-map" onClick={() => navigate("/map-page")}>Quero visualizar o mapa</button>
                             </section>
 
                             <section className="know-more">
@@ -43,7 +42,6 @@ const WhatToDoPage = () => {
                         </nav>
                     </section>
                 </main>
-        <Footer nextPage="/form-about-violence" />
         </div>
     );
 };

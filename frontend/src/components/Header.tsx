@@ -2,8 +2,6 @@ import Logo from "../assets/logo.png"
 import { useNavigate } from "react-router-dom";
 import { IoChevronBackCircleSharp } from "react-icons/io5";
 
-
-
 const Header = () => {
     let navigate = useNavigate();
 

@@ -1,12 +1,15 @@
 import { useState } from "react";
 import Header from "../components/Header";
-import Footer from "../components/Footer";
 import '../styles/FormClassifyViolencePage.css';
+import '../styles/Footer.css'
 import FormIndex from "../components/FormIndex";
+import { useNavigate } from 'react-router-dom';
+
 
 const FormClassifyViolencePage = () => {
-
+  const navigate = useNavigate();
   const [checkedItems, setCheckedItems] = useState<Record<number, boolean>>({});
+  const [error, setError] = useState<string | null>(null);
 
   const options = [
     "Lesões ou ferimentos",
@@ -18,12 +21,22 @@ const FormClassifyViolencePage = () => {
     "Chantagem ou distorção dos fatos",
     "Estupro",
     "Impedimento do uso de contraceptivo",
-    "Obrigar atos sexuais que causam desconforto",
+    "Obrigar atos sexuais",
   ];
 
   const handleChange = (position: number) => {
     const updatedCheckedState = { ...checkedItems, [position]: !checkedItems[position] };
     setCheckedItems(updatedCheckedState);
+  };
+
+  const handleNext = () => {
+    const anyChecked = Object.values(checkedItems).some((isChecked) => isChecked);
+    if (!anyChecked) {
+      setError("Por favor, selecione pelo menos uma situação de violência.");
+    } else {
+      setError(null);
+      navigate("/map-page");
+    }
   };
 
   return (
@@ -56,11 +69,13 @@ const FormClassifyViolencePage = () => {
                 </div>
               ))}
             </form>
+            {error && <p className="error">{error}</p>}
           </section>
         </section>
       </main>
+      <button className="footer" onClick={handleNext}>Próximo</button>
+
       
-      <Footer nextPage="/map" />
     </div>
   );
 };

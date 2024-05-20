@@ -1,9 +1,25 @@
+import React, { useState } from "react";
 import Header from "../components/Header";
-import Footer from "../components/Footer";
+import '../styles/Footer.css'
 import '../styles/FormStatePage.css';
 import FormIndex from "../components/FormIndex";
+import { useNavigate } from 'react-router-dom';
+
 
 const FormStatePage = () => {
+  const navigate = useNavigate();
+  const [selectedState, setSelectedState] = useState('');
+  const [error, setError] = useState<string | null>(null);
+
+  const handleNext = () => {
+    if (!selectedState) {
+      setError("Por favor, selecione o Estado.");
+    } else {
+      setError(null);
+      navigate("/form-about-violence"); 
+    }
+  };
+
   return (
     <div>
       <Header />
@@ -15,10 +31,8 @@ const FormStatePage = () => {
 
         <section className="titles">
           <h4> Para viabilizar o trabalho realizado, informe portanto o estado onde ocorreu a violência:</h4>
-          <p className="question">1. Qual o Estado onde ocorreu a violência?</p>
-        </section>
-
-        <select className="state">
+          <p className="question-state">1. Qual o Estado onde ocorreu a violência?</p>
+          <select className="state" value={selectedState} onChange={(e) => setSelectedState(e.target.value)}>
             <option value=""></option>
             <option value="AC">Acre</option>
             <option value="AL">Alagoas</option>
@@ -47,19 +61,30 @@ const FormStatePage = () => {
             <option value="SP">São Paulo</option>
             <option value="SE">Sergipe</option>
             <option value="TO">Tocantins</option>
-        </select>
+          </select>
+        </section>
+      
+        <section className="titles">
+          <p className="question-state">2. Qual a cidade ou onde ocorreu a violência?</p>
+          <select className="state" value={selectedState} onChange={(e) => setSelectedState(e.target.value)}>
+            <option></option>
+            <option>Opções</option>
+          </select>
+        </section>
+
+        
 
         <section className="information">
           <p>Esta informação é valiosa para nós!</p>
           <p>Estamos aqui para ajudar e garantir que você se sinta seguro e acolhido ao compartilhar sua experiência.</p>
         </section>
+        {error && <p className="error">{error}</p>}
       </main>
 
-    <Footer nextPage="/form-about-violence" />
+      <button className="footer" onClick={handleNext}>Próximo</button>
 
     </div>
   );
 };
 
 export default FormStatePage;
-

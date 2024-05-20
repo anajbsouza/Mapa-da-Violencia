@@ -1,37 +1,16 @@
-/// <reference lib="es2015" />
+import {Request, Response } from 'express';
+import { authorizationService } from '../services/authorization-services';
+import httpStatus from 'http-status';
+import json from '../helper/json'
 
-import { Request, Response } from 'express';
-import { authorizationService } from '@/services/authorization-services';
+async function postAuthorized (req: Request, res: Response): Promise<void>{
+    const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
+    const acesso = await authorizationService.getUserIP(ip as string);
+    // res.json({ message: "IP recebido e consentimento registrado.", acesso });
 
-async function getAuthorized(req: Request, res: Response): Promise<void> {
-    return new Promise((resolve, reject) => {
-        if ('geolocation' in navigator) {
-            navigator.geolocation.getCurrentPosition((position) => {
-                console.log(position);
-                resolve('Localização obtida com sucesso!');
-            }, (error) => {
-                console.log(error);
-                reject('Erro ao obter localização.');
-            });
-        } else {
-            reject('Geolocalização não suportada pelo navegador.');
-        }
-    })
-    .then((message) => {
-        console.log(message);
-        res.status(200).send('Localização obtida e armazenada com sucesso.');
-    })
-    .catch((errorMessage) => {
-        console.error(errorMessage);
-        res.status(500).send('Erro ao obter localização.');
-    });
-}
-
-async function postAuthorized(req: Request, res: Response): Promise<void> {
-    // Implemente a função conforme necessário
+    res.status(httpStatus.CREATED).send(json(acesso));
 }
 
 export const authorizationController = {
-    getAuthorized,
     postAuthorized
-};
+}

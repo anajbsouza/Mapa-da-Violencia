@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { answersService } from '../services/answers-service';
-import { answersRepository } from '../repositories/answers-repository';
-
+import httpStatus from 'http-status';
+import json from '../helper/json'
 
 async function create(req: Request, res: Response): Promise<void> {
     // Implementar a lógica para criar uma nova resposta
@@ -9,7 +9,6 @@ async function create(req: Request, res: Response): Promise<void> {
 
 async function getAll(req: Request, res: Response): Promise<void> {
     // Implementar a lógica para obter todas as respostas
-    answersRepository.getTable('user')
 }
 
 async function getById(req: Request, res: Response): Promise<void> {
@@ -19,5 +18,5 @@ async function getById(req: Request, res: Response): Promise<void> {
 export const answersController = {
     create,
     getAll,
-    getById
+    getById,
 }

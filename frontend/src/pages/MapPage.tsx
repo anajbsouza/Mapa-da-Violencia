@@ -1,14 +1,123 @@
-import Header from "../components/Header";
+import React, { useState, useEffect } from 'react';
+import { MapContainer, TileLayer, Marker, useMapEvents } from 'react-leaflet';
+import { IoChevronBackCircleSharp } from "react-icons/io5";
+import { useNavigate } from 'react-router-dom';
+import { RxDividerHorizontal } from "react-icons/rx";
+import Logo from "../assets/logo.png"
+import 'leaflet/dist/leaflet.css';
+import { LatLng } from 'leaflet';
+import { icon } from 'leaflet';
+import LocationIcon from "../assets/location_icon.png"; 
+import '../styles/MapPage.css';
 
-const MapPage = () => {
+function Mapa() {
+  const navigate = useNavigate();
+  const [markerPosition, setMarkerPosition] = useState<LatLng | null>(null);
+  const [locationSelected, setLocationSelected] = useState(false);
+  const [address, setAddress] = useState<string>(""); 
+  const customIcon = icon({
+    iconUrl: LocationIcon, 
+    iconSize: [28, 28], 
+    iconAnchor: [16, 48], 
+  });
 
-    return (
-      <div>
-        <Header />
-        <h1>Mapa em breve</h1>
-      </div>
-    );
+  useEffect(() => {
+    if (markerPosition) {
+      getAddressFromCoordinates(markerPosition.lat, markerPosition.lng);
+    }
+  }, [markerPosition]);
+
+  const getAddressFromCoordinates = async (lat: number, lng: number) => {
+    try {
+      const response = await fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json`);
+      const data = await response.json();
+      const { road, suburb, city, state, postcode, country } = data.address;
+      const addressParts = [road, suburb, city, state, postcode, country].filter(Boolean);
+      const address = addressParts.join(', ');
+      
+      setAddress(address);
+    } catch (error) {
+      console.error('Erro ao obter o endereço:', error);
+    }
   };
+
+  function MapEventsHandler() {
+    useMapEvents({
+      click: (e) => {
+        setMarkerPosition(e.latlng); 
+        setLocationSelected(true); 
+      }
+    });
   
-  export default MapPage;
-  
+    return null;
+  }
+
+  return (
+    <div className="map">
+      <div className="overlay-container">
+        <section className="button-logo-map">
+          <img className="logo-map" src={Logo} alt="Logo da Gloria" onClick={() => navigate("/home-page")} />
+        </section>
+
+        <button className="button-back-map" onClick={() => navigate(-1)}>
+          <IoChevronBackCircleSharp className="icon-back-map" />
+        </button>
+
+        <div className="map-title">
+          <p className="map-text">{locationSelected ? 'Local selecionado' : 'Marque o local'}</p>
+        </div>
+      </div>
+
+      <MapContainer
+        center={[-15.794, -47.882]}
+        zoom={14}
+        style={{ width: '100vw', height: '100vh' }}
+        zoomControl={false}
+      >
+        <MapEventsHandler /> 
+
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+
+        {markerPosition && (
+          <Marker position={markerPosition} icon={customIcon}>
+          </Marker>
+        )}
+
+      </MapContainer>
+
+      {locationSelected && (
+          <div className="occurrence-details">
+          <RxDividerHorizontal className="map-icon" onClick={() => setLocationSelected(false)} />  {/* Added onClick handler */}
+          <div className="general-information">
+            <p>INFORMAÇÕES GERAIS</p>
+          </div>
+
+          <div className="map-info">
+            <label>ENDEREÇO:</label> <span className="address-style">{address}</span>
+          </div>
+
+          <div className="map-info">
+            <label>TIPO DE VIOLÊNCIA:</label>
+          </div>
+
+          <div className="map-info">
+            <label>HORÁRIO RELATADO:</label>
+          </div>
+
+          <div className="map-info">
+            <label>DATA DO OCORRIDO:</label>
+          </div>
+
+          <div className="btn-map">
+            <button className="btn-finish">Finalizar</button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default Mapa;

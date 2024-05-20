@@ -6,7 +6,6 @@ const answersRouter = express.Router();
 // Rotas relacionadas às respostas
 
 answersRouter.post('/', answersController.create);
-answersRouter.get('/', answersController.getAll);
 answersRouter.get('/:id', answersController.getById);
 
 
