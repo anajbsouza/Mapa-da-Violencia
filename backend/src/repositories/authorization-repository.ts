@@ -5,9 +5,9 @@ const prisma = new PrismaClient();
 async function saveAccess(fingerprint: string, latitude: number, longitude: number) {
     return await prisma.access.create({
         data: {
-            fingerprint,
-            latitude,
-            longitude,
+            fingerprint: fingerprint,
+            latitude: latitude,
+            longitude: longitude,
         },
     });
 }

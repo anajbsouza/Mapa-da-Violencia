@@ -19,7 +19,6 @@ model Occurrence {
   longitude           Decimal?          @db.Decimal(9, 6)
   violencesoptions    String?
   violencetype        String?
-  User                UserIP           @relation(fields: [id_user], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "Occurrence_fk1")
   StateList           StateList?        @relation(fields: [State_violence], references: [uf_State], onDelete: NoAction, onUpdate: NoAction, map: "Occurrence_fk3")
   UserOccurrences     UserOccurrences?
 }
@@ -33,20 +32,11 @@ model User {
   id_user String @id
 }
 
-model UserIP {
-  id              BigInt            @id @default(autoincrement())
-  ip              String
-  data            DateTime          @default(now())
-  Occurrence      Occurrence[]
-  UserOccurrences UserOccurrences[]
-}
-
 model UserOccurrences {
   id_occurrence BigInt     @id
   id_user       BigInt
   date_violence DateTime   @db.Date
   Occurrence    Occurrence @relation(fields: [id_occurrence], references: [id_occurrence], onDelete: NoAction, onUpdate: NoAction, map: "UserOccurrences_fk0")
-  User          UserIP     @relation(fields: [id_user], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "UserOccurrences_fk1")
 }
 
 model ViolenceSituations {
@@ -63,9 +53,9 @@ model StateList {
 }
 
 model Access {
-  id          Int      @id @default(autoincrement())
-  fingerprint String
+  id          BigInt   @id @default(autoincrement())
+  fingerprint String   @db.VarChar(255)
   latitude    Decimal  @db.Decimal(9, 6)
   longitude   Decimal  @db.Decimal(9, 6)
-  createdAt   DateTime @default(now())
+  createdat   DateTime @default(now()) @db.Timestamptz(6)
 }
