@@ -1,24 +1,17 @@
-import { Occurrence, PrismaClient, UserIP } from '@prisma/client';
+import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
-async function saveIP(ip: string) {
-    return await prisma.userIP.create({
+async function saveAccess(fingerprint: string, latitude: number, longitude: number) {
+    return await prisma.access.create({
         data: {
-            ip: ip,
+            fingerprint: fingerprint,
+            latitude: latitude,
+            longitude: longitude,
         },
     });
 }
-async function createOccur(userIP: UserIP): Promise<Occurrence>{
-    const {id,ip,data} = userIP
-    return await prisma.occurrence.create({
-        data: {
-            id_user: id,
-            datetime_submission: data
-        }
-    })
-}
-export const authorizationRepository ={
-    saveIP,
-    createOccur
-}
+
+export const authorizationRepository = {
+    saveAccess
+};
