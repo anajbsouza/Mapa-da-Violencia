@@ -1,16 +1,15 @@
 import { authorizationRepository } from "../repositories/authorization-repository";
 
-async function getUserIP(ip: string) {
+async function registerAccess(fingerprint: string, latitude: number, longitude: number) {
     try {
-        const userIP = await authorizationRepository.saveIP(ip);
-        const occurrence = await authorizationRepository.createOccur(userIP)
-        return userIP;
+        const access = await authorizationRepository.saveAccess(fingerprint, latitude, longitude);
+        return access;
     } catch (error) {
         console.error("Erro no Service:", error);
-        throw new Error("Erro ao salvar IP no banco de dados.");
+        throw new Error("Erro ao salvar dados de acesso no banco de dados.");
     }
 }
 
 export const authorizationService = {
-    getUserIP
-}
+    registerAccess
+};

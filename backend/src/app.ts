@@ -6,7 +6,7 @@ import answersRouter from './routers/answers-router';
 import formStatePageRouter from './routers/formStatePage-router';
 import formAboutViolencePageRouter from './routers/formAboutViolencePage-router';
 import formClassifyViolenceRouter from './routers/formClassifyViolencePage-router';
-import authorizationRouter from './routers/authorization-routers';
+import authorizationRouter from './routers/authorization-router';
 import mapPageRouter from './routers/mapPage-router';
 
 const app = express();

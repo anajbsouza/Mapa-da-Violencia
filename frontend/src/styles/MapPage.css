@@ -12,7 +12,7 @@
     flex-direction: column;
     background-color: white;
     border-radius: 5px;
-    width: 35vw;
+    width: 40vw;
     height: 5vh;
     align-items: center;
     justify-content: center;
@@ -129,21 +129,92 @@
 /*Mapa com filtro */ 
 .filter-content {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   background-color: white;
   border-radius: 5px;
   width: 35vw;
-  align-items: center;
-  justify-content: center;
   margin: 0 auto;
   margin-top: 3px;
-  padding: 2vw 0;
+  padding: 1vw 0;
+}
+
+.filter-content span {
+  display: flex;
+  flex-direction: column;
+  align-items: center
 }
 
 .filter-content label {
+  width: 100%;
   color: #000;
   font-weight:lighter;
-  text-align: center;
   font-size: 15px;
   margin-top: 2px;
+}
+
+.select-filter-content{
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  border-radius: 5px;
+  width: 35vw;
+  margin: 0 auto;
+  margin-top: 3px;
+  padding: 1vw 0;
+  font-weight: lighter;
+  text-align: center;
+  font-size: 12px;
+}
+
+.select-filter-content span { 
+  font-weight: bold;
+  padding-right: 2px;
+}
+
+.map-filter-container{ 
+  display: flex;
+  align-items: center;
+}
+/* Botão selecionar filtro */ 
+
+.filter-button-select {
+  margin-top: 10px; 
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.filter-button-select:hover,
+.filter-button-select:focus,
+.filter-button-select:active {
+    font-size: 14px;
+    outline: none; 
+    background-color: transparent;
+}
+
+/* Botão filtro responsivo */ 
+@media (max-width: 768px) {
+  .filter-content {
+      padding: 10px;
+  }
+  .filter-button-select {
+      width: 100%;
+      padding: 10px;
+      font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .filter-button-select {
+      font-size: 12px;
+      padding: 8px;
+  }
+}
+
+@media (max-width: 830px) {
+  .select-filter-content {
+    flex-direction: column;
+    align-items: center;
+  } 
 }
