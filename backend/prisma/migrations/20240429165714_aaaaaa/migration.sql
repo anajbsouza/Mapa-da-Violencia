@@ -1,16 +1,16 @@
 -- CreateTable
 CREATE TABLE "Occurrence" (
     "id_occurrence" BIGSERIAL NOT NULL,
-    "id_user" TEXT NOT NULL,
-    "datetime_submission" TIMESTAMPTZ(6) NOT NULL,
-    "State_violence" BIGINT NOT NULL,
-    "date_violence" DATE NOT NULL,
-    "time_violence" VARCHAR(255) NOT NULL,
-    "agegroup" TEXT NOT NULL,
-    "latitude" DECIMAL(9,6) NOT NULL,
-    "longitude" DECIMAL(9,6) NOT NULL,
-    "violencesoptions" TEXT NOT NULL,
+    "id_user" TEXT,
+    "datetime_submission" TIMESTAMPTZ(6),
+    "State_violence" TEXT,
+    "date_violence" DATE,
+    "agegroup" TEXT,
+    "latitude" DECIMAL(9,6),
+    "longitude" DECIMAL(9,6),
+    "violencesoptions" TEXT,
     "violencetype" TEXT,
+    "time_violence" VARCHAR(255),
 
     CONSTRAINT "Occurrence_pkey" PRIMARY KEY ("id_occurrence")
 );
@@ -52,6 +52,7 @@ CREATE TABLE "StateList" (
     "id_State" BIGSERIAL NOT NULL,
     "uf_State" TEXT NOT NULL,
     "name_State" TEXT NOT NULL,
+    "num_Occurrences" BIGINT DEFAULT 0,
 
     CONSTRAINT "StateList_pkey" PRIMARY KEY ("id_State")
 );
@@ -63,10 +64,7 @@ CREATE UNIQUE INDEX "StateList_uf_State_key" ON "StateList"("uf_State");
 ALTER TABLE "Occurrence" ADD CONSTRAINT "Occurrence_fk1" FOREIGN KEY ("id_user") REFERENCES "User"("id_user") ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- AddForeignKey
-ALTER TABLE "Occurrence" ADD CONSTRAINT "Occurrence_fk3" FOREIGN KEY ("State_violence") REFERENCES "StateList"("id_State") ON DELETE NO ACTION ON UPDATE NO ACTION;
-
--- AddForeignKey
-ALTER TABLE "UserOccurrences" ADD CONSTRAINT "UserOccurrences_fk0" FOREIGN KEY ("id_occurrence") REFERENCES "Occurrence"("id_occurrence") ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE "Occurrence" ADD CONSTRAINT "Occurrence_fk3" FOREIGN KEY ("State_violence") REFERENCES "StateList"("uf_State") ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- AddForeignKey
 ALTER TABLE "UserOccurrences" ADD CONSTRAINT "UserOccurrences_fk1" FOREIGN KEY ("id_user") REFERENCES "User"("id_user") ON DELETE NO ACTION ON UPDATE NO ACTION;
