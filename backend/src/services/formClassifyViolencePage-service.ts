@@ -1,9 +1,14 @@
 import { ClassifyViolencePage } from '@/protocols';
 import { validationError } from "../errors/errors";
 import { ClassifyViolencePageRepository } from "../repositories/formClassifyViolencePage-repository";
+import { authorizationRepository } from "../repositories/authorization-repository";
 
 async function createViolencesSituationsOccur(classifyviolencepage: ClassifyViolencePage) {
-    if (!classifyviolencepage.violencesoptions||classifyviolencepage.violencesoptions==null){
+    
+    const listUsers = await authorizationRepository.getListUsers()
+    if (!(await listUsers).find(userlist => classifyviolencepage.id_user == userlist.id)){
+        throw validationError('"Id user"');
+    } else if (!classifyviolencepage.violencesoptions||classifyviolencepage.violencesoptions==null){
         throw validationError('"Violence Situations"');
     } else if (classifyviolencepage.violencesoptions == ""){
         throw validationError('"Violence Situations"');
@@ -58,7 +63,7 @@ async function IdentifyTypeOfViolence(violencesoptions:string): Promise<string> 
         }
     }
     const classifyviolence = classifyviolence_aux.filter(onlyUnique).sort();
-    console.log(classifyviolence)
+    // console.log(classifyviolence)
     return classifyviolence.join(", ");
 }
 

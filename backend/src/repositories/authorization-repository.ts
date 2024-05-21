@@ -11,7 +11,15 @@ async function saveAccess(fingerprint: string, latitude: number, longitude: numb
         },
     });
 }
-
-export const authorizationRepository = {
-    saveAccess
-};
+async function getListUsers() {
+    const listUsers = await prisma.userIP.findMany({
+        select:{
+            id: true
+        }
+    })
+    return listUsers;
+}
+export const authorizationRepository ={
+    saveAccess,
+    getListUsers
+}
