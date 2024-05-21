@@ -20,6 +20,7 @@ function MapFilter() {
     const checkboxes = document.querySelectorAll('.filter-content input[type="checkbox"]:checked');
     const filters = Array.from(checkboxes).map(checkbox => checkbox.parentElement?.textContent?.trim() || '');
     setSelectedFilters(filters);
+    setIsFilterVisible(false);
   };
 
   function MyComponent() {
