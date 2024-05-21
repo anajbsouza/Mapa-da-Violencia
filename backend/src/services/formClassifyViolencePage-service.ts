@@ -63,7 +63,7 @@ async function IdentifyTypeOfViolence(violencesoptions:string): Promise<string> 
         }
     }
     const classifyviolence = classifyviolence_aux.filter(onlyUnique).sort();
-    console.log(classifyviolence)
+    // console.log(classifyviolence)
     return classifyviolence.join(", ");
 }
 
