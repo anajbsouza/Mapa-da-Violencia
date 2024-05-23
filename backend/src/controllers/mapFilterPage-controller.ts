@@ -4,7 +4,7 @@ import httpStatus from 'http-status';
 import json from '../helper/json'
 
 
-
+// obtém dados de violência para um usuário específico, chamando o serviço MapFilterPageService com o id_user dos parâmetros da requisição, e envia esses dados como resposta HTTP com status (OK).
 async function getViolenceData(req: Request, res: Response) {
     const infoViolence = await MapFilterPageService.getViolenceData(req.params.id_user);
 
@@ -12,6 +12,6 @@ async function getViolenceData(req: Request, res: Response) {
 }
 
 
-export const MapPageController = {
+export const MapFilterPageController = {
     getViolenceData
 }

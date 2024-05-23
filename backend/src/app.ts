@@ -8,6 +8,7 @@ import formAboutViolencePageRouter from './routers/formAboutViolencePage-router'
 import formClassifyViolenceRouter from './routers/formClassifyViolencePage-router';
 import authorizationRouter from './routers/authorization-router';
 import mapPageRouter from './routers/mapPage-router';
+import mapFilterPageRouter from './routers/mapFilterPage-router';
 
 const app = express();
 
@@ -22,6 +23,7 @@ app
     .use(formAboutViolencePageRouter)
     .use(formClassifyViolenceRouter)
     .use(mapPageRouter)
+    .use(mapFilterPageRouter)
     .use(handleApplicationErrors)
     .use(authorizationRouter)
     .listen(port, () => {console.log(`Servidor rodando na porta ${port}`);});
