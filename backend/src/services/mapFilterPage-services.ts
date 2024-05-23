@@ -13,7 +13,7 @@ async function getViolenceData(id_user_s: string) {
     return violenceData
 }
 
-export const MapPageService = {
+export const MapFilterPageService = {
     getViolenceData
 }
 
