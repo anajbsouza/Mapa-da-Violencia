@@ -10,6 +10,13 @@ async function postAuthorized(req: Request, res: Response){
     return res.status(httpStatus.CREATED).send(json(acesso));
 }
 
+async function postUnauthorized(req: Request, res: Response) {
+    const id = req.params.id;
+    const occurrence = await authorizationService.registerOccurrence(id);
+    return res.status(httpStatus.CREATED).send(json(occurrence));
+}
+
 export const authorizationController = {
-    postAuthorized
+    postAuthorized,
+    postUnauthorized
 };
