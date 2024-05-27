@@ -1,11 +1,15 @@
 import { AboutViolence_json, AboutViolence} from "@/protocols";
 import { AboutViolencePageRepository } from "../repositories/formAboutViolencePage-repository";
 import { validationError } from "../errors/errors";
+import { authorizationRepository } from "../repositories/authorization-repository";
 import { time } from "console";
 
 async function createAboutViolenceOccur(aboutviolence_json: AboutViolence_json): Promise<any> {
     
-    if (!aboutviolence_json.date_violence_s||aboutviolence_json.date_violence_s==null){
+    const listUsers = await authorizationRepository.getListUsers()
+    if (!(await listUsers).find(userlist => aboutviolence_json.id_user == userlist.id)){
+        throw validationError('"Id user"');
+    } else if (!aboutviolence_json.date_violence_s||aboutviolence_json.date_violence_s==null){
         throw validationError('"Date of the violence"');
     } else if (!aboutviolence_json.agegroup||aboutviolence_json.agegroup==null) {
         throw validationError('"Age group"');

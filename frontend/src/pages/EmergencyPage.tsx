@@ -3,6 +3,14 @@ import '../styles/AuthorizeLocalizationAndEmergencyPages.css'
 
 
 const EmergencyPage = () => {
+    const callPolice = () => {
+        window.location.href = 'tel:190';
+    };
+
+    const callWomanService = () => {
+        window.location.href = 'tel:180';
+    };
+
     return (
         <section>
             <Header/>
@@ -13,8 +21,8 @@ const EmergencyPage = () => {
                     </section>
 
                     <section className="buttons-container-emergency">
-                        <button className="green-button">Sim, ligar 190</button>
-                        <button className="red-button">Não, ligar 180</button>
+                        <button className="green-button" onClick={callPolice}>Sim, ligar 190</button>
+                        <button className="red-button" onClick={callWomanService}>Não, realizar uma denúncia</button>
                     </section>
                 </main>
         </section>
