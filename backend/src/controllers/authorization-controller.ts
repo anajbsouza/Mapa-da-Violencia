@@ -11,7 +11,7 @@ async function postAuthorized(req: Request, res: Response){
 }
 
 async function postUnauthorized(req: Request, res: Response) {
-    const id = req.params.id;
+    const id = parseInt(req.params.id);
     const occurrence = await authorizationService.registerOccurrence(id);
     return res.status(httpStatus.CREATED).send(json(occurrence));
 }
