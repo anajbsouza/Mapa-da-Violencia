@@ -1,11 +1,22 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import Header from "../components/Header";
-import '../styles/AuthorizeLocalizationAndEmergencyPages.css'
+import '../styles/AuthorizeLocalizationAndEmergencyPages.css';
 import FormIndex from "../components/FormIndex";
-
 
 const AuthorizeLocalizationPage = () => {
   let navigate = useNavigate();
+  let location = useLocation();
+  const { action } = location.state || {};
+
+  const handleAuthorize = () => {
+    if (action === 'viewMap') {
+      navigate("/map-page");
+    } else if (action === 'register') {
+      navigate("/form-about-violence");
+    } else {
+      navigate("/");
+    }
+  };
 
   return (
     <div>
@@ -21,13 +32,12 @@ const AuthorizeLocalizationPage = () => {
         </section>
 
         <section className="buttons-container">
-          <button className="authorize" onClick={() => navigate("/form-about-violence")}>Autorizo</button>
+          <button className="authorize" onClick={handleAuthorize}>Autorizo</button>
           <button className="not-authorize" onClick={() => navigate("/form-state")}>Não autorizo</button>
         </section>
-
       </main>
     </div>
-  )};
-  
-  export default AuthorizeLocalizationPage;
-  
+  );
+};
+
+export default AuthorizeLocalizationPage;
