@@ -1,4 +1,4 @@
-import { notFoundError, validationError } from "@/errors/errors";
+import { notFoundError, validationError } from "../errors/errors";
 import { authorizationRepository } from "../repositories/authorization-repository";
 
 async function registerAccess(fingerprint: string, latitude: number, longitude: number) {

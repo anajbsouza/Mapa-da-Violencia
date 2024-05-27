@@ -1,10 +1,10 @@
-import express from 'express';
-import { AboutViolencePageController } from '../controllers/formAboutViolencePage-controller';
+// import express from 'express';
+// import { AboutViolencePageController } from '../controllers/formAboutViolencePage-controller';
 
-const formAboutViolenceRouter = express.Router();
+// const formAboutViolenceRouter = express.Router();
 
-// Rotas relacionadas às respostas
+// // Rotas relacionadas às respostas
 
-formAboutViolenceRouter.post('/form-about-violence', AboutViolencePageController.postAboutViolence);
+// formAboutViolenceRouter.post('/form-about-violence', AboutViolencePageController.postAboutViolence);
 
-export default formAboutViolenceRouter;
+// export default formAboutViolenceRouter;
