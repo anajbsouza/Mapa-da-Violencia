@@ -13,6 +13,7 @@ export type RequestError = {
 export type ViolenceState = {
     id_occur: bigint,
     uf_state:string,
+    city: string
 };
 // Tipo para receber no json (json não tem tipo data)
 export type AboutViolence_json = {

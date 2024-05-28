@@ -5,13 +5,14 @@ import { Decimal } from '@prisma/client/runtime/library';
 const prisma = new PrismaClient();
 
 async function StateOccurrence(state: ViolenceState) {
-    const {id_occur,uf_state} = state;
+    const {id_occur,uf_state,city} = state;
     const occurrence = await prisma.occurrence.update({
         where:{
             id_occurrence: id_occur
         },
         data:{
-            State_violence: uf_state,
+            state_violence: uf_state,
+            city_violence: city,
         }
     })
     return occurrence
