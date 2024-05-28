@@ -1,12 +1,13 @@
-// import express from 'express';
-// import { MapPageController } from '../controllers/mapPage-controller';
+import express from 'express';
+import { MapPageController } from '../controllers/mapPage-controller';
 
-// const mapPageRouter = express.Router();
+const mapPageRouter = express.Router();
 
-// // Rotas relacionadas às respostas
+// Rotas relacionadas às respostas
 
-// mapPageRouter.post('/map-page', MapPageController.postLocalViolence);
+mapPageRouter.post('/map-page', MapPageController.postLocalViolence);
 
-// mapPageRouter.get('/map-page/:id_user', MapPageController.getInfoViolence);
+mapPageRouter.get('/map-page/:id_occur', MapPageController.getInfoViolence);
 
-// export default mapPageRouter;
+
+export default mapPageRouter;

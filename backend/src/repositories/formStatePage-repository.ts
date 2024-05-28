@@ -1,14 +1,14 @@
-import { ViolenceState } from '@/protocols';
+import { ViolenceState } from '../protocols';
 import { Occurrence, PrismaClient } from '@prisma/client'
 import { Decimal } from '@prisma/client/runtime/library';
 
 const prisma = new PrismaClient();
 
 async function StateOccurrence(state: ViolenceState) {
-    const {id_user,uf_state} = state;
+    const {id_occur,uf_state} = state;
     const occurrence = await prisma.occurrence.update({
         where:{
-            id_user: id_user
+            id_occurrence: id_occur
         },
         data:{
             State_violence: uf_state,
