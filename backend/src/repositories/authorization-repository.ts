@@ -1,17 +1,22 @@
 import { PrismaClient } from '@prisma/client';
+import { repositoryError } from "../errors/errors";
 
 const prisma = new PrismaClient();
 
 async function saveAccess(fingerprint: string, latitude: number, longitude: number) {
-    return await prisma.access.create({
-        data: {
-            fingerprint: fingerprint,
-            latitude: latitude,
-            longitude: longitude,
-        },
-    });
+    try {
+        const access = await prisma.access.create({
+            data: {
+                fingerprint: fingerprint,
+                latitude: latitude,
+                longitude: longitude,
+            },
+        });
+        return access
+    } catch (e){
+        throw(repositoryError('"Access"'));    
+    }
 }
-
 async function saveOccurrence(id: number, date: Date) {
     return await prisma.occurrence.create({
         data: {
@@ -29,6 +34,7 @@ async function getListOccur() {
     })
     return listOccur;
 }
+
 export const authorizationRepository ={
     saveAccess,
     saveOccurrence,
