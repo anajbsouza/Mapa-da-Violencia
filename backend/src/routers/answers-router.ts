@@ -1,12 +1,11 @@
-import express from 'express';
-import { answersController } from '../controllers/answers-controller';
+// import express from 'express';
+// import { answersController } from '../controllers/answers-controller';
 
-const answersRouter = express.Router();
+// const answersRouter = express.Router();
 
-// Rotas relacionadas às respostas
+// // Rotas relacionadas às respostas
 
-answersRouter.post('/', answersController.create);
-answersRouter.get('/:id', answersController.getById);
+// answersRouter.post('/', answersController.create);
+// answersRouter.get('/:id', answersController.getById);
 
-
-export default answersRouter;
+// export default answersRouter;
