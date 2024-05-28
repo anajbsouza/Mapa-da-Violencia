@@ -10,11 +10,19 @@ const AuthorizeLocalizationPage = () => {
 
   const handleAuthorize = () => {
     if (action === 'viewMap') {
-      navigate("/map-page");
+      navigate("/map-filter");
     } else if (action === 'register') {
       navigate("/form-about-violence");
     } else {
       navigate("/");
+    }
+  };
+
+  const handleNotAuthorize = () => {
+    if (action === 'viewMap') {
+      navigate("/form-state", { state: { action: 'viewMap' } });
+    } else {
+      navigate("/form-state", { state: { action: 'register' } });
     }
   };
 
@@ -33,7 +41,7 @@ const AuthorizeLocalizationPage = () => {
 
         <section className="buttons-container">
           <button className="authorize" onClick={handleAuthorize}>Autorizo</button>
-          <button className="not-authorize" onClick={() => navigate("/form-state")}>Não autorizo</button>
+          <button className="not-authorize" onClick={handleNotAuthorize}>Não autorizo</button>
         </section>
       </main>
     </div>

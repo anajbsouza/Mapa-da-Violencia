@@ -80,7 +80,7 @@ const ViolenceTypesPage = () => {
                     </section>
                 </section>
 
-                <button className="footer" onClick={() => navigate("/know-more")}>Finalizar</button>
+                <button className="footer" onClick={() => navigate("/know-more")}>Próximo</button>
 
 
             </main>

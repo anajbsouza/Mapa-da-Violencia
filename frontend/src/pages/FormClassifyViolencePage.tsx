@@ -37,7 +37,7 @@ const FormClassifyViolencePage = () => {
       setError("Por favor, selecione pelo menos uma situação de violência.");
     } else {
       setError(null);
-      navigate("/map-page");
+      navigate("/map-address");
     }
   };
 

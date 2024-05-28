@@ -3,10 +3,12 @@ import Header from "../components/Header";
 import '../styles/Footer.css';
 import '../styles/FormStatePage.css';
 import FormIndex from "../components/FormIndex";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const FormStatePage = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const { action } = location.state || {};
   const [states, setStates] = useState<{ nome: string, sigla: string }[]>([]);
   const [selectedState, setSelectedState] = useState('');
   const [cities, setCities] = useState<string[]>([]);
@@ -49,7 +51,11 @@ const FormStatePage = () => {
       setError("Por favor, selecione o Estado e a Cidade.");
     } else {
       setError(null);
-      navigate("/form-about-violence"); 
+      if (action === 'viewMap') {
+        navigate("/map-filter");
+      } else {
+        navigate("/form-about-violence");
+      }
     }
   };
 
@@ -59,7 +65,7 @@ const FormStatePage = () => {
 
       <main>
         <section className="page">
-            <FormIndex value={1}/>
+          <FormIndex value={1}/>
         </section>
 
         <section className="titles">
