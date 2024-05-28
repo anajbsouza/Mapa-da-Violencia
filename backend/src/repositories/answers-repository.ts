@@ -1,4 +1,4 @@
-import { ViolenceState } from '@/protocols';
+import { ViolenceState } from '../protocols';
 import { Occurrence, PrismaClient } from '@prisma/client'
 import { Decimal } from '@prisma/client/runtime/library';
 

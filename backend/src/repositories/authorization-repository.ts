@@ -21,16 +21,16 @@ async function saveOccurrence(id: number, date: Date) {
     })
 }
 
-// async function getListUsers() {
-//     const listUsers = await prisma.userIP.findMany({
-//         select:{
-//             id: true
-//         }
-//     })
-//     return listUsers;
-// }
+async function getListOccur() {
+    const listOccur = await prisma.occurrence.findMany({
+        select:{
+            id_occurrence: true
+        }
+    })
+    return listOccur;
+}
 export const authorizationRepository ={
     saveAccess,
-    saveOccurrence
-    // getListUsers
+    saveOccurrence,
+    getListOccur
 }

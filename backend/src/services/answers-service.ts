@@ -1,4 +1,4 @@
-import { ViolenceState } from "@/protocols";
+import { ViolenceState } from "../protocols";
 import { answersRepository } from "../repositories/answers-repository";
 import { validationError } from "../errors/errors";
 
