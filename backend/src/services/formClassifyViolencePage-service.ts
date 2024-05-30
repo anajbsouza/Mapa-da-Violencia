@@ -1,5 +1,5 @@
 import { ClassifyViolencePage } from '../protocols';
-import { validationError } from "../errors/errors";
+import { repositoryError, validationError } from "../errors/errors";
 import { ClassifyViolencePageRepository } from "../repositories/formClassifyViolencePage-repository";
 import { authorizationRepository } from "../repositories/authorization-repository";
 
@@ -14,9 +14,11 @@ async function createViolencesSituationsOccur(classifyviolencepage: ClassifyViol
         throw validationError('"Violence Situations"');
     }
     const typeofviolence = await IdentifyTypeOfViolence(classifyviolencepage.violencesoptions);
-
-    const newInfoOccur = await ClassifyViolencePageRepository.ViolencesSituations(classifyviolencepage,typeofviolence);
-    return newInfoOccur;
+    try {
+        return await ClassifyViolencePageRepository.ViolencesSituations(classifyviolencepage,typeofviolence);
+    } catch {
+        throw repositoryError('"Occurrence"','"ViolencesSituations"');
+    }
 }
 
 async function IdentifyTypeOfViolence(violencesoptions:string): Promise<string> {

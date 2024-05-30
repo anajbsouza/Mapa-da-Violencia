@@ -20,9 +20,9 @@ export function validationError(variable:string): ApplicationError {
         message: `Field ${variable} invalid`,
     };
 }
-export function repositoryError(variable:string): ApplicationError{
+export function repositoryError(table:string, func:string): ApplicationError {
     return {
         name: 'RepositoryError',
-        message: `error trying to access table ${variable}`
+        message: `error trying to access table ${table} in ${func}`,
     };
 }
