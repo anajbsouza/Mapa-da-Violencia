@@ -22,8 +22,10 @@ app
     .use(formClassifyViolenceRouter)
     .use(mapPageRouter)
     .use(mapFilterPageRouter)
-    .use(handleApplicationErrors)
     .use(authorizationRouter)
+
+    
+    .use(handleApplicationErrors)
     .listen(port, () => {console.log(`Servidor rodando na porta ${port}`);});
 
 export default app;

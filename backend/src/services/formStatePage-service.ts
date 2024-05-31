@@ -1,7 +1,7 @@
 import { ViolenceState } from "../protocols";
 import { StatePageRepository } from "../repositories/formStatePage-repository";
 import { authorizationRepository } from "../repositories/authorization-repository";
-import { validationError } from "../errors/errors";
+import { validationError,repositoryError } from "../errors/errors";
 
 async function createStateOccur(violenceState: ViolenceState): Promise<any> {
 
@@ -23,9 +23,13 @@ async function createStateOccur(violenceState: ViolenceState): Promise<any> {
     } else if (violenceState.city == ""){
         throw validationError('"City"');
     }
-    const newStateOccur = await StatePageRepository.StateOccurrence(violenceState);
-    await StatePageRepository.upd_numOccurrences_StateList(violenceState);
-    return newStateOccur;
+    try {
+        const newStateOccur = await StatePageRepository.StateOccurrence(violenceState);
+        await StatePageRepository.upd_numOccurrences_StateList(violenceState);
+        return newStateOccur
+    } catch {
+        throw repositoryError('"Occurrence"','"StateOccurrence"');
+    }
 }
 
 export const StatePageService = {
