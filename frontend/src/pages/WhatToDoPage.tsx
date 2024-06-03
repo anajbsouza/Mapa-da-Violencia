@@ -17,8 +17,6 @@ const WhatToDoPage = () => {
         localStorage.removeItem('time')
         localStorage.removeItem('ageRange')
         localStorage.removeItem('checkedItems')
-
-
     }, []);
 
     return (

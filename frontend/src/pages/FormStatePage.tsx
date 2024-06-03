@@ -10,15 +10,9 @@ const FormStatePage = () => {
   const location = useLocation();
   const { action } = location.state || {};
   const [states, setStates] = useState<{ nome: string, sigla: string }[]>([]);
-  const [selectedState, setSelectedState] = useState(() => {
-    const storedState = localStorage.getItem('selectedState');
-    return storedState ? storedState : '';
-  });
+  const [selectedState, setSelectedState] = useState('');
   const [cities, setCities] = useState<string[]>([]);
-  const [selectedCity, setSelectedCity] = useState(() => {
-    const storedCity = localStorage.getItem('selectedCity');
-    return storedCity ? storedCity : '';
-  });
+  const [selectedCity, setSelectedCity] = useState('');
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -51,14 +45,6 @@ const FormStatePage = () => {
       fetchCities(selectedState);
     }
   }, [selectedState]);
-
-  useEffect(() => {
-    localStorage.setItem('selectedState', selectedState);
-  }, [selectedState]);
-
-  useEffect(() => {
-    localStorage.setItem('selectedCity', selectedCity);
-  }, [selectedCity]);
 
   const handleNext = async () => {
     if (!selectedState || !selectedCity) {

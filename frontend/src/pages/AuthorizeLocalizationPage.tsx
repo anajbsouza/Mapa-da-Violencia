@@ -9,12 +9,23 @@ const AuthorizeLocalizationPage = () => {
   const { action } = location.state || {};
 
   const handleAuthorize = () => {
-    if (action === 'viewMap') {
-      navigate("/map-filter");
-    } else if (action === 'register') {
-      navigate("/form-about-violence");
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const coordinates = {
+            lat: position.coords.latitude,
+            lon: position.coords.longitude
+          };
+          navigate("/map-filter", { state: { coordinates, action } });
+        },
+        () => {
+          // Handle error
+          console.error("Geolocation access denied or not available.");
+        }
+      );
     } else {
-      navigate("/");
+      // Geolocation not supported
+      console.error("Geolocation is not supported by this browser.");
     }
   };
 

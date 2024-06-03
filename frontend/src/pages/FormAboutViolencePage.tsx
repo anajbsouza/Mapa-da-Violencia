@@ -12,6 +12,16 @@ const FormAboutViolencePage = () => {
     const [ageRange, setAgeRange] = useState(localStorage.getItem('ageRange') || '');
     const [error, setError] = useState<string | null>(null);
 
+    const location = useLocation();
+    const { state } = location;
+      
+    useEffect(() => {
+      if (state && state.city) {
+        localStorage.setItem('selectedCity', state.city);
+      }
+    }, [state]);
+    
+
     const ageRangeOptions = [
         '',
         'Abaixo de 15 anos',

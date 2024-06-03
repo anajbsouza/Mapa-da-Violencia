@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/Footer.css'
 import { MapContainer, TileLayer, useMap } from 'react-leaflet';
 import { IoChevronBackCircleSharp } from "react-icons/io5";
@@ -6,6 +6,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import Logo from "../assets/logo.png";
 import 'leaflet/dist/leaflet.css';
 import '../styles/MapPage.css';
+import { LatLngExpression } from 'leaflet';
 import { VscFilterFilled } from "react-icons/vsc";
 
 function MapFilter() {
@@ -22,13 +23,20 @@ function MapFilter() {
     setIsFilterVisible(false);
   };
 
-  function ChangeMapView({ center }) {
+  function ChangeMapView({ center }: { center: LatLngExpression }) {
     const map = useMap();
     if (center) {
-      map.setView(center, 15);
+      map.setView(center, 12);
     }
     return null;
   }
+
+  useEffect(() => {
+    if (!coordinates) {
+      // If coordinates are not available, navigate back to the authorization page
+      navigate("/authorize-localization");
+    }
+  }, [coordinates, navigate]);
 
   return (
     <div className="map">
