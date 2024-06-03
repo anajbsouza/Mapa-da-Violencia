@@ -5,7 +5,6 @@ import { IoChevronBackCircleSharp } from "react-icons/io5";
 import { useNavigate, useLocation } from 'react-router-dom';
 import Logo from "../assets/logo.png";
 import 'leaflet/dist/leaflet.css';
-import { LatLng } from 'leaflet';
 import '../styles/MapPage.css';
 import { VscFilterFilled } from "react-icons/vsc";
 

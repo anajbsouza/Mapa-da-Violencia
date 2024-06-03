@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { useNavigate, useLocation } from 'react-router-dom';
 import Header from "../components/Header";
 import '../styles/FormAboutViolencePage.css';
 import '../styles/Footer.css'
@@ -7,9 +7,9 @@ import FormIndex from "../components/FormIndex";
 
 const FormAboutViolencePage = () => {
     const navigate = useNavigate();
-    const [date, setDate] = useState('');
-    const [time, setTime] = useState('');
-    const [ageRange, setAgeRange] = useState('');
+    const [date, setDate] = useState(localStorage.getItem('date') || '');
+    const [time, setTime] = useState(localStorage.getItem('time') || '');
+    const [ageRange, setAgeRange] = useState(localStorage.getItem('ageRange') || '');
     const [error, setError] = useState<string | null>(null);
 
     const ageRangeOptions = [
@@ -32,11 +32,16 @@ const FormAboutViolencePage = () => {
         }
     };
 
+    useEffect(() => {
+        localStorage.setItem('date', date);
+        localStorage.setItem('time', time);
+        localStorage.setItem('ageRange', ageRange);
+    }, [date, time, ageRange]);
+
     return (
         <div>
             <Header />
             <main>
-
                 <section className="page">
                     <FormIndex value={2}/>
                 </section>

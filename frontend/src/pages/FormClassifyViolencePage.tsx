@@ -1,14 +1,20 @@
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
 import '../styles/FormClassifyViolencePage.css';
 import '../styles/Footer.css'
 import FormIndex from "../components/FormIndex";
 import { useNavigate } from 'react-router-dom';
 
-
 const FormClassifyViolencePage = () => {
   const navigate = useNavigate();
-  const [checkedItems, setCheckedItems] = useState<Record<number, boolean>>({});
+  const [checkedItems, setCheckedItems] = useState<Record<number, boolean>>(() => {
+    const storedCheckedItems = localStorage.getItem('checkedItems');
+    if (storedCheckedItems) {
+      const parsedItems = Object.fromEntries(JSON.parse(storedCheckedItems));
+      return parsedItems;
+    }
+    return {};
+  });
   const [error, setError] = useState<string | null>(null);
 
   const options = [
@@ -38,8 +44,13 @@ const FormClassifyViolencePage = () => {
     } else {
       setError(null);
       navigate("/map-address");
+      localStorage.setItem('checkedItems', JSON.stringify(Object.entries(checkedItems))); // Salvar no LocalStorage
     }
   };
+
+  useEffect(() => {
+    localStorage.setItem('checkedItems', JSON.stringify(Object.entries(checkedItems))); // Salvar no LocalStorage
+  }, [checkedItems]);
 
   return (
     <div>
@@ -76,8 +87,6 @@ const FormClassifyViolencePage = () => {
         </section>
       </main>
       <button className="footer" onClick={handleNext}>Próximo</button>
-
-      
     </div>
   );
 };
