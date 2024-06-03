@@ -1,4 +1,5 @@
 import { PrismaClient } from '@prisma/client';
+import { repositoryError } from "../errors/errors";
 
 const prisma = new PrismaClient();
 
@@ -11,15 +12,30 @@ async function saveAccess(fingerprint: string, latitude: number, longitude: numb
         },
     });
 }
-async function getListUsers() {
-    const listUsers = await prisma.userIP.findMany({
-        select:{
-            id: true
+async function saveOccurrence(id: number, date: Date) {
+    return await prisma.occurrence.create({
+        data: {
+            id_user: id,
+            datetime_submission: date,
         }
     })
-    return listUsers;
 }
+
+async function getListOccur() {
+    try {
+    const listOccur = await prisma.occurrence.findMany({
+        select:{
+            id_occurrence: true
+        }
+    })
+    return listOccur;
+    } catch {
+        throw repositoryError('"Occurrence"','"getListOccur"')
+    }
+}
+
 export const authorizationRepository ={
     saveAccess,
-    getListUsers
+    saveOccurrence,
+    getListOccur
 }

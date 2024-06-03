@@ -1,4 +1,4 @@
-import { LocalViolence } from '@/protocols';
+import { LocalViolence } from '../protocols';
 import { Occurrence, PrismaClient } from '@prisma/client'
 import { Decimal } from '@prisma/client/runtime/library';
 
@@ -6,10 +6,10 @@ const prisma = new PrismaClient();
 
 // atualizar as coordenadas de localização de uma ocorrência de violência associada a um determinado usuário no banco de dados
 async function LocalOccurrence(local: LocalViolence) {
-    const {id_user, latitude, longitude} = local;
+    const {id_occur, latitude, longitude} = local;
     const occurrence = await prisma.occurrence.update({
         where:{
-            id_user: id_user
+            id_occurrence: id_occur
         },
         data:{
             latitude : latitude,
@@ -20,10 +20,10 @@ async function LocalOccurrence(local: LocalViolence) {
 }
 
 // busca um tipo de ocorrência de violência associada a um usuário específico no banco de dados, imprime essas informações para depuração e retorna os dados encontrados.
-async function getInfoViolence(id_user:bigint) {
+async function getInfoViolence(id_occur:bigint) {
     const infoviolence = await prisma.occurrence.findUnique({
         where: {
-            id_user: id_user
+            id_occurrence: id_occur
         },
         select: {
             violencetype: true,

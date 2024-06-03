@@ -12,7 +12,7 @@ async function postLocalViolence(req: Request, res: Response){
 }
 
 async function getInfoViolence(req: Request, res: Response) {
-    const infoViolence = await MapPageService.getInfoViolence(req.params.id_user);
+    const infoViolence = await MapPageService.getInfoViolence(req.params.id_occur);
 
     return res.status(httpStatus.OK).send(json(infoViolence));
 }

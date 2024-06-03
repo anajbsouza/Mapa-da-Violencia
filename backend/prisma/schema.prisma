@@ -9,17 +9,18 @@ datasource db {
 
 model Occurrence {
   id_occurrence       BigInt           @id @default(autoincrement())
-  id_user             BigInt           @unique
   datetime_submission DateTime         @db.Timestamptz(6)
-  State_violence      String?
-  date_violence       DateTime?         @db.Date
-  time_violence       DateTime?        @db.Timetz(6)
+  date_violence       DateTime?        @db.Date
   agegroup            String?
-  latitude            Decimal?          @db.Decimal(9, 6)
-  longitude           Decimal?          @db.Decimal(9, 6)
+  latitude            Decimal?         @db.Decimal(9, 6)
+  longitude           Decimal?         @db.Decimal(9, 6)
   violencesoptions    String?
   violencetype        String?
-  StateList           StateList?        @relation(fields: [State_violence], references: [uf_State], onDelete: NoAction, onUpdate: NoAction, map: "Occurrence_fk3")
+  id_user             BigInt           @unique
+  time_violence       DateTime?        @db.Timetz(6)
+  city_violence       String?
+  state_violence      String?
+  StateList           StateList?       @relation(fields: [state_violence], references: [uf_State], onDelete: NoAction, onUpdate: NoAction, map: "Occurrence_fk3")
   UserOccurrences     UserOccurrences?
 }
 
@@ -34,8 +35,8 @@ model User {
 
 model UserOccurrences {
   id_occurrence BigInt     @id
-  id_user       BigInt
   date_violence DateTime   @db.Date
+  id_user       BigInt
   Occurrence    Occurrence @relation(fields: [id_occurrence], references: [id_occurrence], onDelete: NoAction, onUpdate: NoAction, map: "UserOccurrences_fk0")
 }
 

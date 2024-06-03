@@ -1,14 +1,14 @@
-import { AboutViolence } from '@/protocols';
+import { AboutViolence } from '../protocols';
 import { Occurrence, PrismaClient } from '@prisma/client'
 import { Decimal } from '@prisma/client/runtime/library';
 
 const prisma = new PrismaClient();
 
 async function AboutViolenceOccurrence(aboutviolence: AboutViolence): Promise<Occurrence> {
-    const {id_user, date_violence, agegroup,time_violence} = aboutviolence;
+    const {id_occur, date_violence, agegroup,time_violence} = aboutviolence;
     const occurrence = await prisma.occurrence.update({
         where: {
-            id_user: id_user
+            id_occurrence: id_occur
         },
         data:{
             date_violence: date_violence,

@@ -1,17 +1,19 @@
-import { AboutViolence_json, AboutViolence} from "@/protocols";
+import { AboutViolence_json, AboutViolence} from "../protocols";
 import { AboutViolencePageRepository } from "../repositories/formAboutViolencePage-repository";
-import { validationError } from "../errors/errors";
+import { repositoryError, validationError } from "../errors/errors";
 import { authorizationRepository } from "../repositories/authorization-repository";
 import { time } from "console";
 
 async function createAboutViolenceOccur(aboutviolence_json: AboutViolence_json): Promise<any> {
     
-    const listUsers = await authorizationRepository.getListUsers()
-    if (!(await listUsers).find(userlist => aboutviolence_json.id_user == userlist.id)){
-        throw validationError('"Id user"');
+    const listOccur = await authorizationRepository.getListOccur()
+    if (!(await listOccur).find(occurlist => aboutviolence_json.id_occur == occurlist.id_occurrence)){
+        throw validationError('"Id occurrence"');
     } else if (!aboutviolence_json.date_violence_s||aboutviolence_json.date_violence_s==null){
         throw validationError('"Date of the violence"');
     } else if (!aboutviolence_json.agegroup||aboutviolence_json.agegroup==null) {
+        throw validationError('"Age group"');
+    } else if (typeof aboutviolence_json.agegroup !== 'string') {
         throw validationError('"Age group"');
     } else if (!aboutviolence_json.time_violence_s||aboutviolence_json.time_violence_s==null) {
         throw validationError('"Time of the violence"');
@@ -20,14 +22,16 @@ async function createAboutViolenceOccur(aboutviolence_json: AboutViolence_json):
     const time_violence = await ValidateTime(aboutviolence_json.time_violence_s,aboutviolence_json.date_violence_s);
 
     const aboutviolence:AboutViolence = {
-        id_user: aboutviolence_json.id_user,
+        id_occur: aboutviolence_json.id_occur,
         date_violence: date_violence,
         agegroup: aboutviolence_json.agegroup,
         time_violence: time_violence
     }
-
-    const newInfoOccur = await AboutViolencePageRepository.AboutViolenceOccurrence(aboutviolence);
-    return newInfoOccur;
+    try {
+        return await AboutViolencePageRepository.AboutViolenceOccurrence(aboutviolence);
+    } catch {
+        throw repositoryError('"Occurrence"','"AboutViolenceOccurrenc"');
+    }
 }
 
 async function ValidateTime(time_string:string,date_string:string) {

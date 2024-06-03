@@ -1,0 +1,75 @@
+-- FALTA ADICIONAR CHAVES ESTRANGEIRAS NA Access E Occurrece
+
+DROP TABLE IF EXISTS "Access","Occurrence","StateList","TypesOfViolence","User", "UserOccurrences","UserOccurrences","ViolenceSituations" CASCADE 
+
+CREATE TABLE IF NOT EXISTS "Access" (
+    id BIGSERIAL NOT NULL,
+    fingerprint TEXT NOT NULL,
+    latitude numeric(9,6) NOT NULL,
+    longitude numeric(9,6) NOT NULL,
+    createdat timestamp(6) with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
+    
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE IF NOT EXISTS "Occurrence" (
+    id_occurrence BIGSERIAL NOT NULL,
+    datetime_submission timestamp(6) with time zone NOT NULL,
+    date_violence date,
+    agegroup text,
+    latitude numeric(9,6),
+    longitude numeric(9,6),
+    violencesoptions text,
+    violencetype text,
+    id_user bigint NOT NULL,
+    time_violence time(6) with time zone,
+    city_violence text,
+    state_violence text,
+    
+    PRIMARY KEY (id_occurrence)
+);
+
+CREATE TABLE IF NOT EXISTS "StateList" (
+    id_state bigint GENERATED ALWAYS AS IDENTITY NOT NULL UNIQUE,
+    uf_state text NOT NULL UNIQUE,
+    name_state text NOT NULL,
+    num_occurrences bigint DEFAULT 0,
+    PRIMARY KEY (id_State)
+);
+
+CREATE TABLE IF NOT EXISTS "TypesOfViolence" (
+    id_violencetype text NOT NULL,
+    description text NOT NULL
+    PRIMARY KEY ("id_violencetype")
+);
+
+CREATE TABLE IF NOT EXISTS "User" (
+    id_user BIGSERIAL NOT NULL,
+    fingerprint text UNIQUE,
+    PRIMARY KEY (id_user)
+);
+
+CREATE TABLE IF NOT EXISTS "UserOccurrences" (
+    id_occurrence bigint NOT NULL,
+    date_violence date NOT NULL,
+    id_user bigint NOT NULL,
+    PRIMARY KEY (id_occurrence)
+);
+
+CREATE TABLE IF NOT EXISTS "ViolenceSituations" (
+    id_violenceoption text NOT NULL UNIQUE,
+    description" text NOT NULL
+    PRIMARY KEY (id_violenceoption)
+);
+
+ALTER TABLE "Occurrence" ADD CONSTRAINT "Occurrence_fk0" FOREIGN KEY (id_user) REFERENCES "User"(id_user);
+
+ALTER TABLE "Occurrence" ADD CONSTRAINT "Occurrence_fk1" FOREIGN KEY (state_violence) REFERENCES "StateList"(id_state);
+
+ALTER TABLE "UserOccurrences" ADD CONSTRAINT "UserOccurrences_fk0" FOREIGN KEY (id_occurrence) REFERENCES "Occurrence"(id_occurrence);
+
+ALTER TABLE "UserOccurrences" ADD CONSTRAINT "UserOccurrences_fk1" FOREIGN KEY (id_user) REFERENCES "User"(id_user);
+
+
+
+
