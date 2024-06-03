@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import '../styles/Footer.css'
-import { MapContainer, TileLayer, useMapEvents } from 'react-leaflet';
+import { MapContainer, TileLayer, useMap } from 'react-leaflet';
 import { IoChevronBackCircleSharp } from "react-icons/io5";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import Logo from "../assets/logo.png";
 import 'leaflet/dist/leaflet.css';
 import { LatLng } from 'leaflet';
@@ -11,8 +11,8 @@ import { VscFilterFilled } from "react-icons/vsc";
 
 function MapFilter() {
   const navigate = useNavigate();
-
-  const [markerPosition, setMarkerPosition] = useState<LatLng | null>(null);
+  const location = useLocation();
+  const { coordinates } = location.state || {};
   const [isFilterVisible, setIsFilterVisible] = useState(false);
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
 
@@ -23,13 +23,11 @@ function MapFilter() {
     setIsFilterVisible(false);
   };
 
-  function MyComponent() {
-    useMapEvents({
-      click(e) {
-        const { lat, lng } = e.latlng;
-        setMarkerPosition(new LatLng(lat, lng));
-      },
-    });
+  function ChangeMapView({ center }) {
+    const map = useMap();
+    if (center) {
+      map.setView(center, 15);
+    }
     return null;
   }
 
@@ -69,12 +67,12 @@ function MapFilter() {
       </div>
 
       <MapContainer
-        center={[-15.794, -47.882]}
+        center={coordinates ? [coordinates.lat, coordinates.lon] : [-15.794, -47.882]}
         zoom={14}
         style={{ width: '100vw', height: '100vh' }}
         zoomControl={false}
       >
-        <MyComponent />
+        <ChangeMapView center={coordinates ? [coordinates.lat, coordinates.lon] : [-15.794, -47.882]} />
 
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

@@ -46,15 +46,28 @@ const FormStatePage = () => {
     }
   }, [selectedState]);
 
-  const handleNext = () => {
+  const handleNext = async () => {
     if (!selectedState || !selectedCity) {
       setError("Por favor, selecione o Estado e a Cidade.");
     } else {
       setError(null);
-      if (action === 'viewMap') {
-        navigate("/map-filter");
-      } else {
-        navigate("/form-about-violence");
+      try {
+        const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${selectedCity},${selectedState}`);
+        const data = await response.json();
+        if (data.length > 0) {
+          const { lat, lon } = data[0];
+          const coordinates = { lat, lon };
+          if (action === 'viewMap') {
+            navigate("/map-filter", { state: { coordinates } });
+          } else {
+            navigate("/form-about-violence");
+          }
+        } else {
+          setError("Não foi possível encontrar as coordenadas da cidade selecionada.");
+        }
+      } catch (error) {
+        console.error('Erro ao buscar coordenadas:', error);
+        setError("Erro ao buscar coordenadas. Tente novamente.");
       }
     }
   };
