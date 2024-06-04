@@ -8,6 +8,7 @@ import 'leaflet/dist/leaflet.css';
 import '../styles/MapPage.css';
 import { LatLngExpression } from 'leaflet';
 import { VscFilterFilled } from "react-icons/vsc";
+import HeaderMap from '../components/HeaderMap';
 
 function MapFilter() {
   const navigate = useNavigate();
@@ -41,13 +42,7 @@ function MapFilter() {
   return (
     <div className="map">
       <div className="overlay-container">
-        <section className="button-logo-map">
-          <img className="logo-map" src={Logo} alt="Logo da Gloria" onClick={() => navigate("/home-page")} />
-        </section>
-
-        <button className="button-back-map" onClick={() => navigate(-1)}>
-          <IoChevronBackCircleSharp className="icon-back-map" />
-        </button>
+        <HeaderMap/>
 
         <div className="map-title">
           <p className="map-text" onClick={() => setIsFilterVisible(!isFilterVisible)}>
