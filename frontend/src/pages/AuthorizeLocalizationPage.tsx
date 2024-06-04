@@ -16,7 +16,14 @@ const AuthorizeLocalizationPage = () => {
             lat: position.coords.latitude,
             lon: position.coords.longitude
           };
-          navigate("/map-filter", { state: { coordinates, action } });
+  
+          if (action === "viewMap") {
+            navigate("/map-filter", { state: { coordinates, action } });
+          } else if (action === "register") {
+            navigate("/form-about-violence", { state: { coordinates, action } });
+          } else {
+            console.error("Unsupported action.");
+          }
         },
         () => {
           // Handle error
