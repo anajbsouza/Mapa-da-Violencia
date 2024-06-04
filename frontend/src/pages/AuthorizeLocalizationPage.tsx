@@ -2,6 +2,9 @@ import { useNavigate, useLocation } from "react-router-dom";
 import Header from "../components/Header";
 import '../styles/AuthorizeLocalizationAndEmergencyPages.css';
 import FormIndex from "../components/FormIndex";
+import axios from "axios";
+
+const URL = "http://localhost:4000/map-filter";
 
 const AuthorizeLocalizationPage = () => {
   let navigate = useNavigate();
@@ -18,7 +21,16 @@ const AuthorizeLocalizationPage = () => {
           };
   
           if (action === "viewMap") {
-            navigate("/map-filter", { state: { coordinates, action } });
+            // Realiza a requisição get para pegar todas as ocorrências
+            axios.get(URL)
+            .then(occurrence_data =>{
+              console.log(occurrence_data)
+              navigate("/map-filter", { state: { coordinates, action } });
+            })
+            .catch(error =>{
+              console.log(error);
+            })
+            
           } else if (action === "register") {
             navigate("/form-about-violence", { state: { coordinates, action } });
           } else {
