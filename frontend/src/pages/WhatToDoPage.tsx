@@ -1,3 +1,4 @@
+import React, { useEffect } from "react";
 import Header from "../components/Header";
 import { FaHand } from "react-icons/fa6";
 import { IoLocationOutline } from "react-icons/io5";
@@ -8,6 +9,16 @@ import '../styles/WhatToDoPage.css';
 
 const WhatToDoPage = () => {
     const navigate = useNavigate();
+
+    useEffect(() => {
+        localStorage.removeItem('selectedState');
+        localStorage.removeItem('selectedCity');
+        localStorage.removeItem('date')
+        localStorage.removeItem('time')
+        localStorage.removeItem('ageRange')
+        localStorage.removeItem('checkedItems')
+    }, []);
+
     return (
         <div>
             <Header />

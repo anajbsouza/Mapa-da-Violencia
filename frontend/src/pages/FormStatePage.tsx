@@ -3,10 +3,12 @@ import Header from "../components/Header";
 import '../styles/Footer.css';
 import '../styles/FormStatePage.css';
 import FormIndex from "../components/FormIndex";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const FormStatePage = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const { action } = location.state || {};
   const [states, setStates] = useState<{ nome: string, sigla: string }[]>([]);
   const [selectedState, setSelectedState] = useState('');
   const [cities, setCities] = useState<string[]>([]);
@@ -44,12 +46,29 @@ const FormStatePage = () => {
     }
   }, [selectedState]);
 
-  const handleNext = () => {
+  const handleNext = async () => {
     if (!selectedState || !selectedCity) {
       setError("Por favor, selecione o Estado e a Cidade.");
     } else {
       setError(null);
-      navigate("/form-about-violence"); 
+      try {
+        const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${selectedCity},${selectedState}`);
+        const data = await response.json();
+        if (data.length > 0) {
+          const { lat, lon } = data[0];
+          const coordinates = { lat, lon };
+          if (action === 'viewMap') {
+            navigate("/map-filter", { state: { coordinates } });
+          } else {
+            navigate("/form-about-violence");
+          }
+        } else {
+          setError("Não foi possível encontrar as coordenadas da cidade selecionada.");
+        }
+      } catch (error) {
+        console.error('Erro ao buscar coordenadas:', error);
+        setError("Erro ao buscar coordenadas. Tente novamente.");
+      }
     }
   };
 
@@ -59,7 +78,7 @@ const FormStatePage = () => {
 
       <main>
         <section className="page">
-            <FormIndex value={1}/>
+          <FormIndex value={1}/>
         </section>
 
         <section className="titles">

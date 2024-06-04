@@ -9,12 +9,31 @@ const AuthorizeLocalizationPage = () => {
   const { action } = location.state || {};
 
   const handleAuthorize = () => {
-    if (action === 'viewMap') {
-      navigate("/map-page");
-    } else if (action === 'register') {
-      navigate("/form-about-violence");
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const coordinates = {
+            lat: position.coords.latitude,
+            lon: position.coords.longitude
+          };
+          navigate("/map-filter", { state: { coordinates, action } });
+        },
+        () => {
+          // Handle error
+          console.error("Geolocation access denied or not available.");
+        }
+      );
     } else {
-      navigate("/");
+      // Geolocation not supported
+      console.error("Geolocation is not supported by this browser.");
+    }
+  };
+
+  const handleNotAuthorize = () => {
+    if (action === 'viewMap') {
+      navigate("/form-state", { state: { action: 'viewMap' } });
+    } else {
+      navigate("/form-state", { state: { action: 'register' } });
     }
   };
 
@@ -33,7 +52,7 @@ const AuthorizeLocalizationPage = () => {
 
         <section className="buttons-container">
           <button className="authorize" onClick={handleAuthorize}>Autorizo</button>
-          <button className="not-authorize" onClick={() => navigate("/form-state")}>Não autorizo</button>
+          <button className="not-authorize" onClick={handleNotAuthorize}>Não autorizo</button>
         </section>
       </main>
     </div>
