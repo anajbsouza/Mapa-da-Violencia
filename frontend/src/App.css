@@ -18,12 +18,32 @@ main {
   margin-bottom: 10vh;
 }
 
-/* Botão de Voltar */
+/*HEADER*/ 
+.header {
+  display: flex; 
+  align-items: center; 
+  padding: 10px; 
+}
 
-.button-back {
+.header-items,
+.header-map-items
+{
+  display: flex; 
+  justify-content: space-between;
+  align-items: center; 
+  width: 100%;
+}
+
+/* Botão de Voltar */
+.button-back-section{
+  display: flex;
+  align-items: center;
+}
+
+.button-back, 
+.button-map-back {
   display: block;
   align-items: flex-start;
-  border-radius: 50vh; 
   background-color: transparent; 
   border: none;
   width: 8vh;
@@ -37,23 +57,25 @@ main {
   color: white;
 }
 
-/* Botão da Logo */
+.button-map-back .icon-back{
+  color: #612368;
+}
 
+/* Botão da Logo */
 .button-logo {
   display: flex;
   justify-content: center;
   align-items: center; 
+  margin-top: 1rem;
 }
 
 .logo {
   width: 25vw; 
   height: auto;
-  margin-top: -3rem;
 }
 
 
 /*Form Index*/ 
-
 .ball-line {
   display: flex;
   align-items: center;

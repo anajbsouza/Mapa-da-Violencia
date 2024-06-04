@@ -9,6 +9,7 @@ import { LatLng } from 'leaflet';
 import { icon } from 'leaflet';
 import LocationIcon from "../assets/location_icon.png"; 
 import '../styles/MapPage.css';
+import HeaderMap from '../components/HeaderMap';
 
 function Mapa() {
   const navigate = useNavigate();
@@ -60,13 +61,7 @@ function Mapa() {
   return (
     <div className="map">
       <div className="overlay-container">
-        <section className="button-logo-map">
-          <img className="logo-map" src={Logo} alt="Logo da Gloria" onClick={() => navigate("/home-page")} />
-        </section>
-
-        <button className="button-back-map" onClick={() => navigate(-1)}>
-          <IoChevronBackCircleSharp className="icon-back-map" />
-        </button>
+        <HeaderMap/>
 
         <div className="map-title">
           <p className="map-text">{locationSelected ? 'Local selecionado' : 'Marque o local'}</p>
