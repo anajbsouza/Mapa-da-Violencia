@@ -3,10 +3,13 @@ import Header from "../components/Header";
 import '../styles/FormClassifyViolencePage.css';
 import '../styles/Footer.css'
 import FormIndex from "../components/FormIndex";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const FormClassifyViolencePage = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const { state } = location;
+
   const [checkedItems, setCheckedItems] = useState<Record<number, boolean>>(() => {
     const storedCheckedItems = localStorage.getItem('checkedItems');
     if (storedCheckedItems) {
@@ -43,13 +46,12 @@ const FormClassifyViolencePage = () => {
       setError("Por favor, selecione pelo menos uma situação de violência.");
     } else {
       setError(null);
-      navigate("/map-address");
-      localStorage.setItem('checkedItems', JSON.stringify(Object.entries(checkedItems))); // Salvar no LocalStorage
+      navigate("/map-address", { state: state }); // Passando o estado para a próxima página
     }
   };
 
   useEffect(() => {
-    localStorage.setItem('checkedItems', JSON.stringify(Object.entries(checkedItems))); // Salvar no LocalStorage
+    localStorage.setItem('checkedItems', JSON.stringify(Object.entries(checkedItems)));
   }, [checkedItems]);
 
   return (
