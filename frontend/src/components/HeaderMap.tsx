@@ -9,13 +9,11 @@ const HeaderMap = () => {
         <div>
             <header className="header">
                 <section className="header-map-items">
-                    <section className="button-back-section">
-                        <button className="button-map-back" onClick={() => navigate(-1)}>
-                            <IoChevronBackCircleSharp className="icon-back" />
-                        </button>
-                    </section>
-                    
-                    <img className="logo" src={Logo} alt="Logo da Gloria" onClick={() => navigate("/home-page")}/>
+                    <button className="button-map-back button-back-section" onClick={() => navigate(-1)}>
+                        <IoChevronBackCircleSharp className="icon-back" />
+                    </button>
+                
+                    <img className="logo-map" src={Logo} alt="Logo da Gloria" onClick={() => navigate("/home-page")}/>
                 </section>
             </header>
         </div>
