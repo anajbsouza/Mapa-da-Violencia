@@ -11,7 +11,6 @@ export type RequestError = {
     message: string;
 };
 export type ViolenceState = {
-    id_occur: bigint,
     uf_state:string,
     city: string
 };
