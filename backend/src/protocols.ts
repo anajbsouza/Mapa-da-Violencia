@@ -16,19 +16,18 @@ export type ViolenceState = {
     city: string
 };
 // Tipo para receber no json (json não tem tipo data)
-export type AboutViolence_json = {
-    id_occur: bigint,
+export type AboutViolence = {
     date_violence_s: string,
     agegroup: string,
     time_violence_s: string,
 };
 // Tipo para escrever no banco
-export type AboutViolence = {
-    id_occur:bigint,
-    date_violence: Date,
-    agegroup: string,
-    time_violence: Date,
-};
+// export type AboutViolence = {
+//     id_occur:bigint,
+//     date_violence: Date,
+//     agegroup: string,
+//     time_violence: Date,
+// };
 export type ClassifyViolencePage = {
     id_occur:bigint,
     violencesoptions: string
