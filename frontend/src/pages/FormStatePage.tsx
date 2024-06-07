@@ -4,6 +4,9 @@ import '../styles/Footer.css';
 import '../styles/FormStatePage.css';
 import FormIndex from "../components/FormIndex";
 import { useNavigate, useLocation } from 'react-router-dom';
+import axios from "axios";
+
+const URL = "http://localhost:4000/form-state"
 
 const FormStatePage = () => {
   const navigate = useNavigate();
@@ -50,6 +53,22 @@ const FormStatePage = () => {
     if (!selectedState || !selectedCity) {
       setError("Por favor, selecione o Estado e a Cidade.");
     } else {
+      axios.post(URL, {
+          // Corpo da requisição contendo os dados a serem enviados, deve ser igual ao json esperado pelo back
+          "uf_state": selectedState,
+          "city": selectedCity
+      }, {
+          // Cabeçalhos da requisição, importante para converter para json
+          headers: {
+              'Content-Type': 'application/json'
+          }
+      })
+
+      .then (response=>{
+        setError(null);
+      
+      })
+
       setError(null);
       try {
         const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${selectedCity},${selectedState}`);
