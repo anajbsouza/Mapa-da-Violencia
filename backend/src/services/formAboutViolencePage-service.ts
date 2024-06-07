@@ -4,19 +4,19 @@ import { repositoryError, validationError } from "../errors/errors";
 import { authorizationRepository } from "../repositories/authorization-repository";
 import { time } from "console";
 
-async function createAboutViolenceOccur(aboutviolence_json: AboutViolence_json): Promise<any> {
+async function createAboutViolenceOccur(aboutviolence: AboutViolence): Promise<any> {
     
-    if (!aboutviolence_json.date_violence_s||aboutviolence_json.date_violence_s==null){
+    if (!aboutviolence.date_violence_s||aboutviolence.date_violence_s==null){
         throw validationError('"Date of the violence"');
-    } else if (!aboutviolence_json.agegroup||aboutviolence_json.agegroup==null) {
+    } else if (!aboutviolence.agegroup||aboutviolence.agegroup==null) {
         throw validationError('"Age group"');
-    } else if (typeof aboutviolence_json.agegroup !== 'string') {
+    } else if (typeof aboutviolence.agegroup !== 'string') {
         throw validationError('"Age group"');
-    } else if (!aboutviolence_json.time_violence_s||aboutviolence_json.time_violence_s==null) {
+    } else if (!aboutviolence.time_violence_s||aboutviolence.time_violence_s==null) {
         throw validationError('"Time of the violence"');
     }
-    await ValidateDate(aboutviolence_json.date_violence_s);
-    await ValidateTime(aboutviolence_json.time_violence_s,aboutviolence_json.date_violence_s);
+    await ValidateDate(aboutviolence.date_violence_s);
+    await ValidateTime(aboutviolence.time_violence_s,aboutviolence.date_violence_s);
     return "ok";
     
     // const aboutviolence:AboutViolence = {
