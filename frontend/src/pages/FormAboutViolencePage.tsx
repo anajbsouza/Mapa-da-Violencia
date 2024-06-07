@@ -4,6 +4,9 @@ import Header from "../components/Header";
 import '../styles/FormAboutViolencePage.css';
 import '../styles/Footer.css'
 import FormIndex from "../components/FormIndex";
+import axios from "axios";
+
+const URL = "http://localhost:4000/form-about-violence"
 
 const FormAboutViolencePage = () => {
     const navigate = useNavigate();
@@ -38,14 +41,77 @@ const FormAboutViolencePage = () => {
         'Acima de 65 anos'
     ];
 
-    const handleNext = () => {
-        if (!date || !time || !ageRange) {
-            setError("Por favor, preencha todos os campos.");
-        } else {
+// Função handleNext responsável por lidar com o próximo passo do formulário
+const handleNext = () => {
+
+    // Verifica se algum dos campos (date, time, ageRange) está vazio
+    if (!date || !time || !ageRange) {
+        // Define uma mensagem de erro caso algum campo esteja vazio
+        setError("Por favor, preencha todos os campos.");
+
+    } else {
+        // Se todos os campos estiverem preenchidos, prossegue com a requisição
+
+        // Log das variáveis date, ageRange e time para debugar o código, pode ser comentado no futuro
+        console.log(date, ageRange, time);
+
+        // Envia uma requisição POST usando axios para a URL especificada
+        axios.post(URL, {
+            // Corpo da requisição contendo os dados a serem enviados, deve ser igual ao json esperado pelo back
+            "id_occur": 1,
+            "date_violence_s": date,
+            "agegroup": ageRange,
+            "time_violence_s": "T" + time + ":00-03:00" //ajusta a hora para o formato desejado
+        }, {
+            // Cabeçalhos da requisição, importante para converter para json
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+
+        // Tratamento da resposta da requisição bem-sucedida
+        .then(response => {
+            // Limpa o erro caso haja algum
             setError(null);
+
+            // Navega para a próxima página após o sucesso da requisição
             navigate("/form-classify-violence");
-        }
-    };
+
+            // Log da resposta para debugar
+            console.log(response);
+        })
+
+        // Tratamento de erros da requisição
+        .catch(error => {
+            // Converte a resposta de erro para JSON
+            const errorResponse = JSON.parse(error.request.response);
+            
+            // Verifica o tipo de erro e define a mensagem de erro correspondente
+            switch (errorResponse.message) {
+                case ('Field \"Id occurrence\" invalid'): {
+                    setError("Ocorrência não existe");
+                    break;
+                }
+                case ('Field \"Date of the violence\" invalid'): {
+                    setError("Data inválida");
+                    break;
+                }
+                case ('Field \"Time of the violence\" invalid'): {
+                    setError("Hora inválida");
+                    break;
+                }
+                case ('Field \"Age group\" invalid'): {
+                    setError("Faixa etária inválida");
+                    break;
+                }
+                default: {
+                    setError("Ocorreu um erro desconhecido");
+                }
+            }
+        });
+    }
+};
+
 
     useEffect(() => {
         localStorage.setItem('date', date);
