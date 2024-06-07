@@ -1,8 +1,7 @@
 import React from 'react';
+import HeaderMap from "../components/HeaderMap";
 import { MapContainer, TileLayer, Marker } from 'react-leaflet';
-import { IoChevronBackCircleSharp } from "react-icons/io5";
 import { useLocation, useNavigate } from 'react-router-dom';
-import Logo from "../assets/logo.png";
 import 'leaflet/dist/leaflet.css';
 import { icon } from 'leaflet';
 import { RxDividerHorizontal } from "react-icons/rx";
@@ -23,13 +22,8 @@ function Mapa() {
   return (
     <div className="map">
       <div className="overlay-container">
-        <section className="button-logo-map">
-          <img className="logo-map" src={Logo} alt="Logo da Gloria" onClick={() => navigate("/home-page")} />
-        </section>
-
-        <button className="button-back-map" onClick={() => navigate(-1)}>
-          <IoChevronBackCircleSharp className="icon-back-map" />
-        </button>
+        
+        <HeaderMap/>
 
         <div className="map-title">
           <p className="map-text">Endereço Selecionado</p>

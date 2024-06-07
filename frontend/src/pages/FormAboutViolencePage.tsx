@@ -17,13 +17,18 @@ const FormAboutViolencePage = () => {
 
     const location = useLocation();
     const { state } = location;
-      
+
     useEffect(() => {
-      if (state && state.city) {
-        localStorage.setItem('selectedCity', state.city);
-      }
+        if (state && state.city) {
+            localStorage.setItem('selectedCity', state.city);
+        }
     }, [state]);
-    
+
+    useEffect(() => {
+        if (state && state.coordinates) {
+            localStorage.setItem('coordinates', JSON.stringify(state.coordinates));
+        }
+    }, [state]);
 
     const ageRangeOptions = [
         '',
@@ -121,7 +126,7 @@ const handleNext = () => {
                 <section className="page">
                     <FormIndex value={2}/>
                 </section>
-                
+
                 <section className="area-question">
                     <div className="questions">
                         <div>
@@ -163,7 +168,6 @@ const handleNext = () => {
             </main>
             <button className="footer" onClick={handleNext}>Próximo</button>
         </div>
-
     );
 };
 

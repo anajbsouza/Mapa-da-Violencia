@@ -3,7 +3,7 @@
 
 -- preenchimento statelist
 
-INSERT INTO "StateList" ("uf_State", "name_State") VALUES 
+INSERT INTO state_list (uf_state, name_state) VALUES 
     ('AC', 'Acre'),
     ('AL', 'Alagoas'),
     ('AP', 'Amapá'),
@@ -32,23 +32,23 @@ INSERT INTO "StateList" ("uf_State", "name_State") VALUES
     ('SE', 'Sergipe'),
     ('TO', 'Tocantins');
     
-SELECT * FROM "StateList";
+SELECT * FROM state_list;
 
 -- preenchimento typesofviolence
 
-INSERT INTO "TypesOfViolence" VALUES
+INSERT INTO types_of_violence VALUES
 	('VT1','Violência Física'),
 	('VT2','Violência Moral'),
 	('VT3','Violência Psicológica'),
 	('VT4','Violência Patrimonial'),
 	('VT5','Violência Sexual');
 
-SELECT * FROM "TypesOfViolence";
+SELECT * FROM types_of_violence;
 
 -- preenchimento violencesituations 
 
 
-INSERT INTO "ViolenceSituations" VALUES
+INSERT INTO violence_situations VALUES
 	('VS1', 'Lesões ou ferimentos'),
 	('VS2', 'Estrangulamento ou sufocamento'),
 	('VS3', 'Espancamento ou tortura'),
@@ -60,5 +60,5 @@ INSERT INTO "ViolenceSituations" VALUES
 	('VS9', 'Impedimento do uso de contraceptivo'),
 	('VS10', 'Obrigar atos sexuais que causam desconforto');
 
-SELECT * FROM "ViolenceSituations"
+SELECT * FROM violence_situations
 

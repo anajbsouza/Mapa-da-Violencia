@@ -2,15 +2,15 @@ import Logo from "../assets/logo.png"
 import { useNavigate } from "react-router-dom";
 import { IoChevronBackCircleSharp } from "react-icons/io5";
 
-const Header = () => {
+const HeaderMap = () => {
     let navigate = useNavigate();
 
     return (
         <div>
             <header className="header">
-                <section className="header-items">
+                <section className="header-map-items">
                     <section className="button-back-section">
-                        <button className="button-back" onClick={() => navigate(-1)}>
+                        <button className="button-map-back" onClick={() => navigate(-1)}>
                             <IoChevronBackCircleSharp className="icon-back" />
                         </button>
                     </section>
@@ -22,5 +22,4 @@ const Header = () => {
     );
 };
 
-export default Header;
-
+export default HeaderMap; 
