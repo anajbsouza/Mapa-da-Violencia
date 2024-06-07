@@ -1,5 +1,5 @@
 import { LocalViolence } from '../protocols';
-import { Occurrence, PrismaClient } from '@prisma/client'
+import { occurrence, PrismaClient } from '@prisma/client'
 import { Decimal } from '@prisma/client/runtime/library';
 
 const prisma = new PrismaClient();
@@ -26,7 +26,7 @@ async function getInfoViolence(id_occur:bigint) {
             id_occurrence: id_occur
         },
         select: {
-            violencetype: true,
+            violence_type: true,
             time_violence: true,
             date_violence: true
         }

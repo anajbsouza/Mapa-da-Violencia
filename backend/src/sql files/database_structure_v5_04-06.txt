@@ -1,0 +1,65 @@
+-- FALTA ADICIONAR CHAVES ESTRANGEIRAS NA Access E Occurrece
+
+DROP TABLE IF EXISTS "Access","Occurrence","StateList","TypesOfViolence","User", "UserOccurrences","UserOccurrences","ViolenceSituations" CASCADE;
+
+CREATE TABLE IF NOT EXISTS occurrence (
+    id_occurrence BIGSERIAL NOT NULL,
+    id_user bigint NOT NULL,	
+    datetime_submission timestamp(6) with time zone NOT NULL,
+    age_group text,
+    date_violence date,
+    time_violence time(6) with time zone,
+    city_violence text,
+    state_violence text,
+    latitude numeric(9,6),
+    longitude numeric(9,6),
+    violences_options text,
+    violence_type text,
+    
+    PRIMARY KEY (id_occurrence)
+);
+
+CREATE TABLE IF NOT EXISTS state_list (
+    id_state bigint GENERATED ALWAYS AS IDENTITY NOT NULL UNIQUE,
+    uf_state text NOT NULL UNIQUE,
+    name_state text NOT NULL,
+    num_occurrences bigint DEFAULT 0,
+    PRIMARY KEY (id_state)
+);
+
+CREATE TABLE IF NOT EXISTS types_of_violence (
+    id_violence_type text NOT NULL,
+    description text NOT NULL,
+    PRIMARY KEY ("id_violencetype")
+);
+
+CREATE TABLE IF NOT EXISTS user_fingerprint (
+    id_user BIGSERIAL NOT NULL,
+    fingerprint text UNIQUE,
+    PRIMARY KEY (id_user)
+);
+
+CREATE TABLE IF NOT EXISTS user_occurrences (
+    id_occurrence bigint NOT NULL,
+    date_violence date NOT NULL,
+    id_user bigint NOT NULL,
+    PRIMARY KEY (id_occurrence)
+);
+
+CREATE TABLE IF NOT EXISTS violence_situations (
+    id_violence_option text NOT NULL UNIQUE,
+    description text NOT NULL,
+    PRIMARY KEY (id_violenceoption)
+);
+
+ALTER TABLE occurrence ADD CONSTRAINT occurrence_fk0 FOREIGN KEY (id_user) REFERENCES user_fingerprint(id_user);
+
+ALTER TABLE occurrence ADD CONSTRAINT occurrence_fk1 FOREIGN KEY (state_violence) REFERENCES state_list(uf_state);
+
+ALTER TABLE user_occurrences ADD CONSTRAINT user_occurrences_fk0 FOREIGN KEY (id_occurrence) REFERENCES occurrence(id_occurrence);
+
+ALTER TABLE user_occurrences ADD CONSTRAINT user_occurrences_fk1 FOREIGN KEY (id_user) REFERENCES user_fingerprint(id_user);
+
+
+
+

@@ -1,4 +1,4 @@
-import { Occurrence, PrismaClient } from '@prisma/client';
+import { occurrence, PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
@@ -8,7 +8,7 @@ async function getViolenceData() {
         select: {
             latitude: true,
             longitude: true,
-            violencetype: true
+            violence_type: true
         }
     });
     return violencedata;
