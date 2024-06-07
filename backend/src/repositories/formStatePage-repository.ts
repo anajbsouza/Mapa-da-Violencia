@@ -4,19 +4,19 @@ import { Decimal } from '@prisma/client/runtime/library';
 
 const prisma = new PrismaClient();
 
-async function StateOccurrence(state: ViolenceState) {
-    const {id_occur,uf_state,city} = state;
-    const occurrence = await prisma.occurrence.update({
-        where:{
-            id_occurrence: id_occur
-        },
-        data:{
-            state_violence: uf_state,
-            city_violence: city,
-        }
-    })
-    return occurrence
-}
+// async function StateOccurrence(state: ViolenceState) {
+//     const {id_occur,uf_state,city} = state;
+//     const occurrence = await prisma.occurrence.update({
+//         where:{
+//             id_occurrence: id_occur
+//         },
+//         data:{
+//             state_violence: uf_state,
+//             city_violence: city,
+//         }
+//     })
+//     return occurrence
+// }
 
 async function getListUfs() {
     const listUfs = await prisma.state_list.findMany({
@@ -48,8 +48,8 @@ async function upd_numOccurrences_StateList(state: ViolenceState){
 }
 
 export const StatePageRepository = {
-    StateOccurrence,
-    getListUfs,
-    upd_numOccurrences_StateList
+    // StateOccurrence,
+    getListUfs
+    // upd_numOccurrences_StateList
 }
 

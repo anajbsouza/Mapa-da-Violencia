@@ -53,7 +53,8 @@ const FormStatePage = () => {
     if (!selectedState || !selectedCity) {
       setError("Por favor, selecione o Estado e a Cidade.");
     } else {
-      axios.post(URL, {
+
+      const flag = await axios.post(URL, {
           // Corpo da requisição contendo os dados a serem enviados, deve ser igual ao json esperado pelo back
           "uf_state": selectedState,
           "city": selectedCity
@@ -63,30 +64,35 @@ const FormStatePage = () => {
               'Content-Type': 'application/json'
           }
       })
-
       .then (response=>{
         setError(null);
-      
+        console.log(response);
+        return true;
       })
-
-      setError(null);
-      try {
-        const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${selectedCity},${selectedState}`);
-        const data = await response.json();
-        if (data.length > 0) {
-          const { lat, lon } = data[0];
-          const coordinates = { lat, lon };
-          if (action === 'viewMap') {
-            navigate("/map-filter", { state: { coordinates } });
+      .catch(error=>{
+        console.log(error);
+        setError("Dados inválidos");
+        return false;
+      })
+      if (flag){
+        try {
+          const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${selectedCity},${selectedState}`);
+          const data = await response.json();
+          if (data.length > 0) {
+            const { lat, lon } = data[0];
+            const coordinates = { lat, lon };
+            if (action === 'viewMap') {
+              navigate("/map-filter", { state: { coordinates } });
+            } else {
+              navigate("/form-about-violence");
+            }
           } else {
-            navigate("/form-about-violence");
+            setError("Não foi possível encontrar as coordenadas da cidade selecionada.");
           }
-        } else {
-          setError("Não foi possível encontrar as coordenadas da cidade selecionada.");
+        } catch (error) {
+          console.error('Erro ao buscar coordenadas:', error);
+          setError("Erro ao buscar coordenadas. Tente novamente.");
         }
-      } catch (error) {
-        console.error('Erro ao buscar coordenadas:', error);
-        setError("Erro ao buscar coordenadas. Tente novamente.");
       }
     }
   };
