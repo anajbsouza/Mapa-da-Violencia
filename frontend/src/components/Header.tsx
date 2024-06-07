@@ -9,11 +9,9 @@ const Header = () => {
         <div>
             <header className="header">
                 <section className="header-items">
-                    <section className="button-back-section">
-                        <button className="button-back" onClick={() => navigate(-1)}>
-                            <IoChevronBackCircleSharp className="icon-back" />
-                        </button>
-                    </section>
+                    <button className="button-back" onClick={() => navigate(-1)}>
+                        <IoChevronBackCircleSharp className="icon-back" />
+                    </button>
                     
                     <img className="logo" src={Logo} alt="Logo da Gloria" onClick={() => navigate("/home-page")}/>
                 </section>

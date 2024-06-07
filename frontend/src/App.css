@@ -18,10 +18,8 @@ main {
   margin-bottom: 10vh;
 }
 
-/*HEADER*/ 
+/*Componentes Header e HeaderMap*/ 
 .header {
-  display: flex; 
-  align-items: center; 
   padding: 10px; 
 }
 
@@ -31,15 +29,9 @@ main {
   display: flex; 
   justify-content: space-between;
   align-items: center; 
-  width: 100%;
 }
 
 /* Botão de Voltar */
-.button-back-section{
-  display: flex;
-  align-items: center;
-}
-
 .button-back, 
 .button-map-back {
   display: block;
@@ -70,12 +62,19 @@ main {
 }
 
 .logo {
-  width: 25vw; 
+  width: 30vw; 
   height: auto;
 }
 
+.logo-map {
+  width: 25vw;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 
-/*Form Index*/ 
+/*Componente FormIndex*/ 
 .ball-line {
   display: flex;
   align-items: center;
