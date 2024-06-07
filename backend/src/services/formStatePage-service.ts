@@ -10,7 +10,7 @@ async function createStateOccur(violenceState: ViolenceState): Promise<any> {
 
     if (!(await listOccur).find(occurlist => violenceState.id_occur == occurlist.id_occurrence)){
         throw validationError('"Id occurrence"');
-    } else if (!(await listUfs).find(state => state.uf_State == violenceState.uf_state)){
+    } else if (!(await listUfs).find(state => state.uf_state == violenceState.uf_state)){
         throw validationError('"State"');
     } else if (typeof violenceState.uf_state !== 'string'){
         throw validationError('"State"');

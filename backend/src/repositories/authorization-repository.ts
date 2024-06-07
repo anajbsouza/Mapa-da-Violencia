@@ -4,13 +4,13 @@ import { repositoryError } from "../errors/errors";
 const prisma = new PrismaClient();
 
 async function saveAccess(fingerprint: string, latitude: number, longitude: number) {
-    return await prisma.access.create({
-        data: {
-            fingerprint: fingerprint,
-            latitude: latitude,
-            longitude: longitude,
-        },
-    });
+    // return await prisma.access.create({
+    //     data: {
+    //         fingerprint: fingerprint,
+    //         latitude: latitude,
+    //         longitude: longitude,
+    //     },
+    // });
 }
 async function saveOccurrence(id: number, date: Date) {
     return await prisma.occurrence.create({
