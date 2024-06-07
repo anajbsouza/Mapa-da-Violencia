@@ -28,7 +28,7 @@ const AuthorizeLocalizationPage = () => {
               navigate("/map-filter", { state: { coordinates, action } });
             })
             .catch(error =>{
-              console.log(error);
+              console.log("Serviço indisponível");
             })
             
           } else if (action === "register") {
