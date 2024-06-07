@@ -58,7 +58,6 @@ const handleNext = () => {
         // Envia uma requisição POST usando axios para a URL especificada
         axios.post(URL, {
             // Corpo da requisição contendo os dados a serem enviados, deve ser igual ao json esperado pelo back
-            "id_occur": 1,
             "date_violence_s": date,
             "agegroup": ageRange,
             "time_violence_s": "T" + time + ":00-03:00" //ajusta a hora para o formato desejado
