@@ -7,56 +7,51 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Occurrence {
-  id_occurrence       BigInt           @id @default(autoincrement())
-  datetime_submission DateTime         @db.Timestamptz(6)
-  date_violence       DateTime?        @db.Date
-  agegroup            String?
-  latitude            Decimal?         @db.Decimal(9, 6)
-  longitude           Decimal?         @db.Decimal(9, 6)
-  violencesoptions    String?
-  violencetype        String?
-  id_user             BigInt           @unique
-  time_violence       DateTime?        @db.Timetz(6)
+model occurrence {
+  id_occurrence       BigInt            @id @default(autoincrement())
+  id_user             BigInt
+  datetime_submission DateTime          @db.Timestamptz(6)
+  age_group           String?
+  date_violence       DateTime?         @db.Date
+  time_violence       DateTime?         @db.Timetz(6)
   city_violence       String?
   state_violence      String?
-  StateList           StateList?       @relation(fields: [state_violence], references: [uf_State], onDelete: NoAction, onUpdate: NoAction, map: "Occurrence_fk3")
-  UserOccurrences     UserOccurrences?
+  latitude            Decimal?          @db.Decimal(9, 6)
+  longitude           Decimal?          @db.Decimal(9, 6)
+  violences_options   String?
+  violence_type       String?
+  state_list          state_list?       @relation(fields: [state_violence], references: [uf_state], onDelete: NoAction, onUpdate: NoAction, map: "occurrence_fk1")
+  user_occurrences    user_occurrences?
 }
 
-model TypesOfViolence {
+model state_list {
+  id_state        BigInt       @id @default(autoincrement())
+  uf_state        String       @unique
+  name_state      String
+  num_occurrences BigInt?      @default(0)
+  occurrence      occurrence[]
+}
+
+model types_of_violence {
   id_violencetype String @id
-  Description     String
+  description     String
 }
 
-model User {
-  id_user String @id
+model user_fingerprint {
+  id_user          BigInt             @id @default(autoincrement())
+  fingerprint      String?            @unique
+  user_occurrences user_occurrences[]
 }
 
-model UserOccurrences {
-  id_occurrence BigInt     @id
-  date_violence DateTime   @db.Date
-  id_user       BigInt
-  Occurrence    Occurrence @relation(fields: [id_occurrence], references: [id_occurrence], onDelete: NoAction, onUpdate: NoAction, map: "UserOccurrences_fk0")
+model user_occurrences {
+  id_occurrence    BigInt           @id
+  date_violence    DateTime         @db.Date
+  id_user          BigInt
+  occurrence       occurrence       @relation(fields: [id_occurrence], references: [id_occurrence], onDelete: NoAction, onUpdate: NoAction, map: "user_occurrences_fk0")
+  user_fingerprint user_fingerprint @relation(fields: [id_user], references: [id_user], onDelete: NoAction, onUpdate: NoAction, map: "user_occurrences_fk1")
 }
 
-model ViolenceSituations {
+model violence_situations {
   id_violenceoption String @id
-  Description       String
-}
-
-model StateList {
-  id_State        BigInt       @id @default(autoincrement())
-  uf_State        String       @unique
-  name_State      String
-  num_Occurrences BigInt?      @default(0)
-  Occurrence      Occurrence[]
-}
-
-model Access {
-  id          BigInt   @id @default(autoincrement())
-  fingerprint String   @db.VarChar(255)
-  latitude    Decimal  @db.Decimal(9, 6)
-  longitude   Decimal  @db.Decimal(9, 6)
-  createdat   DateTime @default(now()) @db.Timestamptz(6)
+  description       String
 }
