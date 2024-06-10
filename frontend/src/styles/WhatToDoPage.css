@@ -140,3 +140,47 @@
 .footer-invisible {
     height: 9vh;
   }
+
+
+  /* Media Query para telas maiores que 768px (tablets e desktops pequenos) */
+@media (min-width: 600px) {
+    .header{
+        width: 20%;
+    }
+
+    main{
+        height: 50%;
+        width: 80%;
+    }
+
+    .titles-whattodo .intro-title{
+        font-size: 1.3rem;
+    }
+
+    .titles-whattodo .question{
+        font-size: 1.3rem;
+    }
+}
+
+
+
+/* Media Query para telas maiores que 1024px (desktops) */
+@media (min-width: 1024px) {
+    .header{
+        width: 20%;
+
+    }
+
+    main{
+        height: 30%;
+        width: 90%;
+    }
+
+    .titles-whattodo .intro-title{
+        font-size: 1.3rem;
+    }
+
+    .titles-whattodo .question{
+        font-size: 1.3rem;
+    }
+}

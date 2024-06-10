@@ -108,5 +108,7 @@ main {
   color: white;
 }
 
-
+  .header-items .header-map-items {
+    width: 50%;
+  }
 
