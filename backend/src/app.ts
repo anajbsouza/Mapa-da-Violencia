@@ -2,11 +2,12 @@ import express, { Request, Response } from 'express';
 import 'express-async-errors';
 import cors from 'cors';
 import { handleApplicationErrors } from './middlewares/error-handling-middleware';
-import answersRouter from './routers/answers-router';
-import formStatePageRouter from './routers/formStatePage-router';
 import formAboutViolencePageRouter from './routers/formAboutViolencePage-router';
 import formClassifyViolenceRouter from './routers/formClassifyViolencePage-router';
 import authorizationRouter from './routers/authorization-router';
+import mapPageRouter from './routers/mapPage-router';
+import mapFilterPageRouter from './routers/mapFilterPage-router';
+import formStatePageRouter from './routers/formStatePage-router';
 
 const app = express();
 
@@ -16,12 +17,15 @@ app
     .use(cors())
     .use(express.json())
     .get('/health', (_req: Request, res: Response) => res.send('OK!')) // rota teste para garantir que o servidor está rodando
-    .use(answersRouter)
     .use(formStatePageRouter)
     .use(formAboutViolencePageRouter)
     .use(formClassifyViolenceRouter)
-    .use(handleApplicationErrors)
+    .use(mapPageRouter)
+    .use(mapFilterPageRouter)
     .use(authorizationRouter)
+
+    
+    .use(handleApplicationErrors)
     .listen(port, () => {console.log(`Servidor rodando na porta ${port}`);});
 
 export default app;

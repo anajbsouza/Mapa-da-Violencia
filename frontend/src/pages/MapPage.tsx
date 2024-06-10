@@ -1,70 +1,32 @@
-import React, { useState, useEffect } from 'react';
-import { MapContainer, TileLayer, Marker, useMapEvents } from 'react-leaflet';
-import { IoChevronBackCircleSharp } from "react-icons/io5";
-import { useNavigate } from 'react-router-dom';
-import { RxDividerHorizontal } from "react-icons/rx";
-import Logo from "../assets/logo.png"
+import React from 'react';
+import HeaderMap from "../components/HeaderMap";
+import { MapContainer, TileLayer, Marker } from 'react-leaflet';
+import { useLocation, useNavigate } from 'react-router-dom';
 import 'leaflet/dist/leaflet.css';
-import { LatLng } from 'leaflet';
 import { icon } from 'leaflet';
+import { RxDividerHorizontal } from "react-icons/rx";
 import LocationIcon from "../assets/location_icon.png"; 
 import '../styles/MapPage.css';
 
 function Mapa() {
   const navigate = useNavigate();
-  const [markerPosition, setMarkerPosition] = useState<LatLng | null>(null);
-  const [locationSelected, setLocationSelected] = useState(false);
-  const [address, setAddress] = useState<string>(""); 
+  const location = useLocation();
+  const { address } = location.state || {};
+  
   const customIcon = icon({
     iconUrl: LocationIcon, 
     iconSize: [28, 28], 
     iconAnchor: [16, 48], 
   });
 
-  useEffect(() => {
-    if (markerPosition) {
-      getAddressFromCoordinates(markerPosition.lat, markerPosition.lng);
-    }
-  }, [markerPosition]);
-
-  const getAddressFromCoordinates = async (lat: number, lng: number) => {
-    try {
-      const response = await fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json`);
-      const data = await response.json();
-      const { road, suburb, city, state, postcode, country } = data.address;
-      const addressParts = [road, suburb, city, state, postcode, country].filter(Boolean);
-      const address = addressParts.join(', ');
-      
-      setAddress(address);
-    } catch (error) {
-      console.error('Erro ao obter o endereço:', error);
-    }
-  };
-
-  function MapEventsHandler() {
-    useMapEvents({
-      click: (e) => {
-        setMarkerPosition(e.latlng); 
-        setLocationSelected(true); 
-      }
-    });
-  
-    return null;
-  }
-
   return (
     <div className="map">
       <div className="overlay-container">
-        <section className="button-logo-map">
-          <img className="logo-map" src={Logo} alt="Logo da Gloria" onClick={() => navigate("/home-page")} />
-        </section>
-
-        <button className="button-back-map" onClick={() => navigate(-1)}>
-          <IoChevronBackCircleSharp className="icon-back-map" />
-        </button>
+        
+        <HeaderMap/>
 
         <div className="map-title">
-          <p className="map-text">{locationSelected ? 'Local selecionado' : 'Marque o local'}</p>
+          <p className="map-text">Endereço Selecionado</p>
         </div>
       </div>
 
@@ -74,23 +36,20 @@ function Mapa() {
         style={{ width: '100vw', height: '100vh' }}
         zoomControl={false}
       >
-        <MapEventsHandler /> 
-
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
 
-        {markerPosition && (
-          <Marker position={markerPosition} icon={customIcon}>
+        {address && (
+          <Marker position={[-15.794, -47.882]} icon={customIcon}>
           </Marker>
         )}
-
       </MapContainer>
 
-      {locationSelected && (
-          <div className="occurrence-details">
-          <RxDividerHorizontal className="map-icon" onClick={() => setLocationSelected(false)} />  {/* Added onClick handler */}
+      {address && (
+        <div className="occurrence-details">
+          <RxDividerHorizontal className="map-icon" /> 
           <div className="general-information">
             <p>INFORMAÇÕES GERAIS</p>
           </div>
@@ -112,7 +71,7 @@ function Mapa() {
           </div>
 
           <div className="btn-map">
-            <button className="btn-finish">Finalizar</button>
+            <button className="btn-finish" onClick={() => navigate("/thank-you")}>Finalizar</button>
           </div>
         </div>
       )}

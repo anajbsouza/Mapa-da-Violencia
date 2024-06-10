@@ -11,24 +11,35 @@ export type RequestError = {
     message: string;
 };
 export type ViolenceState = {
-    id_user: bigint,
-    uf_state:string
+    uf_state:string,
+    city: string
 };
 // Tipo para receber no json (json não tem tipo data)
-export type AboutViolence_json = {
-    id_user: bigint,
+export type AboutViolence = {
     date_violence_s: string,
     agegroup: string,
     time_violence_s: string,
 };
 // Tipo para escrever no banco
-export type AboutViolence = {
-    id_user:bigint,
-    date_violence: Date,
-    agegroup: string,
-    time_violence: Date,
-};
+// export type AboutViolence = {
+//     id_occur:bigint,
+//     date_violence: Date,
+//     agegroup: string,
+//     time_violence: Date,
+// };
 export type ClassifyViolencePage = {
-    id_user:bigint,
+    id_occur:bigint,
     violencesoptions: string
 }
+export type LocalViolence = {
+    id_occur: bigint,
+    latitude: number,
+    longitude: number
+};
+
+export type InfoViolence = {
+    type_violence: string,
+    time_violence: Date,
+    date_violence: Date
+}
+

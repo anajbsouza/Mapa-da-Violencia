@@ -1,27 +1,38 @@
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
 import '../styles/FormClassifyViolencePage.css';
 import '../styles/Footer.css'
 import FormIndex from "../components/FormIndex";
-import { useNavigate } from 'react-router-dom';
-
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const FormClassifyViolencePage = () => {
   const navigate = useNavigate();
-  const [checkedItems, setCheckedItems] = useState<Record<number, boolean>>({});
+  const location = useLocation();
+  const { state } = location;
+
+  const [checkedItems, setCheckedItems] = useState<Record<number, boolean>>(() => {
+    const storedCheckedItems = localStorage.getItem('checkedItems');
+    if (storedCheckedItems) {
+      const parsedItems = Object.fromEntries(JSON.parse(storedCheckedItems));
+      return parsedItems;
+    }
+    return {};
+  });
   const [error, setError] = useState<string | null>(null);
 
   const options = [
-    "Lesões ou ferimentos",
-    "Estrangulamento ou sufocamento",
-    "Espancamento ou tortura",
-    "Constrangimento ou humilhação",
-    "Vigilância ou perseguição",
-    "Proibições ou limitações",
-    "Chantagem ou distorção dos fatos",
-    "Estupro",
     "Impedimento do uso de contraceptivo",
+    "Estrangulamento ou sufocamento",
+    "Furtar ou controlar seu dinheiro",
+    "Destruir documentos ou itens pessoais",
+    "Atirar objetos ou sacudir e apertar os braços",
+    "Estupro",
+    "Chantagem ou distorção dos fatos",
+    "Vigilância ou perseguição",
+    "Lesões, espancamentos ou ferimentos",
     "Obrigar atos sexuais",
+    "Insultos, constrangimento ou humilhação",
+    "Deixar de pagar pensão alimentícia",
   ];
 
   const handleChange = (position: number) => {
@@ -35,9 +46,13 @@ const FormClassifyViolencePage = () => {
       setError("Por favor, selecione pelo menos uma situação de violência.");
     } else {
       setError(null);
-      navigate("/map-page");
+      navigate("/map-address", { state: state }); // Passando o estado para a próxima página
     }
   };
+
+  useEffect(() => {
+    localStorage.setItem('checkedItems', JSON.stringify(Object.entries(checkedItems)));
+  }, [checkedItems]);
 
   return (
     <div>
@@ -74,8 +89,6 @@ const FormClassifyViolencePage = () => {
         </section>
       </main>
       <button className="footer" onClick={handleNext}>Próximo</button>
-
-      
     </div>
   );
 };

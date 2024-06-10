@@ -8,13 +8,11 @@ const Header = () => {
     return (
         <div>
             <header className="header">
-                <section>
+                <section className="header-items">
                     <button className="button-back" onClick={() => navigate(-1)}>
                         <IoChevronBackCircleSharp className="icon-back" />
                     </button>
-                </section>
-
-                <section className="button-logo">
+                    
                     <img className="logo" src={Logo} alt="Logo da Gloria" onClick={() => navigate("/home-page")}/>
                 </section>
             </header>

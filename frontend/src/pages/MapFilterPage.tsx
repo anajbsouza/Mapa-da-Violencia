@@ -1,18 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/Footer.css'
-import { MapContainer, TileLayer, useMapEvents } from 'react-leaflet';
+import { MapContainer, TileLayer, useMap } from 'react-leaflet';
 import { IoChevronBackCircleSharp } from "react-icons/io5";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import Logo from "../assets/logo.png";
 import 'leaflet/dist/leaflet.css';
-import { LatLng } from 'leaflet';
 import '../styles/MapPage.css';
+import { LatLngExpression } from 'leaflet';
 import { VscFilterFilled } from "react-icons/vsc";
+import HeaderMap from '../components/HeaderMap';
 
 function MapFilter() {
   const navigate = useNavigate();
-
-  const [markerPosition, setMarkerPosition] = useState<LatLng | null>(null);
+  const location = useLocation();
+  const { coordinates } = location.state || {};
   const [isFilterVisible, setIsFilterVisible] = useState(false);
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
 
@@ -20,28 +21,28 @@ function MapFilter() {
     const checkboxes = document.querySelectorAll('.filter-content input[type="checkbox"]:checked');
     const filters = Array.from(checkboxes).map(checkbox => checkbox.parentElement?.textContent?.trim() || '');
     setSelectedFilters(filters);
+    setIsFilterVisible(false);
   };
 
-  function MyComponent() {
-    useMapEvents({
-      click(e) {
-        const { lat, lng } = e.latlng;
-        setMarkerPosition(new LatLng(lat, lng));
-      },
-    });
+  function ChangeMapView({ center }: { center: LatLngExpression }) {
+    const map = useMap();
+    if (center) {
+      map.setView(center, 12);
+    }
     return null;
   }
+
+  useEffect(() => {
+    if (!coordinates) {
+      // If coordinates are not available, navigate back to the authorization page
+      navigate("/authorize-localization");
+    }
+  }, [coordinates, navigate]);
 
   return (
     <div className="map">
       <div className="overlay-container">
-        <section className="button-logo-map">
-          <img className="logo-map" src={Logo} alt="Logo da Gloria" onClick={() => navigate("/home-page")} />
-        </section>
-
-        <button className="button-back-map" onClick={() => navigate(-1)}>
-          <IoChevronBackCircleSharp className="icon-back-map" />
-        </button>
+        <HeaderMap/>
 
         <div className="map-title">
           <p className="map-text" onClick={() => setIsFilterVisible(!isFilterVisible)}>
@@ -68,12 +69,12 @@ function MapFilter() {
       </div>
 
       <MapContainer
-        center={[-15.794, -47.882]}
+        center={coordinates ? [coordinates.lat, coordinates.lon] : [-15.794, -47.882]}
         zoom={14}
         style={{ width: '100vw', height: '100vh' }}
         zoomControl={false}
       >
-        <MyComponent />
+        <ChangeMapView center={coordinates ? [coordinates.lat, coordinates.lon] : [-15.794, -47.882]} />
 
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

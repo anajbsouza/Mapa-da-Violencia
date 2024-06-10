@@ -2,12 +2,13 @@
   "compilerOptions": {
     "outDir": "dist",
     "esModuleInterop": true,
-    "module": "CommonJS",
+    "module": "CommonJS",  
     "moduleResolution": "Node",
     "baseUrl": "./src", 
     "paths": {
       "@/*": ["*"]
-    }
+    },
+    "rootDir": "./src"
   },
   "ts-node": {
     "esm": true

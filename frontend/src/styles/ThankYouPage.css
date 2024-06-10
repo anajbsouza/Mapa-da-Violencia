@@ -27,6 +27,8 @@
         border-color: transparent;
         color: #BC88BC;
         font-weight: bold;
+        background-color: white;
+        margin-left: 10vw                                                           ;
     }
 
     .button-know-more:focus{

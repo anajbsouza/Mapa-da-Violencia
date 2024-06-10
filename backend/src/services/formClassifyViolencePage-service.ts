@@ -1,17 +1,24 @@
-import { ClassifyViolencePage } from '@/protocols';
-import { validationError } from "../errors/errors";
+import { ClassifyViolencePage } from '../protocols';
+import { repositoryError, validationError } from "../errors/errors";
 import { ClassifyViolencePageRepository } from "../repositories/formClassifyViolencePage-repository";
+import { authorizationRepository } from "../repositories/authorization-repository";
 
 async function createViolencesSituationsOccur(classifyviolencepage: ClassifyViolencePage) {
-    if (!classifyviolencepage.violencesoptions||classifyviolencepage.violencesoptions==null){
+    
+    const ListOccur = await authorizationRepository.getListOccur()
+    if (!(await ListOccur).find(occurlist => classifyviolencepage.id_occur == occurlist.id_occurrence)){
+        throw validationError('"Id user"');
+    } else if (!classifyviolencepage.violencesoptions||classifyviolencepage.violencesoptions==null){
         throw validationError('"Violence Situations"');
     } else if (classifyviolencepage.violencesoptions == ""){
         throw validationError('"Violence Situations"');
     }
     const typeofviolence = await IdentifyTypeOfViolence(classifyviolencepage.violencesoptions);
-
-    const newInfoOccur = await ClassifyViolencePageRepository.ViolencesSituations(classifyviolencepage,typeofviolence);
-    return newInfoOccur;
+    try {
+        return await ClassifyViolencePageRepository.ViolencesSituations(classifyviolencepage,typeofviolence);
+    } catch {
+        throw repositoryError('"Occurrence"','"ViolencesSituations"');
+    }
 }
 
 async function IdentifyTypeOfViolence(violencesoptions:string): Promise<string> {
@@ -58,7 +65,7 @@ async function IdentifyTypeOfViolence(violencesoptions:string): Promise<string> 
         }
     }
     const classifyviolence = classifyviolence_aux.filter(onlyUnique).sort();
-    console.log(classifyviolence)
+    // console.log(classifyviolence)
     return classifyviolence.join(", ");
 }
 
