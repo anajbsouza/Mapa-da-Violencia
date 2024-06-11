@@ -8,7 +8,7 @@ const HomePage = () => {
     return (
         <main className="main-home">
             <header className="logo-home-header">
-                <img className="logo-home" src={Logo} alt="Logo da Gloria" onClick={() => navigate('/')}/>
+                <img className="logo-home" src={Logo} alt="Logo da Gloria" />
             </header>
             <section className="titles-home">
                 <h1 className="main-title">INSTITUTO GLÓRIA</h1>

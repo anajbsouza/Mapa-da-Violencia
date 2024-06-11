@@ -112,3 +112,14 @@ main {
     width: 50%;
   }
 
+  @media (min-width: 600px) {
+    .logo { 
+        width: 30%;
+        margin-top: -2vh;
+        margin-left: -10vw;
+    }
+
+    .button-back .icon-back{
+        width: 350%;
+    }
+  }

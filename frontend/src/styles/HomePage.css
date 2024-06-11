@@ -7,91 +7,68 @@ body {
     background-color: #612368;
     margin: 0;
     overflow-x: hidden;
-}
-
-.main-home {
-    background-color: #612368;
-    margin: 0 auto;
-    box-shadow: none;
-    max-width: 100vw;
-}
-
-.logo-home-header {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100vh;
+    font-family: 'Montserrat', Arial;
+}
+
+.main-home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #612368;
+    width: 100%;
+    max-width: 100vw;
+    text-align: center;
+    color: white;
+    box-shadow: none;
 }
 
 .logo-home {
     width: 80%;
     border-radius: 10px;
-    margin-top: 5vh;
+    margin-top: 1vh;
 }
 
-.titles-home {
-    color: white;
-    text-align: center;
-    font-family: 'Montserrat', Arial;
-
-    .main-title {
-        font-weight: bold;
-        font-size: 6vh;
-        margin-top: 40px;
-    }
-
-    .sub-title {
-        font-weight: normal;
-        font-size: 4vh;
-        margin-top: -6vh;
-        margin-bottom: 0;
-    }
+.main-title {
+    font-weight: bold;
+    font-size: 6vh;
+    margin-top: 40px;
 }
 
-.footer{
+.sub-title {
+    font-weight: normal;
+    font-size: 4vh;
+    margin-top: -6vh;
+    margin-bottom: 0;
+}
+
+.footer {
+    font-size: 1em;
     margin-bottom: 8vh;
 }
 
-/* Media Query para telas maiores que 768px (tablets e desktops pequenos) */
-@media (min-width: 750px) {
+/* Media Query para telas maiores que 600px */
+@media (min-width: 600px) {
     .logo-home {
         width: 60%;
+        margin-top: 3vh;
     }
 
-    .titles-home .main-title {
+    .main-title {
         font-size: 5vh;
     }
 
-    .titles-home .sub-title {
+    .sub-title {
         font-size: 3vh;
         margin-top: -3vh;
         font-weight: normal;
     }
 
-    .footer {
-        font-size: 1.4em;
-        font-size: 1em;
-        width: 20vw;
-    }
-}
-
-/* Media Query para telas maiores que 1024px (desktops) */
-@media (min-width: 1024px) {
-    .logo-home {
-        width: 40%;
-    }
-
-    .titles-home .main-title {
-        font-size: 6vh;
-    }
-
-    .titles-home .sub-title {
-        font-size: 4vh;
-        font-weight: normal;
-    }
-
-    .footer {
-        font-size: 1em;
+    .footer{
         width: 15vw;
-        background-color: #FFCA05;
     }
 }
