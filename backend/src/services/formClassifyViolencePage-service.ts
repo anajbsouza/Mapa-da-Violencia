@@ -7,7 +7,7 @@ async function createViolencesSituationsOccur(classifyviolencepage: ClassifyViol
     
     const ListOccur = await authorizationRepository.getListOccur()
     if (!(await ListOccur).find(occurlist => classifyviolencepage.id_occur == occurlist.id_occurrence)){
-        throw validationError('"Id user"');
+        throw validationError('"Id occur"');
     } else if (!classifyviolencepage.violencesoptions||classifyviolencepage.violencesoptions==null){
         throw validationError('"Violence Situations"');
     } else if (classifyviolencepage.violencesoptions == ""){
