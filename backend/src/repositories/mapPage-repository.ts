@@ -1,41 +1,31 @@
-import { LocalViolence } from '../protocols';
+import { OccurrenceData_bd } from '../protocols';
 import { occurrence, PrismaClient } from '@prisma/client'
 import { Decimal } from '@prisma/client/runtime/library';
 
 const prisma = new PrismaClient();
 
 // atualizar as coordenadas de localização de uma ocorrência de violência associada a um determinado usuário no banco de dados
-async function LocalOccurrence(local: LocalViolence) {
-    const {id_occur, latitude, longitude} = local;
-    const occurrence = await prisma.occurrence.update({
-        where:{
-            id_occurrence: id_occur
-        },
-        data:{
-            latitude : latitude,
+async function createOccurrence(occurrencedata_bd:OccurrenceData_bd) {
+    const { id_user, age_group, date_violence, time_violence, city_violence, state_violence, latitude, longitude, violence_options, violence_type } = occurrencedata_bd;
+    const occurrence = await prisma.occurrence.create({
+        data: {
+            id_user: id_user,
+            age_group: age_group,
+            date_violence: date_violence,
+            time_violence: time_violence,
+            city_violence:city_violence,
+            state_violence: state_violence,
+            latitude: latitude,
             longitude: longitude,
+            violences_options:violence_options,
+            violence_type:violence_type
+
         }
     })
     return occurrence
 }
 
-// busca um tipo de ocorrência de violência associada a um usuário específico no banco de dados, imprime essas informações para depuração e retorna os dados encontrados.
-async function getInfoViolence(id_occur:bigint) {
-    const infoviolence = await prisma.occurrence.findUnique({
-        where: {
-            id_occurrence: id_occur
-        },
-        select: {
-            violence_type: true,
-            time_violence: true,
-            date_violence: true
-        }
-    });
-    return infoviolence;
-}
-
 export const MapPageRepository = {
-   LocalOccurrence,
-   getInfoViolence
+    createOccurrence
 }
 
