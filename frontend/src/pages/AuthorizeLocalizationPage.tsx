@@ -28,6 +28,7 @@ const AuthorizeLocalizationPage = () => {
               navigate("/map-filter", { state: { coordinates, action } });
             })
             .catch(error =>{
+              console.log(error);
               console.log("Serviço indisponível");
             })
             
@@ -37,8 +38,9 @@ const AuthorizeLocalizationPage = () => {
             console.error("Unsupported action.");
           }
         },
-        () => {
+        (error) => {
           // Handle error
+          console.error("Error code:", error.code, " - ", error.message);
           console.error("Geolocation access denied or not available.");
         }
       );

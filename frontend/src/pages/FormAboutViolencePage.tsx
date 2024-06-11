@@ -5,6 +5,7 @@ import '../styles/FormAboutViolencePage.css';
 import '../styles/Footer.css'
 import FormIndex from "../components/FormIndex";
 import axios from "axios";
+import ErrorMessage from "../components/ErrorMessage";
 
 const URL = "http://localhost:4000/form-about-violence"
 
@@ -162,7 +163,9 @@ const handleNext = () => {
                             </select>
                         </div>
                     </div>
-                    {error && <p className="error">{error}</p>}
+
+                    <ErrorMessage error={error}/>
+                    
                 </section>
             </main>
             <button className="footer" onClick={handleNext}>Próximo</button>
