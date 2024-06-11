@@ -49,6 +49,10 @@ main {
   color: white;
 }
 
+.reset-svg{
+  stroke: none;
+
+}
 .button-map-back .icon-back{
   color: #612368;
 }
@@ -109,6 +113,19 @@ main {
 }
 
   .header-items .header-map-items {
-    width: 50%;
+    width: 85vw;
   }
 
+/* Componente ErrorMessage*/ 
+.error {
+  color: #e61919;
+  font-weight: 500;
+  font-size: 2vh;
+  padding: 4px 8px;
+  border-radius: 4px;  
+  display: inline-block;
+}
+
+.icon-alert {
+  vertical-align: middle;
+}

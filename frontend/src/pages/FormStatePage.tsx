@@ -5,6 +5,7 @@ import '../styles/FormStatePage.css';
 import FormIndex from "../components/FormIndex";
 import { useNavigate, useLocation } from 'react-router-dom';
 import axios from "axios";
+import ErrorMessage from "../components/ErrorMessage";
 
 const URL = "http://localhost:4000/form-state"
 
@@ -131,7 +132,9 @@ const FormStatePage = () => {
           <p>Esta informação é valiosa para nós!</p>
           <p>Estamos aqui para ajudar e garantir que você se sinta seguro e acolhido ao compartilhar sua experiência.</p>
         </section>
-        {error && <p className="error">{error}</p>}
+
+       <ErrorMessage error={error}/>
+       
       </main>
 
       <button className="footer" onClick={handleNext}>Próximo</button>
