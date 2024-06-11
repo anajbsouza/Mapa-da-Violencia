@@ -4,21 +4,13 @@ import httpStatus from 'http-status';
 import json from '../helper/json'
 
 
-async function postLocalViolence(req: Request, res: Response){
+async function postOccurrence(req: Request, res: Response){
  
-    const local = await MapPageService.createLocalOccur(req.body);
+    const local = await MapPageService.createOccur(req.body);
     
     return res.status(httpStatus.CREATED).send(json(local));
 }
 
-async function getInfoViolence(req: Request, res: Response) {
-    const infoViolence = await MapPageService.getInfoViolence(req.params.id_occur);
-
-    return res.status(httpStatus.OK).send(json(infoViolence));
-}
-
-
 export const MapPageController = {
-    postLocalViolence,
-    getInfoViolence
+    postOccurrence
 }

@@ -1,50 +1,56 @@
-import { LocalViolence } from "../protocols";
-import { MapPageRepository } from "../repositories/mapPage-repository"
+import { OccurrenceData,OccurrenceData_bd } from "../protocols";
+import { MapPageRepository } from "../repositories/mapPage-repository";
+import { StatePageService } from "../services/formStatePage-service";
+import { AboutViolencePageService } from "../services/formAboutViolencePage-service";
+import { ClassifyViolencePageService } from "../services/formClassifyViolencePage-service";
 import { authorizationRepository } from "../repositories/authorization-repository";
+import {StatePageRepository} from "../repositories/formStatePage-repository"
 import { repositoryError, validationError } from "../errors/errors";
 import express, { Request, Response } from 'express';
 import { number } from "joi";
 
-//valida se o usuário fornecido está autorizado, verificando se id_user está na lista de usuários autorizados e se as coordenadas de latitude e longitude são números válidos.
-//Se qualquer validação falhar, a função lança um erro. Caso todas as validações sejam bem-sucedidas, a função cria e retorna uma nova ocorrência de violência local com os dados fornecidos.
-async function createLocalOccur(localViolence: LocalViolence) {
 
-    const listOccur = await authorizationRepository.getListOccur()
+async function createOccur(occurrencedata: OccurrenceData) {
+    // gera id_user para o fingerprint
+    const id_user = await MapPageRepository.createUser(occurrencedata.fingerprint);
 
-    if (!(await listOccur).find(occurlist => localViolence.id_occur == occurlist.id_occurrence)){
-        throw validationError('"Id occurence"');
-    } 
-    else if (typeof localViolence.latitude !== 'number' || localViolence.latitude == null || isNaN(localViolence.latitude)){
-        throw validationError('"Latitude of the location of the violence"');
+    //validação dos dados de novo (para evitar envios maliciosos)
+    await StatePageService.validateStateOccur({uf_state:occurrencedata.state_violence,city:occurrencedata.city_violence});
+
+    await AboutViolencePageService.validateAboutViolenceOccur({date_violence_s: occurrencedata.date_violence_s, agegroup: occurrencedata.age_group, time_violence_s: occurrencedata.time_violence_s});
+
+    //comentado pq se não mudar o back da classify vai dar erro
+    // const typeofviolence = await ValidateViolencesSituationsOccur.createViolencesSituationsOccur({violencesoptions: occurrencedata.violence_options})
+    // if (typeofviolence.violence_type !== occurrencedata.violence_type){
+    //     throw validationError('"Violence Type"');
+    // }
+    //organização dos dados para criar ocorrência
+    const occurrencedata_bd:OccurrenceData_bd = {
+        id_user: id_user,
+        age_group: occurrencedata.age_group,
+        date_violence: new Date(occurrencedata.date_violence_s),
+        time_violence: new Date(occurrencedata.date_violence_s + "" + occurrencedata.time_violence_s),
+        city_violence: occurrencedata.city_violence,
+        state_violence: occurrencedata.state_violence,
+        latitude: occurrencedata.latitude,
+        longitude: occurrencedata.longitude,
+        violence_options: occurrencedata.violence_options,
+        violence_type: occurrencedata.violence_type
     }
-    else if (typeof localViolence.longitude !== 'number' || localViolence.longitude == null || isNaN(localViolence.longitude)) {
-        throw validationError('"Longitude of the location of the violence"');
-    }
 
+    //update na state_List
+    await MapPageRepository.upd_numOccurrences_StateList(occurrencedata.state_violence)
+
+    //preencher ocorrência
     try {
-        return await MapPageRepository.LocalOccurrence(localViolence);
+        return await MapPageRepository.createOccurrence(occurrencedata_bd);
     } catch {
-        throw repositoryError('"Occurrence"','"LocalOccurrence"')
+        throw repositoryError('"Occurrence"','"createOccur"')
     }
-}
 
-//A função verifica se a ocorrência existe retorna informações sobre violência associada a esse usuário.
-async function getInfoViolence(id_occur_s: string){
-    const id_occur = BigInt(id_occur_s);
-    const listOccur = await authorizationRepository.getListOccur()
-    if (!(await listOccur).find(occurlist => id_occur == occurlist.id_occurrence)){
-        throw validationError('"Id occurence"');
-    }
-    try {
-        return await MapPageRepository.getInfoViolence(id_occur);
-    } catch {
-        throw repositoryError('"Occurrence"','"getInfoViolence"')
-    }
 }
-
 
 export const MapPageService = {
-    createLocalOccur,
-    getInfoViolence
+    createOccur
 }
 
