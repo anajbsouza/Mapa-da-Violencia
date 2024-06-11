@@ -15,12 +15,12 @@ async function createOccur(occurrencedata: OccurrenceData) {
     const id_user = await MapPageRepository.createUser(occurrencedata.fingerprint);
 
     //validação dos dados de novo (para evitar envios maliciosos)
-    await StatePageService.createStateOccur({uf_state:occurrencedata.state_violence,city:occurrencedata.city_violence});
+    await StatePageService.validateStateOccur({uf_state:occurrencedata.state_violence,city:occurrencedata.city_violence});
 
-    await AboutViolencePageService.createAboutViolenceOccur({date_violence_s: occurrencedata.date_violence_s, agegroup: occurrencedata.age_group, time_violence_s: occurrencedata.time_violence_s});
+    await AboutViolencePageService.validateAboutViolenceOccur({date_violence_s: occurrencedata.date_violence_s, agegroup: occurrencedata.age_group, time_violence_s: occurrencedata.time_violence_s});
 
     //comentado pq se não mudar o back da classify vai dar erro
-    // const typeofviolence = await ClassifyViolencePageService.createViolencesSituationsOccur({violencesoptions: occurrencedata.violence_options})
+    // const typeofviolence = await ValidateViolencesSituationsOccur.createViolencesSituationsOccur({violencesoptions: occurrencedata.violence_options})
     // if (typeofviolence.violence_type !== occurrencedata.violence_type){
     //     throw validationError('"Violence Type"');
     // }

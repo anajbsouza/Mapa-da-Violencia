@@ -3,7 +3,7 @@ import { repositoryError, validationError } from "../errors/errors";
 import { ClassifyViolencePageRepository } from "../repositories/formClassifyViolencePage-repository";
 import { authorizationRepository } from "../repositories/authorization-repository";
 
-async function createViolencesSituationsOccur(classifyviolencepage: ClassifyViolencePage) {
+async function ValidateViolencesSituationsOccur(classifyviolencepage: ClassifyViolencePage) {
     
     const ListOccur = await authorizationRepository.getListOccur()
     if (!(await ListOccur).find(occurlist => classifyviolencepage.id_occur == occurlist.id_occurrence)){
@@ -74,5 +74,5 @@ function onlyUnique(value, index, array) {
   } 
 
 export const ClassifyViolencePageService = {
-    createViolencesSituationsOccur
+    ValidateViolencesSituationsOccur
 }
