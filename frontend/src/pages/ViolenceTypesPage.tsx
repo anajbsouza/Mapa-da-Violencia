@@ -16,7 +16,10 @@ const ViolenceTypesPage = () => {
 
     return (
         <div>
-            <Header />
+            <header>
+                <Header />
+            </header>
+
             <main>
                 <section className="introduction">
                     <p> Estão previstos cinco tipos de violência doméstica e familiar contra a mulher na Lei Maria da Penha. </p>
@@ -81,8 +84,6 @@ const ViolenceTypesPage = () => {
                 </section>
 
                 <button className="footer" onClick={() => navigate("/know-more")}>Próximo</button>
-
-
             </main>
         </div>
     );

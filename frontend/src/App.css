@@ -48,6 +48,10 @@ main {
   color: white;
 }
 
+.reset-svg{
+  stroke: none;
+
+}
 .button-map-back .icon-back{
   color: #612368;
 }
@@ -109,7 +113,7 @@ main {
 }
 
   .header-items .header-map-items {
-    width: 50%;
+    width: 85vw;
   }
 
   @media (min-width: 600px) {

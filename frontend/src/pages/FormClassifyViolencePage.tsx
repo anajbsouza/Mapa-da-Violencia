@@ -4,6 +4,7 @@ import '../styles/FormClassifyViolencePage.css';
 import '../styles/Footer.css'
 import FormIndex from "../components/FormIndex";
 import { useNavigate, useLocation } from 'react-router-dom';
+import ErrorMessage from "../components/ErrorMessage";
 
 const FormClassifyViolencePage = () => {
   const navigate = useNavigate();
@@ -84,7 +85,8 @@ const FormClassifyViolencePage = () => {
                 </div>
               ))}
             </form>
-            {error && <p className="error">{error}</p>}
+            
+           <ErrorMessage error={error}/>
           </section>
         </section>
       </main>

@@ -4,7 +4,7 @@ import { repositoryError, validationError } from "../errors/errors";
 import { authorizationRepository } from "../repositories/authorization-repository";
 import { time } from "console";
 
-async function createAboutViolenceOccur(aboutviolence: AboutViolence): Promise<any> {
+async function validateAboutViolenceOccur(aboutviolence: AboutViolence): Promise<any> {
     
     if (!aboutviolence.date_violence_s||aboutviolence.date_violence_s==null){
         throw validationError('"Date of the violence"');
@@ -64,6 +64,6 @@ async function ValidateDate(date_string:string) {
 }
 
 export const AboutViolencePageService = {
-    createAboutViolenceOccur
+    validateAboutViolenceOccur
 }
 

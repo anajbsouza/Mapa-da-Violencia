@@ -10,6 +10,30 @@ export type RequestError = {
     name: string;
     message: string;
 };
+export type OccurrenceData = {
+    fingerprint: string,
+    age_group: string,
+    date_violence_s: string,
+    time_violence_s: string,
+    city_violence: string,
+    state_violence: string,
+    latitude: number,
+    longitude: number,
+    violence_options: string,
+    violence_type: string
+}
+export type OccurrenceData_bd = {
+    id_user: bigint,
+    age_group: string,
+    date_violence: Date,
+    time_violence: Date,
+    city_violence: string,
+    state_violence: string,
+    latitude: number,
+    longitude: number,
+    violence_options: string,
+    violence_type: string
+}
 export type ViolenceState = {
     uf_state:string,
     city: string
@@ -20,13 +44,7 @@ export type AboutViolence = {
     agegroup: string,
     time_violence_s: string,
 };
-// Tipo para escrever no banco
-// export type AboutViolence = {
-//     id_occur:bigint,
-//     date_violence: Date,
-//     agegroup: string,
-//     time_violence: Date,
-// };
+
 export type ClassifyViolencePage = {
     id_occur:bigint,
     violencesoptions: string
@@ -37,9 +55,4 @@ export type LocalViolence = {
     longitude: number
 };
 
-export type InfoViolence = {
-    type_violence: string,
-    time_violence: Date,
-    date_violence: Date
-}
 

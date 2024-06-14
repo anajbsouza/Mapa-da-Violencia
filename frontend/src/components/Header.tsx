@@ -8,7 +8,7 @@ const Header = () => {
     return (
         <div>
             <header className="header">
-                <section className="header-items">
+                <section className="header-items reset-svg">
                     <button className="button-back" onClick={() => navigate(-1)}>
                         <IoChevronBackCircleSharp className="icon-back" />
                     </button>

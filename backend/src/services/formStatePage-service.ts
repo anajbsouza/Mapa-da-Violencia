@@ -3,7 +3,7 @@ import { StatePageRepository } from "../repositories/formStatePage-repository";
 //import { authorizationRepository } from "../repositories/authorization-repository";
 import { validationError,repositoryError } from "../errors/errors";
 
-async function createStateOccur(violenceState: ViolenceState): Promise<any> {
+async function validateStateOccur(violenceState: ViolenceState): Promise<any> {
 
     const listUfs = StatePageRepository.getListUfs()
     //  const listOccur = await authorizationRepository.getListOccur()
@@ -33,6 +33,6 @@ async function createStateOccur(violenceState: ViolenceState): Promise<any> {
 }
 
 export const StatePageService = {
-    createStateOccur
+    validateStateOccur
 }
 
