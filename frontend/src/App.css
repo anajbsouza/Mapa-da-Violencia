@@ -1,25 +1,25 @@
 body {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  flex-direction: column;
   background-color: #612368; 
   font-family: 'Montserrat', Arial; 
   color: black; 
-  justify-content: center; 
-  align-items: center;
 }
 
 main {
   background-color: white;
-  flex-direction: column;
-  align-items: center;
   border-radius: 2vh;
   width: 80vw;
   height: 80vh; 
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); 
-  overflow: auto;
 }
+
 
 /*Componentes Header e HeaderMap*/ 
 .header {
-  margin-top: -8vh;
+  margin-top: -5vh;
 }
 
 .header-items,
@@ -115,11 +115,19 @@ main {
   @media (min-width: 600px) {
     .logo { 
         width: 30%;
-        margin-top: -2vh;
-        margin-left: -10vw;
     }
 
     .button-back .icon-back{
-        width: 350%;
+      width: 7vh;
+    }
+  }
+
+  @media (min-width: 900px) {
+    .logo { 
+      margin-top: 3vh;
+    }
+
+    .button-back .icon-back {
+      margin-top: 3vh;
     }
   }

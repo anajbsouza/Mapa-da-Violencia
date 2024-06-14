@@ -1,15 +1,18 @@
 .question {
   text-align: center;
-  margin-top: 15vh;
+  margin-top: 10vh;
 
-  h3 {
-    margin-top: 2em;
+  .authorize-question {
+    margin-top: 1vh;
+    font-weight: bold;
+    font-size: 3.5vh;
   }
 
-  p {
-    margin-top: 0.7em; 
-    padding-left: 1em;
-    padding-right: 1em; 
+  .not-authorize-question {
+    margin-top: 1vh; 
+    padding-left: 2vw;
+    padding-right: 2vw; 
+    font-size: 3vh;
   }
 }
 
@@ -17,7 +20,7 @@
 .buttons-container {
   display: flex;
   flex-direction: row;
-  gap: 2vw;
+  gap: 5vw;
   align-items: center; 
   margin-top: 15vh;
   padding: 0 5%; 
@@ -78,54 +81,11 @@
 }
 
 @media (min-width: 600px) {
-  .question {
-    margin-top: 10vh;
-
-    h3 {
-      margin-top: 1em;
-      font-size: 1.5rem;
-    }
-
-    p {
-      margin-top: 0.5em; 
-      padding-left: 2em;
-      padding-right: 2em; 
-      font-size: 1.2rem;
-    }
-  }
-
   .buttons-container {
-    flex-direction: row;
-    justify-content: center;
-    gap: 1.5vw;
-    margin-top: 10vh;
-    padding: 0 10%; 
+    width: 45vw;
   }
 
-  .buttons-container .authorize,
-  .buttons-container .not-authorize {
-    width: auto; 
-    padding: 0.7rem 2rem; 
-    font-size: 1.2rem; 
-    margin-bottom: 0;
-  }
 
-  .buttons-container-emergency {
-    flex-direction: row; 
-    justify-content: center;
-    gap: 2vw;
-    margin-top: 10vh; 
-  }
 
-  .buttons-container-emergency .green-button,
-  .buttons-container-emergency .red-button {
-    width: auto; 
-    padding: 0.7rem 2rem; 
-    font-size: 1.2rem; 
-    margin-bottom: 0;
-  }
-
-  .footer-invisible {
-    height: 5vh;
-  }
 }
+

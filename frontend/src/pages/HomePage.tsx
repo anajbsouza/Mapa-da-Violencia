@@ -15,7 +15,7 @@ const HomePage = () => {
                 <h2 className="sub-title">INSTITUTO GLÓRIA</h2>
             </section>
            
-            <button className="footer" onClick={() => navigate("/what-to-do")}>Começar</button>
+            <button className="footer-home" onClick={() => navigate("/what-to-do")}>Começar</button>
         </main>
     );      
 };

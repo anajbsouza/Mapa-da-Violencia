@@ -30,13 +30,13 @@ body {
 .logo-home {
     width: 80%;
     border-radius: 10px;
-    margin-bottom: 50vh;
+    margin-bottom: 70vh;
 }
 
 .main-title {
     font-weight: bold;
     font-size: 1.5em;
-    margin-top: -40vh;
+    margin-top: -60vh;
 }
 
 .sub-title {
@@ -45,15 +45,20 @@ body {
     margin-top: -2vh;
 }
 
-.footer {
+.footer-home {
+    margin-top: -15vh;
+    width: 30vw;
+    background-color: #FFCA05;
+    color: #612368;
+    font-weight: bold;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
     font-size: 0.8em;
 }
 
-/* Media Query para telas maiores que 600px */
 @media (min-width: 600px) {
     .logo-home {
-        width: 50%;
-        margin-top: 3vh;
+        width: 60%;
+        margin-top: 5vh;
     }
 
     .main-title {
@@ -66,7 +71,21 @@ body {
         font-weight: normal;
     }
 
-    .footer{
-        width: 10vw;
+    .footer-home {
+        width: 25vw;
     }
 }
+
+@media (min-width: 800px) {
+    .logo-home {
+        width: 50%;
+        margin-top: 5vh;
+    }
+
+    .footer-home {
+        width: 13vw;
+    }
+}
+
+
+

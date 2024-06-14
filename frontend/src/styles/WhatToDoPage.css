@@ -9,12 +9,12 @@
     .intro-title{
         margin-top: -2vh;
         padding: 3vw;
-        font-size: 0.9em;
+        font-size: 3vh;
     }
 
     .question{
         margin-top: -2vh;
-        font-size: 0.9em;
+        font-size: 3vh;
     }
 }
 
@@ -144,13 +144,10 @@
   }
 
 
-  /* Media Query para telas maiores que 600px */
 @media (min-width: 600px) {
-
     main {
-        height: 50%;
+        height: 90%;
         width: 80%;
-        
     }
 
     .titles-whattodo  {
@@ -171,6 +168,6 @@
 
     .help {
         font-size: 1rem;
+        margin-bottom: 4vh;
     }
 }
-
