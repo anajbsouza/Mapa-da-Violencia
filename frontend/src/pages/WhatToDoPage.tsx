@@ -33,17 +33,17 @@ const WhatToDoPage = () => {
                     <nav className="navigation">
                         <section className="violence-registration">
                             <FaHand className="FaHand" />
-                            <button className="button-violence" onClick={() => navigate("/authorize-localization", { state: { action: 'register' } })}>Quero fazer um registro</button>
+                            <button className="button-violence" onClick={() => navigate("/authorize-localization", { state: { action: 'register' } })}>Fazer um registro</button>
                         </section>
 
                         <section className="map-visualization">
                             <IoLocationOutline className="IoLocation"/>
-                            <button className="button-map" onClick={() => navigate("/authorize-localization", { state: { action: 'viewMap' } })}>Quero visualizar o mapa</button>
+                            <button className="button-map" onClick={() => navigate("/authorize-localization", { state: { action: 'viewMap' } })}>Visualizar o mapa</button>
                         </section>
 
                         <section className="know-more">
                             <TiPencil className="TiPencil"/>
-                            <button className="button-know-more" onClick={() => navigate("/violence-types")}>Quero saber mais</button>
+                            <button className="button-know-more" onClick={() => navigate("/violence-types")}>Saber mais</button>
                         </section>
 
                         <section className="help">

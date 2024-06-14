@@ -7,18 +7,21 @@
     margin: 2em 0;
 
     .intro-title{
-        margin-top: 1vw;
+        margin-top: -2vh;
+        padding: 3vw;
+        font-size: 0.9em;
     }
 
     .question{
-        margin-top: 1vh;
+        margin-top: -2vh;
+        font-size: 0.9em;
     }
 }
 
 .navigation{
     padding-left: 1rem;
     padding-right: 1rem;
-    font-size: 4vw;
+    font-size: 0.8em;
     margin-top: -3vh;
 }
 .violence-registration{
@@ -116,7 +119,6 @@
     border: 4px solid;
     border-color: #FD0000;
     border-radius: 7px;
-    margin-bottom: 8vh;
 
     .MdOutline{
         color: #FD0000;
