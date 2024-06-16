@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import '../styles/AuthorizeLocalizationAndEmergencyPages.css';
 import FormIndex from "../components/FormIndex";
 import axios from "axios";
+import FingerprintJS from '@fingerprintjs/fingerprintjs';
 
 const URL = "http://localhost:4000/map-filter";
 
@@ -11,7 +12,14 @@ const AuthorizeLocalizationPage = () => {
   let location = useLocation();
   const { action } = location.state || {};
 
-  const handleAuthorize = () => {
+  const handleAuthorize = async () => {
+    const fp = await FingerprintJS.load();
+    const result = await fp.get();
+    const fingerprint = result.visitorId;
+    console.log('Fingerprint:', fingerprint);
+
+    localStorage.setItem('fingerprint', fingerprint);
+
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
