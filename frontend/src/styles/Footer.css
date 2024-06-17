@@ -17,3 +17,15 @@
     font-weight: bold;
     margin-bottom: 10vh;
   }
+
+@media (min-width: 600px) {
+  .footer {
+    width: 18vw;
+  }
+}
+
+@media (min-width: 1000px) {
+  .footer {
+    width: 10vw;
+  }
+}

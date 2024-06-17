@@ -6,21 +6,32 @@
 .area-question {
     display: flex;
     flex-direction: column;
+    font-size: 0.9em;
 
     .text {
         text-align: left;
+        font-weight: bold;
+        font-size: 1em;
         line-height: 24.38px;
+        margin-top: 2vh;
     }
 
     .questions {
         display: flex;
         flex-direction: column;
-        padding: 10px;
+        padding: 2vw;
         gap: 25px;
 
         div {
             display: flex;
             flex-direction: column;
         }
+    }
+}
+
+@media (min-width: 1000px) {
+    .area-question .text {
+        font-size: 1.1em;
+        margin-top: 5vh;
     }
 }
