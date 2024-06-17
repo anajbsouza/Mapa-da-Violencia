@@ -81,7 +81,7 @@ const FormClassifyViolencePage = () => {
                     value={option}
                     checked={!!checkedItems[index]}
                     onChange={() => handleChange(index)} />
-                  <label htmlFor={`custom-checkbox-${index}`}>{option}</label>
+                  <label htmlFor={`custom-checkbox-${index}`} className="checkbox-labels">{option}</label>
                 </div>
               ))}
             </form>

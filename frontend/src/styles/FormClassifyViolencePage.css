@@ -6,16 +6,23 @@
 .prompt {
     display: flex;
     flex-direction: column;
-    margin-bottom: -20px;
+    margin-bottom: -4vh;
     padding: 2vh;
+    font-size: 0.9em;
 
     p{
         margin-top: -2%;
+        font-size: 0.9em;
     }
 }
 
 .forms{
     font-size: 14px;
     padding: 2vh;
+
+    .checkbox-labels {
+        font-size: 0.9em;
+    }
+    
 }
 

@@ -111,8 +111,6 @@ const handleNext = () => {
         });
     }
 };
-
-
     useEffect(() => {
         localStorage.setItem('date', date);
         localStorage.setItem('time', time);

@@ -27,5 +27,6 @@
 @media (min-width: 1000px) {
   .footer {
     width: 10vw;
+    margin-bottom: 7vh;
   }
 }
