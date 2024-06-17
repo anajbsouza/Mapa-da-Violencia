@@ -51,7 +51,8 @@
 /* Emergency */
 .buttons-container-emergency {
   display: flex;
-  flex-direction: column; 
+  flex-direction: row; 
+  gap: 3vw;
   align-items: center;
   margin-top: 25%; 
 
@@ -60,12 +61,13 @@
     padding: 0.5rem 1rem; 
     border: none;
     font-weight: bold;
+    font-size: 0.8em;
     cursor: pointer;
     border-radius: 1em; 
-    font-size: 1rem; 
+    font-size: 0.8rem; 
     color: white;
     margin-bottom: 5%; 
-    width: 100%; 
+    width: 40vw; 
   }
 
   .green-button {
@@ -83,6 +85,12 @@
 
 @media (min-width: 1000px) {
   .buttons-container {
+    width: 70%;
+    margin: 20vh auto; 
+    justify-content: center; 
+  }
+
+  .buttons-container-emergency {
     width: 70%;
     margin: 20vh auto; 
     justify-content: center; 

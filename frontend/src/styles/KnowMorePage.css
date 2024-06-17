@@ -2,10 +2,14 @@ main{
     padding: 8px;
 } /*Cascata do main geral de 24px*/
 
+.main-knowmore {
+    display: flex;
+    flex-direction: column;
+}
 
 .title-know-more{
     text-align: center;
-    font-size: 1.25em;
+    font-size: 1em;
     color: black;
     margin: 2em 0;
 }
@@ -19,18 +23,19 @@ main{
     display: flex;
     margin-bottom: 24px;
     flex-direction: row;
+
 }
 
 .link-items p {
    margin: 0;
    font-weight: bold;
+   font-size: 0.9em;
 }
 
 .link-items a {
     color: #0D7DBC;
-    font-size: 1em;
+    font-size: 0.9em;
     opacity: 90%;
-    
 }
 
 .custom-circle-icon{
@@ -50,12 +55,8 @@ main{
     color: #BC88BC;
 }
 
-@media screen and (max-width: 378px) {
-    .link-items {
-        flex-direction: column; 
-    }
-
-    .custom-circle-icon{
-        display: none;
+@media screen and (max-width: 1000px) {
+    .all-links {
+        margin-top: 18vh;
     }
 }
