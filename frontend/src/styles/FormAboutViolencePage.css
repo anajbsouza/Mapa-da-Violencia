@@ -1,3 +1,7 @@
+.main-about-violence {
+    overflow-y: auto;
+}
+
 .page{
     display: flex;
     justify-content: flex-end;

@@ -120,7 +120,7 @@ const handleNext = () => {
     return (
         <div>
             <Header />
-            <main>
+            <main className="main-about-violence">
                 <section className="page">
                     <FormIndex value={2}/>
                 </section>

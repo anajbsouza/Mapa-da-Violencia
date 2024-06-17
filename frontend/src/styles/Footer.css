@@ -2,7 +2,7 @@
     background-color: #FFCA05;
     color: #612368;
     position: fixed;
-    bottom: 0;
+    bottom: -12vh;
     left: 50%;
     transform: translateX(-50%);
     width: 30vw;
@@ -20,13 +20,14 @@
 
 @media (min-width: 600px) {
   .footer {
-    width: 18vw;
+    width: 20vw;
+    margin-bottom: 10vh ;
   }
 }
 
 @media (min-width: 1000px) {
   .footer {
-    width: 10vw;
-    margin-bottom: 7vh;
+    width: 13vw;
+    margin-bottom: 12vh;
   }
 }

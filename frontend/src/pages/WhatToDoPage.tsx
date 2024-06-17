@@ -22,7 +22,7 @@ const WhatToDoPage = () => {
     return (
         <div className="whattodo-page">
             <Header />
-            <main>
+            <main className="main-whattodo">
                 <section className="what-to-do">
                     <section className="titles-whattodo">
                         <h4 className="intro-title">Este é o Mapa da Violência do Instituto Glória</h4>

@@ -129,8 +129,8 @@ const FormStatePage = () => {
         </section>
 
         <section className="information">
-          <p>Esta informação é valiosa para nós!</p>
-          <p>Estamos aqui para ajudar e garantir que você se sinta seguro e acolhido ao compartilhar sua experiência.</p>
+          <p className="info-form-state">Esta informação é valiosa para nós!</p>
+          <p className="info-form-state">Estamos aqui para ajudar e garantir que você se sinta seguro e acolhido ao compartilhar sua experiência.</p>
         </section>
 
        <ErrorMessage error={error}/>
