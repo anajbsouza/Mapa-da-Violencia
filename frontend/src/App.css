@@ -14,8 +14,8 @@ main {
   width: 80vw;
   height: 80vh; 
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); 
+  overflow: auto;
 }
-
 
 /*Componentes Header e HeaderMap*/ 
 .header {
@@ -118,7 +118,7 @@ main {
 
   @media (min-width: 600px) {
     .logo { 
-        width: 30%;
+        width: 35%;
     }
 
     .button-back .icon-back{
@@ -126,9 +126,10 @@ main {
     }
   }
 
-  @media (min-width: 900px) {
+  @media (min-width: 1000px) {
     .logo { 
       margin-top: 3vh;
+      width: 25%;
     }
 
     .button-back .icon-back {
