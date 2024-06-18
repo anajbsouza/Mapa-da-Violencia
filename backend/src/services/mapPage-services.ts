@@ -20,10 +20,10 @@ async function createOccur(occurrencedata: OccurrenceData) {
     await AboutViolencePageService.validateAboutViolenceOccur({date_violence_s: occurrencedata.date_violence_s, agegroup: occurrencedata.age_group, time_violence_s: occurrencedata.time_violence_s});
 
     //comentado pq se não mudar o back da classify vai dar erro
-    // const typeofviolence = await ValidateViolencesSituationsOccur.createViolencesSituationsOccur({violencesoptions: occurrencedata.violence_options})
-    // if (typeofviolence.violence_type !== occurrencedata.violence_type){
-    //     throw validationError('"Violence Type"');
-    // }
+    const typeofviolence = await ClassifyViolencePageService.ValidateViolencesSituationsOccur({violencesoptions: occurrencedata.violence_options})
+    if (typeofviolence !== occurrencedata.violence_type){
+        throw validationError('"Violence Type"');
+    }
     //organização dos dados para criar ocorrência
     const occurrencedata_bd:OccurrenceData_bd = {
         id_user: id_user,

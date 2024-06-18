@@ -46,7 +46,6 @@ export type AboutViolence = {
 };
 
 export type ClassifyViolencePage = {
-    id_occur:bigint,
     violencesoptions: string
 }
 export type LocalViolence = {
