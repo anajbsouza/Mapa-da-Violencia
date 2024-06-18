@@ -89,23 +89,23 @@ const handleNext = () => {
             // Verifica o tipo de erro e define a mensagem de erro correspondente
             switch (errorResponse.message) {
                 case ('Field \"Id occurrence\" invalid'): {
-                    setError("Ocorrência não existe");
+                    setError("Identificamos  que a ocorrência não existe. Por favor, tente novamente mais tarde.");
                     break;
                 }
                 case ('Field \"Date of the violence\" invalid'): {
-                    setError("Data inválida");
+                    setError("Por favor, insira uma data válida.");
                     break;
                 }
                 case ('Field \"Time of the violence\" invalid'): {
-                    setError("Hora inválida");
+                    setError("Por favor, insira um horário válido.");
                     break;
                 }
                 case ('Field \"Age group\" invalid'): {
-                    setError("Faixa etária inválida");
+                    setError("Por favor, preencha o campo de faixa etária.");
                     break;
                 }
                 default: {
-                    setError("Ocorreu um erro desconhecido");
+                    setError("Identificamos um erro inesperado. Por favor, tente novamente mais tarde.");
                 }
             }
         });
