@@ -61,7 +61,7 @@ const FormClassifyViolencePage = () => {
       console.log(violenceOption)
 
       axios.post(URL, {
-        "violencesoptions": 'VS15' //violenceOption
+        "violencesoptions": violenceOption
       }, {
         headers: {
           'Content-Type': 'application/json'
