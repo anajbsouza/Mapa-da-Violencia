@@ -5,6 +5,9 @@ import '../styles/Footer.css'
 import FormIndex from "../components/FormIndex";
 import { useNavigate, useLocation } from 'react-router-dom';
 import ErrorMessage from "../components/ErrorMessage";
+import axios from "axios";
+
+const URL = "http://localhost:4000/form-classify-violence"
 
 const FormClassifyViolencePage = () => {
   const navigate = useNavigate();
@@ -46,9 +49,37 @@ const FormClassifyViolencePage = () => {
     if (!anyChecked) {
       setError("Por favor, selecione pelo menos uma situação de violência.");
     } else {
-      setError(null);
-      navigate("/map-address", { state: state }); // Passando o estado para a próxima página
+
+      let violenceOption: string = ""
+
+      for (const key in checkedItems.valueOf()){
+        if(checkedItems[Number(key)] == true){
+          violenceOption = violenceOption + `VS${parseInt(key) +1},`
+        }
+      }
+      violenceOption = violenceOption.slice(0,-1)
+      console.log(violenceOption)
+
+      axios.post(URL, {
+        "violencesoptions": 'VS15' //violenceOption
+      }, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+
+      .then(response => {
+
+        setError(null);
+        console.log (response);
+        navigate("/map-address", { state: state }); // Passando o estado para a próxima página
+      })
+
+      .catch(error => {
+        console.log(error);
+      })
     }
+
   };
 
   useEffect(() => {
