@@ -2,10 +2,11 @@
   display: flex;
   flex-direction: column;
   padding: 2vh;
+  font-size: 0.9em;
 }
 
 .question-state{
-  font-size: 15px;
+  font-size: 0.9em;
   padding-left: -1vh;
   margin-top: -5px;
 }
@@ -23,11 +24,14 @@
 }
 
   
-.information{
+.information {
   display: flex;
   flex-direction: column;
   margin-top: 2%;
-  font-size: 15px;
   padding: 2vh;
+
+  .info-form-state {
+    font-size: 0.9em;
+  }
 }
 

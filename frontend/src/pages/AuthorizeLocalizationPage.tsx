@@ -67,8 +67,8 @@ const AuthorizeLocalizationPage = () => {
         </section>
 
         <section className="question">
-          <h3>Você autoriza o acesso a sua localização?</h3>
-          <p>Sua localização é importante para marcar o local relatado no mapa com precisão</p>
+          <p className="authorize-question"> Você autoriza o acesso a sua localização?</p>
+          <p className="not-authorize-question">Sua localização é importante para marcar o local relatado no mapa com precisão</p>
         </section>
 
         <section className="buttons-container">

@@ -2,23 +2,28 @@
   text-align: center;
   margin-top: 10vh;
 
-  h3 {
-    margin-top: 2em;
+  .authorize-question {
+    margin-top: 1vh;
+    font-weight: bold;
+    font-size: 3vh;
   }
 
-  p {
-    margin-top: 0.7em; 
-    padding-left: 1em;
-    padding-right: 1em; 
+  .not-authorize-question {
+    margin-top: 1vh; 
+    padding-left: 2vw;
+    padding-right: 2vw; 
+    font-size: 3vh;
   }
 }
-/*Authorize Localization*/
 
+/* Authorize Localization */
 .buttons-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
+  gap: 5vw;
   align-items: center; 
-  margin-top: 10vh;
+  margin-top: 15vh;
   padding: 0 5%; 
 }
 
@@ -29,10 +34,10 @@
   font-weight: bold;
   cursor: pointer;
   border-radius: 1em; 
-  font-size: 1rem; 
+  font-size: 2.5vh; 
   color: white;
   margin-bottom: 5%; 
-  width: 100%; 
+  width: 30vw; 
 }
 
 .buttons-container .authorize {
@@ -43,10 +48,11 @@
   background-color: #E10B0B;
 }
 
-/*Emergency */
+/* Emergency */
 .buttons-container-emergency {
   display: flex;
-  flex-direction: column; 
+  flex-direction: row; 
+  gap: 3vw;
   align-items: center;
   margin-top: 25%; 
 
@@ -55,12 +61,13 @@
     padding: 0.5rem 1rem; 
     border: none;
     font-weight: bold;
+    font-size: 0.8em;
     cursor: pointer;
     border-radius: 1em; 
-    font-size: 1rem; 
+    font-size: 0.8rem; 
     color: white;
     margin-bottom: 5%; 
-    width: 100%; 
+    width: 40vw; 
   }
 
   .green-button {
@@ -75,3 +82,18 @@
 .footer-invisible {
   height: 9vh;
 }
+
+@media (min-width: 1000px) {
+  .buttons-container {
+    width: 70%;
+    margin: 20vh auto; 
+    justify-content: center; 
+  }
+
+  .buttons-container-emergency {
+    width: 70%;
+    margin: 20vh auto; 
+    justify-content: center; 
+  }
+}
+

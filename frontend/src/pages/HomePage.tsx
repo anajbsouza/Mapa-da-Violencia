@@ -8,14 +8,14 @@ const HomePage = () => {
     return (
         <main className="main-home">
             <header className="logo-home-header">
-                <img className="logo-home" src={Logo} alt="Logo da Gloria" onClick={() => navigate('/')}/>
+                <img className="logo-home" src={Logo} alt="Logo da Gloria" />
             </header>
             <section className="titles-home">
-                <h1 className="main-title">INSTITUTO GLÓRIA</h1>
-                <h2 className="sub-title">MAPA DA VIOLÊNCIA</h2>
+                <h1 className="main-title">MAPA DA VIOLÊNCIA</h1>
+                <h2 className="sub-title">INSTITUTO GLÓRIA</h2>
             </section>
            
-            <button className="footer" onClick={() => navigate("/what-to-do")}>Começar</button>
+            <button className="footer-home" onClick={() => navigate("/what-to-do")}>Começar</button>
         </main>
     );      
 };
