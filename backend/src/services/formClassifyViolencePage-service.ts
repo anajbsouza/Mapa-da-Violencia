@@ -62,10 +62,16 @@ async function IdentifyTypeOfViolence(violencesoptions:string): Promise<string> 
     //     }
     // }
 
-    const violenceGroup1 = ['VS2', 'VS5', 'VS9'];
-    const violenceGroup2 = ['VS7', 'VS8', 'VS11'];
-    const violenceGroup3 = ['VS1', 'VS6', 'VS10'];
-    const violenceGroup4 = ['VS3', 'VS4', 'VS12'];
+    //Violência Física
+    const violenceGroup1 = ['VS2', 'VS6', 'VS11'];
+    //Violência Psicológica
+    const violenceGroup2 = ['VS8', 'VS9', 'VS13'];
+    // Violência Sexual
+    const violenceGroup3 = ['VS1', 'VS7', 'VS12'];
+    //Violência Patrimonial
+    const violenceGroup4 = ['VS3', 'VS4', 'VS14'];
+    //Violência Moral
+    const violenceGroup5 = ['VS5', 'VS10', 'VS15'];
 
     for (const element of array_violences) {
         if (violenceGroup1.includes(element)) {
@@ -76,6 +82,8 @@ async function IdentifyTypeOfViolence(violencesoptions:string): Promise<string> 
             classifyviolence_aux.push("VT3");
         } else if (violenceGroup4.includes(element)) {
             classifyviolence_aux.push("VT4");
+        } else if (violenceGroup5.includes(element)) {
+            classifyviolence_aux.push("VT5");
         } else {
             throw validationError('"Violence Situations"');
         }

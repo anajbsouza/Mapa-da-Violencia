@@ -29,14 +29,17 @@ const FormClassifyViolencePage = () => {
     "Estrangulamento ou sufocamento",
     "Furtar ou controlar seu dinheiro",
     "Destruir documentos ou itens pessoais",
+    "Calúnia ou difamação",
     "Atirar objetos ou sacudir e apertar os braços",
     "Estupro",
     "Chantagem ou distorção dos fatos",
     "Vigilância ou perseguição",
+    "Ridicularização ou críticas destrutivas em público",
     "Lesões, espancamentos ou ferimentos",
     "Obrigar atos sexuais",
     "Insultos, constrangimento ou humilhação",
     "Deixar de pagar pensão alimentícia",
+    "Isolamento social"
   ];
 
   const handleChange = (position: number) => {
