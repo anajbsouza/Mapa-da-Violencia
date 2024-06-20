@@ -23,45 +23,8 @@ async function IdentifyTypeOfViolence(violencesoptions:string): Promise<string> 
     const array_violences = violencesoptions.split(",");
     const classifyviolence_aux = []
 
-    // for (const element of array_violences) {
-    //     switch (element){
-    //         case ("VS1"):
-    //             classifyviolence_aux.push("VT1");
-    //             break;
-    //         case ('VS2'):
-    //             classifyviolence_aux.push("VT1");
-    //             break;
-    //         case ('VS3'):
-    //             classifyviolence_aux.push("VT1");
-    //             break;
-    //         case ('VS4'):
-    //             classifyviolence_aux.push("VT2");
-    //             break;
-    //         case ('VS5'):
-    //             classifyviolence_aux.push("VT2");
-    //             break;
-    //         case ('VS6'):
-    //             classifyviolence_aux.push("VT2");
-    //             break;
-    //         case ('VS7'):
-    //             classifyviolence_aux.push("VT2");
-    //             break;
-    //         case ('VS8'):
-    //             classifyviolence_aux.push("VT3");
-    //             break;
-    //         case ('VS9'):
-    //             classifyviolence_aux.push("VT3");
-    //             break;
-    //         case ('VS10'):
-    //             classifyviolence_aux.push("VT3");
-    //             break;
-    //         default:
-    //             throw validationError('"Violence Situations"');
-    //             break;
-
-    //     }
-    // }
-
+    console.log (array_violences);
+   
     //Violência Física
     const violenceGroup1 = ['VS2', 'VS6', 'VS11'];
     //Violência Psicológica
