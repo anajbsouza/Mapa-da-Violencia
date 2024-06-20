@@ -12,7 +12,6 @@ const AuthorizeLocalizationPage = () => {
   let location = useLocation();
   const { action } = location.state || {};
 
-  const handleAuthorize = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
