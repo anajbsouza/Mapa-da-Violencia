@@ -89,30 +89,28 @@ const handleNext = () => {
             // Verifica o tipo de erro e define a mensagem de erro correspondente
             switch (errorResponse.message) {
                 case ('Field \"Id occurrence\" invalid'): {
-                    setError("Ocorrência não existe");
+                    setError("Identificamos  que a ocorrência não existe. Por favor, tente novamente mais tarde.");
                     break;
                 }
                 case ('Field \"Date of the violence\" invalid'): {
-                    setError("Data inválida");
+                    setError("Por favor, insira uma data válida.");
                     break;
                 }
                 case ('Field \"Time of the violence\" invalid'): {
-                    setError("Hora inválida");
+                    setError("Por favor, insira um horário válido.");
                     break;
                 }
                 case ('Field \"Age group\" invalid'): {
-                    setError("Faixa etária inválida");
+                    setError("Por favor, preencha o campo de faixa etária.");
                     break;
                 }
                 default: {
-                    setError("Ocorreu um erro desconhecido");
+                    setError("Identificamos um erro inesperado. Por favor, tente novamente mais tarde.");
                 }
             }
         });
     }
 };
-
-
     useEffect(() => {
         localStorage.setItem('date', date);
         localStorage.setItem('time', time);
@@ -122,7 +120,7 @@ const handleNext = () => {
     return (
         <div>
             <Header />
-            <main>
+            <main className="main-about-violence">
                 <section className="page">
                     <FormIndex value={2}/>
                 </section>
@@ -130,8 +128,8 @@ const handleNext = () => {
                 <section className="area-question">
                     <div className="questions">
                         <div>
-                            <h4 className="text">Sinta-se à vontade para compartilhar conosco algumas informações sobre a violência que você enfrentou.</h4>
-                            <label htmlFor="dateInput">2. Que dia ocorreu a violência?</label>
+                            <p className="text">Sinta-se à vontade para compartilhar conosco algumas informações sobre a violência que você enfrentou.</p>
+                            <label htmlFor="dateInput" className="date-input">2. Que dia ocorreu a violência?</label>
                             <input
                                 type="date"
                                 id="dateInput"
@@ -140,7 +138,7 @@ const handleNext = () => {
                             />
                         </div>
                         <div>
-                            <label htmlFor="timeInput">3. Qual foi o horário do ocorrido?</label>
+                            <label htmlFor="timeInput" className="time-input">3. Qual foi o horário do ocorrido?</label>
                             <input
                                 type="time"
                                 id="timeInput"
@@ -149,7 +147,7 @@ const handleNext = () => {
                             />
                         </div>
                         <div>
-                            <label htmlFor="ageRangeInput">4. Qual a sua faixa etária?</label>
+                            <label htmlFor="ageRangeInput" className="age-input">4. Qual a sua faixa etária?</label>
                             <select
                                 id="ageRangeInput"
                                 value={ageRange}

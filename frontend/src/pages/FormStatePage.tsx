@@ -3,9 +3,12 @@ import Header from "../components/Header";
 import '../styles/Footer.css';
 import '../styles/FormStatePage.css';
 import FormIndex from "../components/FormIndex";
+import FormStateOptions from "../components/FormStateOptions";
 import { useNavigate, useLocation } from 'react-router-dom';
 import axios from "axios";
 import ErrorMessage from "../components/ErrorMessage";
+import FormClassifyViolencePage from "./FormClassifyViolencePage";
+import { RxValue } from "react-icons/rx";
 
 const URL = "http://localhost:4000/form-state"
 
@@ -18,6 +21,7 @@ const FormStatePage = () => {
   const [cities, setCities] = useState<string[]>([]);
   const [selectedCity, setSelectedCity] = useState('');
   const [error, setError] = useState<string | null>(null);
+  const [formStateValue, setFormStateValue] = useState<string>('');
 
   useEffect(() => {
     const fetchStates = async () => {
@@ -97,7 +101,15 @@ const FormStatePage = () => {
       }
     }
   };
-
+  
+  useEffect(() => {
+    if (action === 'viewMap') {
+      setFormStateValue('map-view'); // Define o valor como 'map-view' se a ação for 'viewMap'
+    } else {
+      setFormStateValue('occurrence-record'); // Define o valor como 'occurrence-record' se a ação não for 'viewMap'
+    }
+  }, [action]);
+  
   return (
     <div>
       <Header />
@@ -107,33 +119,27 @@ const FormStatePage = () => {
           <FormIndex value={1}/>
         </section>
 
+        <FormStateOptions value={formStateValue} />
+
         <section className="titles">
-          <h4>Para viabilizar o trabalho realizado, informe portanto o estado onde ocorreu a violência:</h4>
-          <p className="question-state">1. Qual o Estado onde ocorreu a violência?</p>
           <select className="state" value={selectedState} onChange={(e) => setSelectedState(e.target.value)}>
             <option value="">Selecione um estado:</option>
             {states.map((state) => (
-              <option key={state.sigla} value={state.sigla}>{state.nome}</option>
+                <option key={state.sigla} value={state.sigla}>{state.nome}</option>
             ))}
           </select>
         </section>
-      
+
         <section className="titles">
-          <p className="question-state">2. Qual a cidade onde ocorreu a violência?</p>
           <select className="city" value={selectedCity} onChange={(e) => setSelectedCity(e.target.value)}>
             <option value="">Selecione uma cidade:</option>
             {cities.map((city) => (
-              <option key={city} value={city}>{city}</option>
+                <option key={city} value={city}>{city}</option>
             ))}
           </select>
         </section>
-
-        <section className="information">
-          <p>Esta informação é valiosa para nós!</p>
-          <p>Estamos aqui para ajudar e garantir que você se sinta seguro e acolhido ao compartilhar sua experiência.</p>
-        </section>
-
-       <ErrorMessage error={error}/>
+        
+        <ErrorMessage error={error}/>
        
       </main>
 

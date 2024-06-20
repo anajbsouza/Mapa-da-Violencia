@@ -20,14 +20,13 @@ const WhatToDoPage = () => {
     }, []);
 
     return (
-        <div>
+        <div className="whattodo-page">
             <Header />
-            <main>
+            <main className="main-whattodo">
                 <section className="what-to-do">
-
                     <section className="titles-whattodo">
                         <h4 className="intro-title">Este é o Mapa da Violência do Instituto Glória</h4>
-                        <p className="question">O que deseja fazer?</p>
+                        <p className="question-whattodo">O que deseja fazer?</p>
                     </section>
 
                     <nav className="navigation">
@@ -48,7 +47,7 @@ const WhatToDoPage = () => {
 
                         <section className="help">
                             <MdOutlineSos className="MdOutline"/>
-                            <button className="button-help" onClick={() => navigate("/emergency")}>PRECISO DE AJUDA</button>
+                            <button className="button-help" onClick={() => navigate("/emergency")}>Preciso de ajuda</button>
                         </section>
                     </nav>
                 </section>

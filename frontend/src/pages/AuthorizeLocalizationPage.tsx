@@ -3,7 +3,7 @@ import Header from "../components/Header";
 import '../styles/AuthorizeLocalizationAndEmergencyPages.css';
 import FormIndex from "../components/FormIndex";
 import axios from "axios";
-import FingerprintJS from '@fingerprintjs/fingerprintjs';
+import { RxCodesandboxLogo } from "react-icons/rx";
 
 const URL = "http://localhost:4000/map-filter";
 
@@ -11,14 +11,6 @@ const AuthorizeLocalizationPage = () => {
   let navigate = useNavigate();
   let location = useLocation();
   const { action } = location.state || {};
-
-  const handleAuthorize = async () => {
-    const fp = await FingerprintJS.load();
-    const result = await fp.get();
-    const fingerprint = result.visitorId;
-    console.log('Fingerprint:', fingerprint);
-
-    localStorage.setItem('fingerprint', fingerprint);
 
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -59,11 +51,16 @@ const AuthorizeLocalizationPage = () => {
   };
 
   const handleNotAuthorize = () => {
+    var formStateValue = ' ';
     if (action === 'viewMap') {
       navigate("/form-state", { state: { action: 'viewMap' } });
+      formStateValue = 'map-view'; 
     } else {
       navigate("/form-state", { state: { action: 'register' } });
+      formStateValue = 'occurrence-record';
     }
+
+    return formStateValue;
   };
 
   return (
@@ -81,7 +78,7 @@ const AuthorizeLocalizationPage = () => {
 
         <section className="buttons-container">
           <button className="authorize" onClick={handleAuthorize}>Autorizo</button>
-          <button className="not-authorize" onClick={handleNotAuthorize}>Não autorizo</button>
+          <button className="not-authorize" onClick={handleNotAuthorize }>Não autorizo</button>
         </section>
       </main>
     </div>

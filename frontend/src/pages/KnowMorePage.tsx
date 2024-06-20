@@ -9,7 +9,7 @@ const KnowMorePage = () => {
     return (
         <section>
             <Header/>
-                <main>
+                <main className="main-knowmore">
                     <h1 className="title-know-more">
                         <span className='background'> 
                             CONHEÇA TAMBÉM
@@ -23,7 +23,7 @@ const KnowMorePage = () => {
 
                         <div>
                             <p>Instituto Glória</p>
-                            <a href="https://eusouagloria.com.br/home/ajude">https://eusouagloria.com.br/home/ajude</a>
+                            <a href="https://eusouagloria.com.br/home/ajude">https://eusouagloria.com.br/home/</a>
                         </div>
                     </section>
 
