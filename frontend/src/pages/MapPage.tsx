@@ -1,4 +1,3 @@
-import React from 'react';
 import HeaderMap from "../components/HeaderMap";
 import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -7,12 +6,22 @@ import { icon } from 'leaflet';
 import { RxDividerHorizontal } from "react-icons/rx";
 import LocationIcon from "../assets/location_icon.png"; 
 import '../styles/MapPage.css';
+import FingerprintJS from '@fingerprintjs/fingerprintjs';
 
 function Mapa() {
   const navigate = useNavigate();
   const location = useLocation();
   const { address } = location.state || {};
   
+  const getUserFingerprint = async () => {
+    const fp = await FingerprintJS.load();
+    const result = await fp.get();
+    const fingerprint = result.visitorId;
+    console.log('Fingerprint:', fingerprint);
+
+    localStorage.setItem('fingerprint', fingerprint);
+  }
+
   const customIcon = icon({
     iconUrl: LocationIcon, 
     iconSize: [28, 28], 
@@ -71,7 +80,10 @@ function Mapa() {
           </div>
 
           <div className="btn-map">
-            <button className="btn-finish" onClick={() => navigate("/thank-you")}>Finalizar</button>
+            <button className="btn-finish" onClick={() => {
+                getUserFingerprint()
+                navigate("/thank-you")}
+              }>Finalizar</button>
           </div>
         </div>
       )}
