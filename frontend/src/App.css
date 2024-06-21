@@ -18,28 +18,30 @@ main {
 
 /*Componentes Header e HeaderMap*/ 
 .header {
-  margin-top: -5vh;
+  margin-top: -2vh;
 }
 
 .header-items,
 .header-map-items
 {
   display: flex; 
-  justify-content: space-between;
+  justify-content: center;
   align-items: center; 
+  position: relative;
 }
 
 /* Botão de Voltar */
 .button-back,
 .button-map-back {
-  display: block;
-  align-items: flex-start;
+  position: absolute;
+  left: -1rem;
   background-color: transparent; 
   border: none;
   width: 8vh;
   height: auto;
-  margin-left: -1rem;
-  margin-top: 5vh;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-top: 3vh;
 }
 
 .icon-back {
@@ -105,7 +107,7 @@ main {
 }
 
   .header-items .header-map-iems {
-    width: 100%;
+    width: 50%;
   }
 
   @media (min-width: 600px) {

@@ -51,7 +51,7 @@
 
 .occurrence-details {
   position: fixed;
-  height: 40vh;
+  height: 50vh;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
@@ -92,12 +92,12 @@
   
   .btn-map {
     text-align: center;
-    margin-top: 5vh;
-    
+    margin-top: 10vh; 
+    justify-content: center;   
   }
   
   .btn-finish {
-    padding: 9px 19px;
+    padding: 10px 20px;
     background-color: #FFCA05;
     width: 20vw;
     color: #612368;
@@ -107,7 +107,20 @@
     border-radius: 5px;
     cursor: pointer;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
+  }
 
+  .btn-finish-map {
+    padding: 9px 19px;
+    background-color: #FFCA05;
+    width: 25vw;
+    color: #612368;
+    font-weight: bold;
+    font-size: 2vh;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-top: -3vh;
   }
   
 /*Mapa com filtro */ 
@@ -181,7 +194,7 @@
 @media (min-width: 600px) {
   .map-title {
     width: 30vw;
-    margin-top: -2vh;
+    margin-top: 2vh;
   }
 
   .logo-map {
@@ -195,6 +208,10 @@
   .btn-finish {
     width: 15vw;
     margin-top: 5vh;
+  }
+
+  .btn-finish-map {
+    width: 15vw;
   }
 }
 
@@ -215,6 +232,10 @@
   .btn-finish {
     width: 13vw;
     margin-top: 7vh;
+  }
+
+  .btn-finish-map {
+    width: 10vw;
   }
 
 }

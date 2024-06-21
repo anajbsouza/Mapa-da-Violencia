@@ -71,7 +71,7 @@ function Mapa() {
           </div>
 
           <div className="btn-map">
-            <button className="btn-finish" onClick={() => navigate("/thank-you")}>Finalizar</button>
+            <button className="btn-finish-map" onClick={() => navigate("/thank-you")}>Finalizar</button>
           </div>
         </div>
       )}
