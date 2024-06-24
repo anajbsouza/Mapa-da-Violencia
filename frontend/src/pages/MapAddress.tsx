@@ -98,6 +98,7 @@ function Mapa() {
       </MapContainer>
 
       {locationSelected && (
+        
           <div className="occurrence-details">
           <RxDividerHorizontal className="map-icon" /> 
           <div className="general-information">

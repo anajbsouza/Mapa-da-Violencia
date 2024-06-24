@@ -36,6 +36,7 @@
 .button-logo-map {
     justify-content: center;
     align-items: center; 
+    flex-direction: column;
   }
   
 .logo-map {
@@ -92,7 +93,6 @@
   
   .btn-map {
     text-align: center;
-    margin-top: 10vh; 
     justify-content: center;   
   }
   
@@ -222,7 +222,7 @@
   }
 
   .logo-map {
-    width: 13%;
+    width: 10%;
   }
 
   .occurrence-details {
