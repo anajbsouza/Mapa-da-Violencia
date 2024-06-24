@@ -12,6 +12,7 @@ const AuthorizeLocalizationPage = () => {
   let location = useLocation();
   const { action } = location.state || {};
 
+  const handleAuthorize = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
@@ -19,19 +20,19 @@ const AuthorizeLocalizationPage = () => {
             lat: position.coords.latitude,
             lon: position.coords.longitude
           };
-  
+
           if (action === "viewMap") {
             // Realiza a requisição get para pegar todas as ocorrências
             axios.get(URL)
-            .then(occurrence_data =>{
-              console.log(occurrence_data)
+            .then(occurrence_data => {
+              console.log(occurrence_data);
               navigate("/map-filter", { state: { coordinates, action } });
             })
-            .catch(error =>{
+            .catch(error => {
               console.log(error);
               console.log("Serviço indisponível");
-            })
-            
+            });
+
           } else if (action === "register") {
             navigate("/form-about-violence", { state: { coordinates, action } });
           } else {
@@ -72,13 +73,13 @@ const AuthorizeLocalizationPage = () => {
         </section>
 
         <section className="question">
-          <p className="authorize-question"> Você autoriza o acesso a sua localização?</p>
+          <p className="authorize-question">Você autoriza o acesso a sua localização?</p>
           <p className="not-authorize-question">Sua localização é importante para marcar o local relatado no mapa com precisão</p>
         </section>
 
         <section className="buttons-container">
           <button className="authorize" onClick={handleAuthorize}>Autorizo</button>
-          <button className="not-authorize" onClick={handleNotAuthorize }>Não autorizo</button>
+          <button className="not-authorize" onClick={handleNotAuthorize}>Não autorizo</button>
         </section>
       </main>
     </div>

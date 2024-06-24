@@ -18,34 +18,35 @@ main {
 
 /*Componentes Header e HeaderMap*/ 
 .header {
-  margin-top: -2vh;
+  margin-top: -5vh;
 }
 
 .header-items,
-.header-map-items
-{
+.header-map-items {
   display: flex; 
-  justify-content: center;
+  justify-content: space-between; 
   align-items: center; 
   position: relative;
+  width: 100%; 
+  margin-bottom: 1.5vh;
 }
 
 /* Botão de Voltar */
 .button-back,
 .button-map-back {
-  position: absolute;
-  left: -1rem;
   background-color: transparent; 
   border: none;
-  width: 8vh;
-  height: auto;
-  top: 50%;
-  transform: translateY(-50%);
-  margin-top: 3vh;
+  width: 2rem; 
+  height: 2rem;
+  align-self: flex-start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0; 
 }
 
 .icon-back {
-  width: 8vw; 
+  width: 100%; 
   height: auto; 
   color: white;
 }
@@ -61,7 +62,7 @@ main {
 /* Botão da Logo */
 .button-logo {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center; 
   margin-top: 0.5em;
   margin-bottom: 0.5em;
@@ -106,32 +107,22 @@ main {
   color: white;
 }
 
-  .header-items .header-map-iems {
-    width: 50%;
+.header-items .header-map-items {
+  width: 50%;
+}
+
+@media (min-width: 500px) {
+  .logo { 
+    width: 30%;
+  }
+}
+
+@media (min-width: 1000px) {
+  .logo { 
+    width: 25%;
   }
 
-  @media (min-width: 600px) {
-    .logo { 
-        width: 35%;
-        margin-top: -3vh;
-    }
-
-    .button-back .icon-back{
-      width: 7vh;
-    }
-    .button-map-back .icon-back {
-      width: 7vh; 
-      margin-bottom: 3vh;
-    }
+  .button-back {
+    width: 6.5%;
   }
-
-  @media (min-width: 1000px) {
-    .logo { 
-      margin-top: -4vh;
-      width: 25%;
-    }
-
-    .button-back .icon-back {
-      margin-top: -4vh;
-    }
-  }
+}
