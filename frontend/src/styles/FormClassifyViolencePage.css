@@ -1,28 +1,27 @@
-.page {
-    display: flex;
-    justify-content: flex-end;
-}
+.holepage {
+    overflow: auto; 
+    height: 80vh; 
+  }
 
-.prompt {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: -4vh;
-    padding: 2vh;
+  .prompt {
+    font-size: 0.9rem;
+  }
+  
+  .forms {
+    font-size: 1rem;
+    padding: 1vh;
+  }
+  
+  .forms form {
+    padding-right: 1%; 
+  }
+  
+  .checkbox-container {
+    max-height: 100%; 
+    overflow-y: auto; 
+  }
+  
+  .checkbox-labels {
     font-size: 0.9em;
-
-    p{
-        margin-top: -2%;
-        font-size: 0.9em;
-    }
-}
-
-.forms{
-    font-size: 14px;
-    padding: 2vh;
-
-    .checkbox-labels {
-        font-size: 0.9em;
-    }
-    
-}
-
+  }
+  

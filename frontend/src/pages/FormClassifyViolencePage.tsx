@@ -106,22 +106,27 @@ const FormClassifyViolencePage = () => {
 
           <section className="forms">
             <form>
-              {options.map((option, index) => (
-                <div key={index}>
-                  <input
-                    type="checkbox"
-                    id={`custom-checkbox-${index}`}
-                    name={option}
-                    value={option}
-                    checked={!!checkedItems[index]}
-                    onChange={() => handleChange(index)} />
-                  <label htmlFor={`custom-checkbox-${index}`} className="checkbox-labels">{option}</label>
-                </div>
-              ))}
+              <div className="checkbox-container">
+                {options.map((option, index) => (
+                  <div key={index}>
+                    <input
+                      type="checkbox"
+                      id={`custom-checkbox-${index}`}
+                      name={option}
+                      value={option}
+                      checked={!!checkedItems[index]}
+                      onChange={() => handleChange(index)}
+                    />
+                    <label htmlFor={`custom-checkbox-${index}`} className="checkbox-labels">
+                      {option}
+                    </label>
+                  </div>
+                ))}
+              </div>
             </form>
-            
-           <ErrorMessage error={error}/>
+            <ErrorMessage error={error} />
           </section>
+
         </section>
       </main>
       <button className="footer" onClick={handleNext}>Próximo</button>
