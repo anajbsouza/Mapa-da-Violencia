@@ -80,7 +80,7 @@ function Mapa() {
           </div>
 
           <div className="btn-map">
-            <button className="btn-finish" onClick={() => {
+            <button className="btn-finish-map" onClick={() => {
                 getUserFingerprint()
                 navigate("/thank-you")}
               }>Finalizar</button>
