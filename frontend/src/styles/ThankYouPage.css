@@ -1,3 +1,7 @@
+main {
+    padding: 8px;
+}
+
 .main-knowmore {
     display: flex;
     align-items: center;
