@@ -23,7 +23,7 @@ async function IdentifyTypeOfViolence(violencesoptions:string): Promise<string> 
     const array_violences = violencesoptions.split(",");
     const classifyviolence_aux = []
 
-    console.log (array_violences);
+    // console.log (array_violences);
    
     //Violência Física
     const violenceGroup1 = ['VS2', 'VS6', 'VS11'];
