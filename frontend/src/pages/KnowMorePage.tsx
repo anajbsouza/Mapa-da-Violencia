@@ -34,7 +34,7 @@ const KnowMorePage = () => {
 
                         <div>
                             <p>Instituto Maria da Penha:</p>
-                            <a href="https://institutomariadapenha.org.br/">https://institutomariadapenha.org.br/</a>
+                            <a href="https://institutomariadapenha.org.br/">https://institutomariadapenha.org</a>
                         </div>
                     </section>
 
