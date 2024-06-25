@@ -50,7 +50,7 @@ function Mapa() {
       const errorResponse = JSON.parse(error.request.response);
       console.log(errorResponse);
     })
-    console.log('Fingerprint:', fingerprint);
+    //console.log('Fingerprint:', fingerprint);
   }
 
 

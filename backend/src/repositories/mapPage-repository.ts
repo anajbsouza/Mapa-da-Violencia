@@ -60,9 +60,22 @@ async function upd_numOccurrences_StateList(uf_state: string){
     })
 }
 
+async function upd_user_occurrences(id_occur:bigint, date_violence: Date, id_user: bigint) {
+
+    return await prisma.user_occurrences.create({
+        data: {
+            id_occurrence: id_occur,
+            date_violence: date_violence,
+            id_user: id_user
+        }
+    })
+    
+}
+
 export const MapPageRepository = {
     createOccurrence,
     createUser,
-    upd_numOccurrences_StateList
+    upd_numOccurrences_StateList,
+    upd_user_occurrences
 }
 
