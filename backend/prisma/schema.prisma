@@ -11,17 +11,18 @@ model occurrence {
   id_occurrence       BigInt            @id @default(autoincrement())
   id_user             BigInt
   datetime_submission DateTime          @db.Timestamptz(6)
-  age_group           String?
-  date_violence       DateTime?         @db.Date
-  time_violence       DateTime?         @db.Timetz(6)
-  city_violence       String?
-  state_violence      String?
-  latitude            Decimal?          @db.Decimal(9, 6)
-  longitude           Decimal?          @db.Decimal(9, 6)
-  violences_options   String?
-  violence_type       String?
-  state_list          state_list?       @relation(fields: [state_violence], references: [uf_state], onDelete: NoAction, onUpdate: NoAction, map: "occurrence_fk1")
-  user_occurrences    user_occurrences?
+  age_group           String
+  date_violence       DateTime         @db.Date
+  time_violence       DateTime         @db.Timetz(6)
+  city_violence       String
+  state_violence      String
+  latitude            Decimal          @db.Decimal(9, 6)
+  longitude           Decimal          @db.Decimal(9, 6)
+  violences_options   String
+  violence_type       String
+  state_list          state_list       @relation(fields: [state_violence], references: [uf_state], onDelete: Cascade, onUpdate: Cascade, map: "occurrence_fk1")
+  user_fingerprint    user_fingerprint       @relation(fields: [id_user], references: [id_user], onDelete: Cascade, onUpdate: Cascade, map: "occurrence_fk2")
+  user_occurrences    user_occurrences[]
 }
 
 model state_list {
@@ -39,16 +40,17 @@ model types_of_violence {
 
 model user_fingerprint {
   id_user          BigInt             @id @default(autoincrement())
-  fingerprint      String?            @unique
+  fingerprint      String            @unique
   user_occurrences user_occurrences[]
+  occurrence       occurrence[]
 }
 
 model user_occurrences {
   id_occurrence    BigInt           @id
   date_violence    DateTime         @db.Date
   id_user          BigInt
-  occurrence       occurrence       @relation(fields: [id_occurrence], references: [id_occurrence], onDelete: NoAction, onUpdate: NoAction, map: "user_occurrences_fk0")
-  user_fingerprint user_fingerprint @relation(fields: [id_user], references: [id_user], onDelete: NoAction, onUpdate: NoAction, map: "user_occurrences_fk1")
+  occurrence       occurrence       @relation(fields: [id_occurrence], references: [id_occurrence], onDelete: Cascade, onUpdate: Cascade, map: "user_occurrences_fk0")
+  user_fingerprint user_fingerprint @relation(fields: [id_user], references: [id_user], onDelete: Cascade, onUpdate: Cascade, map: "user_occurrences_fk1")
 }
 
 model violence_situations {
