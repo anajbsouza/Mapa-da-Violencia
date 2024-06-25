@@ -54,8 +54,17 @@ const AuthorizeLocalizationPage = () => {
   const handleNotAuthorize = () => {
     var formStateValue = ' ';
     if (action === 'viewMap') {
-      navigate("/form-state", { state: { action: 'viewMap' } });
-      formStateValue = 'map-view'; 
+      axios.get(URL)
+      .then(occurrence_data => {
+        console.log(occurrence_data);
+        navigate("/form-state", { state: { action: 'viewMap' } });
+        formStateValue = 'map-view'; 
+      })
+      .catch(error => {
+        console.log(error);
+        console.log("Serviço indisponível");
+      });
+      
     } else {
       navigate("/form-state", { state: { action: 'register' } });
       formStateValue = 'occurrence-record';
