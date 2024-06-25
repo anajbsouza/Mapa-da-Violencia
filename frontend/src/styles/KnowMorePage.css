@@ -1,29 +1,24 @@
-main{
-    padding: 8px;
-} /*Cascata do main geral de 24px*/
-
 .main-knowmore {
     display: flex;
     flex-direction: column;
 }
 
-.title-know-more{
+.title-know-more { 
     text-align: center;
     font-size: 1em;
     color: black;
     margin: 2em 0;
 }
-.background{
+.background {
     background-image: linear-gradient(to bottom right, white, yellow);
     border-radius: 10px;
     padding-right: 8px;
 }
 
-.link-items{
+.link-items {
     display: flex;
     margin-bottom: 24px;
-    flex-direction: row;
-
+    /* flex-direction: row; */
 }
 
 .link-items p {
@@ -40,22 +35,15 @@ main{
 
 .custom-circle-icon{
     font-size: 2em;
-    margin-right: 8px;  
+    margin-right: 2vw; 
 }
 
-.custom-circle-icon:nth-of-type(1){
-    color: #612368;
-}
+@media screen and (min-width: 1000px) {
+    .title-know-more {
+        font-size: 1.3rem;
+        margin-top: -2vh;
+    }
 
-.custom-circle-icon:nth-of-type(2){
-    color: #F2E744;
-}
-
-.custom-circle-icon:nth-of-type(3){
-    color: #BC88BC;
-}
-
-@media screen and (max-width: 1000px) {
     .all-links {
         margin-top: 18vh;
     }
