@@ -1,7 +1,3 @@
-.main-whattodo {
-    overflow-y: auto;
-}
-
 .titles-whattodo {
     display: flex;
     flex-direction: column;

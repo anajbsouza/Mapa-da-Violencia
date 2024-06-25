@@ -52,7 +52,7 @@
 
 .occurrence-details {
   position: fixed;
-  height: 50vh;
+  height: 45vh;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
@@ -107,6 +107,7 @@
     border-radius: 5px;
     cursor: pointer;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
+    margin-top: 15vh;
   }
 
   .btn-finish-map {
@@ -207,7 +208,7 @@
 
   .btn-finish {
     width: 15vw;
-    margin-top: 5vh;
+    margin-top: 13vh;
   }
 
   .btn-finish-map {
@@ -222,7 +223,7 @@
   }
 
   .logo-map {
-    width: 10%;
+    width: 13%;
   }
 
   .occurrence-details {
@@ -231,7 +232,7 @@
 
   .btn-finish {
     width: 13vw;
-    margin-top: 7vh;
+    margin-top: 15vh;
   }
 
   .btn-finish-map {
