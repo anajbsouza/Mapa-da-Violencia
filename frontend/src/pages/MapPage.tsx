@@ -16,7 +16,10 @@ function Mapa() {
   const navigate = useNavigate();
   const location = useLocation();
   const { address } = location.state || {};
-  
+  const oldDate = localStorage.getItem('date') || ''
+  const [year,month,day] = oldDate.split('-');
+  const formatedDate = `${day}/${month}/${year}`;
+
   const getUserFingerprint = async () => {
     const fp = await FingerprintJS.load();
     const result = await fp.get();
@@ -96,19 +99,15 @@ function Mapa() {
           </div>
 
           <div className="map-info">
-            <label>ENDEREÇO:</label> <span className="address-style">{address}</span>
+            <label>ENDEREÇO:</label> <span className="address-style">{address}</span> 
           </div>
 
           <div className="map-info">
-            <label>TIPO DE VIOLÊNCIA:</label>
+            <label>HORÁRIO RELATADO:</label> <span className="address-style">{localStorage.getItem('time')}</span> 
           </div>
 
           <div className="map-info">
-            <label>HORÁRIO RELATADO:</label>
-          </div>
-
-          <div className="map-info">
-            <label>DATA DO OCORRIDO:</label>
+            <label>DATA DO OCORRIDO:</label> <span className="address-style">{formatedDate}</span> 
           </div>
 
           <div className="btn-map">
