@@ -64,7 +64,7 @@ function MapFilter() {
         )}
 
         {selectedFilters.length > 0 && (
-          <p className="select-filter-content"><span>Filtro selecionado: </span>{selectedFilters.join(', ')}</p>
+          <p className="select-filter-content"><span> </span>{selectedFilters.join(', ')}</p>
         )}
       </div>
 
