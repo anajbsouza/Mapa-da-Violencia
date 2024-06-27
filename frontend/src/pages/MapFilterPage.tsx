@@ -83,7 +83,7 @@ function MapFilter() {
       </MapContainer>
 
       <div className="footer-container">
-        <button className="footer" onClick={() => navigate("/what-to-do")}>Finalizar</button>
+        <button className="footer-filter" onClick={() => navigate("/what-to-do")}>Finalizar</button>
       </div>
     </div>
   );

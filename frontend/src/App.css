@@ -32,19 +32,6 @@ main {
 }
 
 /* Botão de Voltar */
-.button-map-back {
-  background-color: transparent; 
-  border: none;
-  width: 2rem; 
-  height: 2rem;
-  align-self: flex-start;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0; 
-  margin-top: 6vh;
-}
-
 .button-back {
   background-color: transparent; 
   border: none;
@@ -65,10 +52,6 @@ main {
 
 .reset-svg{
   stroke: none;
-}
-
-.button-map-back .icon-back{
-  color: #612368;
 }
 
 /* Botão da Logo */

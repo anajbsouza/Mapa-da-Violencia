@@ -1,3 +1,9 @@
+.map {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
 .overlay-container {
     position: absolute;
     top: 0;
@@ -41,7 +47,7 @@
   
 .logo-map {
     height: auto;
-    width: 25vw;
+    width: 30vw;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -191,6 +197,33 @@
     background-color: transparent;
 }
 
+.footer-container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-filter {
+  background-color: #FFCA05;
+  color: #612368;
+  width: 30vw;
+  height: 6vh;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  font-size: 0.7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: bold;
+  z-index: 1000; /* Aumente o z-index para garantir que o footer-filter fique na frente */
+  cursor: pointer;
+  margin-bottom: 5vh;
+}
+
 /* Botão filtro responsivo */ 
 @media (min-width: 600px) {
   .map-title {
@@ -220,6 +253,7 @@
     width: 15vw;
     margin-top: 4vh;
   }
+  
 }
 
 
