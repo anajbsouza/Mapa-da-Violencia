@@ -7,12 +7,19 @@ import { RxDividerHorizontal } from "react-icons/rx";
 import LocationIcon from "../assets/location_icon.png"; 
 import '../styles/MapPageAddress.css';
 import FingerprintJS from '@fingerprintjs/fingerprintjs';
+import axios from "axios";
+
+
+const URL = "http://localhost:4000/map-page"
 
 function Mapa() {
   const navigate = useNavigate();
   const location = useLocation();
   const { address } = location.state || {};
-  
+  const oldDate = localStorage.getItem('date') || ''
+  const [year,month,day] = oldDate.split('-');
+  const formatedDate = `${day}/${month}/${year}`;
+
   const getUserFingerprint = async () => {
     const fp = await FingerprintJS.load();
     const result = await fp.get();
@@ -20,7 +27,35 @@ function Mapa() {
     console.log('Fingerprint:', fingerprint);
 
     localStorage.setItem('fingerprint', fingerprint);
+
+    axios.post(URL, {
+      "fingerprint" : fingerprint,
+      "age_group": localStorage.getItem('ageRange'),
+      "date_violence_s": localStorage.getItem('date'),
+      "time_violence_s": "T" + localStorage.getItem('time') + ":00-03:00",
+      "city_violence": 'Brasilia',
+      "state_violence":'DF',
+      "latitude": -15,
+      "longitude": -15,
+      "violence_options": 'VS1',
+      "violence_type": 'VT3'
+    }, {
+      headers: {
+      'Content-Type': 'application/json'
+    }
+    })
+    .then(response => {
+      navigate("/thank-you");
+      console.log(response);
+    } )
+
+    .catch(error => {
+      const errorResponse = JSON.parse(error.request.response);
+      console.log(errorResponse);
+    })
+    //console.log('Fingerprint:', fingerprint);
   }
+
 
   const customIcon = icon({
     iconUrl: LocationIcon, 
@@ -64,19 +99,15 @@ function Mapa() {
           </div>
 
           <div className="map-info">
-            <label>ENDEREÇO:</label> <span className="address-style">{address}</span>
+            <label>ENDEREÇO:</label> <span className="address-style">{address}</span> 
           </div>
 
           <div className="map-info">
-            <label>TIPO DE VIOLÊNCIA:</label>
+            <label>HORÁRIO RELATADO:</label> <span className="address-style">{localStorage.getItem('time')}</span> 
           </div>
 
           <div className="map-info">
-            <label>HORÁRIO RELATADO:</label>
-          </div>
-
-          <div className="map-info">
-            <label>DATA DO OCORRIDO:</label>
+            <label>DATA DO OCORRIDO:</label> <span className="address-style">{formatedDate}</span> 
           </div>
 
           <div className="btn-map">

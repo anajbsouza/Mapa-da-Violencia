@@ -43,7 +43,9 @@ async function createOccur(occurrencedata: OccurrenceData) {
 
     //preencher ocorrência
     try {
-        return await MapPageRepository.createOccurrence(occurrencedata_bd);
+        const occurrence = await MapPageRepository.createOccurrence(occurrencedata_bd);
+        await MapPageRepository.upd_user_occurrences(occurrence.id_occurrence, occurrence.date_violence, occurrence.id_user);
+        return 'ok';
     } catch {
         throw repositoryError('"Occurrence"','"createOccur"')
     }

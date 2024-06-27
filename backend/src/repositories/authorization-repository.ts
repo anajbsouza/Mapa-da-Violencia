@@ -12,14 +12,14 @@ async function saveAccess(fingerprint: string, latitude: number, longitude: numb
     //     },
     // });
 }
-async function saveOccurrence(id: number, date: Date) {
-    return await prisma.occurrence.create({
-        data: {
-            id_user: id,
-            datetime_submission: date,
-        }
-    })
-}
+// async function saveOccurrence(id: number, date: Date) {
+//     return await prisma.occurrence.create({
+//         data: {
+//             id_user: id,
+//             datetime_submission: date,
+//         }
+//     })
+// }
 
 async function getListOccur() {
     try {
@@ -36,6 +36,6 @@ async function getListOccur() {
 
 export const authorizationRepository ={
     saveAccess,
-    saveOccurrence,
+    // saveOccurrence,
     getListOccur
 }
