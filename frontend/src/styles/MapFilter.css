@@ -1,0 +1,106 @@
+/*Mapa com filtro */ 
+
+.filter-content {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  border-radius: 5px;
+  width: 40vw;
+  margin: 0 auto;
+  margin-top: -1.5vh;
+  padding: 2vw 0;
+}
+  
+.filter-content span {
+  display: flex;
+  flex-direction: column;
+  align-items: center
+}
+  
+.filter-content label {
+  width: 100%;
+  color: #000;
+  font-size: 0.7rem;
+  margin-top: 2px;
+  font-weight:500;
+}
+  
+.select-filter-content {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  border-radius: 5px;
+  width: 40vw;
+  margin: 0 auto;
+  margin-top: 3px;
+  padding: 2vw 0;
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.6rem;
+  margin-top: 1.5vh;
+}
+  
+.select-filter-content span { 
+  font-weight: bold;
+  padding-right: 2px;
+}
+
+.map-filter-container { 
+  display: flex;
+  align-items: center;
+}
+
+/* Botão selecionar filtro */ 
+  
+.filter-button-select {
+  margin-top: 10px; 
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: transparent;
+  color: #612368;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+.filter-button-select:hover,
+.filter-button-select:focus,
+.filter-button-select:active {
+  font-size: 14px;
+  outline: none; 
+  background-color: transparent;
+}
+
+.btn-finish-filter {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 1000; 
+  margin-bottom: 5vh;
+}
+  
+/* Responsividade */
+
+@media (min-width: 600px) {
+  .filter-content,
+  .select-filter-content {
+    width: 30vw;
+  }
+}
+
+@media (min-width: 900px) {
+  .filter-content,
+  .select-filter-content {
+    width: 20vw;
+  }
+
+  .filter-content label {
+    font-size: 0.8rem;
+  }
+
+  .select-filter-content {
+    font-size: 0.7rem;
+    padding: 1vw 0;
+  } 
+}
+

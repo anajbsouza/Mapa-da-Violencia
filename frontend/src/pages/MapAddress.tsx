@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, useMapEvents } from 'react-leaflet';
-import { IoChevronBackCircleSharp } from "react-icons/io5";
 import { useNavigate, useLocation } from 'react-router-dom';
 import { RxDividerHorizontal } from "react-icons/rx";
-import Logo from "../assets/logo.png";
 import 'leaflet/dist/leaflet.css';
 import { LatLng } from 'leaflet';
 import { icon } from 'leaflet';
 import LocationIcon from "../assets/location_icon.png"; 
-import '../styles/MapPage.css';
+import '../styles/MapPageAddress.css';
 import HeaderMap from '../components/HeaderMap';
 
 function Mapa() {
@@ -73,7 +71,7 @@ function Mapa() {
         <HeaderMap/>
 
         <div className="map-title">
-          <p className="map-text">{locationSelected ? 'Local selecionado' : 'Marque o local'}</p>
+          <p className="map-text">{locationSelected ? 'LOCAL SELECIONADO' : 'MARQUE O LOCAL'}</p>
         </div>
       </div>
 
@@ -99,7 +97,7 @@ function Mapa() {
 
       {locationSelected && (
         
-          <div className="occurrence-details">
+        <div className="occurrence-details">
           <RxDividerHorizontal className="map-icon" /> 
           <div className="general-information">
             <p>INFORMAÇÕES DE LOCALIZAÇÃO</p>
@@ -110,7 +108,7 @@ function Mapa() {
           </div>
 
           <div className="btn-map">
-            <button className="btn-finish" onClick={handleNextClick}>Próximo</button>
+            <button className="btn btn-finish-address" onClick={handleNextClick}>Próximo</button>
           </div>
         </div>
       )}

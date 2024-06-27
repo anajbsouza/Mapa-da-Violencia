@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/Footer.css'
 import { MapContainer, TileLayer, useMap } from 'react-leaflet';
-import { IoChevronBackCircleSharp } from "react-icons/io5";
 import { useNavigate, useLocation } from 'react-router-dom';
-import Logo from "../assets/logo.png";
 import 'leaflet/dist/leaflet.css';
-import '../styles/MapPage.css';
+import '../styles/MapFilter.css';
 import { LatLngExpression } from 'leaflet';
 import { VscFilterFilled } from "react-icons/vsc";
 import HeaderMap from '../components/HeaderMap';
@@ -46,7 +44,7 @@ function MapFilter() {
 
         <div className="map-title">
           <p className="map-text" onClick={() => setIsFilterVisible(!isFilterVisible)}>
-            <VscFilterFilled className='custom-filter-icon' /> {isFilterVisible ? 'Sair' : 'Filtrar'}
+            <VscFilterFilled className='custom-filter-icon' /> {isFilterVisible ? 'SAIR' : 'FILTRAR'}
           </p>
         </div>
 
@@ -58,7 +56,7 @@ function MapFilter() {
               <label><input type="checkbox" name="violencia-psicologica" className="checkbox-yellow" /> Violência Psicológica</label>
               <label><input type="checkbox" name="violencia-patrimonial" className="checkbox-green" /> Violência Patrimonial</label>
               <label><input type="checkbox" name="violencia-sexual" className="checkbox-red" /> Violência Sexual</label>
-              <button className='map-text filter-button-select' onClick={handleSelectFilters}>Selecionar Filtros</button>
+              <button className='filter-button-select' onClick={handleSelectFilters}>Selecionar Filtros</button>
             </span>
           </div>
         )}
@@ -82,8 +80,8 @@ function MapFilter() {
         />
       </MapContainer>
 
-      <div className="footer-container">
-        <button className="footer-filter" onClick={() => navigate("/what-to-do")}>Finalizar</button>
+      <div className="btn-map">
+        <button className="btn btn-finish-filter" onClick={() => navigate("/what-to-do")}>Finalizar</button>
       </div>
     </div>
   );

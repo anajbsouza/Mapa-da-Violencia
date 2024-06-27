@@ -5,7 +5,7 @@ import 'leaflet/dist/leaflet.css';
 import { icon } from 'leaflet';
 import { RxDividerHorizontal } from "react-icons/rx";
 import LocationIcon from "../assets/location_icon.png"; 
-import '../styles/MapPage.css';
+import '../styles/MapPageAddress.css';
 import FingerprintJS from '@fingerprintjs/fingerprintjs';
 
 function Mapa() {
@@ -35,7 +35,7 @@ function Mapa() {
         <HeaderMap/>
 
         <div className="map-title">
-          <p className="map-text">Endereço Selecionado</p>
+          <p className="map-text">ENDEREÇO SELECIONADO</p>
         </div>
       </div>
 
@@ -80,7 +80,7 @@ function Mapa() {
           </div>
 
           <div className="btn-map">
-            <button className="btn-finish-map" onClick={() => {
+            <button className="btn btn-finish-map" onClick={() => {
                 getUserFingerprint()
                 navigate("/thank-you")}
               }>Finalizar</button>
