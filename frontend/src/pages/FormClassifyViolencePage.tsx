@@ -75,7 +75,7 @@ const FormClassifyViolencePage = () => {
 
         setError(null);
         console.log (response);
-        navigate("/map-address", { state: state }); // Passando o estado para a próxima página
+        navigate("/authorize-localization", { state:{action : 'register'} }); // Passando o estado para a próxima página
       })
 
       .catch(error => {
@@ -96,12 +96,12 @@ const FormClassifyViolencePage = () => {
       <main>
         <section className="holepage">
           <section className="page">
-            <FormIndex value={3}/>
+            <FormIndex value={2}/>
           </section>
 
           <section className="prompt">
             <h4>Que situações você vivenciou durante o episódio de violência? Estamos aqui para compreender de forma gentil e acolhedora.</h4>
-            <p>5. Selecione situações que você identificou durante o episódio:</p>
+            <p>4. Selecione situações que você identificou durante o episódio:</p>
           </section>
 
           <section className="forms">

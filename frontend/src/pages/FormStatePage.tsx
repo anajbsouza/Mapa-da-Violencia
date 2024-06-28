@@ -87,7 +87,7 @@ const FormStatePage = () => {
             if (action === 'viewMap') {
               navigate("/map-filter", { state: { coordinates } });
             } else {
-              navigate("/form-about-violence");
+              navigate("/map-address",{state: {coordinates, action:'register'}});
             }
           } else {
             setError("Não foi possível encontrar as coordenadas da cidade selecionada.");

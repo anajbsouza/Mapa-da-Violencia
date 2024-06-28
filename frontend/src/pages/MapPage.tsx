@@ -103,7 +103,7 @@ function Mapa() {
           </div>
 
           <div className="map-info">
-            <label>HORÁRIO RELATADO:</label> <span className="address-style">{localStorage.getItem('time')}</span> 
+            <label>HORÁRIO DO OCORRIDO:</label> <span className="address-style">{localStorage.getItem('time')}</span> 
           </div>
 
           <div className="map-info">
