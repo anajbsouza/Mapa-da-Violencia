@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { MapContainer, TileLayer, Marker, useMapEvents } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, useMapEvents, useMap } from 'react-leaflet';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { RxDividerHorizontal } from "react-icons/rx";
 import 'leaflet/dist/leaflet.css';
-import { LatLng } from 'leaflet';
+import { LatLng, LatLngExpression } from 'leaflet';
 import { icon } from 'leaflet';
 import LocationIcon from "../assets/location_icon.png"; 
 import '../styles/MapPageAddress.css';
@@ -13,14 +13,26 @@ function Mapa() {
   const navigate = useNavigate();
   const location = useLocation();
   const { state } = location;
+  const { coordinates } = location.state || {}; 
   const [markerPosition, setMarkerPosition] = useState<LatLng | null>(null);
+
   const [locationSelected, setLocationSelected] = useState(false);
   const [address, setAddress] = useState<string>(""); 
+  const [city_v,setCity_v] = useState<string>(""); 
+  const [state_v,setState_v] = useState<string>(""); 
   const customIcon = icon({
     iconUrl: LocationIcon, 
     iconSize: [28, 28], 
     iconAnchor: [16, 48], 
   });
+
+  function ChangeMapView({ center }: { center: LatLngExpression }) {
+    const map = useMap();
+    if (center) {
+      map.setView(center, 12);
+    }
+    return null;
+  }
 
   useEffect(() => {
     if (markerPosition) {
@@ -42,8 +54,10 @@ function Mapa() {
       const { road, suburb, city, state, postcode, country } = data.address;
       const addressParts = [road, suburb, city, state, postcode, country].filter(Boolean);
       const address = addressParts.join(', ');
-      
+
       setAddress(address);
+      setCity_v(city)
+      setState_v(state)
     } catch (error) {
       console.error('Erro ao obter o endereço:', error);
       setAddress('Erro ao obter o endereço'); 
@@ -62,7 +76,7 @@ function Mapa() {
   }
 
   const handleNextClick = () => {
-    navigate('/map-page', { state: { address } });
+    navigate('/map-page', { state: { address,markerPosition,city_v,state_v } });
   };
 
   return (
@@ -74,6 +88,7 @@ function Mapa() {
           <p className="map-text">{locationSelected ? 'LOCAL SELECIONADO' : 'MARQUE O LOCAL'}</p>
         </div>
       </div>
+
 
       <MapContainer
         center={markerPosition ? [markerPosition.lat, markerPosition.lng] : [-15.794, -47.882]}
@@ -92,8 +107,11 @@ function Mapa() {
           <Marker position={markerPosition} icon={customIcon}>
           </Marker>
         )}
+        <ChangeMapView center={coordinates ? [coordinates.lat, coordinates.lon] : [-15.794, -47.882]} />
 
       </MapContainer>
+
+      
 
       {locationSelected && (
         

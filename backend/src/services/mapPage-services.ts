@@ -15,7 +15,7 @@ async function createOccur(occurrencedata: OccurrenceData) {
     const id_user = await MapPageRepository.createUser(occurrencedata.fingerprint);
 
     //validação dos dados de novo (para evitar envios maliciosos)
-    await StatePageService.validateStateOccur({uf_state:occurrencedata.state_violence,city:occurrencedata.city_violence});
+    await StatePageService.validateStateOccur({state:occurrencedata.state_violence,city:occurrencedata.city_violence});
 
     await AboutViolencePageService.validateAboutViolenceOccur({date_violence_s: occurrencedata.date_violence_s, agegroup: occurrencedata.age_group, time_violence_s: occurrencedata.time_violence_s});
 
@@ -45,7 +45,7 @@ async function createOccur(occurrencedata: OccurrenceData) {
     try {
         const occurrence = await MapPageRepository.createOccurrence(occurrencedata_bd);
         await MapPageRepository.upd_user_occurrences(occurrence.id_occurrence, occurrence.date_violence, occurrence.id_user);
-        return 'ok';
+        return occurrence;
     } catch {
         throw repositoryError('"Occurrence"','"createOccur"')
     }

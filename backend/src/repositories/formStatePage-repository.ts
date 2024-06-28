@@ -18,38 +18,38 @@ const prisma = new PrismaClient();
 //     return occurrence
 // }
 
-async function getListUfs() {
-    const listUfs = await prisma.state_list.findMany({
+async function getListStates() {
+    const listStates = await prisma.state_list.findMany({
         select:{
             id_state: false,
-            uf_state: true,
-            name_state: false,
+            uf_state: false,
+            name_state: true,
             num_occurrences: false
         }
     })
-    return listUfs;
+    return listStates;
 }
 
-async function upd_numOccurrences_StateList(state: ViolenceState){
-    const {uf_state} = state;
-    const old_value = await prisma.state_list.findFirst({
-        where: {uf_state: uf_state},
-        select: {
-            num_occurrences: true
-        }
-    })
-    const new_value = old_value.num_occurrences + BigInt(1)
-    const updatedData = await prisma.state_list.update({
-        where:{ uf_state: uf_state},
-        data: {
-            num_occurrences: new_value
-        }
-    })
-}
+// async function upd_numOccurrences_StateList(violencestate: ViolenceState){
+//     const {state} = violencestate;
+//     const old_value = await prisma.state_list.findFirst({
+//         where: {name_state: state},
+//         select: {
+//             num_occurrences: true
+//         }
+//     })
+//     const new_value = old_value.num_occurrences + BigInt(1)
+//     const updatedData = await prisma.state_list.update({
+//         where: { name_state: state},
+//         data: {
+//             num_occurrences: new_value
+//         }
+//     })
+// }
 
 export const StatePageRepository = {
     // StateOccurrence,
-    getListUfs
+    getListStates,
     // upd_numOccurrences_StateList
 }
 

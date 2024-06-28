@@ -5,14 +5,14 @@ import { validationError,repositoryError } from "../errors/errors";
 
 async function validateStateOccur(violenceState: ViolenceState): Promise<any> {
 
-    const listUfs = StatePageRepository.getListUfs()
+    const listUfs = StatePageRepository.getListStates()
     //  const listOccur = await authorizationRepository.getListOccur()
-    if (!(await listUfs).find(state => state.uf_state == violenceState.uf_state)){
+    if (!(await listUfs).find(state => state.name_state == violenceState.state)){
         throw validationError('"State"');
     }
-    else if (typeof violenceState.uf_state !== 'string'){
+    else if (typeof violenceState.state !== 'string'){
         throw validationError('"State"');
-    } else if (!violenceState.uf_state||violenceState.uf_state==null){
+    } else if (!violenceState.state||violenceState.state==null){
         throw validationError('"State"');
     } else if (!violenceState.city||violenceState.city==null){
         throw validationError('"City"');

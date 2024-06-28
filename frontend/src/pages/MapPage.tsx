@@ -15,7 +15,8 @@ const URL = "http://localhost:4000/map-page"
 function Mapa() {
   const navigate = useNavigate();
   const location = useLocation();
-  const { address } = location.state || {};
+  const { address,markerPosition,city_v,state_v} = location.state || {};
+
   const oldDate = localStorage.getItem('date') || ''
   const [year,month,day] = oldDate.split('-');
   const formatedDate = `${day}/${month}/${year}`;
@@ -27,16 +28,18 @@ function Mapa() {
     console.log('Fingerprint:', fingerprint);
 
     localStorage.setItem('fingerprint', fingerprint);
-
+    // console.log(markerPosition)
+    console.log(city_v)
+    console.log(state_v)
     axios.post(URL, {
       "fingerprint" : fingerprint,
       "age_group": localStorage.getItem('ageRange'),
       "date_violence_s": localStorage.getItem('date'),
       "time_violence_s": "T" + localStorage.getItem('time') + ":00-03:00",
-      "city_violence": 'Brasilia',
-      "state_violence":'DF',
-      "latitude": -15,
-      "longitude": -15,
+      "city_violence": city_v,
+      "state_violence":state_v,
+      "latitude": markerPosition.lat,
+      "longitude": markerPosition.lng,
       "violence_options": 'VS1',
       "violence_type": 'VT3'
     }, {
@@ -75,7 +78,7 @@ function Mapa() {
       </div>
 
       <MapContainer
-        center={[-15.794, -47.882]}
+        center={[markerPosition.lat, markerPosition.lng]}
         zoom={14}
         style={{ width: '100vw', height: '100vh' }}
         zoomControl={false}
@@ -86,7 +89,7 @@ function Mapa() {
         />
 
         {address && (
-          <Marker position={[-15.794, -47.882]} icon={customIcon}>
+          <Marker position={[markerPosition.lat, markerPosition.lng]} icon={customIcon}>
           </Marker>
         )}
       </MapContainer>
@@ -103,7 +106,7 @@ function Mapa() {
           </div>
 
           <div className="map-info">
-            <label>HORÁRIO RELATADO:</label> <span className="address-style">{localStorage.getItem('time')}</span> 
+            <label>HORÁRIO DO OCORRIDO:</label> <span className="address-style">{localStorage.getItem('time')}</span> 
           </div>
 
           <div className="map-info">

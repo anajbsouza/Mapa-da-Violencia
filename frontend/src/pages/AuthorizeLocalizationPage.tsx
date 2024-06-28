@@ -34,7 +34,7 @@ const AuthorizeLocalizationPage = () => {
             });
 
           } else if (action === "register") {
-            navigate("/form-about-violence", { state: { coordinates, action } });
+            navigate("/map-address", { state: { coordinates, action } });
           } else {
             console.error("Unsupported action.");
           }
@@ -78,7 +78,7 @@ const AuthorizeLocalizationPage = () => {
       <Header />
       <main>
         <section className="page">
-          <FormIndex value={1}/>
+          <FormIndex value={4}/>
         </section>
 
         <section className="question">

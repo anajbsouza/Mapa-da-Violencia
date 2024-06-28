@@ -44,16 +44,16 @@ async function createOccurrence(occurrencedata_bd:OccurrenceData_bd) {
     })
     return occurrence
 }
-async function upd_numOccurrences_StateList(uf_state: string){
+async function upd_numOccurrences_StateList(name_state: string){
     const old_value = await prisma.state_list.findFirst({
-        where: {uf_state: uf_state},
+        where: {name_state: name_state},
         select: {
             num_occurrences: true
         }
     })
     const new_value = old_value.num_occurrences + BigInt(1)
     const updatedData = await prisma.state_list.update({
-        where:{ uf_state: uf_state},
+        where:{ name_state: name_state},
         data: {
             num_occurrences: new_value
         }

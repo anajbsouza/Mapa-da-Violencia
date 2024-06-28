@@ -32,7 +32,7 @@ const WhatToDoPage = () => {
                     <nav className="navigation">
                         <section className="violence-registration">
                             <FaHand className="FaHand" />
-                            <button className="button-violence" onClick={() => navigate("/authorize-localization", { state: { action: 'register' } })}>Fazer um registro</button>
+                            <button className="button-violence" onClick={() => navigate("/form-about-violence", { state: { action: 'register' } })}>Fazer um registro</button>
                         </section>
 
                         <section className="map-visualization">

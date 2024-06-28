@@ -35,7 +35,7 @@ export type OccurrenceData_bd = {
     violence_type: string
 }
 export type ViolenceState = {
-    uf_state:string,
+    state:string,
     city: string
 };
 // Tipo para receber no json (json não tem tipo data)
