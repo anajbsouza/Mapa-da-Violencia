@@ -3,7 +3,7 @@ import Header from "../components/Header";
 import '../styles/AuthorizeLocalizationAndEmergencyPages.css';
 import FormIndex from "../components/FormIndex";
 import axios from "axios";
-import { RxCodesandboxLogo } from "react-icons/rx";
+//import { RxCodesandboxLogo } from "react-icons/rx";
 
 const URL = "http://localhost:4000/map-filter";
 
@@ -52,13 +52,13 @@ const AuthorizeLocalizationPage = () => {
   };
 
   const handleNotAuthorize = () => {
-    var formStateValue = ' ';
+    var formValue = ' ';
     if (action === 'viewMap') {
       axios.get(URL)
       .then(occurrence_data => {
         console.log(occurrence_data);
         navigate("/form-state", { state: { action: 'viewMap' } });
-        formStateValue = 'map-view'; 
+        formValue = 'map-view'; 
       })
       .catch(error => {
         console.log(error);
@@ -67,10 +67,10 @@ const AuthorizeLocalizationPage = () => {
       
     } else {
       navigate("/form-state", { state: { action: 'register' } });
-      formStateValue = 'occurrence-record';
+      formValue = 'occurrence-record';
     }
 
-    return formStateValue;
+    return formValue;
   };
 
   return (

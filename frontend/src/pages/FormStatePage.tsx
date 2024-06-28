@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Header from "../components/Header";
 import '../styles/Footer.css';
 import '../styles/FormStatePage.css';
 import FormIndex from "../components/FormIndex";
+import FormCityOption from "../components/FormCityOption";
+import FormStateOption from "../components/FormStateOption";
 import { useNavigate, useLocation } from 'react-router-dom';
 import axios from "axios";
 
@@ -17,6 +19,7 @@ const FormStatePage = () => {
   const [cities, setCities] = useState<string[]>([]);
   const [selectedCity, setSelectedCity] = useState('');
   const [error, setError] = useState<string | null>(null);
+  const [formValue, setformValue] = useState<string>('')
 
   useEffect(() => {
     const fetchStates = async () => {
@@ -97,6 +100,14 @@ const FormStatePage = () => {
     }
   };
 
+  useEffect(() => {
+    if (action === 'viewMap') {
+      setformValue('map-view'); // Define o valor como 'map-view' se a ação for 'viewMap'
+    } else {
+      setformValue('occurrence-record'); // Define o valor como 'occurrence-record' se a ação não for 'viewMap'
+    }
+  }, [action]);
+
   return (
     <div>
       <Header />
@@ -107,8 +118,9 @@ const FormStatePage = () => {
         </section>
 
         <section className="titles">
-          <h4>Para viabilizar o trabalho realizado, informe portanto o estado onde ocorreu a violência:</h4>
-          <p className="question-state">1. Qual o Estado onde ocorreu a violência?</p>
+
+         <FormStateOption value={formValue}/>
+
           <select className="state" value={selectedState} onChange={(e) => setSelectedState(e.target.value)}>
             <option value="">Selecione um estado:</option>
             {states.map((state) => (
@@ -118,7 +130,9 @@ const FormStatePage = () => {
         </section>
       
         <section className="titles">
-          <p className="question-state">2. Qual a cidade onde ocorreu a violência?</p>
+
+          <FormCityOption value={formValue}/>
+
           <select className="city" value={selectedCity} onChange={(e) => setSelectedCity(e.target.value)}>
             <option value="">Selecione uma cidade:</option>
             {cities.map((city) => (
@@ -127,10 +141,6 @@ const FormStatePage = () => {
           </select>
         </section>
 
-        <section className="information">
-          <p>Esta informação é valiosa para nós!</p>
-          <p>Estamos aqui para ajudar e garantir que você se sinta seguro e acolhido ao compartilhar sua experiência.</p>
-        </section>
         {error && <p className="error">{error}</p>}
       </main>
 
