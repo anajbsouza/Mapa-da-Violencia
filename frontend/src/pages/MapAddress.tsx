@@ -18,6 +18,8 @@ function Mapa() {
 
   const [locationSelected, setLocationSelected] = useState(false);
   const [address, setAddress] = useState<string>(""); 
+  const [city_v,setCity_v] = useState<string>(""); 
+  const [state_v,setState_v] = useState<string>(""); 
   const customIcon = icon({
     iconUrl: LocationIcon, 
     iconSize: [28, 28], 
@@ -52,8 +54,10 @@ function Mapa() {
       const { road, suburb, city, state, postcode, country } = data.address;
       const addressParts = [road, suburb, city, state, postcode, country].filter(Boolean);
       const address = addressParts.join(', ');
-      
+
       setAddress(address);
+      setCity_v(city)
+      setState_v(state)
     } catch (error) {
       console.error('Erro ao obter o endereço:', error);
       setAddress('Erro ao obter o endereço'); 
@@ -72,7 +76,7 @@ function Mapa() {
   }
 
   const handleNextClick = () => {
-    navigate('/map-page', { state: { address } });
+    navigate('/map-page', { state: { address,markerPosition,city_v,state_v } });
   };
 
   return (
