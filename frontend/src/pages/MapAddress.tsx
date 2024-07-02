@@ -58,6 +58,7 @@ function Mapa() {
       setAddress(address);
       setCity_v(city)
       setState_v(state)
+      
     } catch (error) {
       console.error('Erro ao obter o endereço:', error);
       setAddress('Erro ao obter o endereço'); 

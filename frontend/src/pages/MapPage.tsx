@@ -31,6 +31,9 @@ function Mapa() {
     // console.log(markerPosition)
     console.log(city_v)
     console.log(state_v)
+    console.log(localStorage.getItem('CheckedItemsString'))
+    console.log(localStorage.getItem('ViolenceTypeString'))
+    
     axios.post(URL, {
       "fingerprint" : fingerprint,
       "age_group": localStorage.getItem('ageRange'),
@@ -40,8 +43,8 @@ function Mapa() {
       "state_violence":state_v,
       "latitude": markerPosition.lat,
       "longitude": markerPosition.lng,
-      "violence_options": 'VS1',
-      "violence_type": 'VT3'
+      "violence_options": localStorage.getItem('CheckedItemsString'),
+      "violence_type": localStorage.getItem('ViolenceTypeString')
     }, {
       headers: {
       'Content-Type': 'application/json'

@@ -22,6 +22,7 @@ const FormClassifyViolencePage = () => {
     }
     return {};
   });
+
   const [error, setError] = useState<string | null>(null);
 
   const options = [
@@ -62,6 +63,7 @@ const FormClassifyViolencePage = () => {
       }
       violenceOption = violenceOption.slice(0,-1)
       console.log(violenceOption)
+      localStorage.setItem('CheckedItemsString',violenceOption)
 
       axios.post(URL, {
         "violencesoptions": violenceOption
@@ -72,9 +74,10 @@ const FormClassifyViolencePage = () => {
       })
 
       .then(response => {
-
         setError(null);
-        console.log (response);
+        console.log(JSON.parse(response.request.response))
+        localStorage.setItem('ViolenceTypeString',JSON.parse(response.request.response));
+
         navigate("/authorize-localization", { state:{action : 'register'} }); // Passando o estado para a próxima página
       })
 
