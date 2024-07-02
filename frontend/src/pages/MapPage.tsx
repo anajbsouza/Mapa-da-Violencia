@@ -25,21 +25,18 @@ function Mapa() {
     const fp = await FingerprintJS.load();
     const result = await fp.get();
     const fingerprint = result.visitorId;
+    const city_auxiliary = (city_v === undefined)? "" : city_v; 
+   
     console.log('Fingerprint:', fingerprint);
 
     localStorage.setItem('fingerprint', fingerprint);
-    // console.log(markerPosition)
-    console.log(city_v)
-    console.log(state_v)
-    console.log(localStorage.getItem('CheckedItemsString'))
-    console.log(localStorage.getItem('ViolenceTypeString'))
-    
+
     axios.post(URL, {
       "fingerprint" : fingerprint,
       "age_group": localStorage.getItem('ageRange'),
       "date_violence_s": localStorage.getItem('date'),
       "time_violence_s": "T" + localStorage.getItem('time') + ":00-03:00",
-      "city_violence": city_v,
+      "city_violence": city_auxiliary,
       "state_violence":state_v,
       "latitude": markerPosition.lat,
       "longitude": markerPosition.lng,

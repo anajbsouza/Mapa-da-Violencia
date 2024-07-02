@@ -38,10 +38,10 @@ SELECT * FROM state_list;
 
 INSERT INTO types_of_violence VALUES
 	('VT1','Violência Física'),
-	('VT2','Violência Moral'),
-	('VT3','Violência Psicológica'),
+	('VT2','Violência Psicológica'),
+	('VT3','Violência Sexual'),
 	('VT4','Violência Patrimonial'),
-	('VT5','Violência Sexual');
+	('VT5','Violência Moral');
 
 SELECT * FROM types_of_violence;
 
@@ -49,16 +49,21 @@ SELECT * FROM types_of_violence;
 
 
 INSERT INTO violence_situations VALUES
-	('VS1', 'Lesões ou ferimentos'),
-	('VS2', 'Estrangulamento ou sufocamento'),
-	('VS3', 'Espancamento ou tortura'),
-	('VS4', 'Constrangimento ou humilhação'),
-	('VS5', 'Vigilância ou perseguição'),
-	('VS6', 'Proibições ou limitações'),
-	('VS7', 'Chantagem ou distorção dos fatos'),
-	('VS8', 'Estupro'),
-	('VS9', 'Impedimento do uso de contraceptivo'),
-	('VS10', 'Obrigar atos sexuais que causam desconforto');
+    ('VS1', 'Impedimento do uso de contraceptivo'),
+    ('VS2', 'Estrangulamento ou sufocamento'),
+    ('VS3', 'Furtar ou controlar seu dinheiro'),
+    ('VS4', 'Destruir documentos ou itens pessoais'),
+    ('VS5', 'Calúnia ou difamação'),
+    ('VS6', 'Atirar objetos ou sacudir e apertar os braços'),
+    ('VS7', 'Estupro'),
+    ('VS8', 'Chantagem ou distorção dos fatos'),
+    ('VS9', 'Vigilância ou perseguição'),
+    ('VS10', 'Ridicularização ou críticas destrutivas em público'),
+    ('VS11', 'Lesões, espancamentos ou ferimentos'),
+    ('VS12', 'Obrigar atos sexuais'),
+    ('VS13', 'Insultos, constrangimento ou humilhação'),
+    ('VS14', 'Deixar de pagar pensão alimentícia'),
+    ('VS15', 'Isolamento social');
 
 SELECT * FROM violence_situations
 

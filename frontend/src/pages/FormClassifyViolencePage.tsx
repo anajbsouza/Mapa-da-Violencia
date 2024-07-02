@@ -3,7 +3,7 @@ import Header from "../components/Header";
 import '../styles/FormClassifyViolencePage.css';
 import '../styles/Footer.css'
 import FormIndex from "../components/FormIndex";
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import ErrorMessage from "../components/ErrorMessage";
 import axios from "axios";
 
@@ -11,8 +11,8 @@ const URL = "http://localhost:4000/form-classify-violence"
 
 const FormClassifyViolencePage = () => {
   const navigate = useNavigate();
-  const location = useLocation();
-  const { state } = location;
+  //const location = useLocation();
+  //const { state } = location;
 
   const [checkedItems, setCheckedItems] = useState<Record<number, boolean>>(() => {
     const storedCheckedItems = localStorage.getItem('checkedItems');
@@ -43,6 +43,24 @@ const FormClassifyViolencePage = () => {
     "Isolamento social"
   ];
 
+  const index_string_back: {[key: number]: string} = {
+    0: "VS1",
+    1: "VS2",
+    2: "VS3",
+    3: "VS4",
+    4: "VS5",
+    5: "VS6",
+    6: "VS7",
+    7: "VS8",
+    8: "VS9",
+    9: "VS10",
+    10: "VS11",
+    11: "VS12",
+    12: "VS13",
+    13: "VS14",
+    14: "VS15"
+  };
+  
   const handleChange = (position: number) => {
     const updatedCheckedState = { ...checkedItems, [position]: !checkedItems[position] };
     setCheckedItems(updatedCheckedState);
@@ -58,9 +76,11 @@ const FormClassifyViolencePage = () => {
 
       for (const key in checkedItems.valueOf()){
         if(checkedItems[Number(key)] == true){
-          violenceOption = violenceOption + `VS${parseInt(key) +1},`
+          // violenceOption = violenceOption + `VS${parseInt(key) +1},`
+          violenceOption = violenceOption + index_string_back[parseInt(key)] + `,`
         }
       }
+      
       violenceOption = violenceOption.slice(0,-1)
       console.log(violenceOption)
       localStorage.setItem('CheckedItemsString',violenceOption)

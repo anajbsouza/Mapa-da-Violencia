@@ -33,13 +33,6 @@ function Mapa() {
     }
   }, [markerPosition]);
 
-  // useEffect(() => {
-  //   if (state && state.coordinates) {
-  //     setMarkerPosition(state.coordinates);
-  //     setLocationSelected(true);
-  //   }
-  // }, [state]);
-
   const getAddressFromCoordinates = async (lat: number, lng: number) => {
     try {
       const response = await fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json`);
@@ -70,6 +63,7 @@ function Mapa() {
   }
 
   const handleNextClick = () => {
+    console.log(city_v);
     navigate('/map-page', { state: { address,markerPosition,city_v,state_v } });
   };
 
