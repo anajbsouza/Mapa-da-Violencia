@@ -3,11 +3,7 @@ import { MapPageRepository } from "../repositories/mapPage-repository";
 import { StatePageService } from "../services/formStatePage-service";
 import { AboutViolencePageService } from "../services/formAboutViolencePage-service";
 import { ClassifyViolencePageService } from "../services/formClassifyViolencePage-service";
-import { authorizationRepository } from "../repositories/authorization-repository";
-import {StatePageRepository} from "../repositories/formStatePage-repository"
 import { repositoryError, validationError } from "../errors/errors";
-import express, { Request, Response } from 'express';
-import { number } from "joi";
 
 
 async function createOccur(occurrencedata: OccurrenceData) {

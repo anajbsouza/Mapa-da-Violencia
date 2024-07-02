@@ -82,7 +82,7 @@ function Mapa() {
 
       <MapContainer
         center={[markerPosition.lat, markerPosition.lng]}
-        zoom={14}
+        zoom={16}
         style={{ width: '100vw', height: '100vh' }}
         zoomControl={false}
       >
@@ -117,10 +117,9 @@ function Mapa() {
           </div>
 
           <div className="btn-map">
-            <button className="btn btn-finish-map" onClick={() => {
-                getUserFingerprint()
-                navigate("/thank-you")}
-              }>Finalizar</button>
+            <button className="btn btn-finish-map" 
+            onClick={() => {getUserFingerprint()}
+            }>Finalizar</button>
           </div>
         </div>
       )}

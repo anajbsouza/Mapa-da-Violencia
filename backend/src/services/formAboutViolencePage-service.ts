@@ -1,8 +1,5 @@
 import { AboutViolence} from "../protocols";
-import { AboutViolencePageRepository } from "../repositories/formAboutViolencePage-repository";
-import { repositoryError, validationError } from "../errors/errors";
-import { authorizationRepository } from "../repositories/authorization-repository";
-import { time } from "console";
+import { validationError } from "../errors/errors";
 
 async function validateAboutViolenceOccur(aboutviolence: AboutViolence): Promise<any> {
     
@@ -19,17 +16,6 @@ async function validateAboutViolenceOccur(aboutviolence: AboutViolence): Promise
     await ValidateTime(aboutviolence.time_violence_s,aboutviolence.date_violence_s);
     return "ok";
     
-    // const aboutviolence:AboutViolence = {
-    //     id_occur: aboutviolence_json.id_occur,
-    //     date_violence: date_violence,
-    //     agegroup: aboutviolence_json.agegroup,
-    //     time_violence: time_violence
-    // }
-    // try {
-    //     return await AboutViolencePageRepository.AboutViolenceOccurrence(aboutviolence);
-    // } catch {
-    //     throw repositoryError('"Occurrence"','"AboutViolenceOccurrenc"');
-    // }
 }
 
 async function ValidateTime(time_string:string,date_string:string) {
