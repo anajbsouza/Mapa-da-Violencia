@@ -14,7 +14,7 @@ model occurrence {
   age_group           String
   date_violence       DateTime         @db.Date
   time_violence       DateTime         @db.Timetz(6)
-  city_violence       String
+  city_violence       String?
   state_violence      String
   latitude            Decimal          @db.Decimal(9, 6)
   longitude           Decimal          @db.Decimal(9, 6)

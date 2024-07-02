@@ -26,26 +26,12 @@ function Mapa() {
     iconAnchor: [16, 48], 
   });
 
-  function ChangeMapView({ center }: { center: LatLngExpression }) {
-    const map = useMap();
-    if (center) {
-      map.setView(center, 12);
-    }
-    return null;
-  }
-
+  
   useEffect(() => {
     if (markerPosition) {
       getAddressFromCoordinates(markerPosition.lat, markerPosition.lng);
     }
   }, [markerPosition]);
-
-  useEffect(() => {
-    if (state && state.coordinates) {
-      setMarkerPosition(state.coordinates);
-      setLocationSelected(true);
-    }
-  }, [state]);
 
   const getAddressFromCoordinates = async (lat: number, lng: number) => {
     try {
@@ -77,6 +63,7 @@ function Mapa() {
   }
 
   const handleNextClick = () => {
+    console.log(city_v);
     navigate('/map-page', { state: { address,markerPosition,city_v,state_v } });
   };
 
@@ -90,9 +77,8 @@ function Mapa() {
         </div>
       </div>
 
-
       <MapContainer
-        center={markerPosition ? [markerPosition.lat, markerPosition.lng] : [-15.794, -47.882]}
+        center={coordinates ? [coordinates.lat, coordinates.lng] : [-15.794, -47.882]}
         zoom={14}
         style={{ width: '100vw', height: '100vh' }}
         zoomControl={false}
@@ -108,11 +94,8 @@ function Mapa() {
           <Marker position={markerPosition} icon={customIcon}>
           </Marker>
         )}
-        <ChangeMapView center={coordinates ? [coordinates.lat, coordinates.lon] : [-15.794, -47.882]} />
 
       </MapContainer>
-
-      
 
       {locationSelected && (
         

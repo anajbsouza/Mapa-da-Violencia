@@ -18,7 +18,7 @@ const AuthorizeLocalizationPage = () => {
         (position) => {
           const coordinates = {
             lat: position.coords.latitude,
-            lon: position.coords.longitude
+            lng: position.coords.longitude
           };
 
           if (action === "viewMap") {

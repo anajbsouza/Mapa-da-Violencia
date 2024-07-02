@@ -25,21 +25,18 @@ function Mapa() {
     const fp = await FingerprintJS.load();
     const result = await fp.get();
     const fingerprint = result.visitorId;
+    const city_auxiliary = (city_v === undefined)? "" : city_v; 
+   
     console.log('Fingerprint:', fingerprint);
 
     localStorage.setItem('fingerprint', fingerprint);
-    // console.log(markerPosition)
-    console.log(city_v)
-    console.log(state_v)
-    console.log(localStorage.getItem('CheckedItemsString'))
-    console.log(localStorage.getItem('ViolenceTypeString'))
-    
+
     axios.post(URL, {
       "fingerprint" : fingerprint,
       "age_group": localStorage.getItem('ageRange'),
       "date_violence_s": localStorage.getItem('date'),
       "time_violence_s": "T" + localStorage.getItem('time') + ":00-03:00",
-      "city_violence": city_v,
+      "city_violence": city_auxiliary,
       "state_violence":state_v,
       "latitude": markerPosition.lat,
       "longitude": markerPosition.lng,
@@ -82,7 +79,7 @@ function Mapa() {
 
       <MapContainer
         center={[markerPosition.lat, markerPosition.lng]}
-        zoom={14}
+        zoom={16}
         style={{ width: '100vw', height: '100vh' }}
         zoomControl={false}
       >
@@ -117,10 +114,9 @@ function Mapa() {
           </div>
 
           <div className="btn-map">
-            <button className="btn btn-finish-map" onClick={() => {
-                getUserFingerprint()
-                navigate("/thank-you")}
-              }>Finalizar</button>
+            <button className="btn btn-finish-map" 
+            onClick={() => {getUserFingerprint()}
+            }>Finalizar</button>
           </div>
         </div>
       )}
