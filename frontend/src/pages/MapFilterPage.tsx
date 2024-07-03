@@ -67,12 +67,12 @@ function MapFilter() {
       </div>
 
       <MapContainer
-        center={coordinates ? [coordinates.lat, coordinates.lng] : [-15.794, -47.882]}
+        center={coordinates ? [coordinates.lat, coordinates.lon] : [-15.794, -47.882]}
         zoom={14}
         style={{ width: '100vw', height: '100vh' }}
         zoomControl={false}
       >
-        <ChangeMapView center={coordinates ? [coordinates.lat, coordinates.lng] : [-15.794, -47.882]} />
+        {/* <ChangeMapView center={coordinates ? [coordinates.lat, coordinates.lng] : [-15.794, -47.882]} /> */}
 
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -80,9 +80,9 @@ function MapFilter() {
         />
       </MapContainer>
 
-      <div className="btn-map">
+      {/* <div className="btn-map">
         <button className="btn btn-finish-filter" onClick={() => navigate("/what-to-do")}>Finalizar</button>
-      </div>
+      </div> */}
     </div>
   );
 }

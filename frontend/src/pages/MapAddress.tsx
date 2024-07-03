@@ -78,7 +78,7 @@ function Mapa() {
       </div>
 
       <MapContainer
-        center={coordinates ? [coordinates.lat, coordinates.lng] : [-15.794, -47.882]}
+        center={coordinates ? [coordinates.lat, coordinates.lon] : [-15.794, -47.882]}
         zoom={14}
         style={{ width: '100vw', height: '100vh' }}
         zoomControl={false}

@@ -63,7 +63,8 @@ const FormStatePage = () => {
           const { lat, lon } = data[0];
           const coordinates = { lat, lon };
           if (action === 'viewMap') {
-            navigate("/map-filter", { state: { coordinates } });
+            console.log(data[0])
+            navigate("/map-filter", { state: { coordinates, action } });
           } else {
             navigate("/map-address",{state: {coordinates, action:'register'}});
           }
