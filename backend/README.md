@@ -1,4 +1,4 @@
-## Como rodar o projeto?
+## Como rodar o projeto localmente?
 
 - Clone o repositório:
 `git clone <URL_DO_REPOSITORIO>`
