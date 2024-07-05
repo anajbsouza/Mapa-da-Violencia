@@ -14,7 +14,9 @@ const FormAboutViolencePage = () => {
     const [date, setDate] = useState(localStorage.getItem('date') || '');
     const [time, setTime] = useState(localStorage.getItem('time') || '');
     const [ageRange, setAgeRange] = useState(localStorage.getItem('ageRange') || '');
-    const [error, setError] = useState<string | null>(null);
+    const [dateError, setDateError] = useState<string | null>(null);
+    const [timeError, setTimeError] = useState<string | null>(null);
+    const [ageRangeError, setAgeRangeError] = useState<string | null>(null);
 
     const location = useLocation();
     const { state } = location;
@@ -42,75 +44,66 @@ const FormAboutViolencePage = () => {
         'Acima de 65 anos'
     ];
 
-// Função handleNext responsável por lidar com o próximo passo do formulário
-const handleNext = () => {
+    const handleNext = () => {
+        let valid = true;
+        if (!date) {
+            setDateError("Por favor, insira uma data válida.");
+            valid = false;
+        } else {
+            setDateError(null);
+        }
 
-    // Verifica se algum dos campos (date, time, ageRange) está vazio
-    if (!date || !time || !ageRange) {
-        // Define uma mensagem de erro caso algum campo esteja vazio
-        setError("Por favor, preencha todos os campos.");
+        if (!time) {
+            setTimeError("Por favor, insira um horário válido.");
+            valid = false;
+        } else {
+            setTimeError(null);
+        }
 
-    } else {
-        // Se todos os campos estiverem preenchidos, prossegue com a requisição
+        if (!ageRange) {
+            setAgeRangeError("Por favor, preencha o campo de faixa etária.");
+            valid = false;
+        } else {
+            setAgeRangeError(null);
+        }
 
-        // Log das variáveis date, ageRange e time para debugar o código, pode ser comentado no futuro
-        console.log(date, ageRange, time);
-
-        // Envia uma requisição POST usando axios para a URL especificada
-        axios.post(URL, {
-            // Corpo da requisição contendo os dados a serem enviados, deve ser igual ao json esperado pelo back
-            "date_violence_s": date,
-            "agegroup": ageRange,
-            "time_violence_s": "T" + time + ":00-03:00" //ajusta a hora para o formato desejado
-        }, {
-            // Cabeçalhos da requisição, importante para converter para json
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-
-        // Tratamento da resposta da requisição bem-sucedida
-        .then(response => {
-            // Limpa o erro caso haja algum
-            setError(null);
-
-            // Navega para a próxima página após o sucesso da requisição
-            navigate("/form-classify-violence");
-
-            // Log da resposta para debugar
-            console.log(response);
-        })
-
-        // Tratamento de erros da requisição
-        .catch(error => {
-            // Converte a resposta de erro para JSON
-            const errorResponse = JSON.parse(error.request.response);
-            
-            // Verifica o tipo de erro e define a mensagem de erro correspondente
-            switch (errorResponse.message) {
-                case ('Field \"Id occurrence\" invalid'): {
-                    setError("Identificamos  que a ocorrência não existe. Por favor, tente novamente mais tarde.");
-                    break;
+        if (valid) {
+            axios.post(URL, {
+                "date_violence_s": date,
+                "agegroup": ageRange,
+                "time_violence_s": "T" + time + ":00-03:00"
+            }, {
+                headers: {
+                    'Content-Type': 'application/json'
                 }
-                case ('Field \"Date of the violence\" invalid'): {
-                    setError("Por favor, insira uma data válida.");
-                    break;
+            })
+            .then(response => {
+                setDateError(null);
+                setTimeError(null);
+                setAgeRangeError(null);
+                navigate("/form-classify-violence");
+            })
+            .catch(error => {
+                const errorResponse = JSON.parse(error.request.response);
+                switch (errorResponse.message) {
+                    case 'Field "Date of the violence" invalid':
+                        setDateError("Por favor, insira uma data válida.");
+                        break;
+                    case 'Field "Time of the violence" invalid':
+                        setTimeError("Por favor, insira um horário válido.");
+                        break;
+                    case 'Field "Age group" invalid':
+                        setAgeRangeError("Por favor, preencha o campo de faixa etária.");
+                        break;
+                    default:
+                        setDateError("Identificamos um erro inesperado. Por favor, tente novamente mais tarde.");
+                        setTimeError("Identificamos um erro inesperado. Por favor, tente novamente mais tarde.");
+                        setAgeRangeError("Identificamos um erro inesperado. Por favor, tente novamente mais tarde.");
                 }
-                case ('Field \"Time of the violence\" invalid'): {
-                    setError("Por favor, insira um horário válido.");
-                    break;
-                }
-                case ('Field \"Age group\" invalid'): {
-                    setError("Por favor, preencha o campo de faixa etária.");
-                    break;
-                }
-                default: {
-                    setError("Identificamos um erro inesperado. Por favor, tente novamente mais tarde.");
-                }
-            }
-        });
-    }
-};
+            });
+        }
+    };
+
     useEffect(() => {
         localStorage.setItem('date', date);
         localStorage.setItem('time', time);
@@ -136,6 +129,7 @@ const handleNext = () => {
                                 value={date}
                                 onChange={(e) => setDate(e.target.value)}
                             />
+                            <ErrorMessage error={dateError} />
                         </div>
                         <div>
                             <label htmlFor="timeInput" className="time-input">2. Qual foi o horário do ocorrido?</label>
@@ -145,6 +139,7 @@ const handleNext = () => {
                                 value={time}
                                 onChange={(e) => setTime(e.target.value)}
                             />
+                            <ErrorMessage error={timeError} />
                         </div>
                         <div>
                             <label htmlFor="ageRangeInput" className="age-input">3. Qual a sua faixa etária?</label>
@@ -159,11 +154,9 @@ const handleNext = () => {
                                     </option>
                                 ))}
                             </select>
+                            <ErrorMessage error={ageRangeError} />
                         </div>
                     </div>
-
-                    <ErrorMessage error={error}/>
-                    
                 </section>
             </main>
             <button className="footer" onClick={handleNext}>Próximo</button>
