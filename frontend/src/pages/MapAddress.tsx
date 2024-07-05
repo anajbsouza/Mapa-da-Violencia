@@ -79,7 +79,7 @@ function Mapa() {
 
       <MapContainer
         center={coordinates ? [coordinates.lat, coordinates.lon] : [-15.794, -47.882]}
-        zoom={14}
+        zoom={16}
         style={{ width: '100vw', height: '100vh' }}
         zoomControl={false}
       >
@@ -110,7 +110,7 @@ function Mapa() {
           </div>
 
           <div className="btn-map">
-            <button className="btn btn-finish-address" onClick={handleNextClick}>Próximo</button>
+            <button className="btn btn-finish-address" onClick={handleNextClick}>Confirmo este local</button>
           </div>
         </div>
       )}
