@@ -1,80 +1,36 @@
-## Sumário
+# Projeto Mapa de Violência
 
-- [Requisitos](#requisitos)
-- [Como rodar localmente](#como-rodar-localmente)
-- [Como testar o projeto](#como-testar-o-projeto)
-- [Instalando o PostgreSQL](#instalando-o-postgresql)
-- [Arquitetura](#arquitetura)
+## Descrição
+O projeto Mapa de Violência é uma iniciativa destinada a fornecer um meio seguro e eficaz para relatar incidentes de violência, tanto para vítimas quanto para testemunhas. A plataforma consiste em um formulário acessível, inicialmente disponível apenas para dispositivos móveis. Esse formulário guia o usuário por uma série de perguntas, desbloqueando caminhos que levam a especificidades relacionadas ao incidente de violência relatado.
 
+Os dados coletados são agregados e analisados para identificar padrões e comportamentos. Isso não apenas auxilia as vítimas, mas também ajuda a detectar tentativas de preenchimento malicioso dos dados, garantindo a integridade do projeto.
 
-### Requisitos
+Ao final do processo de relato, um mapa interativo é gerado, mostrando símbolos que representam o tipo de violência relatada e sua localização geográfica.
 
-- Para executar o projeto localmente, é necessário ter o PostgreSQL instalado e configurado na máquina. Consulte a seção [_Instalando o PostgreSQL_](#instalando-o-postgresql) para mais detalhes.
+## Objetivos
+O principal objetivo do Projeto Mapa de Violência é fornecer um meio eficiente para relatar incidentes de violência, bem como identificar padrões e tendências para abordar eficazmente esses problemas. Os dados coletados podem ser utilizados para alimentar sistemas de informação em delegacias e hospitais, facilitando a prestação de assistência às vítimas de violência.
 
-### Como rodar localmente
+## Privacidade e Segurança
+Todos os dados fornecidos pelos usuários são tratados de forma anônima. A única informação que é acessada é uma localização aproximada da pessoa no momento do envio da denúncia, caso seja concedida permissão. 
 
-1. **Clone o repositório:**
-   ```sh
-   git clone <URL_DO_REPOSITORIO>
-2. **Acesse a pasta backend**
-    ```sh
-    cd backend 
-3. Copie o arquivo .env.example para um arquivo .env.
+## Instituição
+O Projeto Mapa de Violência é uma iniciativa desenvolvida pelo Instituto Glória, uma Organização sem Fins Lucrativos dedicada ao combate à violência contra mulher. A instituição conta com uma equipe multidisciplinar de profissionais comprometidos em promover a conscientização sobre a violência.
 
-4. Edite o arquivo .env com seu usuário e senha do PostgreSQL
-5. **Baixe as dependências**
-    ```sh
-    npm install
-6. Execute as migrações prisma 
-    ```sh
-    npx prisma migrate dev
-    ```
-7. Preencha as tabelas base no PostgreSQL utilizando a o arquivo `/backend/src/sql files/preenchimento das tabelas` 
+## Contato
+Para mais informações sobre o Projeto Mapa de Violência do Instituto Glória você pode nos acessar nos seguintes canais:
+- Site: [https://eusouagloria.com.br/home](https://eusouagloria.com.br/home)
+- Instagram: [@eusouagloria](https://www.instagram.com/eusouagloria)
+- Facebook: [Gloria Institute](https://www.facebook.com/gloriainstitute)
 
-8. **Rode o projeto com**
-    ```sh
-    npm run dev
-    ```
-### Como testar o projeto
-1. Baixe o Thunder Client (extensão do VS Code para fazer solicitações HTTPs)
-
-2. Fazer uma nova requisição clicando em "New Request"
-
-3. Configurar a solicitação (instruções para a acessar a rota de teste):
-    ```ruby 
-    Método GET
-    Endereço : localhost:4000/health
-    Aparecerá a mensagem "OK!"
-    ```
-
-### Instalando o PostgreSQL 
-1. O tutorial de instalação está disponível em [Documentação PostgreSQL](https://www.postgresql.org/download/linux/ubuntu/)
-
-2. É necessário criar um usuário com permissões de administrador (superuser)
-
-3. [Tutorial de criação de usuário](https://phoenixnap.com/kb/postgres-create-user)
-4. Criar o Banco de Dados chamado `Gloria`
-
-5. Existem interfaces gráficas para o PostgreSQL, como o PgAdmin. Seu uso é opcional. 
-
-### Arquitetura
-
-- *Protocols*: Define os protocolos de comunicação e interfaces para interações externas, como APIs de terceiros ou sistemas legados.
-
-- *Middlewares*: Funções intermediárias que interceptam as requisições HTTP antes que elas alcancem os manipuladores de rotas. 
-
-- *Errors*: Módulo que lida com a gestão de erros na aplicação, capturando exceções e fornecendo respostas adequadas.
-
-- *Helper*: Funções auxiliares.
-
-- *Schemas*: Esquemas de validação de dados.
-
-- *App*: Ponto de entrada da aplicação, onde estão configurados e agrupados todos os componentes para inicialização do servidor.
-
-- *Routers*: Responsáveis por definir as rotas da aplicação.
-
-- *Controllers*: Responsáveis por receber as requisições HTTP, lidar com os dados da requisição, chamar os serviços apropriados e enviar a resposta de volta ao cliente.
-
-- *Services*: Implementam a lógica de negócios da aplicação, coordenando a interação entre os diferentes componentes e realizando operações específicas.
-
-- *Repositories*: Camada responsável por realizar operações de leitura e escrita no banco de dados.
+## Equipe
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/anajbsouza"><img style="border-radius: 50%;" src="https://github.com/anajbsouza.png" width="100px;" alt=""/><br/><sub><b>Ana Júlia</b></sub></a><br/>
+    <td align="center"><a href="https://github.com/barbarabea"><img style="border-radius: 50%;" src="https://github.com/barbarabea.png" width="100px;" alt=""/><br/><sub><b>Bárbara</b></sub></a><br/>
+      <td align="center"><a href="https://github.com/Beatriz-ge"><img style="border-radius: 50%;" src="https://github.com/Beatriz-ge.png" width="100px;" alt=""/><br/><sub><b>Beatriz Lins</b></sub></a><br/>
+    <td align="center"><a href="https://github.com/catlenc"><img style="border-radius: 50%;" src="https://github.com/catlenc.png" width="100px;" alt=""/><br/><sub><b>Catlen Cleane</b></sub></a><br/>
+    <td align="center"><a href="https://github.com/izabellerivas"><img style="border-radius: 50%;" src="https://github.com/izabellerivas.png" width="100px;" alt=""/><br/><sub><b>Izabelle Rivas</b></sub></a><br/>
+      <td align="center"><a href="https://github.com/Kec3-Lin3"><img style="border-radius: 50%;" src="https://github.com/Kec3-Lin3.png" width="100px;" alt=""/><br/><sub><b>Kece Oliveira</b></sub></a><br/>
+  </tr>
+</table>
+Estamos sempre abertos para feedback, sugestões e parcerias! Junte-se a nós na luta contra a violência.
