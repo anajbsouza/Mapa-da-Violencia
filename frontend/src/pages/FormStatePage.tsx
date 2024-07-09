@@ -12,7 +12,7 @@ const URL = "http://localhost:4000/form-state"
 const FormStatePage = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { action } = location.state || {};
+  const { action,occurrence_data_list } = location.state || {};
   const [states, setStates] = useState<{ nome: string, sigla: string }[]>([]);
   const [selectedState, setSelectedState] = useState('');
   const [cities, setCities] = useState<string[]>([]);
@@ -66,7 +66,7 @@ const FormStatePage = () => {
           const coordinates = { lat, lon };
           if (action === 'viewMap') {
             console.log(data[0])
-            navigate("/map-filter", { state: { coordinates, action } });
+            navigate("/map-filter", { state: { coordinates, action,occurrence_data_list } });
           } else {
             navigate("/map-address",{state: {coordinates, action:'register'}});
           }

@@ -25,8 +25,10 @@ const AuthorizeLocalizationPage = () => {
             // Realiza a requisição get para pegar todas as ocorrências
             axios.get(URL)
             .then(occurrence_data => {
-              console.log(occurrence_data);
-              navigate("/map-filter", { state: { coordinates, action } });
+              const occurrence_data_list = occurrence_data.data
+              console.log(occurrence_data.data)
+              console.log(typeof occurrence_data.data)
+              navigate("/map-filter", { state: { coordinates, action, occurrence_data_list} });
             })
             .catch(error => {
               console.log(error);
@@ -56,8 +58,10 @@ const AuthorizeLocalizationPage = () => {
     if (action === 'viewMap') {
       axios.get(URL)
       .then(occurrence_data => {
-        console.log(occurrence_data);
-        navigate("/form-state", { state: { action: 'viewMap' } });
+        const occurrence_data_list = occurrence_data.data
+        console.log(occurrence_data.data)
+        console.log(typeof occurrence_data.data)
+        navigate("/form-state", { state: { action: 'viewMap', occurrence_data_list } });
         formValue = 'map-view'; 
       })
       .catch(error => {

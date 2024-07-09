@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/Footer.css'
-import { MapContainer, TileLayer, useMap } from 'react-leaflet';
+import { MapContainer, Marker, TileLayer, useMap } from 'react-leaflet';
 import { useNavigate, useLocation } from 'react-router-dom';
 import 'leaflet/dist/leaflet.css';
 import '../styles/MapFilter.css';
@@ -11,7 +11,7 @@ import HeaderMap from '../components/HeaderMap';
 function MapFilter() {
   const navigate = useNavigate();
   const location = useLocation();
-  const { coordinates } = location.state || {};
+  const { coordinates,occurrence_data_list } = location.state || {};
   const [isFilterVisible, setIsFilterVisible] = useState(false);
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
 
@@ -78,6 +78,12 @@ function MapFilter() {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
+
+        {
+          occurrence_data_list.map( (obj : {latitude:number, longitude: number},index: number) => (
+            <Marker position={[obj.latitude, obj.longitude]} key={index}> </Marker>
+          ))
+        }
       </MapContainer>
 
       {/* <div className="btn-map">
