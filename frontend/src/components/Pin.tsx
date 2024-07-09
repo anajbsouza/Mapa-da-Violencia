@@ -19,16 +19,16 @@ const VT1_icon = new L.Icon({
     iconAnchor: [16, 48], 
   });
   
-  // violência moral
+  // violência psicológica
   const VT2_icon = new L.Icon({
     iconUrl: LocationIconOrange,
     iconSize: [32, 32], 
     iconAnchor: [16, 48], 
   });
 
-  // violência psicológica
+  // violência sexual
   const VT3_icon = new L.Icon({
-    iconUrl: LocationIconPink,
+    iconUrl: LocationIconRed,
     iconSize: [32, 32], 
     iconAnchor: [16, 48], 
   });
@@ -40,9 +40,9 @@ const VT1_icon = new L.Icon({
     iconAnchor: [16, 48], 
   });
 
-  // violência sexual
+  // violência moral
   const VT5_icon = new L.Icon({
-    iconUrl: LocationIconRed,
+    iconUrl: LocationIconPink,
     iconSize: [32, 32], 
     iconAnchor: [16, 48], 
   });
