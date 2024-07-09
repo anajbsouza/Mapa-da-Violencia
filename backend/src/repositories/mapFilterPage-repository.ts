@@ -17,8 +17,7 @@ async function getViolenceData() {
                 gt: dateFilter
             },
         },
-        select: {       
-            id_occurrence: true,                                                            
+        select: {                                                               
             latitude: true,                 
             longitude: true,
             violence_type: true
