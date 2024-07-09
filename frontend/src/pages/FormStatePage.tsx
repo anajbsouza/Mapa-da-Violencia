@@ -41,7 +41,7 @@ const FormStatePage = () => {
         const response = await fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${stateSigla}/municipios`);
         const data = await response.json();
         const cityNames = data.map((city: { nome: string }) => city.nome);
-        const sortedCities = cityNames.sort((a, b) => a.localeCompare(b));
+        const sortedCities = cityNames.sort((a:string, b:string) => a.localeCompare(b));
         setCities(sortedCities);
       } catch (error) {
         console.error('Erro ao buscar cidades:', error);
