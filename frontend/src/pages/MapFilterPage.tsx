@@ -7,6 +7,8 @@ import '../styles/MapFilter.css';
 import { LatLngExpression } from 'leaflet';
 import { VscFilterFilled } from "react-icons/vsc";
 import HeaderMap from '../components/HeaderMap';
+import Pin from '../components/Pin';
+import ViolenceTypesPage from './ViolenceTypesPage';
 
 function MapFilter() {
   const navigate = useNavigate();
@@ -36,6 +38,7 @@ function MapFilter() {
       navigate("/authorize-localization");
     }
   }, [coordinates, navigate]);
+
 
   return (
     <div className="map">
@@ -80,8 +83,8 @@ function MapFilter() {
         />
 
         {
-          occurrence_data_list.map( (obj : {latitude:number, longitude: number},index: number) => (
-            <Marker position={[obj.latitude, obj.longitude]} key={index}> </Marker>
+          occurrence_data_list.map( (obj : {latitude:number, longitude: number,violence_type: string},index: number) => (
+            <Marker position={[obj.latitude, obj.longitude]} icon={Pin(obj.violence_type)} key={index}> </Marker>
           ))
         }
       </MapContainer>
