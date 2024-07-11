@@ -1,0 +1,26 @@
+# Use uma imagem base de Node.js
+FROM node:16.13
+
+# Crie e defina o diretório de trabalho
+WORKDIR /app
+
+# Copie os arquivos de dependências
+COPY package*.json ./
+
+# Instale as dependências
+RUN npm install
+
+# Copie o código da aplicação
+COPY . .
+
+# Construa o projeto (assumindo que você tenha um script build no seu package.json)
+RUN npm run build
+
+# Use uma imagem de servidor web para servir os arquivos estáticos
+FROM nginx:alpine
+COPY --from=0 /app/build /usr/share/nginx/html
+
+# Exponha a porta que o frontend usará
+EXPOSE 80
+
+# O Nginx irá iniciar automaticamente
