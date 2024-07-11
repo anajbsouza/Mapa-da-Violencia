@@ -13,14 +13,14 @@ RUN npm install
 # Copie o código da aplicação
 COPY . .
 
-# Construa o projeto (assumindo que você tenha um script build no seu package.json)
+# Construa o projeto usando Vite
 RUN npm run build
 
 # Estágio 2: Servir a aplicação construída usando Nginx
 FROM nginx:alpine
 
 # Copie os arquivos construídos da etapa anterior para o diretório do servidor NGINX
-COPY --from=build /app/build /usr/share/nginx/html
+COPY --from=build /app/dist /usr/share/nginx/html
 
 # Exponha a porta que o frontend usará (padrão é 80)
 EXPOSE 80
