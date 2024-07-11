@@ -28,13 +28,10 @@ services:
   db:
     image: postgres:13
     ports:
-      - "5432:5432"
-    environment:
-      POSTGRES_USER: youruser
-      POSTGRES_PASSWORD: yourpassword
-      POSTGRES_DB: yourdatabase
+      - "5433:5432"
     volumes:
       - db-data:/var/lib/postgresql/data
-
+    environment:
+      POSTGRES_PASSWORD: your_password_here
 volumes:
   db-data:
