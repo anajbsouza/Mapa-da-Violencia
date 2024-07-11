@@ -10,7 +10,6 @@ import EmergencyPage from './pages/EmergencyPage';
 import KnowMorePage from './pages/KnowMorePage';
 import ViolenceTypesPage from './pages/ViolenceTypesPage';
 import ThankYouPage from './pages/ThankYouPage';
-import RegistrationInformationPage from './pages/RegistrationInformationPage';
 import Mapa from './pages/MapPage';
 import MapFilter from './pages/MapFilterPage';
 import MapAddress from './pages/MapAddress'
@@ -29,7 +28,6 @@ export default function App() {
             <Route path="/know-more" element={<KnowMorePage />} />
             <Route path="/violence-types" element={<ViolenceTypesPage />} />
             <Route path="/thank-you" element={<ThankYouPage />} />
-            <Route path="/registration-information" element={<RegistrationInformationPage />} />
             <Route path="/map-page" element={<Mapa />} />
             <Route path="/map-filter" element={<MapFilter />} />
             <Route path="/map-address" element={<MapAddress />} />
