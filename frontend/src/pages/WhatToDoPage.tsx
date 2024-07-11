@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import Header from "../components/Header";
 import { FaHand } from "react-icons/fa6";
 import { IoLocationOutline } from "react-icons/io5";

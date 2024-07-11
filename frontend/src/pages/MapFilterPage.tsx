@@ -1,19 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import '../styles/Footer.css'
-import { MapContainer, Marker, TileLayer, useMap } from 'react-leaflet';
+import { MapContainer, Marker, TileLayer } from 'react-leaflet';
 import { useNavigate, useLocation } from 'react-router-dom';
 import 'leaflet/dist/leaflet.css';
 import '../styles/MapFilter.css';
-import { LatLngExpression } from 'leaflet';
 import { VscFilterFilled } from "react-icons/vsc";
 import HeaderMap from '../components/HeaderMap';
 import Pin from '../components/Pin';
-import ViolenceTypesPage from './ViolenceTypesPage';
 
 function MapFilter() {
   const navigate = useNavigate();
   const location = useLocation();
-  const { coordinates,occurrence_data_list } = location.state || {};
+  const { coordinates, occurrence_data_list } = location.state || {};
   const [isFilterVisible, setIsFilterVisible] = useState(false);
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
 
@@ -24,14 +22,6 @@ function MapFilter() {
     setIsFilterVisible(false);
   };
 
-  function ChangeMapView({ center }: { center: LatLngExpression }) {
-    const map = useMap();
-    if (center) {
-      map.setView(center, 12);
-    }
-    return null;
-  }
-
   useEffect(() => {
     if (!coordinates) {
       // If coordinates are not available, navigate back to the authorization page
@@ -39,11 +29,10 @@ function MapFilter() {
     }
   }, [coordinates, navigate]);
 
-
   return (
     <div className="map">
       <div className="overlay-container">
-        <HeaderMap/>
+        <HeaderMap />
 
         <div className="map-title">
           <p className="map-text" onClick={() => setIsFilterVisible(!isFilterVisible)}>
@@ -75,18 +64,14 @@ function MapFilter() {
         style={{ width: '100vw', height: '100vh' }}
         zoomControl={false}
       >
-        {/* <ChangeMapView center={coordinates ? [coordinates.lat, coordinates.lng] : [-15.794, -47.882]} /> */}
-
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
 
-        {
-          occurrence_data_list.map( (obj : {latitude:number, longitude: number,violence_type: string},index: number) => (
-            <Marker position={[obj.latitude, obj.longitude]} icon={Pin(obj.violence_type)} key={index}> </Marker>
-          ))
-        }
+        {occurrence_data_list.map((obj: { latitude: number, longitude: number, violence_type: string }, index: number) => (
+          <Marker position={[obj.latitude, obj.longitude]} icon={Pin(obj.violence_type)} key={index} />
+        ))}
       </MapContainer>
 
       {/* <div className="btn-map">

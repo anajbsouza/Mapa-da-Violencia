@@ -3,7 +3,6 @@ import Header from "../components/Header";
 import '../styles/AuthorizeLocalizationAndEmergencyPages.css';
 import FormIndex from "../components/FormIndex";
 import axios from "axios";
-//import { RxCodesandboxLogo } from "react-icons/rx";
 
 const URL = "http://localhost:4000/map-filter";
 

@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { MapContainer, TileLayer, Marker, useMapEvents, useMap } from 'react-leaflet';
+import { useState, useEffect } from 'react';
+import { MapContainer, TileLayer, Marker, useMapEvents } from 'react-leaflet';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { RxDividerHorizontal } from "react-icons/rx";
 import 'leaflet/dist/leaflet.css';
-import { LatLng, LatLngExpression } from 'leaflet';
+import { LatLng } from 'leaflet';
 import { icon } from 'leaflet';
 import LocationIcon from "../assets/location_icon.png"; 
 import '../styles/MapPageAddress.css';
@@ -12,10 +12,8 @@ import HeaderMap from '../components/HeaderMap';
 function Mapa() {
   const navigate = useNavigate();
   const location = useLocation();
-  const { state } = location;
   const { coordinates } = location.state || {}; 
   const [markerPosition, setMarkerPosition] = useState<LatLng | null>(null);
-
   const [locationSelected, setLocationSelected] = useState(false);
   const [address, setAddress] = useState<string>(""); 
   const [city_v,setCity_v] = useState<string>(""); 
@@ -25,7 +23,6 @@ function Mapa() {
     iconSize: [28, 28], 
     iconAnchor: [16, 48], 
   });
-
   
   useEffect(() => {
     if (markerPosition) {

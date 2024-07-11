@@ -59,7 +59,6 @@ function Mapa() {
     //console.log('Fingerprint:', fingerprint);
   }
 
-
   const customIcon = icon({
     iconUrl: LocationIcon, 
     iconSize: [28, 28], 

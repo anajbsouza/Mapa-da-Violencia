@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from 'react-router-dom';
 import Header from "../components/Header";
 import '../styles/FormAboutViolencePage.css';
-import '../styles/Footer.css'
+import '../styles/Footer.css';
 import FormIndex from "../components/FormIndex";
 import axios from "axios";
 import ErrorMessage from "../components/ErrorMessage";
 
-const URL = "http://localhost:4000/form-about-violence"
+const URL = "http://localhost:4000/form-about-violence";
 
 const FormAboutViolencePage = () => {
     const navigate = useNavigate();
@@ -81,24 +81,31 @@ const FormAboutViolencePage = () => {
                 setDateError(null);
                 setTimeError(null);
                 setAgeRangeError(null);
+                console.log('Resposta recebida:', response.data);
                 navigate("/form-classify-violence");
             })
             .catch(error => {
-                const errorResponse = JSON.parse(error.request.response);
-                switch (errorResponse.message) {
-                    case 'Field "Date of the violence" invalid':
-                        setDateError("Por favor, insira uma data válida.");
-                        break;
-                    case 'Field "Time of the violence" invalid':
-                        setTimeError("Por favor, insira um horário válido.");
-                        break;
-                    case 'Field "Age group" invalid':
-                        setAgeRangeError("Por favor, preencha o campo de faixa etária.");
-                        break;
-                    default:
-                        setDateError("Identificamos um erro inesperado. Por favor, tente novamente mais tarde.");
-                        setTimeError("Identificamos um erro inesperado. Por favor, tente novamente mais tarde.");
-                        setAgeRangeError("Identificamos um erro inesperado. Por favor, tente novamente mais tarde.");
+                if (error && error.request && error.request.response) {
+                    const errorResponse = JSON.parse(error.request.response);
+                    switch (errorResponse.message) {
+                        case 'Field "Date of the violence" invalid':
+                            setDateError("Por favor, insira uma data válida.");
+                            break;
+                        case 'Field "Time of the violence" invalid':
+                            setTimeError("Por favor, insira um horário válido.");
+                            break;
+                        case 'Field "Age group" invalid':
+                            setAgeRangeError("Por favor, preencha o campo de faixa etária.");
+                            break;
+                        default:
+                            setDateError("Identificamos um erro inesperado. Por favor, tente novamente mais tarde.");
+                            setTimeError("Identificamos um erro inesperado. Por favor, tente novamente mais tarde.");
+                            setAgeRangeError("Identificamos um erro inesperado. Por favor, tente novamente mais tarde.");
+                    }
+                } else {
+                    setDateError("Identificamos um erro inesperado. Por favor, tente novamente mais tarde.");
+                    setTimeError("Identificamos um erro inesperado. Por favor, tente novamente mais tarde.");
+                    setAgeRangeError("Identificamos um erro inesperado. Por favor, tente novamente mais tarde.");
                 }
             });
         }
@@ -115,7 +122,7 @@ const FormAboutViolencePage = () => {
             <Header />
             <main className="main-about-violence">
                 <section className="page">
-                    <FormIndex value={1}/>
+                    <FormIndex value={1} />
                 </section>
 
                 <section className="area-question">

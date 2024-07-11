@@ -7,8 +7,6 @@ import FormCityOption from "../components/FormCityOption";
 import FormStateOption from "../components/FormStateOption";
 import { useNavigate, useLocation } from 'react-router-dom';
 
-const URL = "http://localhost:4000/form-state"
-
 const FormStatePage = () => {
   const navigate = useNavigate();
   const location = useLocation();
