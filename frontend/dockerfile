@@ -23,6 +23,6 @@ FROM nginx:alpine
 COPY --from=build /app/dist /usr/share/nginx/html
 
 # Exponha a porta que o frontend usará (padrão é 80)
-EXPOSE 80
+EXPOSE 8080
 
 # O Nginx inicia automaticamente, então não precisa de um comando CMD ou ENTRYPOINT explícito
