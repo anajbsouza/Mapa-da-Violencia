@@ -7,6 +7,7 @@ import '../styles/MapFilter.css';
 import { VscFilterFilled } from "react-icons/vsc";
 import HeaderMap from '../components/HeaderMap';
 import Pin from '../components/Pin';
+import { text } from 'stream/consumers';
 
 function MapFilter() {
   const navigate = useNavigate();
@@ -14,13 +15,23 @@ function MapFilter() {
   const { coordinates, occurrence_data_list } = location.state || {};
   const [isFilterVisible, setIsFilterVisible] = useState(false);
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
+  const [selectedFiltersBackend, setSelectedFiltersBackend] = useState<string[]>([]);
+
+
+  console.log(selectedFilters + " teste 1");
+  console.log(selectedFiltersBackend + " teste 2");
 
   const handleSelectFilters = () => {
     const checkboxes = document.querySelectorAll('.filter-content input[type="checkbox"]:checked');
     const filters = Array.from(checkboxes).map(checkbox => checkbox.parentElement?.textContent?.trim() || '');
+    const filtersBackend = Array.from(checkboxes).map(checkbox => checkbox.className || '');
     setSelectedFilters(filters);
     setIsFilterVisible(false);
+    setSelectedFiltersBackend(filtersBackend);
   };
+
+  const aux = occurrence_data_list.filter((obj: { latitude: number, longitude: number, violence_type: string }) => 
+    selectedFiltersBackend.length === 0 || selectedFiltersBackend.some(filter => obj.violence_type.includes(filter)));
 
   useEffect(() => {
     if (!coordinates) {
@@ -43,11 +54,11 @@ function MapFilter() {
         {isFilterVisible && (
           <div className="filter-content">
             <span>
-              <label><input type="checkbox" name="violencia-fisica" className="checkbox-blue" /> Violência Física</label>
-              <label><input type="checkbox" name="violencia-moral" className="checkbox-orange" /> Violência Moral</label>
-              <label><input type="checkbox" name="violencia-psicologica" className="checkbox-yellow" /> Violência Psicológica</label>
-              <label><input type="checkbox" name="violencia-patrimonial" className="checkbox-green" /> Violência Patrimonial</label>
-              <label><input type="checkbox" name="violencia-sexual" className="checkbox-red" /> Violência Sexual</label>
+              <label><input type="checkbox" className="VT1" /> Violência Física</label>
+              <label><input type="checkbox" className="VT5"/> Violência Moral</label>
+              <label><input type="checkbox" className="VT2" /> Violência Psicológica</label>
+              <label><input type="checkbox" className="VT4" /> Violência Patrimonial</label>
+              <label><input type="checkbox" className="VT3" /> Violência Sexual</label>
               <button className='filter-button-select' onClick={handleSelectFilters}>Selecionar Filtros</button>
             </span>
           </div>
@@ -68,10 +79,11 @@ function MapFilter() {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-
-        {occurrence_data_list.map((obj: { latitude: number, longitude: number, violence_type: string }, index: number) => (
+      
+        {aux.map((obj: { latitude: number, longitude: number, violence_type: string }, index: number) => (
           <Marker position={[obj.latitude, obj.longitude]} icon={Pin(obj.violence_type)} key={index} />
         ))}
+      
       </MapContainer>
 
       {/* <div className="btn-map">
