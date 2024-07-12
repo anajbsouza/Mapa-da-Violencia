@@ -11,6 +11,7 @@ const VT1_icon = new L.Icon({
     iconUrl: LocationIconBlue, 
     iconSize: [32, 32], 
     iconAnchor: [16, 48], 
+    popupAnchor: [0, -32]
 });
   
 // violência psicológica
@@ -18,6 +19,7 @@ const VT2_icon = new L.Icon({
     iconUrl: LocationIconOrange,
     iconSize: [32, 32], 
     iconAnchor: [16, 48], 
+    popupAnchor: [0, -32]
 });
 
 // violência sexual
@@ -25,6 +27,8 @@ const VT3_icon = new L.Icon({
     iconUrl: LocationIconRed,
     iconSize: [32, 32], 
     iconAnchor: [16, 48], 
+    popupAnchor: [0, -32]
+
 });
   
 // violência patrimonial
@@ -32,6 +36,7 @@ const VT4_icon = new L.Icon({
     iconUrl: LocationIconGreen,
     iconSize: [32, 32], 
     iconAnchor: [16, 48], 
+    popupAnchor: [0, -32]
 });
 
 // violência moral
@@ -39,12 +44,14 @@ const VT5_icon = new L.Icon({
     iconUrl: LocationIconPink,
     iconSize: [32, 32], 
     iconAnchor: [16, 48], 
+    popupAnchor: [0, -32]
 });
 
 const defaultIcon = new L.Icon({
     iconUrl: LocationIconDefault, 
     iconSize: [32, 32], 
     iconAnchor: [16, 48], 
+    popupAnchor: [0, -32]
 });
 
 const Pin = (violenceType: string) => {

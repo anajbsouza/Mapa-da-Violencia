@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import '../styles/Footer.css'
-import { MapContainer, Marker, TileLayer } from 'react-leaflet';
+import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 import { useNavigate, useLocation } from 'react-router-dom';
 import 'leaflet/dist/leaflet.css';
 import '../styles/MapFilter.css';
@@ -17,6 +17,13 @@ function MapFilter() {
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
   const [selectedFiltersBackend, setSelectedFiltersBackend] = useState<string[]>([]);
 
+  const violenceMapping: { [key: string]: string } = {
+    VT1: 'Física',
+    VT2: 'Psicológica',
+    VT3: 'Sexual',
+    VT4: 'Patrimonial',
+    VT5: 'Moral',
+  };
 
   console.log(selectedFilters + " teste 1");
   console.log(selectedFiltersBackend + " teste 2");
@@ -30,7 +37,7 @@ function MapFilter() {
     setSelectedFiltersBackend(filtersBackend);
   };
 
-  const aux = occurrence_data_list.filter((obj: { latitude: number, longitude: number, violence_type: string }) => 
+  const formated_occurrence_data = occurrence_data_list.filter((obj: { latitude: number, longitude: number, violence_type: string }) => 
     selectedFiltersBackend.length === 0 || selectedFiltersBackend.some(filter => obj.violence_type.includes(filter)));
 
   useEffect(() => {
@@ -80,15 +87,25 @@ function MapFilter() {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
       
-        {aux.map((obj: { latitude: number, longitude: number, violence_type: string }, index: number) => (
-          <Marker position={[obj.latitude, obj.longitude]} icon={Pin(obj.violence_type)} key={index} />
+        {formated_occurrence_data.map((obj: { latitude: number, longitude: number, violence_type: string }, index: number) => (
+          <Marker position={[obj.latitude, obj.longitude]} icon={Pin(obj.violence_type)} key={index}>
+            <Popup>
+              
+              {'Violência ' + obj.violence_type.split(',')
+                .map(abbreviation => violenceMapping[abbreviation] || abbreviation)
+                .join(', ')
+              }
+            </Popup>
+          </Marker>
         ))}
       
       </MapContainer>
 
-      {/* <div className="btn-map">
-        <button className="btn btn-finish-filter" onClick={() => navigate("/what-to-do")}>Finalizar</button>
-      </div> */}
+      {
+        <div className="btn-map">
+          <button className="btn btn-finish-filter" onClick={() => navigate("/what-to-do")}>Finalizar</button>
+        </div> 
+      }
     </div>
   );
 }
