@@ -1,0 +1,37 @@
+.legend-container {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    opacity: 80%;
+  }
+
+  .legend-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .legend-list li {
+    margin-bottom: 3px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .legend-color {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    border-radius: 50%;
+  }
+  
+  .legend-label {
+    font-size: 14px;
+  }
+  

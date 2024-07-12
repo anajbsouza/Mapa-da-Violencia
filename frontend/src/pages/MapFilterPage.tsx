@@ -8,6 +8,7 @@ import { VscFilterFilled } from "react-icons/vsc";
 import HeaderMap from '../components/HeaderMap';
 import Pin from '../components/Pin';
 import { text } from 'stream/consumers';
+import LegendMapFilter from '../components/LegendMapFilter';
 
 function MapFilter() {
   const navigate = useNavigate();
@@ -98,14 +99,15 @@ function MapFilter() {
             </Popup>
           </Marker>
         ))}
+
+        <LegendMapFilter/>
       
       </MapContainer>
 
-      {
-        <div className="btn-map">
-          <button className="btn btn-finish-filter" onClick={() => navigate("/what-to-do")}>Finalizar</button>
-        </div> 
-      }
+      {/* <div className="btn-map">
+        <button className="btn btn-finish-filter" onClick={() => navigate("/what-to-do")}>Finalizar</button>
+      </div>  */}
+      
     </div>
   );
 }
