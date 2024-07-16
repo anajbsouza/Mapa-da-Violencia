@@ -23,6 +23,7 @@ function Mapa() {
     iconSize: [28, 28], 
     iconAnchor: [16, 48], 
   });
+  const [erroAddress,setErroAddress] = useState<boolean>(true)
   
   useEffect(() => {
     if (markerPosition) {
@@ -41,9 +42,11 @@ function Mapa() {
       setAddress(address);
       setCity_v(city)
       setState_v(state)
+      setErroAddress(false)
       
     } catch (error) {
       console.error('Erro ao obter o endereço:', error);
+      setErroAddress(true)
       setAddress('Erro ao obter o endereço'); 
     }
   };
@@ -60,8 +63,12 @@ function Mapa() {
   }
 
   const handleNextClick = () => {
+    if (erroAddress){
+      alert('Erro ao obter endereço')
+    } else {
     console.log(city_v);
     navigate('/map-page', { state: { address,markerPosition,city_v,state_v } });
+    }
   };
 
   return (
