@@ -114,7 +114,7 @@ function Mapa() {
           </div>
 
           <div className="btn-map">
-            <button className="btn btn-finish-address" onClick={handleNextClick}>Confirmo este local</button>
+            <button className="btn btn-finish-address" onClick={handleNextClick}>Confirmar local</button>
           </div>
         </div>
       )}
