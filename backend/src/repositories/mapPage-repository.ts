@@ -25,14 +25,13 @@ async function createUser(fingerprint:string) {
 
 // atualizar as coordenadas de localização de uma ocorrência de violência associada a um determinado usuário no banco de dados
 async function createOccurrence(occurrencedata_bd:OccurrenceData_bd) {
-    const { id_user, age_group, date_violence, time_violence, city_violence, state_violence, latitude, longitude, violence_options, violence_type } = occurrencedata_bd;
+    const { id_user, age_group, datetime_violence, city_violence, state_violence, latitude, longitude, violence_options, violence_type } = occurrencedata_bd;
     const occurrence = await prisma.occurrence.create({
         data: {
             id_user: id_user,
             datetime_submission: new Date(),
             age_group: age_group,
-            date_violence: date_violence,
-            time_violence: time_violence,
+            datetime_violence: datetime_violence,
             city_violence:city_violence,
             state_violence: state_violence,
             latitude: latitude,
@@ -65,7 +64,7 @@ async function upd_user_occurrences(id_occur:bigint, date_violence: Date, id_use
     return await prisma.user_occurrences.create({
         data: {
             id_occurrence: id_occur,
-            date_violence: date_violence,
+            datetime_violence: date_violence,
             id_user: id_user
         }
     })

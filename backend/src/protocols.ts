@@ -13,8 +13,7 @@ export type RequestError = {
 export type OccurrenceData = {
     fingerprint: string,
     age_group: string,
-    date_violence_s: string,
-    time_violence_s: string,
+    datetime_violence: string,
     city_violence: string,
     state_violence: string,
     latitude: number,
@@ -25,8 +24,7 @@ export type OccurrenceData = {
 export type OccurrenceData_bd = {
     id_user: bigint,
     age_group: string,
-    date_violence: Date,
-    time_violence: Date,
+    datetime_violence: Date,
     city_violence: string,
     state_violence: string,
     latitude: number,
@@ -40,9 +38,8 @@ export type ViolenceState = {
 };
 // Tipo para receber no json (json não tem tipo data)
 export type AboutViolence = {
-    date_violence_s: string,
-    agegroup: string,
-    time_violence_s: string,
+    datetime_violence: string,
+    agegroup: string
 };
 
 export type ClassifyViolencePage = {

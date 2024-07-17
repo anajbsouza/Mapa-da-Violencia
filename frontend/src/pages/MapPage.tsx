@@ -34,8 +34,7 @@ function Mapa() {
     axios.post(URL, {
       "fingerprint" : fingerprint,
       "age_group": localStorage.getItem('ageRange'),
-      "date_violence_s": localStorage.getItem('date'),
-      "time_violence_s": "T" + localStorage.getItem('time') + ":00-03:00",
+      "datetime_violence": localStorage.getItem('datetime_violence'),
       "city_violence": city_auxiliary,
       "state_violence":state_v,
       "latitude": markerPosition.lat,
