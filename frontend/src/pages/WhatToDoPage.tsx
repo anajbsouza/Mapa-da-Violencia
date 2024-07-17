@@ -30,25 +30,37 @@ const WhatToDoPage = () => {
                     </section>
 
                     <nav className="navigation">
-                        <section className="violence-registration">
+                        <div 
+                            className="violence-registration" 
+                            onClick={() => navigate("/form-about-violence", { state: { action: 'register' } })}
+                        >
                             <FaHand className="FaHand" />
-                            <button className="button-violence" onClick={() => navigate("/form-about-violence", { state: { action: 'register' } })}>Fazer um registro</button>
-                        </section>
+                            <p className="text-violence-registration">Fazer um registro</p>
+                        </div>
 
-                        <section className="map-visualization">
+                        <div 
+                            className="map-visualization" 
+                            onClick={() => navigate("/authorize-localization", { state: { action: 'viewMap' } })}
+                        >
                             <IoLocationOutline className="IoLocation"/>
-                            <button className="button-map" onClick={() => navigate("/authorize-localization", { state: { action: 'viewMap' } })}>Visualizar o mapa</button>
-                        </section>
+                            <p className="text-map-visualization">Visualizar o mapa</p>
+                        </div>
 
-                        <section className="know-more">
+                        <div 
+                            className="know-more" 
+                            onClick={() => navigate("/violence-types")}
+                        >
                             <TiPencil className="TiPencil"/>
-                            <button className="button-know-more" onClick={() => navigate("/violence-types")}>Saber mais</button>
-                        </section>
+                            <p className="text-know-more">Saber mais</p>
+                        </div>
 
-                        <section className="help">
+                        <div 
+                            className="help" 
+                            onClick={() => navigate("/emergency")}
+                        >
                             <MdOutlineSos className="MdOutline"/>
-                            <button className="button-help" onClick={() => navigate("/emergency")}>Preciso de ajuda</button>
-                        </section>
+                            <p className="text-help">Preciso de ajuda</p>
+                        </div>
                     </nav>
                 </section>
             </main>
