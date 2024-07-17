@@ -13,7 +13,7 @@ async function getViolenceData() {
     dateFilter.setFullYear(currentDate.getFullYear() - timeWindow)
     const violencedata = await prisma.occurrence.findMany({
         where: {
-            date_violence:{
+            datetime_violence:{
                 gt: dateFilter
             },
         },

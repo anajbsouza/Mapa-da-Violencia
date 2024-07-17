@@ -3,49 +3,33 @@ import { validationError } from "../errors/errors";
 
 async function validateAboutViolenceOccur(aboutviolence: AboutViolence): Promise<any> {
     
-    if (!aboutviolence.date_violence_s||aboutviolence.date_violence_s==null){
-        throw validationError('"Date of the violence"');
+    if (!aboutviolence.datetime_violence||aboutviolence.datetime_violence==null){
+        throw validationError('"DateTime of the violence"');
     } else if (!aboutviolence.agegroup||aboutviolence.agegroup==null) {
         throw validationError('"Age group"');
     } else if (typeof aboutviolence.agegroup !== 'string') {
         throw validationError('"Age group"');
-    } else if (!aboutviolence.time_violence_s||aboutviolence.time_violence_s==null) {
-        throw validationError('"Time of the violence"');
     }
-    await ValidateDate(aboutviolence.date_violence_s);
-    await ValidateTime(aboutviolence.time_violence_s,aboutviolence.date_violence_s);
+    await ValidateDate(aboutviolence.datetime_violence);
     return "ok";
     
 }
 
-async function ValidateTime(time_string:string,date_string:string) {
-    const aux = date_string + "" + time_string;
-    const time = new Date(aux)
-    const today = new Date() //in the future could compare with the submission date
-    
-    if (isNaN(time.getTime())) {
-        throw validationError('"Time of the violence"');
-    } else if (time>today) {
-        throw validationError('"Time of the violence"');
-    }
-}
-
-async function ValidateDate(date_string:string) {
+async function ValidateDate(datetime_string:string) {
     // turn into type Date and verify if is valid
-    const date = new Date(date_string)
+    const date = new Date(datetime_string)
     const today = new Date()
 
     if (isNaN(date.getTime())) {
-        throw validationError('"Date of the violence"');
+        throw validationError('"DateTime of the violence"');
     } else if (date>today) {
-        throw validationError('"Date of the violence"');
+        throw validationError('"DateTime of the violence (future)"');
     }
 
     // verify if is not february 30
     const date_ps = date.toISOString().slice(0,10)
-    
-    if (date_string != date_ps){
-        throw validationError('"Date of the violence"');
+    if (datetime_string.slice(0,10) != date_ps){
+        throw validationError('"DateTime of the violence"');
     }
 }
 

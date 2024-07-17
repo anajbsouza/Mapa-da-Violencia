@@ -16,10 +16,18 @@ const FormAboutViolencePage = () => {
     const [ageRange, setAgeRange] = useState(localStorage.getItem('ageRange') || '');
     const [dateError, setDateError] = useState<string | null>(null);
     const [timeError, setTimeError] = useState<string | null>(null);
+    const [dateTimeError, setDateTimeError] = useState<string | null>(null);
     const [ageRangeError, setAgeRangeError] = useState<string | null>(null);
 
     const location = useLocation();
     const { state } = location;
+
+    //function that concat the date, the time and the respective timezone
+    const adjustDateTimeTimezone = (dateString:string, timeString:string) => {
+        const date = new Date(dateString+'T'+timeString+':00');
+        return date.toISOString()
+      };
+    
 
     useEffect(() => {
         if (state && state.city) {
@@ -45,7 +53,9 @@ const FormAboutViolencePage = () => {
     ];
 
     const handleNext = () => {
+
         let valid = true;
+
         if (!date) {
             setDateError("Por favor, insira uma data válida.");
             valid = false;
@@ -68,10 +78,13 @@ const FormAboutViolencePage = () => {
         }
 
         if (valid) {
+            const datetime_violence = adjustDateTimeTimezone(date,time); // with the timezone
+            localStorage.setItem('datetime_violence',datetime_violence);
+            // console.log(datetime_violence); 
+
             axios.post(URL, {
-                "date_violence_s": date,
+                "datetime_violence": datetime_violence,
                 "agegroup": ageRange,
-                "time_violence_s": "T" + time + ":00-03:00"
             }, {
                 headers: {
                     'Content-Type': 'application/json'
@@ -87,12 +100,13 @@ const FormAboutViolencePage = () => {
             .catch(error => {
                 if (error && error.request && error.request.response) {
                     const errorResponse = JSON.parse(error.request.response);
+
                     switch (errorResponse.message) {
-                        case 'Field "Date of the violence" invalid':
-                            setDateError("Por favor, insira uma data válida.");
+                        case 'Field "DateTime of the violence (future)" invalid':
+                            setDateTimeError("Não são aceitas datas e horas futuras.");
                             break;
-                        case 'Field "Time of the violence" invalid':
-                            setTimeError("Por favor, insira um horário válido.");
+                        case 'Field "DateTime of the violence" invalid':
+                            setDateTimeError("Data e hora inválidas.");
                             break;
                         case 'Field "Age group" invalid':
                             setAgeRangeError("Por favor, preencha o campo de faixa etária.");
@@ -163,6 +177,7 @@ const FormAboutViolencePage = () => {
                             </select>
                             <ErrorMessage error={ageRangeError} />
                         </div>
+                        <ErrorMessage error={dateTimeError} />
                     </div>
                 </section>
             </main>
