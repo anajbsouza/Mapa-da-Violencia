@@ -23,7 +23,8 @@ const ThankYouPage = () => {
                         <h3>O seu registro ajuda outras mulheres!</h3>
                     </section>
 
-                    <section className="knowMore-Thankyou">
+                    <section 
+                        className="knowMore-Thankyou">
                         <TiPencil className="TiPencil" />
                         <button className="button-know-more" onClick={() => navigate("/violence-types")}>Quero saber mais</button>
                     </section>

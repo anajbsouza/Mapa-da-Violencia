@@ -1,23 +1,13 @@
-main {
-    padding: 8px;
-}
-
 .main-knowmore {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-}
-
-.thankyouTitles{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
     text-align: center;
-    margin-top: 12%;
+    margin-top: 10vh;
 }
 
-.knowMore-Thankyou{
+.knowMore-Thankyou {
     display: flex;
     width: 80%;
     align-items: center;
@@ -27,26 +17,32 @@ main {
     border-color: #BC88BC;
     border-radius: 7px;
     margin-top: 5vh;
+}
 
-    .TiPencil{
-        color: #BC88BC;
-        border: 2px solid;
-        border-radius: 80%;
-        padding: 5px;
-    }
+.TiPencil {
+    color: #BC88BC;
+    border: 2px solid;
+    border-radius: 50%;
+    padding: 5px;
+}
 
-    .button-know-more{
-        border-color: transparent;
-        color: #BC88BC;
-        font-weight: bold;
-        background-color: white;
-        width: 90%;
-        margin-left: 4vw;
-    }
+.button-know-more {
+    border: none;
+    color: #BC88BC;
+    font-weight: bold;
+    background-color: white;
+    width: 100%; 
+    text-align: left; 
+    padding: 1em; 
+    box-sizing: border-box; 
+}
 
-    .button-know-more:focus{
-        outline: none;
-    }
+.button-know-more:focus {
+    outline: none;
+}
+
+.footer {
+    margin-top: 1em; 
 }
 
 @media (min-width: 900px) {
@@ -55,6 +51,6 @@ main {
     }
 
     .button-know-more {
-        margin-right: 5vw;
+        margin-right: 0; 
     }
 }
