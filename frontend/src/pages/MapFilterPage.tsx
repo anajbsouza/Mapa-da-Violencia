@@ -7,7 +7,7 @@ import '../styles/MapFilter.css';
 import { VscFilterFilled } from "react-icons/vsc";
 import HeaderMap from '../components/HeaderMap';
 import Pin from '../components/Pin';
-import { text } from 'stream/consumers';
+// import { text } from 'stream/consumers';
 import LegendMapFilter from '../components/LegendMapFilter';
 
 function MapFilter() {
@@ -100,9 +100,10 @@ function MapFilter() {
           </Marker>
         ))}
 
-        <LegendMapFilter/>
-      
+        <LegendMapFilter />
       </MapContainer>
+
+      <LegendMapFilter />
 
       {/* <div className="btn-map">
         <button className="btn btn-finish-filter" onClick={() => navigate("/what-to-do")}>Finalizar</button>
