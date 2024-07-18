@@ -1,0 +1,45 @@
+/* Emergency */
+
+.buttons-container-emergency {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+    gap: 3vw;
+    align-items: center;
+    margin-top: 25%;
+  }
+  
+  .green-button,
+  .red-button {
+    padding: 0.5rem 1rem;
+    border: none;
+    font-weight: bold;
+    font-size: 0.8em;
+    cursor: pointer;
+    border-radius: 1em;
+    color: white;
+    margin-bottom: 5%;
+    width: 40vw;
+    display: flex;
+    justify-content: center; /* Centraliza o texto horizontalmente */
+    align-items: center; /* Centraliza o texto verticalmente */
+    text-align: center; /* Centraliza o texto dentro do botão */
+  }
+  
+  .green-button {
+    background-color: #21A00D;
+  }
+  
+  .red-button {
+    background-color: #E10B0B;
+  }
+  
+  .footer-invisible {
+    height: 9vh;
+  }
+  
+  .question-emergency {
+    text-align: center; 
+    margin-top: 2vh; 
+  }
+  

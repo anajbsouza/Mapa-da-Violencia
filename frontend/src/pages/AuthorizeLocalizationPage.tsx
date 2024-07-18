@@ -1,6 +1,6 @@
 import { useNavigate, useLocation } from "react-router-dom";
 import Header from "../components/Header";
-import '../styles/AuthorizeLocalizationAndEmergencyPages.css';
+import '../styles/AuthorizeLocalization.css';
 import FormIndex from "../components/FormIndex";
 import axios from "axios";
 

@@ -31,7 +31,7 @@
 .buttons-container .not-authorize {
   padding: 0.5rem 0; 
   border: none;
-  font-weight: bold;
+  font-weight: bold;                                                                                                               
   cursor: pointer;
   border-radius: 1em; 
   font-size: 2.5vh; 
@@ -39,49 +39,14 @@
   margin-bottom: 5%; 
   width: 30vw; 
 }
-
+                                                                                                                                                                                                                                                                                            
 .buttons-container .authorize {
   background-color: #21A00D;
 }
 
 .buttons-container .not-authorize {
   background-color: #E10B0B;
-}
-
-/* Emergency */
-.buttons-container-emergency {
-  display: flex;
-  flex-direction: row; 
-  gap: 3vw;
-  align-items: center;
-  margin-top: 25%; 
-
-  .green-button,
-  .red-button {
-    padding: 0.5rem 1rem; 
-    border: none;
-    font-weight: bold;
-    font-size: 0.8em;
-    cursor: pointer;
-    border-radius: 1em; 
-    font-size: 0.8rem; 
-    color: white;
-    margin-bottom: 5%; 
-    width: 40vw; 
-  }
-
-  .green-button {
-    background-color: #21A00D;
-  }
-
-  .red-button {
-    background-color: #E10B0B;
-  }
-}
-
-.footer-invisible {
-  height: 9vh;
-}
+}                                                                                                                                                                                                 
 
 @media (min-width: 1000px) {
   .buttons-container {

@@ -72,6 +72,7 @@ main {
 .ball-line {
   display: flex;
   align-items: center;
+  padding-right: 1rem;
 }
 
 .ball {
