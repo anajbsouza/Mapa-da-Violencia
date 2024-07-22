@@ -1,5 +1,10 @@
 /* Emergency */
 
+.question-emergency {
+  text-align: center; 
+  padding-top: 5vh;
+}
+
 .buttons-container-emergency {
     display: flex;
     flex-direction: row;
@@ -7,6 +12,7 @@
     gap: 3vw;
     align-items: center;
     margin-top: 25%;
+    padding: 3vw;
   }
   
   .green-button,
@@ -33,13 +39,17 @@
   .red-button {
     background-color: #E10B0B;
   }
-  
+
   .footer-invisible {
     height: 9vh;
   }
   
-  .question-emergency {
-    text-align: center; 
-    margin-top: 2vh; 
-  }
+
   
+  @media (min-width: 1000px) {
+    .buttons-container-emergency {
+      width: 70%;
+      margin: 20vh auto; 
+      justify-content: center; 
+    }
+  }
