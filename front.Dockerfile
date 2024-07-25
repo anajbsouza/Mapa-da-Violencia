@@ -1,8 +1,8 @@
 # Use uma imagem base de Node.js
-FROM node:16.13
+FROM node:21.7
 
 # Crie e defina o diretório de trabalho
-WORKDIR /app
+WORKDIR /frontend
 
 # Copie os arquivos de dependências
 COPY package*.json ./
@@ -13,8 +13,8 @@ RUN npm install
 # Copie o código da aplicação
 COPY . .
 
-# Exponha a porta que o backend usará
-EXPOSE 3000
+# Exponha a porta que o frontend usará
+EXPOSE 5173
 
 # Comando para iniciar a aplicação
-CMD ["npm", "start"]
+CMD ["npm", "run", "dev"]
