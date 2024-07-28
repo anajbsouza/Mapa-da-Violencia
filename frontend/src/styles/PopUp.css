@@ -1,4 +1,3 @@
-
 .popup-overlay {
     position: fixed;
     top: 0;
@@ -28,7 +27,7 @@
 
 .popup-content button {
     margin: 15px;
-    color: white;
+    font-weight: bold;
 }
 
 .popup-content button :hover {
@@ -36,9 +35,11 @@
 }
 
 .yes-btn {
-    background-color: green;
+    background-color: #612368;
+    color: white;
 }
 
 .no-btn {
-    background-color: red;
+    background-color: white;
+    color: black;
 }
