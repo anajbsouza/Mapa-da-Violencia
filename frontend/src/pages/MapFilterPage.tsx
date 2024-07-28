@@ -9,6 +9,7 @@ import HeaderMap from '../components/HeaderMap';
 import Pin from '../components/Pin';
 import LegendMapFilter from '../components/LegendMapFilter';
 import PopupComponent from '../components/PopUp';
+import BottomBar from '../components/BottomBar';
 
 interface Coordinates {
   lat: number;
@@ -120,7 +121,7 @@ function MapFilter() {
       <MapContainer
         center={[mapCenter.lat, mapCenter.lon]}
         zoom={mapZoom}
-        style={{ width: '100vw', height: '100vh' }}
+        style={{ width: '100vw', height: '90vh' }} // Ajuste a altura para 90vh para dar espaço para a barra inferior
         zoomControl={false}
       >
         <TileLayer
@@ -138,13 +139,14 @@ function MapFilter() {
             </Popup>
           </Marker>
         ))}
-
         <LegendMapFilter />
       </MapContainer>
 
       <LegendMapFilter />
 
       {isPopupVisible && <PopupComponent onAuthorize={handleAuthorize} onNotAuthorize={handleNotAuthorize} />}
+
+      <BottomBar />
     </div>
   );
 }
