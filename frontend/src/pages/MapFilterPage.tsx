@@ -1,22 +1,40 @@
 import { useState, useEffect } from 'react';
-import '../styles/Footer.css'
+import '../styles/Footer.css';
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import 'leaflet/dist/leaflet.css';
 import '../styles/MapFilter.css';
 import { VscFilterFilled } from "react-icons/vsc";
 import HeaderMap from '../components/HeaderMap';
 import Pin from '../components/Pin';
-// import { text } from 'stream/consumers';
 import LegendMapFilter from '../components/LegendMapFilter';
+import PopupComponent from '../components/PopUp';
+
+interface Coordinates {
+  lat: number;
+  lon: number;
+}
+
+interface Occurrence {
+  latitude: number;
+  longitude: number;
+  violence_type: string;
+}
+
+interface LocationState {
+  coordinates?: Coordinates;
+  occurrence_data_list: Occurrence[];
+}
 
 function MapFilter() {
-  const navigate = useNavigate();
   const location = useLocation();
-  const { coordinates, occurrence_data_list } = location.state || {};
+  const { coordinates: initialCoordinates, occurrence_data_list } = (location.state || {}) as LocationState;
   const [isFilterVisible, setIsFilterVisible] = useState(false);
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
   const [selectedFiltersBackend, setSelectedFiltersBackend] = useState<string[]>([]);
+  const [userCoordinates, setUserCoordinates] = useState<Coordinates | null>(null);
+  const [isPopupVisible, setIsPopupVisible] = useState(true);
+  const [mapZoom, setMapZoom] = useState(4);
 
   const violenceMapping: { [key: string]: string } = {
     VT1: 'Física',
@@ -25,9 +43,6 @@ function MapFilter() {
     VT4: 'Patrimonial',
     VT5: 'Moral',
   };
-
-  console.log(selectedFilters + " teste 1");
-  console.log(selectedFiltersBackend + " teste 2");
 
   const handleSelectFilters = () => {
     const checkboxes = document.querySelectorAll('.filter-content input[type="checkbox"]:checked');
@@ -38,15 +53,40 @@ function MapFilter() {
     setSelectedFiltersBackend(filtersBackend);
   };
 
-  const formated_occurrence_data = occurrence_data_list.filter((obj: { latitude: number, longitude: number, violence_type: string }) => 
-    selectedFiltersBackend.length === 0 || selectedFiltersBackend.some(filter => obj.violence_type.includes(filter)));
+  const formatedOccurrenceData = occurrence_data_list.filter((obj: Occurrence) => 
+    selectedFiltersBackend.length === 0 || selectedFiltersBackend.some(filter => obj.violence_type.includes(filter))
+  );
+
+  const handleAuthorize = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setUserCoordinates({ lat: position.coords.latitude, lon: position.coords.longitude });
+          setMapZoom(12);
+          setIsPopupVisible(false);
+        },
+        (error) => {
+          console.error("Error getting user's location:", error);
+          setIsPopupVisible(false);
+        }
+      );
+    } else {
+      console.error("Geolocation is not supported by this browser.");
+      setIsPopupVisible(false);
+    }
+  };
+
+  const handleNotAuthorize = () => {
+    setIsPopupVisible(false);
+  };
 
   useEffect(() => {
-    if (!coordinates) {
-      // If coordinates are not available, navigate back to the authorization page
-      navigate("/authorize-localization");
+    if (!initialCoordinates) {
+      setIsPopupVisible(true);
     }
-  }, [coordinates, navigate]);
+  }, [initialCoordinates]);
+
+  const mapCenter = userCoordinates || initialCoordinates || { lat: -15.794, lon: -47.882 };
 
   return (
     <div className="map">
@@ -78,8 +118,8 @@ function MapFilter() {
       </div>
 
       <MapContainer
-        center={coordinates ? [coordinates.lat, coordinates.lon] : [-15.794, -47.882]}
-        zoom={14}
+        center={[mapCenter.lat, mapCenter.lon]}
+        zoom={mapZoom}
         style={{ width: '100vw', height: '100vh' }}
         zoomControl={false}
       >
@@ -87,11 +127,10 @@ function MapFilter() {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-      
-        {formated_occurrence_data.map((obj: { latitude: number, longitude: number, violence_type: string }, index: number) => (
+
+        {formatedOccurrenceData.map((obj: Occurrence, index: number) => (
           <Marker position={[obj.latitude, obj.longitude]} icon={Pin(obj.violence_type)} key={index}>
             <Popup>
-              
               {'Violência ' + obj.violence_type.split(',')
                 .map(abbreviation => violenceMapping[abbreviation] || abbreviation)
                 .join(', ')
@@ -105,10 +144,7 @@ function MapFilter() {
 
       <LegendMapFilter />
 
-      {/* <div className="btn-map">
-        <button className="btn btn-finish-filter" onClick={() => navigate("/what-to-do")}>Finalizar</button>
-      </div>  */}
-      
+      {isPopupVisible && <PopupComponent onAuthorize={handleAuthorize} onNotAuthorize={handleNotAuthorize} />}
     </div>
   );
 }
