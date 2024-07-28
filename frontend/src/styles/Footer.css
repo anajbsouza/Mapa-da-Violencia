@@ -15,19 +15,19 @@
     align-items: center;
     text-align: center;
     font-weight: bold;
-    margin-bottom: 10vh;
+    margin-bottom: 13vh;
   }
 
 @media (min-width: 600px) {
   .footer {
     width: 20vw;
-    margin-bottom: 10vh ;
+    margin-bottom: 13vh ;
   }
 }
 
 @media (min-width: 1000px) {
   .footer {
     width: 13vw;
-    margin-bottom: 12vh;
+    margin-bottom: 13vh;
   }
 }

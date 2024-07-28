@@ -1,18 +1,14 @@
-/* Emergency */
-
 .question-emergency {
   text-align: center; 
-  padding-top: 5vh;
+  padding-top: 7vh;
 }
 
 .buttons-container-emergency {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center; 
-    gap: 3vw;
     align-items: center;
-    margin-top: 25%;
-    padding: 3vw;
+    margin-top: 13%;
   }
   
   .green-button,
@@ -25,11 +21,7 @@
     border-radius: 1em;
     color: white;
     margin-bottom: 5%;
-    width: 40vw;
-    display: flex;
-    justify-content: center; /* Centraliza o texto horizontalmente */
-    align-items: center; /* Centraliza o texto verticalmente */
-    text-align: center; /* Centraliza o texto dentro do botão */
+    width: 50vw;
   }
   
   .green-button {
@@ -43,13 +35,17 @@
   .footer-invisible {
     height: 9vh;
   }
-  
 
-  
+  @media (min-width: 500px) {
+    .green-button,
+    .red-button {
+      width: 60%;
+    }
+    
   @media (min-width: 1000px) {
-    .buttons-container-emergency {
-      width: 70%;
-      margin: 20vh auto; 
-      justify-content: center; 
+    .green-button,
+    .red-button {
+      width: 60%;
+      padding: 0.7rem 0.5rem;
     }
   }

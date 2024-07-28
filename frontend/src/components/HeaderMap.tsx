@@ -1,4 +1,4 @@
-import Logo from "../assets/logo.png"
+import Logo from "../assets/logo2.png"
 import { useNavigate } from "react-router-dom";
 
 const HeaderMap = () => {

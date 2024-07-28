@@ -107,7 +107,6 @@ main {
   width: 50%;
 }
 
-
 /*Componente ErrorMessage*/
 .error{
   color: red;
@@ -115,12 +114,22 @@ main {
   margin: 0;
 }
 @media (min-width: 500px) {
+  main {
+    width: 50vw;
+    height: 80vh;
+  }
+
   .logo { 
     width: 30%;
   }
 }
 
 @media (min-width: 1000px) {
+  main {
+    width: 50vw;
+    height: 80vh;
+  }
+  
   .logo { 
     width: 25%;
   }
