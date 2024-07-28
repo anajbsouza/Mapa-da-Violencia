@@ -10,6 +10,7 @@ import Pin from '../components/Pin';
 import LegendMapFilter from '../components/LegendMapFilter';
 import PopupComponent from '../components/PopUp';
 import BottomBar from '../components/BottomBar';
+import SetViewOnClick from '../components/SetView';
 
 interface Coordinates {
   lat: number;
@@ -63,7 +64,7 @@ function MapFilter() {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           setUserCoordinates({ lat: position.coords.latitude, lon: position.coords.longitude });
-          setMapZoom(12);
+          setMapZoom(14);
           setIsPopupVisible(false);
         },
         (error) => {
@@ -121,9 +122,10 @@ function MapFilter() {
       <MapContainer
         center={[mapCenter.lat, mapCenter.lon]}
         zoom={mapZoom}
-        style={{ width: '100vw', height: '90vh' }} // Ajuste a altura para 90vh para dar espaço para a barra inferior
+        style={{ width: '100vw', height: '90vh' }} 
         zoomControl={false}
       >
+        <SetViewOnClick coords={[mapCenter.lat, mapCenter.lon]} zoom={mapZoom} />
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -140,7 +142,8 @@ function MapFilter() {
           </Marker>
         ))}
         <LegendMapFilter />
-      </MapContainer>
+        </MapContainer>
+
 
       <LegendMapFilter />
 
