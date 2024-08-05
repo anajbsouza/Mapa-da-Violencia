@@ -33,15 +33,15 @@ interface Occurrence {
 
 function MapFilter() {
   let coordinates: Coordinates | null;
-  let zoom: Number;
+  let zoom_init: number;
   if (sessionStorage.getItem('autorizou-localizacao') === "yes"){
     coordinates = {
       lat: Number(sessionStorage.getItem('latitude')),
       lon: Number(sessionStorage.getItem('longitude'))
     }
-    zoom = 14
+    zoom_init = 14
   } else {
-    zoom = 4
+    zoom_init = 4
     coordinates = null;
   }
 
@@ -52,7 +52,7 @@ function MapFilter() {
   const [selectedFiltersBackend, setSelectedFiltersBackend] = useState<string[]>([]);
   const [userCoordinates, setUserCoordinates] = useState<Coordinates | null>(coordinates);
   const [isPopupVisible, setIsPopupVisible] = useState(!sessionStorage.getItem('popup-visible'));
-  const [mapZoom, setMapZoom] = useState(zoom);
+  const [mapZoom, setMapZoom] = useState(zoom_init);
   const [getOccurrence, setGetOccurrence] = useState(true);
   const [occurrence_data_list,setOccurrence_data_list] = useState([]);
 
