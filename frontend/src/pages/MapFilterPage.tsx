@@ -33,12 +33,15 @@ interface Occurrence {
 
 function MapFilter() {
   let coordinates: Coordinates | null;
+  let zoom: Number;
   if (sessionStorage.getItem('autorizou-localizacao') === "yes"){
     coordinates = {
       lat: Number(sessionStorage.getItem('latitude')),
       lon: Number(sessionStorage.getItem('longitude'))
     }
-  }else {
+    zoom = 14
+  } else {
+    zoom = 4
     coordinates = null;
   }
 
@@ -49,18 +52,17 @@ function MapFilter() {
   const [selectedFiltersBackend, setSelectedFiltersBackend] = useState<string[]>([]);
   const [userCoordinates, setUserCoordinates] = useState<Coordinates | null>(coordinates);
   const [isPopupVisible, setIsPopupVisible] = useState(!sessionStorage.getItem('popup-visible'));
-  const [mapZoom, setMapZoom] = useState(4);
+  const [mapZoom, setMapZoom] = useState(zoom);
   const [getOccurrence, setGetOccurrence] = useState(true);
   const [occurrence_data_list,setOccurrence_data_list] = useState([]);
 
+  console.log(userCoordinates)
 
   if (getOccurrence){
     // Realiza a requisição get para pegar todas as ocorrências
     axios.get(URL)
     .then(occurrence_data => {
       setOccurrence_data_list(occurrence_data.data)
-      console.log(occurrence_data.data)
-      console.log(typeof occurrence_data.data)
       setGetOccurrence(false)
     })
     .catch(error => {
