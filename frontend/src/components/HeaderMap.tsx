@@ -8,7 +8,7 @@ const HeaderMap = () => {
         <div>
             <header className="header">
                 <section className="header-map-items">
-                    <img className="logo-map" src={Logo} alt="Logo da Gloria" onClick={() => navigate("/home-page")}/>
+                    <img className="logo-map" src={Logo} alt="Logo da Gloria"/>
                 </section>
             </header>
         </div>

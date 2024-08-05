@@ -19,7 +19,7 @@ function BottomBar() {
 
       <div 
           className="bottom-button know-more" 
-          onClick={() => navigate("/violence-types")}
+          onClick={() => navigate("/know-more")}
       >
           <TiPencil className="icon"/>
           <p className="button-text">Saiba Mais</p> 

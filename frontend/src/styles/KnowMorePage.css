@@ -1,49 +1,132 @@
-.main-knowmore {
-    display: flex;
-    flex-direction: column;
-}
-
-.title-know-more { 
-    text-align: center;
-    font-size: 1em;
-    color: black;
-    margin: 2em 0;
-}
-.background {
-    background-image: linear-gradient(to bottom right, white, yellow);
-    border-radius: 10px;
-    padding-right: 8px;
-}
-
-.link-items {
-    display: flex;
-    margin-bottom: 24px;
-}
-
-.link-items p {
-   margin: 0;
-   font-weight: bold;
-   font-size: 0.9em;
-}
-
-.link-items a {
-    color: #0D7DBC;
-    font-size: 0.9em;
-    opacity: 90%;
-}
-
-.custom-circle-icon{
-    font-size: 2em;
-    margin-right: 2vw; 
-}
-
-@media screen and (min-width: 1000px) {
-    .title-know-more {
-        font-size: 1.3rem;
+.holepage {
+    overflow: auto; 
+    height: 80vh; 
+    text-align: left ;
+  }
+    /* CSS sumário */
+    .summary{
+      padding: 5vh 5vh 0 5vh;
+    }
+    .summary-list{
+      list-style-type: none;
+      padding: 1vh 3vh;
+    }
+    .summary-button {
+      cursor: pointer;
+    }
+    .summary-button:hover{
+      color: #372482;
+    }
+  
+    /* CSS informações  */
+    .infoMapadaViolencia{
+      padding: 5vh 5vh 0 5vh;
+      
+    }
+  
+    .introduction{
+      padding: 2vh 5vh;
+      
+    }
+  
+    .violenceMenu{
+      padding: 1vh 3vh;
+  
+      .dropdownTitle {
+        color: #191919;
         margin-top: -2vh;
+      }
+  
+      .dropdownText {
+        margin-top: -2vh;
+        padding-bottom: 2vh;
+        font-size: 15px;
+        animation: fadeIn 0.5s;
+      }
+  
+      .dropdownTitle:hover {
+        cursor: pointer;
+        color: #3B0038;
+      }
+  
+      .iconFisical{
+        color: #023AFF;
+        float: left;
+        margin-right: 2%;
+      }
+  
+      .iconMoral{
+        color: #FA5A00;
+        float: left;
+        margin-right: 2%;
+      }
+  
+      .iconPsychological{
+        color: #FCC605;
+        float: left;
+        margin-right: 2%;
+  
+      }
+  
+      .iconPatrimonial{
+        color: #248E12;
+        float: left;
+        margin-right: 2%;
+      }
+  
+      .iconSexual{
+        color: #FD0000;
+        float: left;
+        margin-right: 2%;
+      }
     }
-
-    .all-links {
-        margin-top: 18vh;
+  
+  /* CSS seção FAQ */
+    .faq {
+      padding: 0 3vh 2vh 3vh;
+  
+      .dropdownTitleFaq {
+        margin-top: -2vh;
+        color: #191919;
+      }
+  
+      .dropdownTitleFaq:hover {
+        cursor: pointer;
+        color: #3B0038;
+      }
+  
+      .dropdownTextFaq {
+        margin-top: -2vh;
+        padding-bottom: 4vh;
+        font-size: 15px;
+        margin-bottom: 1vh;
+        animation: fadeIn 0.5s;
+      }
+      
     }
-}
+  
+    /* animação dropdown */
+    @keyframes fadeIn{
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+  
+  
+    .iconFaq {
+      float: left;
+      margin-right: 2%;
+      color:#372482 ;
+    }
+  
+  /* CSS Conheça Também */ 
+  .LinksOtherOngs {
+    padding: 0vh 3vh;
+  }
+  
+  .link p {
+    line-height:8px;
+  }
+  
+  .link {
+    padding-bottom: 1vh;
+  }

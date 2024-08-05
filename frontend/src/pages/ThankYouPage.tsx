@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router-dom';
 import Header from "../components/Header"
-import FormIndex from "../components/FormIndex";
 import { TiPencil } from "react-icons/ti";
 import '../styles/ThankYouPage.css'
 import '../styles/Footer.css'
@@ -14,7 +13,7 @@ const ThankYouPage = () => {
             <main>
 
                 <section className="page">
-                    <FormIndex value={4}/>
+
                 </section>
 
                 <section className="main-knowmore">
