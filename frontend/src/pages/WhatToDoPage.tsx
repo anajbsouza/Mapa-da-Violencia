@@ -11,12 +11,12 @@ const WhatToDoPage = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        localStorage.removeItem('selectedState');
-        localStorage.removeItem('selectedCity');
-        localStorage.removeItem('date')
-        localStorage.removeItem('time')
-        localStorage.removeItem('ageRange')
-        localStorage.removeItem('checkedItems')
+        sessionStorage.removeItem('selectedState');
+        sessionStorage.removeItem('selectedCity');
+        sessionStorage.removeItem('date')
+        sessionStorage.removeItem('time')
+        sessionStorage.removeItem('ageRange')
+        sessionStorage.removeItem('checkedItems')
     }, []);
 
     return (

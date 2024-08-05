@@ -10,13 +10,13 @@ import { useNavigate, useLocation } from 'react-router-dom';
 const FormStatePage = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { action,occurrence_data_list } = location.state || {};
+  // const { action,occurrence_data_list } = location.state || {};
   const [states, setStates] = useState<{ nome: string, sigla: string }[]>([]);
   const [selectedState, setSelectedState] = useState('');
   const [cities, setCities] = useState<string[]>([]);
   const [selectedCity, setSelectedCity] = useState('');
   const [error, setError] = useState<string | null>(null);
-  const [formValue, setformValue] = useState<string>('')
+  const [formValue, setformValue] = useState<string>('occurrence-record')
 
   useEffect(() => {
     const fetchStates = async () => {
@@ -60,14 +60,11 @@ const FormStatePage = () => {
         const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${selectedCity},${selectedState}`);
         const data = await response.json();
         if (data.length > 0) {
-          const { lat, lon } = data[0];
-          const coordinates = { lat, lon };
-          if (action === 'viewMap') {
-            console.log(data[0])
-            navigate("/map-filter", { state: { coordinates, action,occurrence_data_list } });
-          } else {
-            navigate("/map-address",{state: {coordinates, action:'register'}});
-          }
+          const {lat, lon} = data[0]; 
+          sessionStorage.setItem('latitude',lat);
+          sessionStorage.setItem('longitude',lon)
+          navigate("/map-address");
+
         } else {
           setError("Não foi possível encontrar as coordenadas da cidade selecionada.");
         }
@@ -79,13 +76,13 @@ const FormStatePage = () => {
     }
   };
 
-  useEffect(() => {
-    if (action === 'viewMap') {
-      setformValue('map-view'); // Define o valor como 'map-view' se a ação for 'viewMap'
-    } else {
-      setformValue('occurrence-record'); // Define o valor como 'occurrence-record' se a ação não for 'viewMap'
-    }
-  }, [action]);
+  // useEffect(() => {
+  //   if (action === 'viewMap') {
+  //     setformValue('map-view'); // Define o valor como 'map-view' se a ação for 'viewMap'
+  //   } else {
+  //     setformValue('occurrence-record'); // Define o valor como 'occurrence-record' se a ação não for 'viewMap'
+  //   }
+  // }, [action]);
 
   return (
     <div>

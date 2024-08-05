@@ -11,9 +11,9 @@ const URL = "http://localhost:4000/form-about-violence";
 
 const FormAboutViolencePage = () => {
     const navigate = useNavigate();
-    const [date, setDate] = useState(localStorage.getItem('date') || '');
-    const [time, setTime] = useState(localStorage.getItem('time') || '');
-    const [ageRange, setAgeRange] = useState(localStorage.getItem('ageRange') || '');
+    const [date, setDate] = useState(sessionStorage.getItem('date') || '');
+    const [time, setTime] = useState(sessionStorage.getItem('time') || '');
+    const [ageRange, setAgeRange] = useState(sessionStorage.getItem('ageRange') || '');
     const [dateError, setDateError] = useState<string | null>(null);
     const [timeError, setTimeError] = useState<string | null>(null);
     const [dateTimeError, setDateTimeError] = useState<string | null>(null);
@@ -31,13 +31,13 @@ const FormAboutViolencePage = () => {
 
     useEffect(() => {
         if (state && state.city) {
-            localStorage.setItem('selectedCity', state.city);
+            sessionStorage.setItem('selectedCity', state.city);
         }
     }, [state]);
 
     useEffect(() => {
         if (state && state.coordinates) {
-            localStorage.setItem('coordinates', JSON.stringify(state.coordinates));
+            sessionStorage.setItem('coordinates', JSON.stringify(state.coordinates));
         }
     }, [state]);
 
@@ -79,7 +79,7 @@ const FormAboutViolencePage = () => {
 
         if (valid) {
             const datetime_violence = adjustDateTimeTimezone(date,time); // with the timezone
-            localStorage.setItem('datetime_violence',datetime_violence);
+            sessionStorage.setItem('datetime_violence',datetime_violence);
             // console.log(datetime_violence); 
 
             axios.post(URL, {
@@ -126,9 +126,9 @@ const FormAboutViolencePage = () => {
     };
 
     useEffect(() => {
-        localStorage.setItem('date', date);
-        localStorage.setItem('time', time);
-        localStorage.setItem('ageRange', ageRange);
+        sessionStorage.setItem('date', date);
+        sessionStorage.setItem('time', time);
+        sessionStorage.setItem('ageRange', ageRange);
     }, [date, time, ageRange]);
 
     return (

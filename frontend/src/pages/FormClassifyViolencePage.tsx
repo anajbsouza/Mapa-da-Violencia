@@ -15,7 +15,7 @@ const FormClassifyViolencePage = () => {
   //const { state } = location;
 
   const [checkedItems, setCheckedItems] = useState<Record<number, boolean>>(() => {
-    const storedCheckedItems = localStorage.getItem('checkedItems');
+    const storedCheckedItems = sessionStorage.getItem('checkedItems');
     if (storedCheckedItems) {
       const parsedItems = Object.fromEntries(JSON.parse(storedCheckedItems));
       return parsedItems;
@@ -83,7 +83,7 @@ const FormClassifyViolencePage = () => {
       
       violenceOption = violenceOption.slice(0,-1)
       console.log(violenceOption)
-      localStorage.setItem('CheckedItemsString',violenceOption)
+      sessionStorage.setItem('CheckedItemsString',violenceOption)
 
       axios.post(URL, {
         "violencesoptions": violenceOption
@@ -96,9 +96,12 @@ const FormClassifyViolencePage = () => {
       .then(response => {
         setError(null);
         console.log(JSON.parse(response.request.response))
-        localStorage.setItem('ViolenceTypeString',JSON.parse(response.request.response));
-
-        navigate("/authorize-localization", { state:{action : 'register'} }); // Passando o estado para a próxima página
+        sessionStorage.setItem('ViolenceTypeString',JSON.parse(response.request.response));
+        if (sessionStorage.getItem('autorizou-localizacao') === 'not'){
+          navigate("/form-state");
+        } else {
+          navigate("/map-address");
+        }
       })
 
       .catch(error => {
@@ -109,7 +112,7 @@ const FormClassifyViolencePage = () => {
   };
 
   useEffect(() => {
-    localStorage.setItem('checkedItems', JSON.stringify(Object.entries(checkedItems)));
+    sessionStorage.setItem('checkedItems', JSON.stringify(Object.entries(checkedItems)));
   }, [checkedItems]);
 
   return (

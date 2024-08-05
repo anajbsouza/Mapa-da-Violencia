@@ -12,7 +12,6 @@ import HeaderMap from '../components/HeaderMap';
 function Mapa() {
   const navigate = useNavigate();
   const location = useLocation();
-  const { coordinates } = location.state || {}; 
   const [markerPosition, setMarkerPosition] = useState<LatLng | null>(null);
   const [locationSelected, setLocationSelected] = useState(false);
   const [address, setAddress] = useState<string>(""); 
@@ -24,6 +23,11 @@ function Mapa() {
     iconAnchor: [16, 48], 
   });
   const [erroAddress,setErroAddress] = useState<boolean>(true)
+
+  const coordinates = {
+    lat: Number(sessionStorage.getItem('latitude')),
+    lon: Number(sessionStorage.getItem('longitude'))
+  }
   
   useEffect(() => {
     if (markerPosition) {

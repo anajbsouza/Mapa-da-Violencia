@@ -17,7 +17,7 @@ function Mapa() {
   const location = useLocation();
   const { address,markerPosition,city_v,state_v} = location.state || {};
 
-  const oldDate = localStorage.getItem('date') || ''
+  const oldDate = sessionStorage.getItem('date') || ''
   const [year,month,day] = oldDate.split('-');
   const formatedDate = `${day}/${month}/${year}`;
 
@@ -29,24 +29,28 @@ function Mapa() {
    
     console.log('Fingerprint:', fingerprint);
 
-    localStorage.setItem('fingerprint', fingerprint);
+    sessionStorage.setItem('fingerprint', fingerprint);
 
     axios.post(URL, {
       "fingerprint" : fingerprint,
-      "age_group": localStorage.getItem('ageRange'),
-      "datetime_violence": localStorage.getItem('datetime_violence'),
+      "age_group": sessionStorage.getItem('ageRange'),
+      "datetime_violence": sessionStorage.getItem('datetime_violence'),
       "city_violence": city_auxiliary,
       "state_violence":state_v,
       "latitude": markerPosition.lat,
       "longitude": markerPosition.lng,
-      "violence_options": localStorage.getItem('CheckedItemsString'),
-      "violence_type": localStorage.getItem('ViolenceTypeString')
+      "violence_options": sessionStorage.getItem('CheckedItemsString'),
+      "violence_type": sessionStorage.getItem('ViolenceTypeString')
     }, {
       headers: {
       'Content-Type': 'application/json'
     }
     })
     .then(response => {
+      sessionStorage.removeItem('date')
+      sessionStorage.removeItem('time')
+      sessionStorage.removeItem('ageRange')
+      sessionStorage.removeItem('checkedItems')
       navigate("/thank-you");
       console.log(response);
     } )
@@ -104,7 +108,7 @@ function Mapa() {
           </div>
 
           <div className="map-info">
-            <label>HORÁRIO DO OCORRIDO:</label> <span className="address-style">{localStorage.getItem('time')}</span> 
+            <label>HORÁRIO DO OCORRIDO:</label> <span className="address-style">{sessionStorage.getItem('time')}</span> 
           </div>
 
           <div className="map-info">
@@ -113,7 +117,8 @@ function Mapa() {
 
           <div className="btn-map">
             <button className="btn btn-finish-map" 
-            onClick={() => {getUserFingerprint()}
+            onClick={() => {
+              getUserFingerprint()}
             }>Finalizar</button>
           </div>
         </div>

@@ -11,6 +11,9 @@ import LegendMapFilter from '../components/LegendMapFilter';
 import PopupComponent from '../components/PopUp';
 import BottomBar from '../components/BottomBar';
 import SetViewOnClick from '../components/SetView';
+import axios from "axios";
+
+const URL = "http://localhost:4000/map-filter";
 
 interface Coordinates {
   lat: number;
@@ -23,20 +26,48 @@ interface Occurrence {
   violence_type: string;
 }
 
-interface LocationState {
-  coordinates?: Coordinates;
-  occurrence_data_list: Occurrence[];
-}
+// interface LocationState {
+//   coordinates?: Coordinates;
+//   occurrence_data_list: Occurrence[];
+// }
 
 function MapFilter() {
+  let coordinates: Coordinates | null;
+  if (sessionStorage.getItem('autorizou-localizacao') === "yes"){
+    coordinates = {
+      lat: Number(sessionStorage.getItem('latitude')),
+      lon: Number(sessionStorage.getItem('longitude'))
+    }
+  }else {
+    coordinates = null;
+  }
+
   const location = useLocation();
-  const { coordinates: initialCoordinates, occurrence_data_list } = (location.state || {}) as LocationState;
+  // const { coordinates: initialCoordinates,lixo} = (location.state || {}) as LocationState;
   const [isFilterVisible, setIsFilterVisible] = useState(false);
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
   const [selectedFiltersBackend, setSelectedFiltersBackend] = useState<string[]>([]);
-  const [userCoordinates, setUserCoordinates] = useState<Coordinates | null>(null);
-  const [isPopupVisible, setIsPopupVisible] = useState(true);
+  const [userCoordinates, setUserCoordinates] = useState<Coordinates | null>(coordinates);
+  const [isPopupVisible, setIsPopupVisible] = useState(!sessionStorage.getItem('popup-visible'));
   const [mapZoom, setMapZoom] = useState(4);
+  const [getOccurrence, setGetOccurrence] = useState(true);
+  const [occurrence_data_list,setOccurrence_data_list] = useState([]);
+
+
+  if (getOccurrence){
+    // Realiza a requisição get para pegar todas as ocorrências
+    axios.get(URL)
+    .then(occurrence_data => {
+      setOccurrence_data_list(occurrence_data.data)
+      console.log(occurrence_data.data)
+      console.log(typeof occurrence_data.data)
+      setGetOccurrence(false)
+    })
+    .catch(error => {
+      console.log(error);
+      console.log("Serviço indisponível");
+    });
+  }
 
   const violenceMapping: { [key: string]: string } = {
     VT1: 'Física',
@@ -66,6 +97,10 @@ function MapFilter() {
           setUserCoordinates({ lat: position.coords.latitude, lon: position.coords.longitude });
           setMapZoom(14);
           setIsPopupVisible(false);
+          sessionStorage.setItem('popup-visible',String(false))
+          sessionStorage.setItem('latitude',String(position.coords.latitude))
+          sessionStorage.setItem('longitude',String(position.coords.longitude))
+          sessionStorage.setItem('autorizou-localizacao','yes')
         },
         (error) => {
           console.error("Error getting user's location:", error);
@@ -80,15 +115,20 @@ function MapFilter() {
 
   const handleNotAuthorize = () => {
     setIsPopupVisible(false);
+    sessionStorage.setItem('latitude','0')
+    sessionStorage.setItem('longitude','0')
+    sessionStorage.setItem('autorizou-localizacao','not')
   };
 
-  useEffect(() => {
-    if (!initialCoordinates) {
-      setIsPopupVisible(true);
-    }
-  }, [initialCoordinates]);
+  // useEffect(() => {
+  //   if (!initialCoordinates) {
+  //     setIsPopupVisible(true);
+  //   }
+  // }, [initialCoordinates]);
 
-  const mapCenter = userCoordinates || initialCoordinates || { lat: -15.794, lon: -47.882 };
+
+  
+  const mapCenter = userCoordinates || { lat: -15.794, lon: -47.882 };
 
   return (
     <div className="map">
