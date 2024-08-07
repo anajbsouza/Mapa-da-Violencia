@@ -1,22 +1,23 @@
 import { useState, useEffect } from "react";
 import Header from "../components/Header";
 import '../styles/Footer.css';
-import '../styles/FormStatePage.css';
+import '../styles/Forms.css';
 import FormIndex from "../components/FormIndex";
 import FormCityOption from "../components/FormCityOption";
 import FormStateOption from "../components/FormStateOption";
 import { useNavigate, useLocation } from 'react-router-dom';
+import ErrorMessage from "../components/ErrorMessage";
 
 const FormStatePage = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
-  // const { action,occurrence_data_list } = location.state || {};
-  const [states, setStates] = useState<{ nome: string, sigla: string }[]>([]);
-  const [selectedState, setSelectedState] = useState('');
-  const [cities, setCities] = useState<string[]>([]);
-  const [selectedCity, setSelectedCity] = useState('');
-  const [error, setError] = useState<string | null>(null);
-  const [formValue, setformValue] = useState<string>('occurrence-record')
+const navigate = useNavigate();
+// const location = useLocation();
+// const { action,occurrence_data_list } = location.state || {};
+const [states, setStates] = useState<{ nome: string, sigla: string }[]>([]);
+const [selectedState, setSelectedState] = useState('');
+const [cities, setCities] = useState<string[]>([]);
+const [selectedCity, setSelectedCity] = useState('');
+const [error, setError] = useState<string | null>(null);
+const [formValue] = useState<string>('occurrence-record')
 
   useEffect(() => {
     const fetchStates = async () => {
@@ -76,48 +77,45 @@ const FormStatePage = () => {
     }
   };
 
-  // useEffect(() => {
-  //   if (action === 'viewMap') {
-  //     setformValue('map-view'); // Define o valor como 'map-view' se a ação for 'viewMap'
-  //   } else {
-  //     setformValue('occurrence-record'); // Define o valor como 'occurrence-record' se a ação não for 'viewMap'
-  //   }
-  // }, [action]);
 
   return (
     <div>
       <Header />
 
       <main>
-        <section className="page">
-          <FormIndex value={1}/>
+        <section className="holepage">
+          <section className="page">
+            <FormIndex value={3}/>
+          </section>
+
+          <section className="prompt">
+
+            <FormStateOption value={formValue}/>
+
+            <select className="state" value={selectedState} onChange={(e) => setSelectedState(e.target.value)}>
+              <option value="">Selecione um estado:</option>
+              {states.map((state) => (
+                <option key={state.sigla} value={state.sigla}>{state.nome}</option>
+              ))}
+            </select>
+            <ErrorMessage error={error} />
+          </section>
+        
+          <section className="prompt">
+
+            <FormCityOption value={formValue}/>
+
+            <select className="city" value={selectedCity} onChange={(e) => setSelectedCity(e.target.value)}>
+              <option value="">Selecione uma cidade:</option>
+              {cities.map((city) => (
+                <option key={city} value={city}>{city}</option>
+              ))}
+            </select>
+            <ErrorMessage error={error} />
+
+          </section>
         </section>
 
-        <section className="titles">
-
-         <FormStateOption value={formValue}/>
-
-          <select className="state" value={selectedState} onChange={(e) => setSelectedState(e.target.value)}>
-            <option value="">Selecione um estado:</option>
-            {states.map((state) => (
-              <option key={state.sigla} value={state.sigla}>{state.nome}</option>
-            ))}
-          </select>
-        </section>
-      
-        <section className="titles">
-
-          <FormCityOption value={formValue}/>
-
-          <select className="city" value={selectedCity} onChange={(e) => setSelectedCity(e.target.value)}>
-            <option value="">Selecione uma cidade:</option>
-            {cities.map((city) => (
-              <option key={city} value={city}>{city}</option>
-            ))}
-          </select>
-        </section>
-
-        {error && <p className="error">{error}</p>}
       </main>
 
       <button className="footer" onClick={handleNext}>Próximo</button>

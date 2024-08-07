@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Header from "../components/Header";
-import '../styles/FormClassifyViolencePage.css';
+import '../styles/Forms.css';
 import '../styles/Footer.css'
 import FormIndex from "../components/FormIndex";
 import { useNavigate } from 'react-router-dom';

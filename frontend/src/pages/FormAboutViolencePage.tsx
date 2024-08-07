@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from 'react-router-dom';
 import Header from "../components/Header";
-import '../styles/FormAboutViolencePage.css';
+import '../styles/Forms.css';
 import '../styles/Footer.css';
 import FormIndex from "../components/FormIndex";
 import axios from "axios";
