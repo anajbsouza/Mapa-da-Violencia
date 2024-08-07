@@ -120,6 +120,8 @@ function MapFilter() {
     sessionStorage.setItem('latitude','0')
     sessionStorage.setItem('longitude','0')
     sessionStorage.setItem('autorizou-localizacao','not')
+    sessionStorage.setItem('popup-visible',String(false))
+
   };
 
   // useEffect(() => {
