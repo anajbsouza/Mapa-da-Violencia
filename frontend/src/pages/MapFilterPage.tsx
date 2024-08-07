@@ -5,7 +5,7 @@ import { useLocation } from 'react-router-dom';
 import 'leaflet/dist/leaflet.css';
 import '../styles/MapFilter.css';
 import { VscFilterFilled } from "react-icons/vsc";
-import HeaderMap from '../components/HeaderMap';
+import HeaderMapHome from '../components/HeaderMapHome';
 import Pin from '../components/Pin';
 import LegendMapFilter from '../components/LegendMapFilter';
 import PopupComponent from '../components/PopUp';
@@ -56,7 +56,6 @@ function MapFilter() {
   const [getOccurrence, setGetOccurrence] = useState(true);
   const [occurrence_data_list,setOccurrence_data_list] = useState([]);
 
-  console.log(userCoordinates)
 
   if (getOccurrence){
     // Realiza a requisição get para pegar todas as ocorrências
@@ -137,7 +136,7 @@ function MapFilter() {
   return (
     <div className="map">
       <div className="overlay-container">
-        <HeaderMap />
+        <HeaderMapHome />
 
         <div className="map-title">
           <p className="map-text" onClick={() => setIsFilterVisible(!isFilterVisible)}>

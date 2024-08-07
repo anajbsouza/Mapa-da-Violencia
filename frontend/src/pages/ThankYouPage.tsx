@@ -25,7 +25,7 @@ const ThankYouPage = () => {
                     <section 
                         className="knowMore-Thankyou">
                         <TiPencil className="TiPencil" />
-                        <button className="button-know-more" onClick={() => navigate("/violence-types")}>Quero saber mais</button>
+                        <button className="button-know-more" onClick={() => navigate("/know-more")}>Quero saber mais</button>
                     </section>
 
                     <button className="footer" onClick={() => navigate("/map-filter")}>Finalizar</button>
