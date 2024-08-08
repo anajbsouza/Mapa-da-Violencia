@@ -1,9 +1,8 @@
-import Logo from "../assets/logo.png"
+import Logo from "../assets/logo2.png"
 import { useNavigate } from "react-router-dom";
-//import { IoChevronBackCircleSharp } from "react-icons/io5";
 
 const HeaderTy = () => {
-    let navigate = useNavigate();
+    const navigate = useNavigate();
 
     return (
         <div>

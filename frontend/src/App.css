@@ -64,8 +64,9 @@ main {
 }
 
 .logo {
-  width: 30vw; 
-  height: auto;
+  display: block;
+  margin: 0 auto;
+  width: 40%;
 }
 
 /*Componente FormIndex*/ 
