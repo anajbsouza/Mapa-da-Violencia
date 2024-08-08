@@ -8,12 +8,13 @@ import KnowMorePage from './pages/KnowMorePage';
 import ThankYouPage from './pages/ThankYouPage';
 import Mapa from './pages/MapPage';
 import MapFilter from './pages/MapFilterPage';
-import MapAddress from './pages/MapAddress'
+import MapAddress from './pages/MapAddress';
 
 export default function App() {
   return (
     <Router>
           <Routes>
+            <Route path="/" element={<MapFilter/>} />
             <Route path="/form-state" element={<FormStatePage />} />
             <Route path="/form-about-violence" element={<FormAboutViolencePage />} />
             <Route path="/form-classify-violence" element={<FormClassifyViolencePage />} />
