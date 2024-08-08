@@ -1,51 +1,60 @@
-.question-emergency {
-  text-align: center; 
-  padding-top: 7vh;
+.title-text {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2em;
+  padding-top: 15vh;
 }
 
-.buttons-container-emergency {
-    display: flex;
-    flex-direction: column;
+.middle-text {
+  text-align: center;
+  padding: 5vh 2vh;
+  font-size: 1em;
+}
+
+/* Authorize Localization */
+.buttons-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 5vw;
+  align-items: center; 
+  margin-top: 10vh;
+  padding: 0 5%; 
+}
+
+.buttons-container .authorize,
+.buttons-container .not-authorize {
+  padding: 0.5rem 0; 
+  border: none;
+  font-weight: bold;                                                                                                               
+  cursor: pointer;
+  border-radius: 0.5em; 
+  font-size: 1.8vh; 
+  color: white;
+  margin-bottom: 5%; 
+  width: 30vw; 
+}
+                                                                                                                                                                                                                                                                                            
+.buttons-container .authorize {
+  background-color: #21A00D;
+}
+
+.buttons-container .not-authorize {
+  background-color: #E10B0B;
+}                                                                                                                                                                                                 
+
+@media (min-width: 1000px) {
+  .buttons-container {
+    width: 60%;
+    margin: 20vh auto; 
     justify-content: center; 
-    align-items: center;
-    margin-top: 13%;
-  }
-  
-  .green-button,
-  .red-button {
-    padding: 0.5rem 1rem;
-    border: none;
-    font-weight: bold;
-    font-size: 0.8em;
-    cursor: pointer;
-    border-radius: 1em;
-    color: white;
-    margin-bottom: 5%;
-    width: 50vw;
-  }
-  
-  .green-button {
-    background-color: #21A00D;
-  }
-  
-  .red-button {
-    background-color: #E10B0B;
   }
 
-  .footer-invisible {
-    height: 9vh;
+  .title-text {
+    font-size: 1.4rem;
   }
 
-  @media (min-width: 500px) {
-    .green-button,
-    .red-button {
-      width: 60%;
-    }
-    
-  @media (min-width: 1000px) {
-    .green-button,
-    .red-button {
-      width: 60%;
-      padding: 0.7rem 0.5rem;
-    }
+  .middle-text {
+    font-size: 1.2rem;
   }
+}
