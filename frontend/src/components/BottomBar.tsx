@@ -4,14 +4,18 @@ import { FaHand } from "react-icons/fa6";
 import { TiPencil } from "react-icons/ti";
 import { IoWarning } from "react-icons/io5";
 
-function BottomBar() {
+interface BottomBarProps {
+  disabled: boolean;
+}
+
+function BottomBar({ disabled }: BottomBarProps) {
   const navigate = useNavigate();
 
   return (
-    <nav className="bottom-bar">
+    <nav className={`bottom-bar ${disabled ? 'disabled' : ''}`}>
       <div 
           className="bottom-button register" 
-          onClick={() => navigate("/form-about-violence", { state: { action: 'register' } })}
+          onClick={() => !disabled && navigate("/form-about-violence", { state: { action: 'register' } })}
       >
           <FaHand className="icon" />
           <p className="button-text">Faça um registro</p> 
@@ -19,7 +23,7 @@ function BottomBar() {
 
       <div 
           className="bottom-button know-more" 
-          onClick={() => navigate("/know-more")}
+          onClick={() => !disabled && navigate("/know-more")}
       >
           <TiPencil className="icon"/>
           <p className="button-text">Saiba Mais</p> 
@@ -27,7 +31,7 @@ function BottomBar() {
 
       <div 
           className="bottom-button help" 
-          onClick={() => navigate("/emergency")}
+          onClick={() => !disabled && navigate("/emergency")}
       >
           <IoWarning className="icon"/>
           <p className="button-text">Emergência</p>

@@ -187,12 +187,11 @@ function MapFilter() {
         <LegendMapFilter />
         </MapContainer>
 
-
       <LegendMapFilter />
 
       {isPopupVisible && <PopupComponent onAuthorize={handleAuthorize} onNotAuthorize={handleNotAuthorize} />}
 
-      <BottomBar />
+      <BottomBar disabled={isPopupVisible} />
     </div>
   );
 }

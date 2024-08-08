@@ -10,6 +10,12 @@
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
     z-index: 1000;
   }
+
+  .bottom-bar.disabled .bottom-button {
+    pointer-events: none;
+    opacity: 0.5; /* Para indicar visualmente que está desabilitado */
+  }
+  
   
   .bottom-button {
     color: white;
