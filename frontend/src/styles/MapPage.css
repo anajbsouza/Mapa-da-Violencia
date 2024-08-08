@@ -13,7 +13,7 @@
     background-color: white;
     border-radius: 5px;
     width: 40vw;
-    height: 5vh;
+    height: 3vh;
     align-items: center;
     justify-content: center;
     margin: 1vh auto;
@@ -41,7 +41,7 @@
   
 .logo-map {
     height: auto;
-    width: 25vw;
+    width: 30vw;
     display: block;
     margin-left: auto;
     margin-right: auto;
