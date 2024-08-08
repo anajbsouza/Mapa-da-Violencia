@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import Header from "../components/Header"
+import Headerty from "../components/HeaderThankYou"
 import { TiPencil } from "react-icons/ti";
 import '../styles/ThankYouPage.css'
 import '../styles/Footer.css'
@@ -9,7 +9,7 @@ const ThankYouPage = () => {
 
     return (
         <section>
-            <Header/>
+            <Headerty/>
             <main>
 
                 <section className="page">
@@ -28,7 +28,7 @@ const ThankYouPage = () => {
                         <button className="button-know-more" onClick={() => navigate("/know-more")}>Quero saber mais</button>
                     </section>
 
-                    <button className="footer" onClick={() => navigate("/map-filter")}>Finalizar</button>
+                    <button className="footer" onClick={() => navigate("/map-filter")}>Menu Inicial</button>
                 </section>
             </main>
         </section>
