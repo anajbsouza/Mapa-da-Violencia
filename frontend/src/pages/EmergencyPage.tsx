@@ -4,17 +4,26 @@ import '../styles/EmergencyPage.css';
 
 const EmergencyPage = () => {
     const [alertShown, setAlertShown] = useState(false);
+    const [isDesktop] = useState(window.innerWidth > 768);
 
     const callPolice = () => {
-        window.location.href = 'tel:190';
+        if (!isDesktop){
+            window.location.href = 'tel:190';
+        } else {
+            setAlertShown(false);
+        }
     };
 
     const callWomanService = () => {
-        window.location.href = 'tel:180';
+        if (!isDesktop){
+            window.location.href = 'tel:180';
+        }else {
+            setAlertShown(false);
+        }
     };
-
+ 
     useEffect(() => {
-        if (!alertShown && window.innerWidth > 768) {
+        if (!alertShown && isDesktop) {
             setAlertShown(true);
             setTimeout(() => {
                 alert("Esta funcionalidade está disponível apenas para dispositivos móveis.");
