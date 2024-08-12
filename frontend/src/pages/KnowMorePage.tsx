@@ -54,7 +54,7 @@ const KnowMorePage = () => {
                     </section>
                     <section ref={infoMapadaViolenciaRef} className="infoMapadaViolencia">
                         <h2><FaMapMarkedAlt /> O que é o Mapa da Violência</h2>
-                        <p>O Mapa da Violência é uma iniciativa do Instituto Glória em parceria com a Sociedade para o Desenvolvimento da Tecnologia da Informação (BRISA) que foi desenvolvido com o objetivo de combater a violência contra mulheres e meninas. </p>
+                        <p>O Mapa da Violência é uma iniciativa do Instituto Gloria em parceria com a Sociedade para o Desenvolvimento da Tecnologia da Informação (BRISA) que foi desenvolvido com o objetivo de combater a violência contra mulheres e meninas. </p>
                         <p>No Mapa da Violência os usuários podem fazer registros de situações de violência que vivenciaram auxiliando a identificar os locais mais violentos e quais as principais violências vivenciadas no Brasil. </p>
                         <p>Não é possível identificar quem registrou a ocorrência, garantindo a sua segurança, privacidade e anonimato. Sendo assim, o registro é totalmente anônimo e as informações obtidas são utilizadas para ajudar outras mulheres em situações de risco e auxiliar no planejamento de políticas públicas. </p>
                     </section>
