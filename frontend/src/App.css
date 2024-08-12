@@ -64,9 +64,8 @@ main {
 }
 
 .logo {
-  display: block;
-  margin: 0 auto;
-  width: 40%;
+  width: 30vw; 
+  height: auto;
 }
 
 /*Componente FormIndex*/ 
@@ -116,7 +115,7 @@ main {
 }
 @media (min-width: 500px) {
   main {
-    width: 50vw;
+    /* width: 50vw; */
     height: 80vh;
   }
 
@@ -124,8 +123,18 @@ main {
     width: 30%;
   }
 }
+@media (min-width: 700px){
+  .logo {
+    width: 25%;
+  }
+}
+@media (min-width: 1000px){
+  .logo {
+    width: 20%;
+  }
+}
 
-@media (min-width: 1000px) {
+/* @media (min-width: 1000px) {
   main {
     width: 50vw;
     height: 80vh;
@@ -138,4 +147,4 @@ main {
   .button-back {
     width: 6.5%;
   }
-}
+} */
