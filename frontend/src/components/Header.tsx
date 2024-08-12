@@ -13,7 +13,7 @@ const Header = () => {
                         <IoChevronBackCircleSharp className="icon-back" />
                     </button>
                     
-                    <img className="logo" src={Logo} alt="Logo da Gloria" onClick={() => navigate("/map-filter")}/>
+                    <img className="logo" src={Logo} alt="Logo da Gloria" onClick={() => navigate("/")}/>
                 </section>
             </header>
         </div>

@@ -22,7 +22,6 @@ export default function App() {
             <Route path="/know-more" element={<KnowMorePage />} />
             <Route path="/thank-you" element={<ThankYouPage />} />
             <Route path="/map-page" element={<Mapa />} />
-            <Route path="/map-filter" element={<MapFilter />} />
             <Route path="/map-address" element={<MapAddress />} />
           </Routes>
     </Router>
