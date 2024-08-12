@@ -8,6 +8,7 @@ import LocationIcon from "../assets/location_icon.png";
 import '../styles/MapPageAddress.css';
 import FingerprintJS from '@fingerprintjs/fingerprintjs';
 import axios from "axios";
+import { IoChevronBackCircleSharp } from "react-icons/io5";
 
 
 const URL = "http://localhost:4000/map-page"
@@ -73,6 +74,9 @@ function Mapa() {
       <div className="overlay-container">
         
         <HeaderMap/>
+        <button className="button-back-map" onClick={() => navigate(-1)}>
+          <IoChevronBackCircleSharp className="icon-back-map" />
+        </button>
 
         <div className="map-title">
           <p className="map-text">ENDEREÇO SELECIONADO</p>
