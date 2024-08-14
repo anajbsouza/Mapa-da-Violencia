@@ -184,7 +184,6 @@ function MapFilter() {
             </Popup>
           </Marker>
         ))}
-        <LegendMapFilter />
         </MapContainer>
 
       <LegendMapFilter />

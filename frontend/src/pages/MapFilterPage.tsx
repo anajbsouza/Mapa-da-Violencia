@@ -147,7 +147,7 @@ function MapFilter() {
           </Marker>
         ))}
 
-        <LegendMapFilter />
+      
       </MapContainer>
 
       <LegendMapFilter />

@@ -1,6 +1,9 @@
 import React from 'react';
 import { useState } from 'react';
 import '../styles/LegendMapFilter.css';
+import { FaMap } from "react-icons/fa";
+import { IoIosCloseCircleOutline } from "react-icons/io";
+import { IoClose } from "react-icons/io5";
 
 const LegendMapFilter: React.FC = () => {
     const legends = [
@@ -18,12 +21,12 @@ const LegendMapFilter: React.FC = () => {
     return (
       <section className='legend-container'>
           <p className="legend-list p" onClick={() => setIsLegendVisible(!isLegendVisible)}>
-            {isLegendVisible ? 'x' : 'Abrir legenda'}
+            {isLegendVisible ? <IoClose className='legend-icon-close'/> : <FaMap className='legend-icon-open'/>}
           </p>
 
           { isLegendVisible && ( 
             <div>
-              <h3>Legenda</h3>
+              <h3 className='legend-title' >Legenda</h3>
               <ul className="legend-list">
                 {legends.map((legend, index) => (
                   <li key={index}>
