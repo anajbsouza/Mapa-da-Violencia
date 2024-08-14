@@ -132,3 +132,52 @@
   } 
 }
 
+/* Botão filtro responsivo */ 
+@media (min-width: 600px) {
+  .map-title {
+    width: 30vw;
+    margin-top: 2vh;
+  }
+
+  .logo-map {
+    width: 20%;
+  }
+
+  .occurrence-details {
+    width: 60%;
+  }
+
+  .btn-finish {
+    width: 15vw;
+    margin-top: 13vh;
+  }
+
+  .btn-finish-map {
+    width: 15vw;
+  }
+}
+
+
+@media (min-width: 900px) {
+  .map-title {
+    width: 20%;
+  }
+
+  .logo-map {
+    width: 13%;
+  }
+
+  .occurrence-details {
+    width: 50%;
+  }
+
+  .btn-finish {
+    width: 13vw;
+    margin-top: 15vh;
+  }
+
+  .btn-finish-map {
+    width: 10vw;
+  }
+
+}
