@@ -29,6 +29,7 @@ main {
   position: relative;
   width: 100%; 
   margin-bottom: 1.5vh;
+  margin-top: 1.5vh;
 }
 
 /* Botão de Voltar */
@@ -113,6 +114,15 @@ main {
   font-size: small;
   margin: 0;
 }
+
+/*Componente UserLocation */
+.custom-icon-location {
+  color: purple;
+  border: 9px solid;
+  border-color: rgba(128, 0, 128, 0.315);
+  border-radius: 100%;
+}
+
 @media (min-width: 500px) {
   main {
     /* width: 50vw; */
@@ -133,6 +143,7 @@ main {
     width: 20%;
   }
 }
+
 
 /* @media (min-width: 1000px) {
   main {
