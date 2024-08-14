@@ -1,5 +1,22 @@
 /*Mapa com filtro */ 
-
+.button-back-map {
+  background-color: transparent; 
+  position: relative;
+  border: none;
+  left: 10vh;
+  top: -4vh;
+  border-radius: 100vh;
+  font-size: 0;
+  display: flex;
+  margin-bottom: -5vh;
+}
+.icon-back-map {
+  color: #3F0140;
+  width: 100%; 
+  height: auto; 
+  font-size: 3vh;
+  display: flex;
+}
 .filter-content {
   display: flex;
   justify-content: center;

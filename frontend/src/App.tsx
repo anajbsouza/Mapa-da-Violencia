@@ -9,12 +9,14 @@ import ThankYouPage from './pages/ThankYouPage';
 import Mapa from './pages/MapPage';
 import MapFilter from './pages/MapFilterPage';
 import MapAddress from './pages/MapAddress';
+import WhatToDo from './pages/WhatToDoPage';
 
 export default function App() {
   return (
     <Router>
           <Routes>
-            <Route path="/" element={<MapFilter/>} />
+            <Route path="/" element={<WhatToDo />} />
+            <Route path="/map-filter" element={<MapFilter/>} />
             <Route path="/form-state" element={<FormStatePage />} />
             <Route path="/form-about-violence" element={<FormAboutViolencePage />} />
             <Route path="/form-classify-violence" element={<FormClassifyViolencePage />} />
