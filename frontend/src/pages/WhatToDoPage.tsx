@@ -184,9 +184,10 @@ function MapFilter() {
             </Popup>
           </Marker>
         ))}
+        <LegendMapFilter />
         </MapContainer>
 
-      <LegendMapFilter />
+      
 
       {isPopupVisible && <PopupComponent onAuthorize={handleAuthorize} onNotAuthorize={handleNotAuthorize} />}
 

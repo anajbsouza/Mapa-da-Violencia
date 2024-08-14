@@ -6,10 +6,10 @@
   left: 50%;
   transform: translateX(-50%);
   width: 30vw;
-  height: 5vh;
+  height: 2rem;
   border-radius: 5px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-  font-size: 13px;
+  font-size: 0.9rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,7 +27,7 @@
 
 @media (min-width: 1000px) {
 .footer {
-  width: 9vw;
+  width: 10vw;
   margin-bottom: 14vh;
 }
 }

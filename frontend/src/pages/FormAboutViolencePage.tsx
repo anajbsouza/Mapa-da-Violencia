@@ -135,50 +135,52 @@ const FormAboutViolencePage = () => {
         <div>
             <Header />
             <main className="main-about-violence">
-                <section className="page">
-                    <FormIndex value={1} />
-                </section>
+                <section className="holepage">
+                    <section className="page">
+                        <FormIndex value={1} />
+                    </section>
 
-                <section className="area-question">
-                    <div className="questions">
-                        <div>
-                            <p className="text">Sinta-se à vontade para compartilhar conosco algumas informações sobre a violência que você enfrentou.</p>
-                            <label htmlFor="dateInput" className="date-input">1. Que dia ocorreu a violência?</label>
-                            <input
-                                type="date"
-                                id="dateInput"
-                                value={date}
-                                onChange={(e) => setDate(e.target.value)}
-                            />
-                            <ErrorMessage error={dateError} />
+                    <section className="area-question">
+                        <div className="questions">
+                            <div>
+                                <p className="text">Sinta-se à vontade para compartilhar conosco algumas informações sobre a violência que você enfrentou.</p>
+                                <label htmlFor="dateInput" className="date-input">1. Que dia ocorreu a violência?</label>
+                                <input
+                                    type="date"
+                                    id="dateInput"
+                                    value={date}
+                                    onChange={(e) => setDate(e.target.value)}
+                                />
+                                <ErrorMessage error={dateError} />
+                            </div>
+                            <div>
+                                <label htmlFor="timeInput" className="time-input">2. Qual foi o horário do ocorrido?</label>
+                                <input
+                                    type="time"
+                                    id="timeInput"
+                                    value={time}
+                                    onChange={(e) => setTime(e.target.value)}
+                                />
+                                <ErrorMessage error={timeError} />
+                            </div>
+                            <div>
+                                <label htmlFor="ageRangeInput" className="age-input">3. Qual a sua faixa etária?</label>
+                                <select
+                                    id="ageRangeInput"
+                                    value={ageRange}
+                                    onChange={(e) => setAgeRange(e.target.value)}
+                                >
+                                    {ageRangeOptions.map((option, index) => (
+                                        <option key={index} value={option}>
+                                            {option}
+                                        </option>
+                                    ))}
+                                </select>
+                                <ErrorMessage error={ageRangeError} />
+                            </div>
+                            <ErrorMessage error={dateTimeError} />
                         </div>
-                        <div>
-                            <label htmlFor="timeInput" className="time-input">2. Qual foi o horário do ocorrido?</label>
-                            <input
-                                type="time"
-                                id="timeInput"
-                                value={time}
-                                onChange={(e) => setTime(e.target.value)}
-                            />
-                            <ErrorMessage error={timeError} />
-                        </div>
-                        <div>
-                            <label htmlFor="ageRangeInput" className="age-input">3. Qual a sua faixa etária?</label>
-                            <select
-                                id="ageRangeInput"
-                                value={ageRange}
-                                onChange={(e) => setAgeRange(e.target.value)}
-                            >
-                                {ageRangeOptions.map((option, index) => (
-                                    <option key={index} value={option}>
-                                        {option}
-                                    </option>
-                                ))}
-                            </select>
-                            <ErrorMessage error={ageRangeError} />
-                        </div>
-                        <ErrorMessage error={dateTimeError} />
-                    </div>
+                    </section>
                 </section>
             </main>
             <button className="footer" onClick={handleNext}>Próximo</button>
