@@ -39,7 +39,7 @@ function MapFilter() {
     }
     zoom_init = 14
   } else {
-    zoom_init = 4
+    zoom_init = 5
     coordinates = null;
   }
 
@@ -126,7 +126,7 @@ function MapFilter() {
 
       <MapContainer
         center={mapCenter ? [mapCenter.lat, mapCenter.lon] : [-15.794, -47.882]}
-        zoom={zoom_init}
+        zoom={mapZoom}
         style={{ width: '100vw', height: '100vh' }}
         zoomControl={false}
       >
