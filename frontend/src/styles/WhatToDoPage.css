@@ -27,8 +27,7 @@
     backdrop-filter: blur(5px); 
     color: black;
     margin: 10vh auto;
-    
-
+    animation: fadeIn 0.13s;
 }
 
 .titles-whattodo {
@@ -138,6 +137,12 @@
 .footer-invisible {
     height: 9vh;
   }
+/* animação */
+@keyframes fadeIn{
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+
 
 @media (min-width: 400px) {
     .titles-whattodo {
