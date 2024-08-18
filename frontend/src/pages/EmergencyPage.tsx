@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import '../styles/EmergencyPage.css';
@@ -7,21 +8,23 @@ const EmergencyPage = () => {
     const [isDesktop] = useState(window.innerWidth > 768);
 
     const callPolice = () => {
-        if (!isDesktop){
+        if (!isDesktop) {
             window.location.href = 'tel:190';
-        } else {
+        }
+        else {
             setAlertShown(false);
         }
     };
 
     const callWomanService = () => {
-        if (!isDesktop){
+        if (!isDesktop) {
             window.location.href = 'tel:180';
-        }else {
+        } else {
             setAlertShown(false);
         }
+        
     };
- 
+
     useEffect(() => {
         if (!alertShown && isDesktop) {
             setAlertShown(true);
@@ -39,12 +42,13 @@ const EmergencyPage = () => {
 
                     <section className="question"> 
                         <p className="title-text">Você está em risco no momento?</p>
-                        <p className="middle-text">O número 190 é o telefone da Polícia Militar que deve ser acionado em casos de necessidade imediata ou socorro rápido.</p>
+                        <p className="middle-text">O número 190 é o telefone da <b>Polícia Militar</b> que deve ser acionado em casos de necessidade imediata ou socorro rápido. </p>
+                        <p className="middle-text">O número 180 é da <b>Central de Atendimento à Mulher</b> e pode ser acionado em caso de denúncias e orientações em situações de violência.</p>
                     </section>
 
                     <section className="buttons-container">
-                        <button className="authorize" onClick={callPolice}>Sim, ligar 190</button>
-                        <button className="not-authorize" onClick={callWomanService}>Não, fazer denúncia</button>
+                        <button className="emergency" onClick={callPolice}>Ligar 190</button>
+                        <button className="not-emergency" onClick={callWomanService}>Ligar 180</button>
                     </section>
 
                 </section>

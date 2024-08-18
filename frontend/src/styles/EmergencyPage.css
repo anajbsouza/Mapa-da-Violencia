@@ -1,13 +1,14 @@
+
 .title-text {
   text-align: center;
   font-weight: bold;
   font-size: 1.2em;
-  padding-top: 15vh;
+  padding-top: 5vh;
 }
 
 .middle-text {
   text-align: center;
-  padding: 5vh 2vh;
+  padding: 1vh 2vh;
   font-size: 1em;
 }
 
@@ -18,12 +19,14 @@
   justify-content: center;
   gap: 5vw;
   align-items: center; 
-  margin-top: 10vh;
+  margin-top: 5vh;
   padding: 0 5%; 
 }
 
 .buttons-container .authorize,
-.buttons-container .not-authorize {
+.buttons-container .not-authorize,
+.buttons-container .emergency,
+.buttons-container .not-emergency {
   padding: 0.5rem 0; 
   border: none;
   font-weight: bold;                                                                                                               
@@ -35,13 +38,21 @@
   width: 30vw; 
 }
                                                                                                                                                                                                                                                                                             
-.buttons-container .authorize {
-  background-color: #21A00D;
+.buttons-container .not-authorize {
+  background-color: #df3e29;
 }
 
-.buttons-container .not-authorize {
-  background-color: #E10B0B;
-}                                                                                                                                                                                                 
+.buttons-container .authorize {
+  background-color: #37ad1f;
+}              
+
+.buttons-container .emergency {
+  background-color: #df3e29;
+}
+
+.buttons-container .not-emergency {
+  background-color: #b983be;
+}     
 
 @media (min-width: 1000px) {
   .buttons-container {
@@ -52,9 +63,5 @@
 
   .title-text {
     font-size: 1.4rem;
-  }
-
-  .middle-text {
-    font-size: 1.2rem;
   }
 }
