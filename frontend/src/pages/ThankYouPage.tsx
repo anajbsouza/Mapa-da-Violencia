@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import Headerty from "../components/HeaderThankYou"
+import HeaderNoButton from "../components/HeaderNoButton"
 import { TiPencil } from "react-icons/ti";
 import '../styles/ThankYouPage.css'
 import '../styles/Footer.css'
@@ -9,7 +9,7 @@ const ThankYouPage = () => {
 
     return (
         <section>
-            <Headerty/>
+            <HeaderNoButton/>
             <main>
 
                 <section className="page">
