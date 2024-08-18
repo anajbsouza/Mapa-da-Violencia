@@ -6,9 +6,8 @@ import 'leaflet/dist/leaflet.css';
 import { LatLng } from 'leaflet';
 import { icon } from 'leaflet';
 import LocationIcon from "../assets/location_icon.png"; 
-import '../styles/MapPageAddress.css';
+import '../styles/MapStyles.css';
 import HeaderMap from '../components/HeaderMap';
-import { IoChevronBackCircleSharp } from "react-icons/io5";
 import UserLocation from '../components/UserLocation';
 
 function Mapa() {
@@ -78,7 +77,7 @@ function Mapa() {
   };
 
   return (
-    <div className="map">
+    <div>
       <div className="overlay-container">
         <HeaderMap/>
 

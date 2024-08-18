@@ -5,11 +5,9 @@ import 'leaflet/dist/leaflet.css';
 import { icon } from 'leaflet';
 import { RxDividerHorizontal } from "react-icons/rx";
 import LocationIcon from "../assets/location_icon.png"; 
-import '../styles/MapPageAddress.css';
+import '../styles/MapStyles.css';
 import FingerprintJS from '@fingerprintjs/fingerprintjs';
 import axios from "axios";
-import { IoChevronBackCircleSharp } from "react-icons/io5";
-
 
 const URL = "http://localhost:4000/map-page"
 
@@ -70,7 +68,7 @@ function Mapa() {
   });
 
   return (
-    <div className="map">
+    <div>
       <div className="overlay-container">
         
         <HeaderMap/>

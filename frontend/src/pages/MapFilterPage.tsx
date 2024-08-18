@@ -3,14 +3,13 @@ import '../styles/Footer.css'
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 import { useNavigate, useLocation } from 'react-router-dom';
 import 'leaflet/dist/leaflet.css';
-import '../styles/MapFilter.css';
+import '../styles/MapStyles.css';
 import { VscFilterFilled } from "react-icons/vsc";
 import HeaderMap from '../components/HeaderMap';
 import Pin from '../components/Pin';
 // import { text } from 'stream/consumers';
 import LegendMapFilter from '../components/LegendMapFilter';
 import UserLocation from '../components/UserLocation'
-import { IoChevronBackCircleSharp } from "react-icons/io5";
 import axios from "axios";
 
 interface Coordinates {
@@ -93,7 +92,7 @@ function MapFilter() {
   const mapCenter = coordinates || { lat: -15.794, lon: -47.882 };
 
   return (
-    <div className="map">
+    <div>
       <div className="overlay-container">
         <HeaderMap/>
 
