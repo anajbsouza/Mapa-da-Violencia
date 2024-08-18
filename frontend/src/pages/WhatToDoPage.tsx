@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import HeaderMapHome from "../components/HeaderMapHome";
+import HeaderNoButton from "../components/HeaderNoButton";
 import { FaHand } from "react-icons/fa6";
 import { IoLocationOutline } from "react-icons/io5";
 import { TiPencil } from "react-icons/ti";
@@ -73,7 +73,7 @@ const WhatToDoPage = () => {
             </MapContainer>
 
             <section>
-                <HeaderMapHome/>
+                <HeaderNoButton/>
             </section>
     
         {!isPopupVisible && <main className="main-whattodo">
