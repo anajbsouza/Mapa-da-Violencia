@@ -81,9 +81,6 @@ function Mapa() {
     <div className="map">
       <div className="overlay-container">
         <HeaderMap/>
-        <button className="button-back-map" onClick={() => navigate(-1)}>
-          <IoChevronBackCircleSharp className="icon-back-map" />
-        </button>
 
         <div className="map-title">
           <p className="map-text">{locationSelected ? 'LOCAL SELECIONADO' : 'MARQUE O LOCAL'}</p>

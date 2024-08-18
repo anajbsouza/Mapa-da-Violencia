@@ -14,24 +14,7 @@
   height: 20%;
   z-index: 500; 
 }
-.button-back-map {
-  background-color: transparent; 
-  position: relative;
-  border: none;
-  left: 10vh;
-  top: -4vh;
-  border-radius: 100vh;
-  font-size: 0;
-  display: flex;
-  margin-bottom: -5vh;
-}
-.icon-back-map {
-  color: #3F0140;
-  width: 100%; 
-  height: auto; 
-  font-size: 5vh;
-  display: flex;
-}
+
 .map-title {
   display: flex;
   flex-direction: column;
@@ -53,21 +36,6 @@
 
 .map-tex:hover {
   cursor: pointer;
-}
-
-.button-logo-map {
-  justify-content: flex-end;
-  align-items: center; 
-  flex-direction: column;
-}
-  
-.logo-map {
-  height: auto;
-  width: 30vw;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 3.5rem;
 }
 
 /* Container com informações */
@@ -120,7 +88,7 @@
   background-color: #FFCA05;
   color: #612368;
   font-weight: bold;
-  width: 25vw;
+  width: 30vw;
   font-size: 0.7rem;
   height: 6vh;
   border: none;
@@ -134,7 +102,7 @@
 }
 
 .btn-finish-address {
-  margin-top: 15vh;  
+  margin-top: 13vh;  
 }
 
 .btn-map {
