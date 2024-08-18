@@ -1,3 +1,4 @@
+
 body {
   display: flex;
   justify-content: center; 
@@ -16,23 +17,72 @@ main {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); 
 }
 
-/*Componentes Header e HeaderMap*/ 
-.header {
+/* Componente Header No button */
+.header-no-button {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  height: 95vh; 
+  position: absolute; 
+  bottom: 16rem;
+  left: 0;
+  width: 100%; 
+  margin: 0;
+}
+
+.logo-no-button {
+  width: 9rem; 
+  cursor: pointer; 
+}
+
+/*Componente HeaderMap*/ 
+.header-map {
+  margin-top: 3vh;
+  display: flex;
+  justify-content: center; 
+  align-items: flex-start; 
+  position: relative;
+}
+
+.button-back-map {
+  background-color: transparent; 
+  border: none;
+  border-radius: 100vh;
+  font-size: 0;
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 1rem; 
+}
+
+.icon-back-map {
+  color: #3F0140;
+  font-size: 1.7rem; 
+  display: flex;
+}
+
+.logo-map {
+  width: 7rem;
+}
+
+/* Componente Header */
+.header-main {
   margin-top: -5vh;
 }
 
-.header-items,
-.header-map-items {
+.logo-main {
+  width: 7.5rem;
+}
+
+.header-items-main {
   display: flex; 
   justify-content: space-between; 
   align-items: center; 
   position: relative;
   width: 100%; 
   margin-bottom: 1.5vh;
-  margin-top: 1.5vh;
 }
 
-/* Botão de Voltar */
 .button-back {
   background-color: transparent; 
   border: none;
@@ -53,20 +103,6 @@ main {
 
 .reset-svg{
   stroke: none;
-}
-
-/* Botão da Logo */
-.button-logo {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center; 
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-}
-
-.logo {
-  width: 30vw; 
-  height: auto;
 }
 
 /*Componente FormIndex*/ 
@@ -98,7 +134,7 @@ main {
   background-color: #612368;
   margin-top: 2vh;
 }
- 
+
 .index-purple {
   background-color: #612368;
   color: white;
@@ -123,39 +159,10 @@ main {
   border-radius: 100%;
 }
 
-@media (min-width: 500px) {
-  main {
-    /* width: 50vw; */
-    height: 80vh;
-  }
-
-  .logo { 
-    width: 30%;
+@media (min-width: 1000px) {
+  .logo-map,
+  .logo-no-button {
+    width: 10rem;
+    margin-bottom: 5rem;
   }
 }
-@media (min-width: 700px){
-  .logo {
-    width: 25%;
-  }
-}
-@media (min-width: 1000px){
-  .logo {
-    width: 20%;
-  }
-}
-
-
-/* @media (min-width: 1000px) {
-  main {
-    width: 50vw;
-    height: 80vh;
-  }
-  
-  .logo { 
-    width: 25%;
-  }
-
-  .button-back {
-    width: 6.5%;
-  }
-} */
