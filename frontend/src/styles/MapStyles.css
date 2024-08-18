@@ -1,0 +1,226 @@
+.overlay-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 20%;
+    z-index: 500; 
+  }
+
+.map-title {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 5px;
+    width: 45vw;
+    height: 4vh;
+    align-items: center;
+    justify-content: center;
+    margin: 1.5vh auto;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); 
+}
+
+.map-text {
+    color: #612368;
+    font-weight: bold;
+    text-align: center;
+    font-size: 0.7em;
+} 
+
+.map-tex:hover {
+  cursor: pointer;
+}
+
+/* Map Page and Map Address*/
+/* Container com informações */
+.occurrence-details {
+    position: fixed;
+    height: 45vh;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: hsl(278, 44%, 96%);
+    width: calc(80% - 50px);
+    padding: 20px;
+    padding-top: 5px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 500;
+    text-align: center;
+  }
+  
+.map-icon{
+    color: grey;
+    margin-top: -80vw;
+}
+
+.general-information {
+    text-align: center;
+    font-weight: bold;
+    font-size: 2.5vh;
+    margin-bottom: 4vh;
+}
+
+.map-info {
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 2vh;
+    margin-top: 2vh;
+    text-align: left;
+}
+
+.btn-map {
+    text-align: center;
+    justify-content: center; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+}
+
+/* Map Address */
+.address-style{
+    font-weight: lighter;
+    padding: 0;
+}
+
+.btn-finish-address {
+    padding: 9px 19px;
+    background-color: #FFCA05;
+    width: 40vw;
+    color: #612368;
+    font-weight: bold;
+    font-size: 2vh;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 8vh;
+}
+
+/* Map Page */
+.btn-finish-map {
+    padding: 9px 19px;
+    background-color: #FFCA05;
+    width: 25vw;
+    color: #612368;
+    font-weight: bold;
+    font-size: 2vh;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 5vh;
+  }
+
+/* Map Filter */
+.filter-content {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    border-radius: 5px;
+    width: 40vw;
+    margin: 0 auto;
+    margin-top: -1.5vh;
+    padding: 2vw 0;
+  }
+    
+  .filter-content span {
+    display: flex;
+    flex-direction: column;
+    align-items: center
+  }
+    
+  .filter-content label {
+    width: 100%;
+    color: #000;
+    font-size: 0.7rem;
+    margin-top: 2px;
+    font-weight:500;
+  }
+    
+  .select-filter-content {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    border-radius: 5px;
+    width: 40vw;
+    margin: 0 auto;
+    margin-top: 3px;
+    padding: 2vw 0;
+    text-align: center;
+    font-weight: 700;
+    font-size: 0.6rem;
+    margin-top: 1.5vh;
+  }
+    
+  .select-filter-content span { 
+    font-weight: bold;
+    padding-right: 2px;
+  }
+  
+  .map-filter-container { 
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Botão selecionar filtro */ 
+    
+  .filter-button-select {
+    margin-top: 10px; 
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: transparent;
+    color: #612368;
+    font-size: 0.7rem;
+    font-weight: bold;
+  }
+  
+  .filter-button-select:hover,
+  .filter-button-select:focus,
+  .filter-button-select:active {
+    font-size: 14px;
+    outline: none; 
+    background-color: transparent;
+  }
+  
+  .btn-finish-filter {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000; 
+    margin-bottom: 5vh;
+  }
+
+
+  @media (min-width: 600px) {
+    .map-title {
+        margin-top: 1rem;
+        width: 30%;
+    }
+
+    .btn-finish-address,
+    .btn-finish-map {
+        width: 20%;
+    }
+  }
+
+  @media (min-width: 1000px) {
+    .map-title {
+        margin-top: -4rem;
+        width: 20%;
+    }
+
+    .btn-finish-address,
+    .btn-finish-map {
+        width: 20%;
+    }
+  }
+
+
+
+
+
+
+    
