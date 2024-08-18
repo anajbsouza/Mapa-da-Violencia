@@ -96,9 +96,6 @@ function MapFilter() {
     <div className="map">
       <div className="overlay-container">
         <HeaderMap/>
-          <button className="button-back-map" onClick={() => navigate(-1)}>
-            <IoChevronBackCircleSharp className="icon-back-map" />
-          </button>
 
         <div className="map-title">
           <p className="map-text" onClick={() => setIsFilterVisible(!isFilterVisible)}>
