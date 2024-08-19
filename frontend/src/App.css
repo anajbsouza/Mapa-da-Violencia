@@ -33,6 +33,7 @@ main {
 .logo-no-button {
   width: 9rem; 
   cursor: pointer; 
+  margin-bottom: 20rem;
 }
 
 /*Componente HeaderMap*/ 

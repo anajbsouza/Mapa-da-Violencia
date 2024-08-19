@@ -59,14 +59,14 @@
 .general-information {
     text-align: center;
     font-weight: bold;
-    font-size: 2.5vh;
+    font-size: 1.2rem;
     margin-bottom: 4vh;
 }
 
 .map-info {
     margin-bottom: 10px;
     font-weight: bold;
-    font-size: 2vh;
+    font-size: 1rem;
     margin-top: 2vh;
     text-align: left;
 }
@@ -96,10 +96,10 @@
 .btn-finish-address {
     padding: 9px 19px;
     background-color: #FFCA05;
-    width: 40vw;
+    width: 35vw;
     color: #612368;
     font-weight: bold;
-    font-size: 2vh;
+    font-size: 0.9rem;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -111,15 +111,15 @@
 .btn-finish-map {
     padding: 9px 19px;
     background-color: #FFCA05;
-    width: 25vw;
+    width: 35vw;
     color: #612368;
     font-weight: bold;
-    font-size: 2vh;
+    font-size: 0.9rem;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    margin-top: 5vh;
+    margin-top: 8vh;
   }
 
 /* Map Filter */
@@ -128,7 +128,7 @@
     justify-content: center;
     background-color: white;
     border-radius: 5px;
-    width: 40vw;
+    width: 45vw;
     margin: 0 auto;
     margin-top: -1.5vh;
     padding: 2vw 0;
@@ -153,10 +153,10 @@
     justify-content: center;
     background-color: white;
     border-radius: 5px;
-    width: 40vw;
+    width: 45vw;
     margin: 0 auto;
     margin-top: 3px;
-    padding: 2vw 0;
+    padding: 2vw 1vh;
     text-align: center;
     font-weight: 700;
     font-size: 0.6rem;
@@ -209,6 +209,11 @@
         width: 30%;
     }
 
+    .filter-content,
+    .select-filter-content {
+      width: 30%;
+    }
+
     .btn-finish-address,
     .btn-finish-map {
         width: 20%;
@@ -219,6 +224,11 @@
     .map-title {
         margin-top: -4rem;
         width: 20%;
+    }
+
+    .filter-content,
+    .select-filter-content {
+      width: 20%;
     }
 
     .btn-finish-address,
