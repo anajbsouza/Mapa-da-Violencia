@@ -130,7 +130,7 @@
     border-radius: 5px;
     width: 45vw;
     margin: 0 auto;
-    margin-top: -1.5vh;
+    margin-top: -1.5em;
     padding: 2vw 0;
   }
     
@@ -155,12 +155,12 @@
     border-radius: 5px;
     width: 45vw;
     margin: 0 auto;
-    margin-top: 3px;
+    /* margin-top: 3px; */
     padding: 2vw 1vh;
     text-align: center;
     font-weight: 700;
     font-size: 0.6rem;
-    margin-top: 1.5vh;
+    /* margin-top: 1.5vh; */
   }
     
   .select-filter-content span { 
@@ -189,7 +189,6 @@
   .filter-button-select:hover,
   .filter-button-select:focus,
   .filter-button-select:active {
-    font-size: 14px;
     outline: none; 
     background-color: transparent;
   }
@@ -202,7 +201,12 @@
     margin-bottom: 5vh;
   }
 
-
+  @media (max-width: 600px){
+    .select-filter-content {
+      margin-top: 5px;
+    }
+  }
+  
   @media (min-width: 600px) {
     .map-title {
         margin-top: 1rem;
@@ -214,6 +218,10 @@
       width: 30%;
     }
 
+    .select-filter-content {
+      margin-top: 5px;
+    }
+
     .btn-finish-address,
     .btn-finish-map {
         width: 20%;
@@ -222,11 +230,15 @@
 
   @media (min-width: 1000px) {
     .map-title {
-        margin-top: -4rem;
-        width: 20%;
+      transform: translateY(-4rem);
+      width: 20%;
     }
 
-    .filter-content,
+    .filter-content{
+      margin-top: -4em;
+      width: 20%;
+    }
+
     .select-filter-content {
       width: 20%;
     }
