@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import HeaderNoButton from "../components/HeaderNoButton";
+import HeaderMapHome from "../components/HeaderMapHome";
 import { FaHand } from "react-icons/fa6";
 import { IoLocationOutline } from "react-icons/io5";
 import { TiPencil } from "react-icons/ti";
@@ -72,50 +72,52 @@ const WhatToDoPage = () => {
                 />
             </MapContainer>
 
-            <section>
-                <HeaderNoButton/>
+            <section className="header-what-to-do">
+                <HeaderMapHome/>
             </section>
     
-        {!isPopupVisible && <main className="main-whattodo">
-                <section className="what-to-do">
-                    <section className="titles-whattodo">
-                        <h4 className="intro-title">Este é o Mapa da Violência do Instituto Gloria</h4>
-                        <p className="question-whattodo">O que deseja fazer?</p>
+            {!isPopupVisible && <main className="main-whattodo">
+                <section className="holepage">
+                    <section className="what-to-do">
+                        <section className="titles-whattodo">
+                            <h4 className="intro-title">Este é o Mapa da Violência do Instituto Gloria</h4>
+                            <p className="question-whattodo">O que deseja fazer?</p>
+                        </section>
+
+                        <nav className="navigation">
+                            <div 
+                                className="violence-registration" 
+                                onClick={() => navigate("/form-about-violence", { state: { action: 'register' } })}
+                            >
+                                <FaHand className="FaHand" />
+                                <p className="text-violence-registration">Fazer um registro</p>
+                            </div>
+
+                            <div 
+                                className="map-visualization" 
+                                onClick={() => navigate("/map-filter", { state: { action: 'viewMap' } })}
+                            >
+                                <IoLocationOutline className="IoLocation"/>
+                                <p className="text-map-visualization">Visualizar o mapa</p>
+                            </div>
+
+                            <div 
+                                className="know-more" 
+                                onClick={() => navigate("/know-more")}
+                            >
+                                <TiPencil className="TiPencil"/>
+                                <p className="text-know-more">Saber mais</p>
+                            </div>
+
+                            <div 
+                                className="help" 
+                                onClick={() => navigate("/emergency")}
+                            >
+                                <MdOutlineSos className="MdOutline"/>
+                                <p className="text-help">Preciso de ajuda</p>
+                            </div>
+                        </nav>
                     </section>
-
-                    <nav className="navigation">
-                        <div 
-                            className="violence-registration" 
-                            onClick={() => navigate("/form-about-violence", { state: { action: 'register' } })}
-                        >
-                            <FaHand className="FaHand" />
-                            <p className="text-violence-registration">Fazer um registro</p>
-                        </div>
-
-                        <div 
-                            className="map-visualization" 
-                            onClick={() => navigate("/map-filter", { state: { action: 'viewMap' } })}
-                        >
-                            <IoLocationOutline className="IoLocation"/>
-                            <p className="text-map-visualization">Visualizar o mapa</p>
-                        </div>
-
-                        <div 
-                            className="know-more" 
-                            onClick={() => navigate("/know-more")}
-                        >
-                            <TiPencil className="TiPencil"/>
-                            <p className="text-know-more">Saber mais</p>
-                        </div>
-
-                        <div 
-                            className="help" 
-                            onClick={() => navigate("/emergency")}
-                        >
-                            <MdOutlineSos className="MdOutline"/>
-                            <p className="text-help">Preciso de ajuda</p>
-                        </div>
-                    </nav>
                 </section>
             </main>}
             {isPopupVisible && <PopupComponent onAuthorize={handleAuthorize} onNotAuthorize={handleNotAuthorize} />}

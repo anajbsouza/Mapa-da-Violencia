@@ -63,6 +63,7 @@ main {
 
 .logo-map {
   width: 8.5rem;
+  cursor: pointer; 
 }
 
 /* Componente Header */

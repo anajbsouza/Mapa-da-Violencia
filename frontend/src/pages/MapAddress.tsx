@@ -9,6 +9,7 @@ import LocationIcon from "../assets/location_icon.png";
 import '../styles/MapStyles.css';
 import HeaderMap from '../components/HeaderMap';
 import UserLocation from '../components/UserLocation';
+import { LuAlertTriangle } from "react-icons/lu";
 
 function Mapa() {
   const navigate = useNavigate();
@@ -109,13 +110,19 @@ function Mapa() {
       {locationSelected && (
         
         <div className="occurrence-details">
+          
           <RxDividerHorizontal className="map-icon" /> 
           <div className="general-information">
             <p>INFORMAÇÕES DE LOCALIZAÇÃO</p>
           </div>
 
           <div className="map-info">
+            <p className="map-alert"> 
+              <span><LuAlertTriangle /></span>
+              Evite marcar locais que possam te identificar.
+            </p>
             <label>ENDEREÇO:</label> <span className="address-style">{address}</span>
+
           </div>
 
           <div className="btn-map">

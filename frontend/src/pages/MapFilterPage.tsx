@@ -125,6 +125,7 @@ function MapFilter() {
         zoom={mapZoom}
         style={{ width: '100vw', height: '100vh' }}
         zoomControl={false}
+        maxZoom={16}
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

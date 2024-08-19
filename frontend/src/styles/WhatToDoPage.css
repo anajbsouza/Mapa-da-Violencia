@@ -29,6 +29,11 @@
     margin: 10vh auto;
     animation: fadeIn 0.13s;
 }
+.holepage {
+    overflow: auto; 
+    height: 80vh; 
+    
+  }
 
 .titles-whattodo {
     display: flex;
