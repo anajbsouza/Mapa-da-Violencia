@@ -235,13 +235,13 @@
     }
 
     .filter-content{
-      margin-top: -4em;
+      margin-top: -5em;
       width: 20%;
     }
 
     .select-filter-content {
       width: 20%;
-      margin-top: -4rem;
+      margin-top: 1rem;
     }
 
     .btn-finish-address,
