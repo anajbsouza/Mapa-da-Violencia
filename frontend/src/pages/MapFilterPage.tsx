@@ -1,13 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import '../styles/Footer.css'
 import { Circle, CircleMarker, MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
-import { useNavigate, useLocation } from 'react-router-dom';
 import 'leaflet/dist/leaflet.css';
 import '../styles/MapStyles.css';
 import { VscFilterFilled } from "react-icons/vsc";
 import HeaderMap from '../components/HeaderMap';
 import Pin from '../components/Pin';
-// import { text } from 'stream/consumers';
 import LegendMapFilter from '../components/LegendMapFilter';
 import axios from "axios";
 
@@ -16,18 +14,9 @@ interface Coordinates {
   lon: number;
 }
 
-interface Occurrence {
-  latitude: number;
-  longitude: number;
-  violence_type: string;
-}
-
 const URL = "http://localhost:4000/map-filter";
 
 function MapFilter() {
-  const navigate = useNavigate();
-  const location = useLocation();
-
   let coordinates: Coordinates | null;
   let zoom_init: number;
   if (sessionStorage.getItem('autorizou-localizacao') === "yes"){

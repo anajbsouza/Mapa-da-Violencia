@@ -5,13 +5,11 @@ import '../styles/Forms.css';
 import FormIndex from "../components/FormIndex";
 import FormCityOption from "../components/FormCityOption";
 import FormStateOption from "../components/FormStateOption";
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import ErrorMessage from "../components/ErrorMessage";
 
 const FormStatePage = () => {
 const navigate = useNavigate();
-// const location = useLocation();
-// const { action,occurrence_data_list } = location.state || {};
 const [states, setStates] = useState<{ nome: string, sigla: string }[]>([]);
 const [selectedState, setSelectedState] = useState('');
 const [cities, setCities] = useState<string[]>([]);

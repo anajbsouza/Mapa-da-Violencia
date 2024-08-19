@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Circle, CircleMarker,MapContainer, TileLayer, Marker, useMapEvents } from 'react-leaflet';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { RxDividerHorizontal } from "react-icons/rx";
 import 'leaflet/dist/leaflet.css';
 import { LatLng } from 'leaflet';
@@ -12,7 +12,6 @@ import { LuAlertTriangle } from "react-icons/lu";
 
 function Mapa() {
   const navigate = useNavigate();
-  const location = useLocation();
   const [markerPosition, setMarkerPosition] = useState<LatLng | null>(null);
   const [locationSelected, setLocationSelected] = useState(false);
   const [address, setAddress] = useState<string>(""); 
