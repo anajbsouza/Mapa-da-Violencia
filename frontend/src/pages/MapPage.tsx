@@ -63,8 +63,8 @@ function Mapa() {
 
   const customIcon = icon({
     iconUrl: LocationIcon, 
-    iconSize: [28, 28], 
-    iconAnchor: [16, 48], 
+    iconSize: [32, 32], 
+    iconAnchor: [16, 32], 
   });
 
   return (

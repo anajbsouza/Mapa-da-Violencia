@@ -10,24 +10,24 @@ import L from 'leaflet'
 const VT1_icon = new L.Icon({
     iconUrl: LocationIconBlue, 
     iconSize: [32, 32], 
-    iconAnchor: [16, 48], 
-    popupAnchor: [0, -32]
+    iconAnchor: [16, 32], 
+    popupAnchor: [0, -16]
 });
   
 // violência psicológica
 const VT2_icon = new L.Icon({
     iconUrl: LocationIconOrange,
     iconSize: [32, 32], 
-    iconAnchor: [16, 48], 
-    popupAnchor: [0, -32]
+    iconAnchor: [16, 32], 
+    popupAnchor: [0, -16]
 });
 
 // violência sexual
 const VT3_icon = new L.Icon({
     iconUrl: LocationIconRed,
     iconSize: [32, 32], 
-    iconAnchor: [16, 48], 
-    popupAnchor: [0, -32]
+    iconAnchor: [16, 32], 
+    popupAnchor: [0, -16]
 
 });
   
@@ -35,23 +35,23 @@ const VT3_icon = new L.Icon({
 const VT4_icon = new L.Icon({
     iconUrl: LocationIconGreen,
     iconSize: [32, 32], 
-    iconAnchor: [16, 48], 
-    popupAnchor: [0, -32]
+    iconAnchor: [16, 32], 
+    popupAnchor: [0, -16]
 });
 
 // violência moral
 const VT5_icon = new L.Icon({
     iconUrl: LocationIconPink,
     iconSize: [32, 32], 
-    iconAnchor: [16, 48], 
-    popupAnchor: [0, -32]
+    iconAnchor: [16, 32], 
+    popupAnchor: [0, -16]
 });
 
 const defaultIcon = new L.Icon({
     iconUrl: LocationIconDefault, 
     iconSize: [32, 32], 
-    iconAnchor: [16, 48], 
-    popupAnchor: [0, -32]
+    iconAnchor: [16, 32], 
+    popupAnchor: [0, -16]
 });
 
 const Pin = (violenceType: string) => {

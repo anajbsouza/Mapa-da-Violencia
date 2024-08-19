@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { MapContainer, TileLayer, Marker, useMapEvents } from 'react-leaflet';
+import { Circle, CircleMarker,MapContainer, TileLayer, Marker, useMapEvents } from 'react-leaflet';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { RxDividerHorizontal } from "react-icons/rx";
 import 'leaflet/dist/leaflet.css';
@@ -8,7 +8,6 @@ import { icon } from 'leaflet';
 import LocationIcon from "../assets/location_icon.png"; 
 import '../styles/MapStyles.css';
 import HeaderMap from '../components/HeaderMap';
-import UserLocation from '../components/UserLocation';
 import { LuAlertTriangle } from "react-icons/lu";
 
 function Mapa() {
@@ -19,10 +18,11 @@ function Mapa() {
   const [address, setAddress] = useState<string>(""); 
   const [city_v,setCity_v] = useState<string>(""); 
   const [state_v,setState_v] = useState<string>(""); 
+
   const customIcon = icon({
     iconUrl: LocationIcon, 
-    iconSize: [28, 28], 
-    iconAnchor: [16, 48], 
+    iconSize: [32, 32], 
+    iconAnchor: [16, 32], 
   });
   const [erroAddress,setErroAddress] = useState<boolean>(true)
 
@@ -94,7 +94,9 @@ function Mapa() {
         zoomControl={false}
       >
         <MapEventsHandler /> 
-        <Marker position={coordinates ? [coordinates.lat, coordinates.lon] : [-15.794, -47.882]} icon={UserLocation()}/>
+        <CircleMarker center={coordinates ? [coordinates.lat, coordinates.lon] : [-15.794, -47.882]} radius={8} color='translucid' fillColor='purple' opacity={0.7} fillOpacity={0.7}/>
+        <CircleMarker center={coordinates ? [coordinates.lat, coordinates.lon] : [-15.794, -47.882]} radius={5} color='translucid' fillColor='purple' opacity={0.8} fillOpacity={0.8}/>
+        <Circle center={coordinates ? [coordinates.lat, coordinates.lon] : [-15.794, -47.882]} radius={150} color='translucid' fillColor="purple"/>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

@@ -152,13 +152,6 @@ main {
   margin: 0;
 }
 
-/*Componente UserLocation */
-.custom-icon-location {
-  color: purple;
-  border: 9px solid;
-  border-color: rgba(128, 0, 128, 0.315);
-  border-radius: 100%;
-}
 
 @media (min-width: 1000px) {
   .logo-map,
