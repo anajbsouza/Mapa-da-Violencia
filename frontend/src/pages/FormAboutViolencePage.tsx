@@ -7,7 +7,7 @@ import FormIndex from "../components/FormIndex";
 import axios from "axios";
 import ErrorMessage from "../components/ErrorMessage";
 
-const URL = "http://localhost:4000/form-about-violence";
+const URL = `${process.env.URL}/form-about-violence`;
 
 const FormAboutViolencePage = () => {
     const navigate = useNavigate();

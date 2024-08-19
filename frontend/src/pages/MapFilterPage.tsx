@@ -14,7 +14,7 @@ interface Coordinates {
   lon: number;
 }
 
-const URL = "http://localhost:4000/map-filter";
+const URL = `${process.env.URL}/map-filter`;
 
 function MapFilter() {
   let coordinates: Coordinates | null;

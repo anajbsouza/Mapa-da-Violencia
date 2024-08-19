@@ -24,7 +24,7 @@ const KnowMorePage = () => {
 
     const handleScrollToSection = (ref: React.RefObject<HTMLElement>) => {
         ref.current?.scrollIntoView({ behavior: 'smooth' });
-      };
+    };
 
     return (
         <div>
@@ -59,7 +59,6 @@ const KnowMorePage = () => {
                         <p>Não é possível identificar quem registrou a ocorrência, garantindo a sua segurança, privacidade e anonimato. Sendo assim, o registro é <b>totalmente anônimo</b> e as informações obtidas são utilizadas para ajudar outras mulheres em situações de risco e auxiliar no planejamento de políticas públicas. </p>
                     </section>
 
-
                     <section ref={typesOfViolenceRef} className="introduction">
                         <h2><FaExclamationCircle /> Tipos de Violência</h2>
                         <p> Estão previstos cinco tipos de violência doméstica e familiar contra a mulher na Lei Maria da Penha. </p>
@@ -84,7 +83,7 @@ const KnowMorePage = () => {
                                 {openSection === "moralViolence" ? 
                                 <IoIosArrowUp className="iconMoral"/> : 
                                 <IoIosArrowDown className="iconMoral"/>}
-                                 Violência Moral 
+                                    Violência Moral 
                             </p>
                             {openSection === "moralViolence" && (
                                 <p className="dropdownText"> Calúnia, difamação, injúria, críticas mentirosas, exposição, acusações. </p>
@@ -93,7 +92,7 @@ const KnowMorePage = () => {
 
                         <section className="psychologicalViolence">
                             <p className="dropdownTitle" onClick={() => toggleSection("psychologicalViolence")}>
-                                 {openSection === "psychologicalViolence" ? 
+                                {openSection === "psychologicalViolence" ? 
                                 <IoIosArrowUp className="iconPsychological"/> : 
                                 <IoIosArrowDown className="iconPsychological"/>}
                                 Violência Psicológica
@@ -117,7 +116,7 @@ const KnowMorePage = () => {
 
                         <section className="sexualViolence">
                             <p className="dropdownTitle" onClick={() => toggleSection("sexualViolence")}>
-                                 {openSection === "sexualViolence" ? 
+                                {openSection === "sexualViolence" ? 
                                 <IoIosArrowUp className="iconSexual"/> : 
                                 <IoIosArrowDown className="iconSexual"/>}
                                 Violência Sexual

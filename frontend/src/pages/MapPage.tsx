@@ -9,7 +9,7 @@ import '../styles/MapStyles.css';
 import FingerprintJS from '@fingerprintjs/fingerprintjs';
 import axios from "axios";
 
-const URL = "http://localhost:4000/map-page"
+const URL = `${process.env.URL}/map-page`;
 
 function Mapa() {
   const navigate = useNavigate();

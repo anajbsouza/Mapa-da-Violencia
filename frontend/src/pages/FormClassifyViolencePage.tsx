@@ -7,12 +7,10 @@ import { useNavigate } from 'react-router-dom';
 import ErrorMessage from "../components/ErrorMessage";
 import axios from "axios";
 
-const URL = "http://localhost:4000/form-classify-violence"
+const URL = `${process.env.URL}/form-classify-violence`;
 
 const FormClassifyViolencePage = () => {
   const navigate = useNavigate();
-  //const location = useLocation();
-  //const { state } = location;
 
   const [checkedItems, setCheckedItems] = useState<Record<number, boolean>>(() => {
     const storedCheckedItems = sessionStorage.getItem('checkedItems');
