@@ -35,6 +35,7 @@ function MapFilter() {
   const [selectedFiltersBackend, setSelectedFiltersBackend] = useState<string[]>([]);
   const [getOccurrence, setGetOccurrence] = useState(true);
   const [occurrence_data_list,setOccurrence_data_list] = useState([]);
+  // @ts-ignore
   const [mapZoom, setMapZoom] = useState(zoom_init); 
 
   if (getOccurrence){
