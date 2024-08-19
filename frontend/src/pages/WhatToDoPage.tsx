@@ -77,8 +77,7 @@ const WhatToDoPage = () => {
                 <HeaderMapHome/>
             </section>
     
-            {!isPopupVisible && <main className="main-whattodo">
-                <section className="holepage">
+            {!isPopupVisible && <section className="holepage">
                     <section className="what-to-do">
                         <section className="titles-whattodo">
                             <h4 className="intro-title">Este é o Mapa da Violência do Instituto Gloria</h4>
@@ -119,8 +118,7 @@ const WhatToDoPage = () => {
                             </div>
                         </nav>
                     </section>
-                </section>
-            </main>}
+                </section>}
             {isPopupVisible && <PopupComponent onAuthorize={handleAuthorize} onNotAuthorize={handleNotAuthorize} />}
         </div>
     );
