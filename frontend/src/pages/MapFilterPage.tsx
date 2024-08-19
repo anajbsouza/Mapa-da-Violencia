@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import '../styles/Footer.css'
-import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
+import { Circle, CircleMarker, MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 import { useNavigate, useLocation } from 'react-router-dom';
 import 'leaflet/dist/leaflet.css';
 import '../styles/MapStyles.css';
@@ -131,7 +131,9 @@ function MapFilter() {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <Marker position={coordinates ? [coordinates.lat, coordinates.lon] : [-15.794, -47.882]} icon={UserLocation()}/>
+        {/* <Marker position={coordinates ? [coordinates.lat, coordinates.lon] : [-15.794, -47.882]} icon={UserLocation()}/> */}
+        <CircleMarker center={coordinates ? [coordinates.lat, coordinates.lon] : [-15.794, -47.882]} radius={8} color='translucid' fillColor='purple' opacity={0.7} fillOpacity={0.7}/>
+        <Circle center={coordinates ? [coordinates.lat, coordinates.lon] : [-15.794, -47.882]} radius={200} color='translucid' fillColor="purple"/>
         {formated_occurrence_data.map((obj: { latitude: number, longitude: number, violence_type: string }, index: number) => (
           <Marker position={[obj.latitude, obj.longitude]} icon={Pin(obj.violence_type)} key={index}>
             <Popup>
