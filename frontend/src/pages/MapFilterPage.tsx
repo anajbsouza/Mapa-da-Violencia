@@ -130,10 +130,10 @@ function MapFilter() {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <CircleMarker center={coordinates ? [coordinates.lat, coordinates.lon] : [-15.794, -47.882]} radius={8} color='translucid' fillColor='purple' opacity={0.7} fillOpacity={0.7}/>
-        <CircleMarker center={coordinates ? [coordinates.lat, coordinates.lon] : [-15.794, -47.882]} radius={5} color='translucid' fillColor='purple' opacity={0.8} fillOpacity={0.8}/>
-        <Circle center={coordinates ? [coordinates.lat, coordinates.lon] : [-15.794, -47.882]} radius={150} color='translucid' fillColor="purple"/>
-        
+        {(sessionStorage.getItem('autorizou-localizacao')==='yes') && <CircleMarker center={coordinates ? [coordinates.lat, coordinates.lon] : [-15.794, -47.882]} radius={8} color='translucid' fillColor='purple' opacity={0.7} fillOpacity={0.7}/>}
+        {(sessionStorage.getItem('autorizou-localizacao')==='yes') && <CircleMarker center={coordinates ? [coordinates.lat, coordinates.lon] : [-15.794, -47.882]} radius={5} color='translucid' fillColor='purple' opacity={0.8} fillOpacity={0.8}/>}
+        {(sessionStorage.getItem('autorizou-localizacao')==='yes') && <Circle center={coordinates ? [coordinates.lat, coordinates.lon] : [-15.794, -47.882]} radius={150} color='translucid' fillColor="purple"/>}
+
         {formated_occurrence_data.map((obj: { latitude: number, longitude: number, violence_type: string }, index: number) => (
           <Marker position={[obj.latitude, obj.longitude]} icon={Pin(obj.violence_type)} key={index}>
             <Popup>

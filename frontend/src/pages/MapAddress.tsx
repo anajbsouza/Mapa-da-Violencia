@@ -94,9 +94,9 @@ function Mapa() {
         zoomControl={false}
       >
         <MapEventsHandler /> 
-        <CircleMarker center={coordinates ? [coordinates.lat, coordinates.lon] : [-15.794, -47.882]} radius={8} color='translucid' fillColor='purple' opacity={0.7} fillOpacity={0.7}/>
-        <CircleMarker center={coordinates ? [coordinates.lat, coordinates.lon] : [-15.794, -47.882]} radius={5} color='translucid' fillColor='purple' opacity={0.8} fillOpacity={0.8}/>
-        <Circle center={coordinates ? [coordinates.lat, coordinates.lon] : [-15.794, -47.882]} radius={150} color='translucid' fillColor="purple"/>
+        {(sessionStorage.getItem('autorizou-localizacao')==='yes') && <CircleMarker center={coordinates ? [coordinates.lat, coordinates.lon] : [-15.794, -47.882]} radius={8} color='translucid' fillColor='purple' opacity={0.7} fillOpacity={0.7}/>}
+        {(sessionStorage.getItem('autorizou-localizacao')==='yes') && <CircleMarker center={coordinates ? [coordinates.lat, coordinates.lon] : [-15.794, -47.882]} radius={5} color='translucid' fillColor='purple' opacity={0.8} fillOpacity={0.8}/>}
+        {(sessionStorage.getItem('autorizou-localizacao')==='yes') && <Circle center={coordinates ? [coordinates.lat, coordinates.lon] : [-15.794, -47.882]} radius={150} color='translucid' fillColor="purple"/>}
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
