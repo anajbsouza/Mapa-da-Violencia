@@ -1,11 +1,13 @@
-const { Pool } = require('pg');
+import pg from "pg"
+import dotenv from "dotenv"
+dotenv.config()
 
-const pool = new Pool({
-  host: process.env.DATABASE_HOST,
-  port: process.env.DATABASE_PORT,
-  user: process.env.DATABASE_USER,
-  password: process.env.DATABASE_PASSWORD,
-  database: process.env.DATABASE_NAME,
-});
+const { Pool } = pg
 
-module.exports = pool;
+const configDatabase = {
+  connectionString: process.env.DATABASE_URL,
+};
+
+if (process.env.NODE_ENV === "production") configDatabase.ssl = true;
+
+export const db = new Pool(configDatabase);

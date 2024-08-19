@@ -19,8 +19,6 @@ app
     .use(formClassifyViolenceRouter)
     .use(mapPageRouter)
     .use(mapFilterPageRouter)
-
-    
     .use(handleApplicationErrors)
     .listen(port, () => {console.log(`Servidor rodando na porta ${port}`);});
 
