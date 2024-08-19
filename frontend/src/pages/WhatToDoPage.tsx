@@ -65,6 +65,7 @@ const WhatToDoPage = () => {
                 zoom={5}
                 style={{ width: '100vw', height: '100vh', position: 'absolute', zIndex: '-1' }}
                 zoomControl={false}
+                scrollWheelZoom= {false}
             >
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
