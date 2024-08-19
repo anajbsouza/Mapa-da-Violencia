@@ -151,7 +151,11 @@
     to {opacity: 1;}
   }
 
-
+@media (max-height:430px) {
+    .what-to-do {
+        height: 15rem;
+    }
+}
 @media (min-width: 400px) {
     .titles-whattodo {
         font-size: 1em;
