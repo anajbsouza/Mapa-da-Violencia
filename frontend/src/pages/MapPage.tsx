@@ -9,7 +9,7 @@ import '../styles/MapStyles.css';
 import FingerprintJS from '@fingerprintjs/fingerprintjs';
 import axios from "axios";
 
-const URL = `${process.env.URL}/map-page`;
+const URL = `https://mapa-da-violencia-api.onrender.com/map-page`;
 
 function Mapa() {
   const navigate = useNavigate();

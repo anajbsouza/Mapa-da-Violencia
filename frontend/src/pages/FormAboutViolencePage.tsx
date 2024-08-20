@@ -7,7 +7,7 @@ import FormIndex from "../components/FormIndex";
 import axios from "axios";
 import ErrorMessage from "../components/ErrorMessage";
 
-const URL = `${process.env.URL}/form-about-violence`;
+const URL = `https://mapa-da-violencia-api.onrender.com/form-about-violence`;
 
 const FormAboutViolencePage = () => {
     const navigate = useNavigate();

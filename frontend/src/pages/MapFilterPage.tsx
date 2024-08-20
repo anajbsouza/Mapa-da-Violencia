@@ -14,7 +14,7 @@ interface Coordinates {
   lon: number;
 }
 
-const URL = `${process.env.URL}/map-filter`;
+const URL = `https://mapa-da-violencia-api.onrender.com/map-filter`;
 
 function MapFilter() {
   let coordinates: Coordinates | null;

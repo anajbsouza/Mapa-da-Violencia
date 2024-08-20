@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import ErrorMessage from "../components/ErrorMessage";
 import axios from "axios";
 
-const URL = `${process.env.URL}/form-classify-violence`;
+const URL = `https://mapa-da-violencia-api.onrender.com/form-classify-violence`;
 
 const FormClassifyViolencePage = () => {
   const navigate = useNavigate();
