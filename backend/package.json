@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "ts-node-dev src/app.ts",
     "build": "npx tsc",
-    "start": "node dist/app.js"
+    "start": "node dist/app.js",
+    "postinstall": "prisma migrate deploy"
   },
   "keywords": [],
   "author": "",
