@@ -7,6 +7,20 @@ Os dados coletados são agregados e analisados para identificar padrões e compo
 
 Ao final do processo de relato, um mapa interativo é gerado, mostrando símbolos que representam o tipo de violência relatada e sua localização geográfica.
 
+## Funcionamento do Projeto
+
+# Fazer Registro:
+
+https://github.com/user-attachments/assets/14f094f9-cecc-4b71-b737-4260103af684
+
+# Visualizar Mapa:
+
+https://github.com/user-attachments/assets/e68b0603-a5bb-457f-9ce2-f3df4e119eda
+
+# Saber Mais e Preciso de Ajuda:
+
+https://github.com/user-attachments/assets/e8ff1298-17bc-41fa-81cf-ee7aad833299
+
 ## Objetivos
 O principal objetivo do Projeto Mapa de Violência é fornecer um meio eficiente para relatar incidentes de violência, bem como identificar padrões e tendências para abordar eficazmente esses problemas. Os dados coletados podem ser utilizados para alimentar sistemas de informação em delegacias e hospitais, facilitando a prestação de assistência às vítimas de violência.
 
